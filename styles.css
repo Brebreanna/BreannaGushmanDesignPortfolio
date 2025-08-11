@@ -340,3 +340,15 @@ body {
   max-width: 800px; 
   margin: 24px auto 32px; 
 }
+
+.projects-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px; /* space between cards */
+}
+
+.projects-container img {
+  display: block;
+  margin: 0 auto;
+}
