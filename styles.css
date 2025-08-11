@@ -1,8 +1,9 @@
-body {
+body { 
   margin: 0;
   font-family: 'Georgia', serif;
   background-color: #fff8f5;
   color: #6e3c3c;
+  cursor: url("images/cursor.png") 16 16, auto;
 }
 
 header {
@@ -52,10 +53,11 @@ nav {
   align-items: center;
   padding: 40px 20px;
   flex-wrap: wrap;
+  gap: 40px;
 }
 
 .intro-text {
-  max-width: 400px;
+  max-width: 600px;
   padding: 20px;
 }
 
@@ -114,12 +116,14 @@ nav {
   font-size: 18px;
 }
 
+/* Project grid centered */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
   margin-top: 40px;
-  text-align: center;
+  justify-items: center;   /* centers cards */
+  align-items: start;
 }
 
 .project-grid div {
@@ -128,6 +132,13 @@ nav {
   border-radius: 10px;
   border: 1px solid #f3c6c6;
   text-align: center;
+}
+
+.project-card img {
+  display: block;
+  margin: 0 auto;
+  max-width: 85%;
+  height: auto;
 }
 
 .contact-form {
@@ -156,7 +167,6 @@ nav {
   cursor: pointer;
 }
 
-
 .about-section {
   display: flex;
   flex-direction: column;
@@ -164,20 +174,6 @@ nav {
   gap: 40px;
   padding: 40px 20px;
   text-align: center;
-}
-
-.intro-section {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-}
-
-.intro-text {
-  max-width: 600px;
-  padding: 20px;
 }
 
 /* ===== Tools Section ===== */
@@ -205,7 +201,6 @@ nav {
   align-items: center;
 }
 
-
 .project-card {
   background-color: #ffeef1;
   padding: 1rem;
@@ -224,14 +219,11 @@ nav {
   border-radius: 6px;
   font-weight: bold;
   transition: background-color 0.2s ease;
+  cursor: url("images/cursor.png"), pointer;
 }
 
 .project-button:hover {
   background-color: #f1bcbc;
-}
-
-body {
-  cursor: url("images/cursor.png") 16 16, auto;
 }
 
 .project-links {
@@ -262,10 +254,6 @@ body {
 
 .button:hover {
   background-color: #ff9eb3;
-}
-
-.project-button{
-  cursor: url("images/cursor.png"), pointer;
 }
 
 #page-transition {
@@ -335,20 +323,7 @@ body {
   line-height: 1.8;
 }
 
-/* Quick Access block (you already added .project-links/.button) */
 .project-links { 
   max-width: 800px; 
   margin: 24px auto 32px; 
-}
-
-.projects-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px; /* space between cards */
-}
-
-.projects-container img {
-  display: block;
-  margin: 0 auto;
 }
