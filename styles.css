@@ -336,6 +336,7 @@ nav {
   margin: 24px auto 32px; 
 }
 
-body.work-page h1 {
+body.work-page h1,
+body.work-page p {
   text-align: center;
 }
