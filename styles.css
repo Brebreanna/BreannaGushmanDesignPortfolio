@@ -335,3 +335,7 @@ nav {
   max-width: 800px; 
   margin: 24px auto 32px; 
 }
+
+body.work-page h1 {
+  text-align: center;
+}
