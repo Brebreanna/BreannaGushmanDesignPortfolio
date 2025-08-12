@@ -126,7 +126,8 @@ nav {
   margin: 40px auto 0;
   justify-items: center;  /* centers each card inside its column */
   align-items: start;
-  width: min(1200px, 92%); /* centers the whole grid on the page */
+  width: 100%; /* centers the whole grid on the page */
+  max-width: 1200px;
 }
 
 .project-grid div {
