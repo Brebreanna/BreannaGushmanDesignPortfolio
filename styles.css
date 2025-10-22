@@ -130,6 +130,17 @@ nav {
   max-width: 1200px;
 }
 
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 40px auto 0;
+  justify-items: center;
+  align-items: stretch; /* <— this makes all boxes equal height */
+  width: 100%;
+  max-width: 1200px;
+}
+
 .project-grid div {
   background-color: #ffeef1;
   padding: 1rem;
@@ -145,6 +156,19 @@ nav {
   border: 1px solid #f3c6c6;
   text-align: center;
 }
+
+.project-card {
+  background-color: #ffeef1;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #f3c6c6;
+  text-align: center;
+  display: flex;               /* allow flexible internal layout */
+  flex-direction: column;
+  justify-content: space-between; /* spreads content evenly */
+  height: 100%;                /* makes all cards match the grid cell height */
+}
+
 
 .project-card img {
   display: block;
