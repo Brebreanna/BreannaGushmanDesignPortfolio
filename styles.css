@@ -119,6 +119,7 @@ nav {
 }
 
 /* ===== Project grid (centered) ===== */
+/*
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -129,6 +130,7 @@ nav {
   width: 100%; /* centers the whole grid on the page */
   max-width: 1200px;
 }
+*/
 
 .project-grid {
   display: grid;
@@ -149,6 +151,7 @@ nav {
   text-align: center;
 }
 
+/*
 .project-card {
   background-color: #ffeef1;
   padding: 1rem;
@@ -156,6 +159,7 @@ nav {
   border: 1px solid #f3c6c6;
   text-align: center;
 }
+*/
 
 .project-card {
   background-color: #ffeef1;
