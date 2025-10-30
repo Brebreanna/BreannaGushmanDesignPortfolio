@@ -254,7 +254,7 @@ nav {
   border-radius: 6px;
   font-weight: bold;
   transition: background-color 0.2s ease;
-  cursor: url("images/cursor.png"), pointer;
+  cursor: url("images/cursor.png") 8 8, pointer;
 }
 
 .project-button:hover {
