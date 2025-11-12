@@ -125,17 +125,16 @@ nav {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
   margin: 40px auto 0;
-  justify-items: center;  /* centers each card inside its column */
+  justify-items: center;
   align-items: start;
-  width: 100%; /* centers the whole grid on the page */
+  width: 100%;
   max-width: 1200px;
 }
-
 
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem; /* slightly larger gap to prevent overlap */
+  gap: 2rem;
   margin: 40px auto;
   justify-items: center;
   align-items: stretch;
@@ -151,16 +150,6 @@ nav {
   text-align: center;
 }
 
-
-.project-card {
-  background-color: #ffeef1;
-  padding: 1rem;
-  border-radius: 10px;
-  border: 1px solid #f3c6c6;
-  text-align: center;
-}
-
-
 .project-card {
   background-color: #ffeef1;
   padding: 1.5rem;
@@ -171,13 +160,12 @@ nav {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  box-sizing: border-box; /* ensures padding doesn’t push layout */
+  box-sizing: border-box;
 }
-
 
 .project-card img {
   display: block;
-  margin: 0 auto;  /* centers image inside the card */
+  margin: 0 auto;
   max-width: 85%;
   height: auto;
 }
@@ -367,5 +355,79 @@ nav {
 
 body.work-page h1,
 body.work-page p {
-text-align: center;
+  text-align: center;
+}
+
+/* ===== Slideshow styling ===== */
+.case-carousel { 
+  margin: 2rem auto 3rem; 
+  max-width: 1100px; 
+  position: relative; 
+}
+.carousel { position: relative; }
+.carousel-viewport { 
+  overflow: hidden; 
+  border-radius: 16px; 
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12); 
+  background: #fff; 
+}
+.carousel-track { 
+  display: grid; 
+  grid-auto-flow: column; 
+  grid-auto-columns: 100%; 
+  transition: transform 450ms ease; 
+  margin: 0; 
+  padding: 0; 
+  list-style: none; 
+}
+.carousel-slide { position: relative; }
+.carousel-slide a { display: block; line-height: 0; }
+.carousel-slide img { width: 100%; height: auto; display: block; }
+
+.carousel-btn { 
+  position: absolute; 
+  top: 50%; 
+  transform: translateY(-50%); 
+  z-index: 2;
+  width: 40px; 
+  height: 40px; 
+  border-radius: 999px; 
+  border: 1px solid rgba(0,0,0,0.15);
+  background: rgba(255,255,255,0.9); 
+  backdrop-filter: blur(6px); 
+  cursor: pointer;
+  font-size: 22px; 
+  line-height: 1; 
+  display: grid; 
+  place-items: center;
+  transition: background 150ms ease, transform 150ms ease;
+}
+.carousel-btn:hover { background: #fff; transform: translateY(-50%) scale(1.05); }
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+.carousel-dots { 
+  display: flex; 
+  justify-content: center; 
+  gap: 8px; 
+  margin-top: 12px; 
+}
+.carousel-dots button { 
+  width: 10px; 
+  height: 10px; 
+  border-radius: 999px; 
+  border: none; 
+  cursor: pointer;
+  background: #d0d0d0; 
+  transition: transform 150ms ease, background 150ms ease; 
+}
+.carousel-dots button[aria-selected="true"] { 
+  background: #333; 
+  transform: scale(1.2); 
+}
+
+/* mobile tweaks */
+@media (max-width: 720px) {
+  .carousel-btn { width: 36px; height: 36px; font-size: 20px; }
+  .case-carousel { margin: 1.25rem auto 2rem; }
 }
