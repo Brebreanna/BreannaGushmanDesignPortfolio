@@ -42,7 +42,7 @@
     </p>
   </section>
 
-  <!-- Refined Carousel -->
+  <!-- Refined Carousel (visuals only; copy stays the same) -->
   <section class="case-carousel" aria-label="Figma screens slideshow">
     <div class="carousel" data-autoplay="true" data-interval="4500">
       <button class="carousel-btn prev" aria-label="Previous slide" title="Previous slide">‹</button>
@@ -75,6 +75,7 @@
               </a>
             </div>
           </li>
+          <!-- Optional 4th; delete this <li> if you want only 3 -->
           <li class="carousel-slide" aria-roledescription="slide" aria-label="4 of 4">
             <div class="screen-card">
               <a href="images/gc-4.png" target="_blank" rel="noopener">
@@ -94,25 +95,31 @@
   <!-- Overview & Context -->
   <section class="project-section">
     <h2>Overview & Context</h2>
-    <p>When I joined the team, the organization was in the middle of a major digital transformation — redesigning key public-facing websites and platforms, including the Global Conservatory site and Music Club, and creating the Iceland program page from scratch...</p>
+    <p>When I joined the team, the organization was in the middle of a major digital transformation — redesigning key public-facing websites and platforms, including the Global Conservatory site and Music Club, and creating the Iceland program page from scratch. The existing Global Conservatory materials were outdated, hard to navigate, and not performing well in engagement, while the Iceland program had no existing digital presence.</p>
+    <p>My focus was to bring a modern look, clearer structure, and consistent branding while keeping the audience experience front and center. The goal was to create a unified online presence that reflected the organization’s mission, improved navigation for diverse audiences, and highlighted unique offerings to attract students, collaborators, and donors.</p>
   </section>
 
   <!-- Role & Responsibilities -->
   <section class="project-section">
     <h2>Role & Responsibilities</h2>
-    <p>I fully owned the creative direction, design, and execution for the Iceland program (new build) and Global Conservatory (redesign)...</p>
+    <p>I fully owned the creative direction, design, and execution for the Iceland program (new build) and Global Conservatory (redesign). This included building the overall layouts in Figma, refining page structure, creating social media content, and curating imagery to tell a strong visual story.</p>
+    <p>I collaborated with the team on technical implementation, brand alignment, and feedback cycles. I also contributed to improving the main site’s visual presentation and worked on strengthening our social media presence to help increase engagement and reach.</p>
   </section>
 
   <!-- Challenges & Constraints -->
   <section class="project-section">
     <h2>Challenges & Constraints</h2>
-    <p>One of the biggest challenges was balancing the different needs of faculty, students, and an international audience while working on a limited timeline...</p>
+    <p>One of the biggest challenges was balancing the different needs of faculty, students, and an international audience while working on a limited timeline. Each project had its own personality — academic, travel-focused, or community-based — and I needed to unify the branding without losing what made each one unique.</p>
+    <p>The design, content, and implementation phases often overlapped, so I worked iteratively and kept communication open to make sure visual and functional goals stayed aligned.</p>
   </section>
 
   <!-- Process -->
   <section class="project-section">
     <h2>Process</h2>
-    <p>For the Iceland program, I created the design entirely from scratch using only the project goals and provided information...</p>
+    <p>For the Iceland program, I created the design entirely from scratch using only the project goals and provided information. For the Global Conservatory site, I reviewed existing pages to spot navigation issues, visual inconsistencies, and content gaps. I met with team members to understand the priorities for each project and how they needed to differ in tone and style.</p>
+    <p>From there, I built wireframes and early design directions in Figma and shared them for feedback early in the process. This made it easier to make adjustments before moving into full design execution.</p>
+    <p>I then created complete layouts with updated typography, colors, and imagery tailored to each project’s personality. Alongside the web work, I designed social media content to promote the programs and events, making sure everything aligned with the refreshed brand style.</p>
+    <p>Once the designs were approved, I organized the files for the technical team and reviewed the live builds to make sure they matched the design vision before launch.</p>
   </section>
 
   <!-- Impact & Outcomes -->
@@ -122,32 +129,39 @@
       <li>Improved navigation helped users get to key details faster.</li>
       <li>Consistent branding tied together academic, travel-focused, and community-based projects.</li>
       <li>Feedback from leadership and the team highlighted the modern look and improved clarity.</li>
+      <li>Social media content reached a broader audience and increased engagement.</li>
+      <li>Final live site used my page architecture and structure but made aesthetic changes, including switching from my original dark theme to a white background design.</li>
     </ul>
+    <p>These updates not only improved the current user experience but also set a clear design standard for future projects.</p>
   </section>
 
   <!-- Skills & Tools -->
   <section class="project-section">
     <h2>Skills & Tools</h2>
-    <p>I used Figma, Canva, and Google Workspace throughout the project.</p>
+    <p>I used Figma, Canva, and Google Workspace throughout the project. My workflow was iterative — I shared drafts early, gathered feedback, and refined designs to make sure they stayed aligned with both the brand and the user experience goals.</p>
   </section>
 
   <!-- Reflection -->
   <section class="project-section">
     <h2>Reflection</h2>
-    <p>This project gave me the chance to work on high-impact pages that directly shaped how the organization presents itself online...</p>
+    <p>This project gave me the chance to work on high-impact pages that directly shaped how the organization presents itself online. I learned how to balance multiple brand personalities within one unified system, keep design quality high under tight timelines, and create visuals that work across both web and social media. It also strengthened my ability to collaborate across different teams and adapt quickly when design, content, and development phases overlapped.</p>
+    <p>While the live site’s visuals differ from my original dark theme, the overall page architecture and structure follow the design system I created. This reinforced the importance of delivering strong UX foundations that can adapt to changes in visual direction.</p>
   </section>
 </main>
 
+<!-- Carousel JS (matches your updated styles.css) -->
 <script>
 (function () {
   const root = document.querySelector('.case-carousel .carousel');
   if (!root) return;
+
   const track = root.querySelector('.carousel-track');
   const slides = Array.from(track.children);
   const prevBtn = root.querySelector('.carousel-btn.prev');
   const nextBtn = root.querySelector('.carousel-btn.next');
   const dotsWrap = root.parentElement.querySelector('.carousel-dots');
 
+  // Build dots
   slides.forEach((_, i) => {
     const dot = document.createElement('button');
     dot.type = 'button';
@@ -173,10 +187,39 @@
 
   prevBtn.addEventListener('click', () => goTo(index - 1));
   nextBtn.addEventListener('click', () => goTo(index + 1));
-  dots.forEach(d => d.addEventListener('click', () => goTo(parseInt(d.dataset.index))));
+  dots.forEach(d => d.addEventListener('click', () => goTo(parseInt(d.dataset.index, 10))));
 
-  setInterval(() => goTo(index + 1), 4500);
+  // Keyboard + swipe
+  root.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') goTo(index - 1);
+    if (e.key === 'ArrowRight') goTo(index + 1);
+  });
+  root.tabIndex = 0;
+
+  let startX = null;
+  track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchmove', (e) => {
+    if (startX === null) return;
+    const dx = e.touches[0].clientX - startX;
+    if (Math.abs(dx) > 50) {
+      goTo(index + (dx < 0 ? 1 : -1));
+      startX = null;
+    }
+  }, { passive: true });
+  track.addEventListener('touchend', () => { startX = null; });
+
+  // Autoplay
+  const autoplay = root.dataset.autoplay === 'true';
+  const interval = Number(root.dataset.interval || 4500);
+  let timer = null;
+  function startAuto() { if (autoplay) timer = setInterval(() => goTo(index + 1), interval); }
+  function stopAuto() { if (timer) clearInterval(timer); }
+  root.addEventListener('mouseenter', stopAuto);
+  root.addEventListener('mouseleave', startAuto);
+  document.addEventListener('visibilitychange', () => (document.hidden ? stopAuto() : startAuto()));
+
   update();
+  startAuto();
 })();
 </script>
 </body>
