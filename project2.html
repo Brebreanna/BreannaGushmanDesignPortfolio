@@ -24,97 +24,233 @@
   </nav>
 </header>
 
-    <section class="project-links">
-      <h2>Quick Access</h2>
-      <p>Want to explore the full case study or click through the design?</p>
-      <div class="project-buttons">
-        <a href="https://docs.google.com/presentation/d/1DrtjIxXCWjhju5lCReKAr9M6vXbTXDbPpqnuGWJpoMk/edit?usp=sharing" target="_blank" class="button"> ౨ৎ View Slide Deck</a>
-        <a href="https://www.figma.com/design/BowpLwKh25uMn3oOM2R68I/Projects-File?t=4ZGyyhEVN9WXHdgx-1" target="_blank" class="button"> 𝜗𝜚 Open Figma Design</a>
-        <a href="https://www.youtube.com/watch?v=cYTervTtIUM" target="_blank" class="button">୨୧ View Demo</a>
+<main class="container project-detail">
+  <!-- Quick Access -->
+  <section class="project-links">
+    <h2>Quick Access</h2>
+    <p>Want to explore the full case study or click through the design?</p>
+    <div class="project-buttons">
+      <a href="https://docs.google.com/presentation/d/1DrtjIxXCWjhju5lCReKAr9M6vXbTXDbPpqnuGWJpoMk/edit?usp=sharing" target="_blank" class="button"> ౨ৎ View Slide Deck</a>
+      <a href="https://www.figma.com/design/BowpLwKh25uMn3oOM2R68I/Projects-File?t=4ZGyyhEVN9WXHdgx-1" target="_blank" class="button"> 𝜗𝜚 Open Figma Design</a>
+      <a href="https://www.youtube.com/watch?v=cYTervTtIUM" target="_blank" class="button">୨୧ View Demo</a>
+    </div>
+  </section>
+
+  <!-- Refined Carousel (screens only) -->
+  <section class="case-carousel" aria-label="Figma screens slideshow">
+    <div class="carousel" data-autoplay="true" data-interval="4500">
+      <button class="carousel-btn prev" aria-label="Previous slide" title="Previous slide">‹</button>
+      <div class="carousel-viewport" role="region" aria-roledescription="carousel">
+        <ul class="carousel-track" aria-live="polite">
+          <li class="carousel-slide is-current" aria-roledescription="slide" aria-label="1 of 4">
+            <div class="screen-card">
+              <a href="images/q-1.png" target="_blank" rel="noopener">
+                <div class="screen-media">
+                  <img src="images/q-1.png" alt="Quizzlr screen 1" />
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="carousel-slide" aria-roledescription="slide" aria-label="2 of 4">
+            <div class="screen-card">
+              <a href="images/q-2.png" target="_blank" rel="noopener">
+                <div class="screen-media">
+                  <img src="images/q-2.png" alt="Quizzlr screen 2" />
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="carousel-slide" aria-roledescription="slide" aria-label="3 of 4">
+            <div class="screen-card">
+              <a href="images/q-3.png" target="_blank" rel="noopener">
+                <div class="screen-media">
+                  <img src="images/q-3.png" alt="Quizzlr screen 3" />
+                </div>
+              </a>
+            </div>
+          </li>
+          <!-- Optional 4th; delete this <li> if you only want 3 -->
+          <li class="carousel-slide" aria-roledescription="slide" aria-label="4 of 4">
+            <div class="screen-card">
+              <a href="images/q-4.png" target="_blank" rel="noopener">
+                <div class="screen-media">
+                  <img src="images/q-4.png" alt="Quizzlr screen 4" />
+                </div>
+              </a>
+            </div>
+          </li>
+        </ul>
       </div>
-    </section>
+      <button class="carousel-btn next" aria-label="Next slide" title="Next slide">›</button>
+    </div>
+    <div class="carousel-dots" role="tablist" aria-label="Slides"></div>
+  </section>
 
-    <section class="project-section">
-      <h2>Role</h2>
-      <p>UX/UI Designer — I led all design efforts from concept to final prototype during a 24-hour hackathon.</p>
-    </section>
+  <!-- Role -->
+  <section class="project-section">
+    <h2>Role</h2>
+    <p>UX/UI Designer — I led all design efforts from concept to final prototype during a 24-hour hackathon.</p>
+  </section>
 
-    <section class="project-section">
-      <h2>Overview</h2>
-      <p>Quizzlr is a multiplayer flashcard study app built during a 24-hour hackathon. The goal was to reimagine digital studying by combining real-time quiz battles with customizable flashcard decks. The platform balances solo learning with collaborative competition to keep students engaged.</p>
-      <p>As the only UX/UI designer, I led the full design process from initial concept to high-fidelity prototype. With no time for formal user interviews, I relied on competitor audits, peer feedback, and insights from my software engineering professor. I prioritized fast onboarding, clean navigation, and a gamified experience that students would want to return to. By the end of the sprint, I delivered a complete prototype and presented the demo to judges, who praised the app’s visual design and concept.</p>
-    </section>
+  <!-- Overview -->
+  <section class="project-section">
+    <h2>Overview</h2>
+    <p>Quizzlr is a multiplayer flashcard study app built during a 24-hour hackathon. The goal was to reimagine digital studying by combining real-time quiz battles with customizable flashcard decks. The platform balances solo learning with collaborative competition to keep students engaged.</p>
+    <p>As the only UX/UI designer, I led the full design process from initial concept to high-fidelity prototype. With no time for formal user interviews, I relied on competitor audits, peer feedback, and insights from my software engineering professor. I prioritized fast onboarding, clean navigation, and a gamified experience that students would want to return to. By the end of the sprint, I delivered a complete prototype and presented the demo to judges, who praised the app’s visual design and concept.</p>
+  </section>
 
-    <section class="project-section">
-      <h2>Problem & Goal</h2>
-      <p>In fast-paced academic environments, students are expected to master large volumes of content in short periods of time. Traditional study tools often feel repetitive and isolating, making it harder to stay engaged or retain information.</p>
-      <p>We set out to redesign studying as something collaborative, motivating, and fun. Our goal was to build more than just a flashcard app. We wanted to create a multiplayer study experience that lets students challenge friends, track their growth, and enjoy the process of learning together.</p>
-      <p>By blending custom flashcard creation with quiz battles and gamified feedback, Quizzlr helps students study more effectively while staying connected and motivated.</p>
-    </section>
+  <!-- Problem & Goal -->
+  <section class="project-section">
+    <h2>Problem & Goal</h2>
+    <p>In fast-paced academic environments, students are expected to master large volumes of content in short periods of time. Traditional study tools often feel repetitive and isolating, making it harder to stay engaged or retain information.</p>
+    <p>We set out to redesign studying as something collaborative, motivating, and fun. Our goal was to build more than just a flashcard app. We wanted to create a multiplayer study experience that lets students challenge friends, track their growth, and enjoy the process of learning together.</p>
+    <p>By blending custom flashcard creation with quiz battles and gamified feedback, Quizzlr helps students study more effectively while staying connected and motivated.</p>
+  </section>
 
-    <section class="project-section">
-      <h2>Approach</h2>
-      <p>Quizzlr was created during a 24-hour hackathon by a three-person team. With limited time, we focused on delivering a complete user experience over polished edge cases. I owned the UX/UI design from start to finish, driving layout decisions, visual hierarchy, and interaction flows, while staying open to feedback from my teammates.</p>
-      <p>We used Figma for prototyping and Notion for task planning. While we didn’t conduct formal user interviews, I led a quick competitive audit of flashcard and quiz tools like Quizlet, Kahoot, Chegg, and IXL to identify usability gaps and inspiration. I also gathered live design feedback from the engineers on my team, shaping a design that was practical to implement in real-time.</p>
-      <p>My design decisions centered around clarity, fun, and speed. I started with sketches but quickly transitioned to high-fidelity mockups to maximize time. Every screen was completed during the hackathon.</p>
-    </section>
+  <!-- Approach -->
+  <section class="project-section">
+    <h2>Approach</h2>
+    <p>Quizzlr was created during a 24-hour hackathon by a three-person team. With limited time, we focused on delivering a complete user experience over polished edge cases. I owned the UX/UI design from start to finish, driving layout decisions, visual hierarchy, and interaction flows, while staying open to feedback from my teammates.</p>
+    <p>We used Figma for prototyping and Notion for task planning. While we didn’t conduct formal user interviews, I led a quick competitive audit of flashcard and quiz tools like Quizlet, Kahoot, Chegg, and IXL to identify usability gaps and inspiration. I also gathered live design feedback from the engineers on my team, shaping a design that was practical to implement in real-time.</p>
+    <p>My design decisions centered around clarity, fun, and speed. I started with sketches but quickly transitioned to high-fidelity mockups to maximize time. Every screen was completed during the hackathon.</p>
+  </section>
 
-    <section class="project-section">
-      <h2>Research</h2>
-      <p>With only 24 hours to design and build Quizzlr, we didn’t have time for formal user research. Instead, I conducted a quick competitive audit of study platforms like Quizlet, Kahoot, Chegg, and IXL. I reviewed their features, interfaces, and interaction patterns to identify common strengths and weaknesses.</p>
-      <p>This audit helped highlight key gaps in the market, such as a lack of multiplayer functionality, overwhelming interfaces, and limited personalization. These insights guided our core design priorities: create a clean layout, support collaborative learning, and build in elements that motivate users to keep studying.</p>
-      <p>We relied heavily on our own experiences as students to prioritize features and rapidly validate ideas through peer feedback during development.</p>
-    </section>
+  <!-- Research -->
+  <section class="project-section">
+    <h2>Research</h2>
+    <p>With only 24 hours to design and build Quizzlr, we didn’t have time for formal user research. Instead, I conducted a quick competitive audit of study platforms like Quizlet, Kahoot, Chegg, and IXL. I reviewed their features, interfaces, and interaction patterns to identify common strengths and weaknesses.</p>
+    <p>This audit helped highlight key gaps in the market, such as a lack of multiplayer functionality, overwhelming interfaces, and limited personalization. These insights guided our core design priorities: create a clean layout, support collaborative learning, and build in elements that motivate users to keep studying.</p>
+    <p>We relied heavily on our own experiences as students to prioritize features and rapidly validate ideas through peer feedback during development.</p>
+  </section>
 
-    <section class="project-section">
-      <h2>Design Process</h2>
-      <p>I led design decisions with clarity and speed. I started by sketching rough ideas in my notebook and then jumped straight into high-fidelity design in Figma. Our team prioritized the following features:</p>
-      <ul>
-        <li>Multiplayer quiz battles to support social learning</li>
-        <li>Flashcard creation tools for both self-paced and competitive review</li>
-        <li>User profiles, XP, and leaderboards to drive engagement through progress tracking</li>
-        <li>A drag-and-drop study set builder to make customization easy and interactive</li>
-      </ul>
-      <p>I built over a dozen key screens during the hackathon, keeping the layout minimal but focused on functionality. We continuously shared progress with our software teammates, testing flows live and adjusting spacing, labeling, and interactions on the fly.</p>
-    </section>
+  <!-- Design Process -->
+  <section class="project-section">
+    <h2>Design Process</h2>
+    <p>I led design decisions with clarity and speed. I started by sketching rough ideas in my notebook and then jumped straight into high-fidelity design in Figma. Our team prioritized the following features:</p>
+    <ul>
+      <li>Multiplayer quiz battles to support social learning</li>
+      <li>Flashcard creation tools for both self-paced and competitive review</li>
+      <li>User profiles, XP, and leaderboards to drive engagement through progress tracking</li>
+      <li>A drag-and-drop study set builder to make customization easy and interactive</li>
+    </ul>
+    <p>I built over a dozen key screens during the hackathon, keeping the layout minimal but focused on functionality. We continuously shared progress with our software teammates, testing flows live and adjusting spacing, labeling, and interactions on the fly.</p>
+  </section>
 
-    <section class="project-section">
-      <h2>Key Screens</h2>
-      <ul>
-        <li><strong>Home Dashboard:</strong> Quick access to decks, quiz modes, and leaderboard</li>
-        <li><strong>Flashcard Creation – Multiple Choice:</strong> Tap-to-select question builder</li>
-        <li><strong>Flashcard Creation – Diagram Mode:</strong> Label parts of an image (for visual learners)</li>
-        <li><strong>My Decks:</strong> Organized access to study sets</li>
-        <li><strong>Question List – Edit Mode:</strong> Simple preview/edit workflow</li>
-        <li><strong>Leaderboard:</strong> XP, ranks, and avatars to gamify engagement</li>
-      </ul>
-    </section>
+  <!-- Key Screens -->
+  <section class="project-section">
+    <h2>Key Screens</h2>
+    <ul>
+      <li><strong>Home Dashboard:</strong> Quick access to decks, quiz modes, and leaderboard</li>
+      <li><strong>Flashcard Creation – Multiple Choice:</strong> Tap-to-select question builder</li>
+      <li><strong>Flashcard Creation – Diagram Mode:</strong> Label parts of an image (for visual learners)</li>
+      <li><strong>My Decks:</strong> Organized access to study sets</li>
+      <li><strong>Question List – Edit Mode:</strong> Simple preview/edit workflow</li>
+      <li><strong>Leaderboard:</strong> XP, ranks, and avatars to gamify engagement</li>
+    </ul>
+  </section>
 
-    <section class="project-section">
-      <h2>Outcome</h2>
-      <p>We delivered a high-fidelity, clickable prototype with two complete user flows: solo flashcard study and multiplayer quiz. Judges praised the UI clarity and core concept, and the app ran smoothly during demo presentation.</p>
-      <p>This project showed how much can be achieved through focused collaboration and intentional UX design, even under extreme constraints.</p>
-    </section>
+  <!-- Outcome -->
+  <section class="project-section">
+    <h2>Outcome</h2>
+    <p>We delivered a high-fidelity, clickable prototype with two complete user flows: solo flashcard study and multiplayer quiz. Judges praised the UI clarity and core concept, and the app ran smoothly during demo presentation.</p>
+    <p>This project showed how much can be achieved through focused collaboration and intentional UX design, even under extreme constraints.</p>
+  </section>
 
-    <section class="project-section">
-      <h2>Reflections</h2>
-      <p>Designing Quizzlr under pressure taught me how to make smart, fast decisions without sacrificing usability. I had to prioritize features that mattered most, stay focused on the user experience, and trust my instincts as a designer.</p>
-      <p>Even small interactions like leaderboard animations or drag-and-drop functionality shaped the app’s feel. These decisions made Quizzlr more fun and reinforced our goal of making studying more engaging.</p>
-    </section>
+  <!-- Reflections -->
+  <section class="project-section">
+    <h2>Reflections</h2>
+    <p>Designing Quizzlr under pressure taught me how to make smart, fast decisions without sacrificing usability. I had to prioritize features that mattered most, stay focused on the user experience, and trust my instincts as a designer.</p>
+    <p>Even small interactions like leaderboard animations or drag-and-drop functionality shaped the app’s feel. These decisions made Quizzlr more fun and reinforced our goal of making studying more engaging.</p>
+  </section>
 
-    <section class="project-section">
-      <h2>What I Learned</h2>
-      <ul>
-        <li><strong>Designing under pressure builds clarity:</strong> I learned to prioritize the essentials and cut features that didn’t directly improve UX.</li>
-        <li><strong>Gamification works when it’s usable:</strong> Every mechanic worked because it was easy to understand and interact with.</li>
-        <li><strong>Ownership and feedback fuel good design:</strong> I refined all interactions in real time with my team.</li>
-        <li><strong>Hackathon constraints can spark potential:</strong> Judges confirmed that Quizzlr is more than a concept — it’s worth building further.</li>
-      </ul>
-    </section>
-  </main>
+  <!-- What I Learned -->
+  <section class="project-section">
+    <h2>What I Learned</h2>
+    <ul>
+      <li><strong>Designing under pressure builds clarity:</strong> I learned to prioritize the essentials and cut features that didn’t directly improve UX.</li>
+      <li><strong>Gamification works when it’s usable:</strong> Every mechanic worked because it was easy to understand and interact with.</li>
+      <li><strong>Ownership and feedback fuel good design:</strong> I refined all interactions in real time with my team.</li>
+      <li><strong>Hackathon constraints can spark potential:</strong> Judges confirmed that Quizzlr is more than a concept — it’s worth building further.</li>
+    </ul>
+  </section>
+</main>
+
+<!-- Carousel JS (same as Project 1) -->
+<script>
+(function () {
+  const root = document.querySelector('.case-carousel .carousel');
+  if (!root) return;
+
+  const track = root.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const prevBtn = root.querySelector('.carousel-btn.prev');
+  const nextBtn = root.querySelector('.carousel-btn.next');
+  const dotsWrap = root.parentElement.querySelector('.carousel-dots');
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.role = 'tab';
+    dot.ariaLabel = `Go to slide ${i + 1}`;
+    dot.dataset.index = i;
+    dotsWrap.appendChild(dot);
+  });
+
+  const dots = Array.from(dotsWrap.children);
+  let index = 0;
+
+  function update() {
+    track.style.transform = `translateX(${index * -100}%)`;
+    slides.forEach((s, i) => s.classList.toggle('is-current', i === index));
+    dots.forEach((d, i) => d.setAttribute('aria-selected', i === index ? 'true' : 'false'));
+  }
+
+  function goTo(i) {
+    index = (i + slides.length) % slides.length;
+    update();
+  }
+
+  prevBtn.addEventListener('click', () => goTo(index - 1));
+  nextBtn.addEventListener('click', () => goTo(index + 1));
+  dots.forEach(d => d.addEventListener('click', () => goTo(parseInt(d.dataset.index, 10))));
+
+  // Keyboard + swipe
+  root.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') goTo(index - 1);
+    if (e.key === 'ArrowRight') goTo(index + 1);
+  });
+  root.tabIndex = 0;
+
+  let startX = null;
+  track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchmove', (e) => {
+    if (startX === null) return;
+    const dx = e.touches[0].clientX - startX;
+    if (Math.abs(dx) > 50) {
+      goTo(index + (dx < 0 ? 1 : -1));
+      startX = null;
+    }
+  }, { passive: true });
+  track.addEventListener('touchend', () => { startX = null; });
+
+  // Autoplay
+  const autoplay = root.dataset.autoplay === 'true';
+  const interval = Number(root.dataset.interval || 4500);
+  let timer = null;
+  function startAuto() { if (autoplay) timer = setInterval(() => goTo(index + 1), interval); }
+  function stopAuto() { if (timer) clearInterval(timer); }
+  root.addEventListener('mouseenter', stopAuto);
+  root.addEventListener('mouseleave', startAuto);
+  document.addEventListener('visibilitychange', () => (document.hidden ? stopAuto() : startAuto()));
+
+  update();
+  startAuto();
+})();
+</script>
 </body>
-
 </html>
+
+
 
 
 
