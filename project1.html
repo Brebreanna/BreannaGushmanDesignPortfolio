@@ -43,6 +43,43 @@
       </p>
     </section>
 
+    <!-- Screens Slideshow -->
+    <section class="case-carousel" aria-label="Figma screens slideshow">
+      <div class="carousel" data-autoplay="true" data-interval="4500">
+        <button class="carousel-btn prev" aria-label="Previous slide" title="Previous slide">‹</button>
+
+        <div class="carousel-viewport" role="region" aria-roledescription="carousel">
+          <ul class="carousel-track" aria-live="polite">
+            <!-- Replace src paths with exported Figma screens -->
+            <li class="carousel-slide is-current" aria-roledescription="slide" aria-label="1 of 4">
+              <a href="images/gc-1.png" target="_blank" rel="noopener">
+                <img src="images/gc-1.png" alt="Global Conservatory landing screen" />
+              </a>
+            </li>
+            <li class="carousel-slide" aria-roledescription="slide" aria-label="2 of 4">
+              <a href="images/gc-2.png" target="_blank" rel="noopener">
+                <img src="images/gc-2.png" alt="Programs overview screen" />
+              </a>
+            </li>
+            <li class="carousel-slide" aria-roledescription="slide" aria-label="3 of 4">
+              <a href="images/gc-3.png" target="_blank" rel="noopener">
+                <img src="images/gc-3.png" alt="Iceland program detail screen" />
+              </a>
+            </li>
+            <li class="carousel-slide" aria-roledescription="slide" aria-label="4 of 4">
+              <a href="images/gc-4.png" target="_blank" rel="noopener">
+                <img src="images/gc-4.png" alt="Application or contact screen" />
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <button class="carousel-btn next" aria-label="Next slide" title="Next slide">›</button>
+      </div>
+
+      <div class="carousel-dots" role="tablist" aria-label="Slides"></div>
+    </section>
+
     <!-- Overview & Context -->
     <section class="project-section">
       <h2>Overview & Context</h2>
@@ -99,5 +136,83 @@
       <p>While the live site’s visuals differ from my original dark theme, the overall page architecture and structure follow the design system I created. This reinforced the importance of delivering strong UX foundations that can adapt to changes in visual direction.</p>
     </section>
   </main>
+
+  <script>
+  (function () {
+    const root = document.querySelector('.case-carousel .carousel');
+    if (!root) return;
+
+    const track = root.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const prevBtn = root.querySelector('.carousel-btn.prev');
+    const nextBtn = root.querySelector('.carousel-btn.next');
+    const dotsWrap = root.parentElement.querySelector('.carousel-dots');
+
+    // Trim to max 4 slides
+    while (slides.length > 4) {
+      const el = slides.pop();
+      el.remove();
+    }
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.role = 'tab';
+      dot.ariaLabel = `Go to slide ${i + 1}`;
+      dot.dataset.index = i;
+      dotsWrap.appendChild(dot);
+    });
+
+    const dots = Array.from(dotsWrap.children);
+    let index = slides.findIndex(s => s.classList.contains('is-current'));
+    if (index < 0) index = 0;
+
+    function update() {
+      const offset = index * -100;
+      track.style.transform = `translateX(${offset}%)`;
+      slides.forEach((s, i) => s.setAttribute('aria-hidden', i === index ? 'false' : 'true'));
+      dots.forEach((d, i) => d.setAttribute('aria-selected', i === index ? 'true' : 'false'));
+    }
+
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      update();
+    }
+
+    prevBtn.addEventListener('click', () => goTo(index - 1));
+    nextBtn.addEventListener('click', () => goTo(index + 1));
+    dots.forEach(d => d.addEventListener('click', () => goTo(parseInt(d.dataset.index, 10))));
+
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') goTo(index - 1);
+      if (e.key === 'ArrowRight') goTo(index + 1);
+    });
+    root.tabIndex = 0;
+
+    let startX = null;
+    track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchmove', (e) => {
+      if (startX === null) return;
+      const dx = e.touches[0].clientX - startX;
+      if (Math.abs(dx) > 50) {
+        goTo(index + (dx < 0 ? 1 : -1));
+        startX = null;
+      }
+    }, { passive: true });
+    track.addEventListener('touchend', () => { startX = null; });
+
+    const autoplay = root.dataset.autoplay === 'true';
+    const interval = Number(root.dataset.interval || 4500);
+    let timer = null;
+    function startAuto() { if (autoplay) timer = setInterval(() => goTo(index + 1), interval); }
+    function stopAuto() { if (timer) clearInterval(timer); }
+    root.addEventListener('mouseenter', stopAuto);
+    root.addEventListener('mouseleave', startAuto);
+    document.addEventListener('visibilitychange', () => (document.hidden ? stopAuto() : startAuto()));
+
+    update();
+    startAuto();
+  })();
+  </script>
 </body>
 </html>
