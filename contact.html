@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="styles.css" />
   <title>Contact | Breanna</title>
 </head>
+
 <body>
 <header> 
   <img src="images/home_bow.png" alt="Bow graphic" class="bow-top" />
@@ -26,50 +27,64 @@
 </header>
 
 
-  <main class="container contact-container">
-    <h1>Contact Me</h1>
+<main class="container contact-container">
+  <h1>Contact Me</h1>
 
-    <form id="contact-form" action="https://formspree.io/f/mrblrzqd" method="POST" class="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-      <input type="hidden" name="_subject" value="New message from breanna.design contact form" />
-      <input type="text" name="_gotcha" style="display:none" />
+  <form id="contact-form" action="https://formspree.io/f/mrblrzqd" method="POST" class="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
 
-      <button type="submit">Send</button>
-      <p id="form-status" style="margin-top:10px;"></p>
-    </form>
-  </main>
+    <input type="hidden" name="_subject" value="New message from breanna.design contact form" />
+    <input type="text" name="_gotcha" style="display:none" />
 
-  <script>
-    const form = document.getElementById('contact-form');
-    const status = document.getElementById('form-status');
+    <button type="submit">Send</button>
+    <p id="form-status" style="margin-top:10px;"></p>
+  </form>
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault(); // stop page navigation
-      status.textContent = 'Sending…';
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-        if (res.ok) {
-          form.reset();
-          status.textContent = 'Thanks! Your message was sent 💌';
-        } else {
-          // Try to read error details from Formspree
-          const data = await res.json().catch(() => ({}));
-          status.textContent = (data && data.errors && data.errors[0] && data.errors[0].message)
-            ? `Error: ${data.errors[0].message}`
-            : 'Hmm, something went wrong. Please try again.';
-        }
-      } catch (err) {
-        status.textContent = 'Network error. Please try again.';
+  <!-- LinkedIn Icon Link -->
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/breanna-gushman-a90884291" 
+       target="_blank" 
+       rel="noopener noreferrer">
+      <img src="images/linkedin_icon.png" 
+           alt="LinkedIn icon" 
+           class="social-icon">
+    </a>
+  </div>
+
+</main>
+
+
+<script>
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.textContent = 'Sending…';
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.reset();
+        status.textContent = 'Thanks! Your message was sent 💌';
+      } else {
+        const data = await res.json().catch(() => ({}));
+        status.textContent = (data && data.errors && data.errors[0] && data.errors[0].message)
+          ? `Error: ${data.errors[0].message}`
+          : 'Hmm, something went wrong. Please try again.';
       }
-    });
-  </script>
-  <script>
+    } catch (err) {
+      status.textContent = 'Network error. Please try again.';
+    }
+  });
+</script>
+
+<script>
   window.addEventListener('load', () => {
     const transition = document.getElementById('page-transition');
     setTimeout(() => {
@@ -77,4 +92,6 @@
     }, 300); 
   });
 </script>
+
+</body>
 </html>
