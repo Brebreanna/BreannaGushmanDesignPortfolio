@@ -1,1 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="styles.css" />
+  <title>Infinite Coloring Book Case Study | Breanna</title>
+</head>
+<body>
+<header> 
+  <img src="images/home_bow.png" alt="Bow graphic" class="bow-top" />
+  <nav>
+    <ul class="nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li>
+        <a href="https://drive.google.com/file/d/13WfRjrqAuKIV-VkosvGOBs4YMxhe4Phs/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          Resume
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <!-- Hero + Slideshow -->
+  <section class="project-section hero-section">
+    <h1>Infinite Coloring Book – Mobile App Design (In Progress)</h1>
+    <p>
+      A mobile coloring app that transforms user photos into customizable color-by-number templates,
+      designed to support accessible, stress-reducing creative time for adults. Currently in the
+      usability evaluation phase, with high-fidelity prototype development underway.
+    </p>
+
+    <!-- Slideshow of 4 images -->
+    <div class="slideshow-container" id="icb-slideshow">
+      <div class="icb-slide fade">
+        <img src="images/icb-1.png" alt="Infinite Coloring Book home screen concept" />
+      </div>
+      <div class="icb-slide fade">
+        <img src="images/icb-2.png" alt="Photo-to-template flow for Infinite Coloring Book" />
+      </div>
+      <div class="icb-slide fade">
+        <img src="images/icb-3.png" alt="Color palette customization screen" />
+      </div>
+      <div class="icb-slide fade">
+        <img src="images/icb-4.png" alt="Example finished color-by-number artwork" />
+      </div>
+
+      <button class="prev" type="button" aria-label="Previous slide">&#10094;</button>
+      <button class="next" type="button" aria-label="Next slide">&#10095;</button>
+    </div>
+
+    <div class="slideshow-dots" id="icb-dots">
+      <span class="dot" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+      <span class="dot" data-index="3"></span>
+    </div>
+  </section>
+
+  <!-- Role & Context -->
+  <section class="project-section">
+    <h2>Role & Context</h2>
+    <p>
+      <strong>Role:</strong> UX Researcher &amp; Designer<br>
+      <strong>Course:</strong> CS 325 – Human-Computer Interaction<br>
+      <strong>Duration:</strong> Fall 2025<br>
+      <strong>Type:</strong> Team project (in progress)
+    </p>
+    <p>
+      I am responsible for leading research, synthesizing findings into personas and flows, and
+      designing low-fidelity and early high-fidelity prototypes that can be evaluated and iterated on.
+    </p>
+  </section>
+
+  <!-- Problem & Goal -->
+  <section class="project-section">
+    <h2>Problem & Goal</h2>
+    <p>
+      Many adults want low-effort, digital creative outlets that help them de-stress without feeling
+      like they’re “bad at art.” Current coloring apps often feel childish, cluttered with ads, or
+      inaccessible to users with different visual needs.
+    </p>
+    <p>
+      <strong>Goal:</strong> Design a mobile coloring experience that:
+    </p>
+    <ul>
+      <li>Transforms user photos into clear, color-by-number templates</li>
+      <li>Supports 10–30 minute “mini sessions” for stress relief</li>
+      <li>Is accessible for color-vision deficient users through redundant labeling strategies</li>
+      <li>Uses calming visuals and color choices grounded in psychological research</li>
+    </ul>
+  </section>
+
+  <!-- Research & Analysis -->
+  <section class="project-section">
+    <h2>User Research & Analysis</h2>
+    <p>
+      I began with a mix of literature review, competitive analysis, and user surveying to understand
+      both technical feasibility and user needs.
+    </p>
+    <ul>
+      <li>
+        Conducted a <strong>literature review</strong> on edge detection approaches for photo-to-template
+        conversion, including attention-based methods and color edge detection algorithms.
+      </li>
+      <li>
+        Reviewed <strong>psychological research</strong> on art therapy and color psychology to guide
+        calming layout, typography, and color usage.
+      </li>
+      <li>
+        Investigated <strong>accessibility requirements</strong> for color-vision deficient users and
+        planned redundant encoding (numbers + labels, not just color).
+      </li>
+      <li>
+        Performed a <strong>competitive analysis</strong> of three coloring apps (Lake, Pigment,
+        UNICORN), identifying UX gaps such as unintuitive tool switching, limited customization,
+        and paywalls that interrupt flow.
+      </li>
+    </ul>
+  </section>
+
+  <!-- Survey & Data-Driven Design -->
+  <section class="project-section">
+    <h2>Survey Insights & Data-Driven Design</h2>
+    <p>
+      To move beyond assumptions, I designed and distributed a user survey capturing both
+      quantitative metrics and qualitative feedback on habits, preferences, and accessibility.
+    </p>
+    <ul>
+      <li>
+        Measured interest in features such as broad color palettes, ad-free experiences, and
+        calming UI patterns.
+      </li>
+      <li>
+        Prioritized features based on ratings, including:
+        <ul>
+          <li>Wide color palettes: <strong>4.18 / 5</strong></li>
+          <li>Ad-free experience: <strong>3.86 / 5</strong></li>
+          <li>Calming interface elements: <strong>3.5 / 5</strong></li>
+        </ul>
+      </li>
+      <li>
+        Identified a target <strong>session length of 10–30 minutes</strong>, which informed
+        quick-access patterns and the ability to easily resume in-progress pieces.
+      </li>
+    </ul>
+  </section>
+
+  <!-- Persona with image placeholder -->
+  <section class="project-section">
+    <h2>Persona Development</h2>
+    <div class="project-visual-block">
+      <div class="project-text">
+        <p>
+          Using survey and research insights, I created personas in UXpressia that represent both the
+          majority use case and key accessibility needs:
+        </p>
+        <ul>
+          <li>
+            A primary persona: a 30-year-old professional seeking a calming, low-effort creative
+            outlet after work.
+          </li>
+          <li>
+            An accessibility-focused persona: a 10-year-old color-blind user who still wants to fully
+            participate in digital coloring activities.
+          </li>
+        </ul>
+        <p>
+          These personas help the team balance “typical” user expectations with edge-case
+          requirements instead of treating accessibility as an afterthought.
+        </p>
+      </div>
+      <div class="project-image-block">
+        <!-- Persona placeholder image -->
+        <img src="images/icb-persona.png" alt="Persona snapshot for Infinite Coloring Book" />
+        <p class="image-caption">Persona overview created in UXpressia (placeholder image).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prototyping & Iteration with low-fi + wireframe placeholders -->
+  <section class="project-section">
+    <h2>Prototyping & Iteration</h2>
+    <p>
+      I intentionally started with low-fidelity representations to validate flows and task structure
+      before investing in high-fidelity visuals.
+    </p>
+    <ul>
+      <li>
+        Sketched <strong>paper prototypes</strong> to quickly explore three core tasks:
+        photo-to-template conversion, color palette customization, and social sharing.
+      </li>
+      <li>
+        Built <strong>Balsamiq wireframes</strong> mapping the user journey across 11+ screens.
+      </li>
+      <li>
+        Designed an <strong>A/B navigation prototype</strong> comparing traditional back-button
+        navigation with gesture-based patterns, with a focus on keeping interactions simple.
+      </li>
+      <li>
+        Simplified Balsamiq designs into <strong>hand-drawn testable prototypes</strong> to reveal
+        gaps between steps in multi-screen flows.
+      </li>
+    </ul>
+
+    <div class="project-visual-block">
+      <div class="project-image-block">
+        <!-- Low-fidelity placeholder -->
+        <img src="images/icb-lowfi-paper.png" alt="Low-fidelity paper prototypes for Infinite Coloring Book" />
+        <p class="image-caption">Low-fidelity paper sketches for key user flows (placeholder).</p>
+      </div>
+      <div class="project-image-block">
+        <!-- Wireframes placeholder -->
+        <img src="images/icb-wireframes.png" alt="Balsamiq wireframes for Infinite Coloring Book" />
+        <p class="image-caption">Balsamiq wireframes covering 11+ screens (placeholder).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Usability Evaluation (Current Phase) with placeholder -->
+  <section class="project-section">
+    <h2>Usability Evaluation (Current Phase)</h2>
+    <p>
+      I designed a mixed-methods evaluation plan combining moderated usability testing, think-aloud
+      protocol, and Nielsen’s 10 Usability Heuristics.
+    </p>
+    <ul>
+      <li>
+        Tested the low-fidelity prototype with <strong>3 participants</strong>, observing how they
+        navigated core tasks and where confusion occurred.
+      </li>
+      <li>
+        Collected <strong>qualitative feedback</strong> on task completion, confusion points, and
+        overall enjoyment.
+      </li>
+      <li>
+        Logged issues such as the need for clearer <strong>color palette indicators</strong> and more
+        explicit button purposes.
+      </li>
+      <li>
+        Established an evaluation framework tracking task success rates, time-on-task, user
+        frustration (Likert scale), observed issues, and heuristic violations.
+      </li>
+    </ul>
+
+    <div class="project-image-block">
+      <!-- Evaluation placeholder -->
+      <img src="images/icb-eval-setup.png" alt="Usability testing setup for Infinite Coloring Book" />
+      <p class="image-caption">Usability testing setup and observation notes (placeholder).</p>
+    </div>
+  </section>
+
+  <!-- Technical Approach -->
+  <section class="project-section">
+    <h2>Technical Approach</h2>
+    <p>
+      While this course project centers on UX, I also explored how a future implementation could
+      handle photo-to-template conversion in a robust way.
+    </p>
+    <ul>
+      <li>
+        Researched <strong>edge detection pipelines</strong> using attention-based approaches and
+        RGB/HSV color channel integration to generate clean, color-by-number outlines.
+      </li>
+      <li>
+        Investigated how <strong>color edge detection</strong> could help differentiate fine details
+        without overwhelming the final template.
+      </li>
+      <li>
+        Explored how <strong>LLM-based style transfer</strong> could eventually support artistic
+        customization (e.g., watercolor or comic book styles) as a future enhancement.
+      </li>
+    </ul>
+  </section>
+
+  <!-- Key Learnings & Next Steps -->
+  <section class="project-section">
+    <h2>Key Learnings & Next Steps</h2>
+    <p>
+      This project reinforced the importance of balancing majority needs with accessibility, and of
+      testing low-fidelity designs before committing to polished visuals.
+    </p>
+    <ul>
+      <li>
+        <strong>Accessibility isn’t a “nice-to-have”:</strong> Designing for color-vision
+        deficiencies from the start changed how I thought about palettes, labels, and contrast.
+      </li>
+      <li>
+        <strong>Data over assumptions:</strong> Survey insights directly shaped feature priorities
+        and the app’s session-length expectations.
+      </li>
+      <li>
+        <strong>Low-fi first:</strong> Paper sketches and Balsamiq wires helped catch flow gaps
+        long before UI polish.
+      </li>
+    </ul>
+    <p>
+      <strong>Next steps:</strong>
+    </p>
+    <ul>
+      <li>Complete the high-fidelity interactive prototype using findings from low-fi testing.</li>
+      <li>Run a final heuristic evaluation with Nielsen’s 10 Usability Heuristics.</li>
+      <li>
+        Refine navigation clarity, feedback visibility, and accessibility features based on test
+        results.
+      </li>
+    </ul>
+  </section>
+</main>
+
+<!-- Simple JS for the Infinite Coloring Book slideshow -->
+<script>
+  (function() {
+    let currentSlide = 0;
+    let slides, dots;
+
+    function showSlide(index) {
+      if (!slides || !dots) return;
+
+      if (index >= slides.length) index = 0;
+      if (index < 0) index = slides.length - 1;
+      currentSlide = index;
+
+      slides.forEach((slide, i) => {
+        slide.style.display = i === currentSlide ? "block" : "none";
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentSlide);
+      });
+    }
+
+    function nextSlide(delta) {
+      showSlide(currentSlide + delta);
+    }
+
+    window.addEventListener("load", () => {
+      slides = Array.from(document.querySelectorAll("#icb-slideshow .icb-slide"));
+      dots = Array.from(document.querySelectorAll("#icb-dots .dot"));
+
+      const prevBtn = document.querySelector("#icb-slideshow .prev");
+      const nextBtn = document.querySelector("#icb-slideshow .next");
+
+      if (prevBtn) prevBtn.addEventListener("click", () => nextSlide(-1));
+      if (nextBtn) nextBtn.addEventListener("click", () => nextSlide(1));
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener("click", () => showSlide(i));
+      });
+
+      // Initialize
+      showSlide(0);
+
+      // Optional auto-advance
+      setInterval(() => nextSlide(1), 5000);
+    });
+  })();
+</script>
+</body>
+</html>
 
