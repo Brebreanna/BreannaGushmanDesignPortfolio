@@ -464,3 +464,49 @@ body.work-page p {
   transform: scale(1.08);
 }
 
+/* ===== UNIVERSAL PROJECT IMAGE FIX (applies to ALL case studies) ===== */
+
+/* Limit images inside project pages */
+.project-detail img,
+.project-section img,
+.image-card img,
+.image-grid img,
+.screen-media img,
+.carousel-slide img {
+  max-width: 480px;   /* <<< this controls the size - adjust if you want */
+  width: 100%;
+  height: auto;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+/* Prevent screen-card from making images huge */
+.screen-card {
+  width: auto !important;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* Make grids respect the new max width */
+.image-grid.two-col,
+.image-grid.three-col {
+  display: grid;
+  gap: 20px;
+  justify-content: center;
+}
+
+.image-grid.two-col {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.image-grid.three-col {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* Keep images from exploding in large screens */
+.container,
+.project-section {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
