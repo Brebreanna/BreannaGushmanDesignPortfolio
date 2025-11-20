@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="styles.css" />
+  <title>SnoozeControl Case Study | Breanna</title>
+</head>
+<body>
+<header> 
+  <img src="images/home_bow.png" alt="Bow graphic" class="bow-top" />
+  <nav>
+    <ul class="nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li>
+        <a href="https://drive.google.com/file/d/13WfRjrqAuKIV-VkosvGOBs4YMxhe4Phs/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          Resume
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main class="container project-detail">
+  <h1>SnoozeControl: Drowsy Driver Detection System</h1>
+  <p class="project-tagline">
+    Safety-critical mobile interface for real-time driver drowsiness detection, alerts, and fatigue insights.
+  </p>
+
+  <!-- Quick Access -->
+  <section class="project-links">
+    <h2>Quick Access</h2>
+    <p>Want to explore the prototypes or review the visuals?</p>
+    <div class="project-buttons">
+      <a href="#" target="_blank" class="button">౨ৎ View Slide Deck</a>
+      <a href="https://www.figma.com/proto/XRb9akZ71RnevAoK3iNFek/Driver_Drowsiness_Detection?node-id=0-1&p=f&t=nuNRB7sAsbBZpiM6-0&scaling=scale-down&content-scaling=fixed&starting-point-node-id=7%3A127&show-proto-sidebar=1" target="_blank" class="button">𝜗𝜚 Low-Fi Prototype</a>
+      <a href="https://www.figma.com/proto/XRb9akZ71RnevAoK3iNFek/Driver_Drowsiness_Detection?node-id=0-1&p=f&t=nuNRB7sAsbBZpiM6-0&scaling=scale-down&content-scaling=fixed&starting-point-node-id=86%3A113&show-proto-sidebar=1" target="_blank" class="button">୨୧ Hi-Fi Prototype</a>
+    </div>
+    <p class="disclaimer">
+      Note: SnoozeControl was developed as part of my senior design capstone, where I owned the UX/UI and full-stack app implementation.
+    </p>
+  </section>
+
+  <!-- Intro Slideshow (up to 4 hero images) -->
+  <section class="case-carousel" aria-label="SnoozeControl intro slideshow">
+    <div class="carousel" data-autoplay="true" data-interval="4500">
+      <button class="carousel-btn prev" aria-label="Previous slide" title="Previous slide">‹</button>
+      <div class="carousel-viewport" role="region" aria-roledescription="carousel">
+        <ul class="carousel-track" aria-live="polite">
+          <li class="carousel-slide is-current" aria-roledescription="slide" aria-label="1 of 4">
+            <div class="screen-card">
+              <a href="images/intro-1.png" target="_blank" rel="noopener">
+                <div class="screen-media">
+                  <img src="images/intro-1.png" alt="SnoozeControl monitoring session screen mockup" />
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="carousel-slide" aria-roledescription="slide" aria-label="2 of 4">
+            <div class="screen-card">
+              <a href="images/intro-2.png" target="_blank" rel="noopener">
+                <div class="screen-media">
+                  <img src="images/intro-2.png" alt="Alert state UI with multi-modal warning" />
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="carousel-slide" aria-roledescription="slide" aria-label="3 of 4">
+            <div class="screen-card">
+              <a href="images/intro-3.png" target="_blank" rel="noopener">
+                <div class="screen-media">
+                  <img src="images/intro-3.png" alt="History or fatigue insights screen" />
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="carousel-slide" aria-roledescription="slide" aria-label="4 of 4">
+            <div class="screen-card">
+              <a href="images/intro-4.png" target="_blank" rel="noopener">
+                <div class="screen-media">
+                  <img src="images/intro-4.png" alt="Onboarding or privacy explanation screen" />
+                </div>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <button class="carousel-btn next" aria-label="Next slide" title="Next slide">›</button>
+    </div>
+    <div class="carousel-dots" role="tablist" aria-label="Slides"></div>
+  </section>
+
+  <!-- Charts Section -->
+  <section class="project-section">
+    <h2>Key Data Visuals</h2>
+    <p>To communicate the research insights and post-testing improvements, I visualized the most important patterns in simple, glanceable charts.</p>
+    <div class="image-grid two-col">
+      <figure class="image-card">
+        <img src="images/chart-survey.png" alt="Chart summarizing drowsy driving survey results and coping strategies" />
+        <figcaption>Survey insights on how frequently drivers experience drowsiness, how they currently cope, and how effective those strategies feel.</figcaption>
+      </figure>
+      <figure class="image-card">
+        <img src="images/chart-history-insights.png" alt="Chart showing evolution of history screen into a trend-based insights dashboard" />
+        <figcaption>History screen evolution, highlighting how usability feedback led to trend graphs and more actionable fatigue insights.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Low-Fi Gallery -->
+  <section class="project-section">
+    <h2>Low-Fidelity Wireframes</h2>
+    <p>All usability testing was conducted on low-fidelity prototypes. These early screens focused on flow clarity, button placement, and minimizing cognitive load while driving.</p>
+    <div class="image-grid three-col">
+      <figure class="image-card">
+        <img src="images/lowfi-1.png" alt="Low-fidelity wireframe for starting a monitoring session" />
+        <figcaption>Start monitoring flow with a single primary action to reduce distraction.</figcaption>
+      </figure>
+      <figure class="image-card">
+        <img src="images/lowfi-2.png" alt="Low-fidelity wireframe for viewing drowsiness history" />
+        <figcaption>Early history view focusing on listing past sessions before adding trend visualizations.</figcaption>
+      </figure>
+      <figure class="image-card">
+        <img src="images/lowfi-3.png" alt="Low-fidelity wireframe for settings and sensitivity controls" />
+        <figcaption>Settings and sensitivity controls that later informed the calibration and privacy-first UX.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- FULL CASE STUDY TEXT (unchanged) -->
+  <section class="project-section">
+    <h2>Project Overview</h2>
+    <p><strong>Role:</strong> UX/UI Designer &amp; Frontend Developer<br/>
+    <strong>Timeline:</strong> 6 months (Senior Design Capstone)<br/>
+    <strong>Team:</strong> 4-person engineering team (I owned app design, UX research, and full-stack development; teammates handled ML model development and hardware integration)<br/>
+    <strong>Tools:</strong> Figma, React Native, TypeScript, Firebase</p>
+
+    <p><strong>The Challenge:</strong> Design and build a mobile interface for a real-time drowsiness detection system that works in high-stakes driving contexts, requires zero cognitive load, and earns user trust despite privacy concerns around camera monitoring.</p>
+  </section>
+
+  <section class="project-section">
+    <h2>Problem Space</h2>
+    <p>Drowsy driving contributes to an estimated 91,000 crashes annually in the United States. Despite the severity of this issue, consumer-facing solutions are limited to expensive aftermarket hardware or generic wellness apps that rely on self-reporting rather than objective detection.</p>
+
+    <p><strong>The core problem:</strong> Drivers need real-time intervention during drowsiness episodes, but existing solutions either don't detect drowsiness accurately, require too much user interaction, or fail to deliver alerts that actually wake severely tired drivers.</p>
+  </section>
+
+  <section class="project-section">
+    <h2>User Research</h2>
+    <p>To validate the need for SnoozeControl and inform design decisions, I conducted a pilot survey with 12 licensed drivers and supplemented findings with academic research and expert consultation. This mixed-methods approach revealed critical patterns in drowsy-driving behavior and validated design directions for an effective intervention system.</p>
+
+    <h3>Research Methods</h3>
+    <p><strong>Pilot Survey:</strong> 12 licensed drivers across urban, suburban, and rural environments</p>
+    <p><strong>Academic Research:</strong> Review of peer-reviewed studies on drowsiness detection and alert effectiveness</p>
+    <p><strong>Expert Consultation:</strong> Interview with Dr. Shannon Roberts, transportation safety researcher at UMass Amherst specializing in collision prevention</p>
+
+    <h3>Key Findings</h3>
+
+    <p><strong>Finding 1: Drowsy Driving is Dangerously Common and Underestimated</strong></p>
+
+    <p>83.3% of survey participants have driven while drowsy, with 33.3% doing so multiple times per month. Despite this frequency, only 8.3% regularly pull over to rest when tired. 25% reported a near-miss or accident caused by drowsiness, with participants describing moments where "my eyes closed for a long blink" or they "shut eyes briefly."</p>
+
+    <p>This validated the critical need for real-time intervention during predictable high-risk windows such as late night driving, long highway stretches, and the first hour on the road.</p>
+
+    <p><strong>Finding 2: Multi-Modal Alerts Are Essential, But Duration Matters More Than Expected</strong></p>
+
+    <p>75% of survey participants prioritized loud audible alerts as the most important feature, with additional interest in vibration (33%) and visual warnings. However, one participant specifically requested that audio alerts "play for an extended period versus just beeps," highlighting a critical gap between typical alert design and what actually wakes drowsy drivers.</p>
+
+    <p>This aligned with Dr. Shannon Roberts' research at UMass Amherst, which found that multi-modal alert systems (audio + haptic + visual) significantly outperform single-mode alerts in preventing drowsiness-related collisions. Her studies show these systems work because they engage multiple sensory pathways and are harder to ignore or habituate to.</p>
+
+    <p>Academic literature further confirms that sustained alerts lasting 10-15 seconds are more effective than brief tones because severely drowsy drivers require prolonged stimulation to achieve full alertness.</p>
+
+    <p><strong>Design implication:</strong> I designed a layered alert system combining 110dB sustained audio (not just beeps), strong haptic pulses, and high-contrast full-screen warnings that escalate in intensity and continue until the user actively dismisses them.</p>
+
+    <p><strong>Finding 3: Current Coping Strategies Fail When It Matters Most</strong></p>
+
+    <p>Survey participants rely on temporary fixes including opening windows (66.7%), caffeine (50%), and music, but 83.3% rated these methods as only "somewhat effective" or worse. Research literature confirms these strategies provide less than 15 minutes of cognitive benefit and create a false sense of alertness, making them dangerous substitutes for actual rest.</p>
+
+    <p><strong>Design implication:</strong> This confirmed the opportunity for a detection system that intervenes before critical drowsiness thresholds, rather than depending on unreliable self-management tactics.</p>
+
+    <p><strong>Finding 4: Trust in Camera Monitoring is Conditional Due to Privacy Concerns</strong></p>
+
+    <p>While 50% of participants were comfortable with front-camera detection, 33.3% expressed skepticism. Their concerns centered on privacy and liability (one participant worried about "getting in trouble and having proof I fell asleep"), as well as reliability doubts about technology failing during critical moments or alerts not being strong enough.</p>
+
+    <p><strong>Design implication:</strong> I prioritized a privacy-first architecture with local-only processing (no cloud uploads, no data storage), transparent onboarding explaining exactly how the camera works, and user-adjustable sensitivity calibration to address reliability concerns and build trust.</p>
+
+    <h3>How Research Shaped Design Decisions</h3>
+
+    <table class="case-table">
+      <thead>
+        <tr>
+          <th>Research Finding</th>
+          <th>Design Decision</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Participant insight: audio should "play for extended period vs. just beeps"</td>
+          <td>Sustained alert design with 10-15 second alarm loops and escalating volume, not dismissible by accident, requires deliberate user action</td>
+        </tr>
+        <tr>
+          <td>Multi-modal alerts proven most effective (Dr. Roberts + academic research)</td>
+          <td>Triple-layer system: sustained 110dB audio + rhythmic haptic pulses + full-screen visual takeover that persists until acknowledged</td>
+        </tr>
+        <tr>
+          <td>83.3% feel drowsy late at night; 58.3% on long highway drives</td>
+          <td>Contextual detection modes with heightened sensitivity during late-night hours and extended driving sessions</td>
+        </tr>
+        <tr>
+          <td>Only 8.3% pull over; temporary fixes rated "somewhat effective" at best</td>
+          <td>Alert triggers rest stop locator showing nearest safe pull-off locations with ETA</td>
+        </tr>
+        <tr>
+          <td>75% want tracking; drowsiness occurs in predictable patterns</td>
+          <td>Fatigue dashboard visualizing driving duration, drowsiness events detected, and personalized risk patterns over time</td>
+        </tr>
+        <tr>
+          <td>Privacy primary concern for 33%; fear of unreliability</td>
+          <td>Zero data retention with all processing on-device; calibration mode lets users test and adjust sensitivity before driving</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>The research confirmed that drowsy driving is widespread, predictable, and severely underserved by existing consumer solutions. By identifying that alert duration and persistence matter as much as volume, I was able to design an intervention that addresses the gap between what users think will wake them and what research shows actually works.</p>
+  </section>
+
+  <section class="project-section">
+    <h2>Usability Testing</h2>
+
+    <h3>Objectives</h3>
+    <p>Before investing time in high-fidelity mockups and development, I needed to validate that SnoozeControl's core flows were intuitive and required minimal cognitive effort, which is critical for an app used in high-stakes driving contexts.</p>
+
+    <p>Key questions I sought to answer:</p>
+    <ul>
+      <li>Can users complete essential tasks without instruction?</li>
+      <li>Where do users hesitate or struggle?</li>
+      <li>What features are missing or unclear?</li>
+    </ul>
+
+    <h3>Method</h3>
+    <p>I conducted usability testing with three senior engineering faculty members during our SDP/PDR milestone review. All three participants are licensed drivers who regularly evaluate interface design and system structure as part of their teaching and research roles.</p>
+
+    <p>Participants interacted with low-fidelity prototypes with no instructions or guidance. I observed task completion success, time to complete each task, hesitation points or confusion, and verbal feedback during interaction.</p>
+
+    <p>Each participant completed three core workflows:</p>
+    <ol>
+      <li>Start a monitoring session (Can users begin tracking their alertness quickly?)</li>
+      <li>View driving history (Can users access and understand past session data?)</li>
+      <li>Adjust settings (Can users customize the app without friction?)</li>
+    </ol>
+
+    <p>These tasks map to the primary user journeys that would later drive the high-fidelity design.</p>
+
+    <h3>Findings</h3>
+
+    <p><strong>What Worked: Fast, Error-Free Completion</strong></p>
+
+    <p>All three participants completed each task in 3-5 seconds with zero mistakes or backtracking. They located the correct controls immediately, confirming that the navigation hierarchy and labeling were effective.</p>
+
+    <p>One faculty evaluator commented: "The UI is very simple and feels feasible for a real application."</p>
+
+    <p>The simplified information architecture and clear call-to-action buttons successfully reduced cognitive load, which was the primary design goal.</p>
+
+    <p><strong>What Needed Improvement: History Screen Lacked Depth</strong></p>
+
+    <p>All evaluators noted the History page felt incomplete. They expected to see trends over time (not just a list of past drives), alert frequency patterns, session duration comparisons, and blink/yawn behavior insights.</p>
+
+    <p>Users need actionable data to understand their drowsiness patterns. A simple log doesn't provide enough value to change behavior or inform driving decisions.</p>
+
+    <p>In response, for the high-fidelity prototype I added an interactive line graph showing alert frequency across sessions, visual trend indicators to highlight improvements or concerning patterns, and tap-to-expand detail views for individual session breakdowns. This transformed History from a static log into a behavioral insights dashboard.</p>
+
+    <p><strong>What Needed Improvement: Technical Terms (EAR/MAR) Were Confusing</strong></p>
+
+    <p>Evaluators flagged that terms like EAR (Eye Aspect Ratio) and MAR (Mouth Aspect Ratio) would be meaningless to non-technical users. While the ML models aren't my responsibility, the interface communication is. Users seeing "EAR: 0.23" without context would be confused or distrustful of the system.</p>
+
+    <p>I planned an info panel accessible via a tooltip icon that explains what these metrics measure in plain language, why they matter for drowsiness detection, and what "normal" versus "concerning" values look like. This reduces the learning curve and builds user confidence in the system.</p>
+
+    <h3>Impact on Design Iterations</h3>
+
+    <table class="case-table">
+      <thead>
+        <tr>
+          <th>Finding</th>
+          <th>Design Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>History felt shallow</td>
+          <td>Added interactive trend graphs and session comparisons</td>
+        </tr>
+        <tr>
+          <td>EAR/MAR were unclear</td>
+          <td>Designed contextual tooltips and an educational info screen</td>
+        </tr>
+        <tr>
+          <td>Core flows worked well</td>
+          <td>Maintained minimal layout and clear navigation structure</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>By validating early, I avoided spending time polishing an incomplete design. The low-fidelity testing ensured the high-fidelity prototype was grounded in user feedback rather than assumptions.</p>
+  </section>
+
+  <section class="project-section">
+    <h2>Design &amp; Development</h2>
+    <p>Following the research and testing phases, I designed the high-fidelity interface in Figma and implemented the entire application frontend and backend.</p>
+
+    <p><strong>Frontend:</strong> React Native with TypeScript, including state management, navigation, and UI logic mirroring the tested flows</p>
+
+    <p><strong>Backend:</strong> Cloud-based storage using Firebase for session history and metadata, with data persistence and app-level architecture aligned with the final designs</p>
+
+    <p><strong>Integration:</strong> Built the software interface that connects to the ML drowsiness detection models and hardware systems developed by teammates</p>
+
+    <p>The separation of responsibilities ensured that the app's UX and software architecture were grounded in validated, user-informed decisions while maintaining clear ownership boundaries across the team.</p>
+
+    <p>Key design decisions implemented in the final application:</p>
+
+    <p><strong>Minimal interaction model:</strong> The app requires only one tap to start monitoring. During active sessions, no interaction is needed unless an alert is triggered.</p>
+
+    <p><strong>Progressive disclosure for complex information:</strong> EAR and MAR metrics are hidden by default, with educational tooltips available for users who want to understand the underlying detection mechanisms.</p>
+
+    <p><strong>Multi-layered alert system:</strong> Sustained audio alerts (110dB, 10-15 seconds), synchronized haptic feedback, and full-screen visual warnings that require deliberate dismissal.</p>
+
+    <p><strong>Privacy-transparent architecture:</strong> Onboarding screens explicitly communicate that all video processing happens locally on the device with zero data uploads or storage.</p>
+
+    <p><strong>Actionable history insights:</strong> Interactive trend graphs replace static lists, helping users identify patterns in their drowsiness episodes across time, driving conditions, and time of day.</p>
+  </section>
+
+  <section class="project-section">
+    <h2>Outcomes &amp; Reflection</h2>
+
+    <h3>What I Learned</h3>
+
+    <p><strong>Test early, even with low-fidelity prototypes.</strong> The usability testing with faculty caught structural issues before I invested in visual polish or development, saving significant time and ensuring the foundation was solid.</p>
+
+    <p><strong>Context is everything in safety-critical design.</strong> Designing for drivers means every extra tap or confusing label could be dangerous. This forced me to ruthlessly prioritize simplicity and eliminate any unnecessary interaction.</p>
+
+    <p><strong>Research reveals the gap between perception and reality.</strong> Users thought brief beeps would wake them, but research showed sustained multi-modal alerts are necessary. This insight only emerged by combining user interviews with academic literature review.</p>
+
+    <p><strong>Privacy concerns require proactive design solutions.</strong> Simply building a secure system isn't enough. Users need transparent communication about data handling built into the interface itself, not buried in privacy policies.</p>
+
+    <h3>Future Enhancements</h3>
+
+    <p>Several improvements identified during testing or planned for the next development cycle include:</p>
+
+    <p><strong>Brightness control for nighttime driving:</strong> Automatic screen dimming to reduce eye strain during late-night sessions</p>
+
+    <p><strong>CSV export functionality:</strong> Allow users to export their driving data for personal review or sharing with healthcare providers</p>
+
+    <p><strong>Enhanced metric explanations:</strong> More comprehensive educational content explaining EAR and MAR within the interface, potentially including visual demonstrations</p>
+
+    <p><strong>Expanded trend analysis:</strong> Additional pattern recognition for correlating drowsiness episodes with factors like time of day, drive duration, and day of week</p>
+  </section>
+
+  <section class="project-section">
+    <h2>Conclusion</h2>
+    <p>SnoozeControl demonstrates how UX research and iterative testing can inform the design of safety-critical interfaces. By grounding design decisions in both user needs and academic research, I created an app that balances simplicity with effectiveness, delivers alerts proven to wake drowsy drivers, and builds user trust through transparent communication about privacy and system functionality.</p>
+
+    <p>The project reinforced that effective UX design requires understanding not just what users say they want, but what research shows actually works, and then translating that into an interface simple enough to use while preparing to drive.</p>
+  </section>
+</main>
+
+<!-- Carousel JS (same behavior as your existing case study) -->
+<script>
+(function () {
+  const root = document.querySelector('.case-carousel .carousel');
+  if (!root) return;
+
+  const track = root.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const prevBtn = root.querySelector('.carousel-btn.prev');
+  const nextBtn = root.querySelector('.carousel-btn.next');
+  const dotsWrap = root.parentElement.querySelector('.carousel-dots');
+
+  // Build dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.role = 'tab';
+    dot.ariaLabel = `Go to slide ${i + 1}`;
+    dot.dataset.index = i;
+    dotsWrap.appendChild(dot);
+  });
+
+  const dots = Array.from(dotsWrap.children);
+  let index = 0;
+
+  function update() {
+    track.style.transform = `translateX(${index * -100}%)`;
+    slides.forEach((s, i) => s.classList.toggle('is-current', i === index));
+    dots.forEach((d, i) => d.setAttribute('aria-selected', i === index ? 'true' : 'false'));
+  }
+
+  function goTo(i) {
+    index = (i + slides.length) % slides.length;
+    update();
+  }
+
+  prevBtn.addEventListener('click', () => goTo(index - 1));
+  nextBtn.addEventListener('click', () => goTo(index + 1));
+  dots.forEach(d => d.addEventListener('click', () => goTo(parseInt(d.dataset.index, 10))));
+
+  // Keyboard + swipe
+  root.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') goTo(index - 1);
+    if (e.key === 'ArrowRight') goTo(index + 1);
+  });
+  root.tabIndex = 0;
+
+  let startX = null;
+  track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchmove', (e) => {
+    if (startX === null) return;
+    const dx = e.touches[0].clientX - startX;
+    if (Math.abs(dx) > 50) {
+      goTo(index + (dx < 0 ? 1 : -1));
+      startX = null;
+    }
+  }, { passive: true });
+  track.addEventListener('touchend', () => { startX = null; });
+
+  // Autoplay
+  const autoplay = root.dataset.autoplay === 'true';
+  const interval = Number(root.dataset.interval || 4500);
+  let timer = null;
+  function startAuto() { if (autoplay) timer = setInterval(() => goTo(index + 1), interval); }
+  function stopAuto() { if (timer) clearInterval(timer); }
+  root.addEventListener('mouseenter', stopAuto);
+  root.addEventListener('mouseleave', startAuto);
+  document.addEventListener('visibilitychange', () => (document.hidden ? stopAuto() : startAuto()));
+
+  update();
+  startAuto();
+})();
+</script>
+</body>
+</html>
