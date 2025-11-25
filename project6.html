@@ -388,7 +388,8 @@
 
   prevBtn.addEventListener('click', () => goTo(index - 1));
   nextBtn.addEventListener('click', () => goTo(index + 1));
-  dots.forEach(d => d.addEventListener('click', () => goTo(parseInt(d.dataset.index, 10)));
+  dots.forEach(d => d.addEventListener('click', () => goTo(parseInt(d.dataset.index, 10))));
+
 
   // Keyboard + swipe
   root.addEventListener('keydown', (e) => {
