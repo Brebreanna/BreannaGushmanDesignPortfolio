@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grow Up Green Case Study | Breanna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fff8f5;
+      --blush: #f3c6c6;
+      --rose: #a35757;
+      --deep: #6e3c3c;
+      --soft: #fff0f0;
+      --border: #f0d5d5;
+      --text: #5a3030;
+      --muted: #9e6b6b;
+      --card: #fffafa;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header { text-align: center; padding: 24px 20px 0; }
+    .bow-top { width: 80px; display: block; margin: 0 auto 16px; }
+    nav ul { display: flex; justify-content: center; gap: 36px; list-style: none; }
+    nav a {
+      text-decoration: none; color: var(--rose); font-weight: 500;
+      font-size: 15px; letter-spacing: 0.03em; transition: opacity 0.2s;
+    }
+    nav a:hover { opacity: 0.6; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--muted); text-decoration: none; font-size: 0.88rem;
+      margin: 32px 0 0 24px; transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--rose); }
+
+    /* HERO */
+    .hero {
+      max-width: 780px; margin: 64px auto 0;
+      padding: 0 24px; text-align: center;
+    }
+    .hero-label {
+      display: inline-block; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
+      background: var(--soft); border: 1px solid var(--border);
+      border-radius: 20px; padding: 5px 14px; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 300; color: var(--rose); line-height: 1.15; margin-bottom: 18px;
+    }
+    .hero h1 em { font-style: italic; font-weight: 300; }
+    .hero-tagline {
+      font-size: 1.05rem; color: var(--muted);
+      max-width: 560px; margin: 0 auto 36px; line-height: 1.8;
+    }
+
+    /* META STRIP */
+    .meta-strip {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      max-width: 700px; margin: 0 auto 56px;
+      border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; background: var(--card);
+    }
+    .meta-item {
+      flex: 1; min-width: 140px; padding: 18px 20px;
+      text-align: center; border-right: 1px solid var(--border);
+    }
+    .meta-item:last-child { border-right: none; }
+    .meta-label {
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted); display: block; margin-bottom: 4px;
+    }
+    .meta-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-weight: 600; color: var(--deep);
+    }
+
+    /* QUICK ACCESS */
+    .quick-access {
+      max-width: 700px; margin: 0 auto 64px;
+      padding: 0 24px; text-align: center;
+    }
+    .quick-access p { font-size: 0.9rem; color: var(--muted); margin-bottom: 16px; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .btn {
+      display: inline-block; padding: 10px 20px; border-radius: 8px;
+      font-size: 0.88rem; font-weight: 500; text-decoration: none;
+      transition: all 0.2s ease; border: 1px solid var(--blush);
+      background: var(--soft); color: var(--rose);
+    }
+    .btn:hover { background: var(--blush); color: white; transform: translateY(-1px); }
+    .btn.primary { background: var(--rose); color: white; border-color: var(--rose); }
+    .btn.primary:hover { background: var(--deep); border-color: var(--deep); }
+
+    /* CAROUSEL */
+    .carousel-wrap {
+      max-width: 600px; margin: 0 auto 72px;
+      padding: 0 24px; position: relative;
+    }
+    .carousel-viewport {
+      overflow: hidden; border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 40px rgba(163,87,87,0.08);
+    }
+    .carousel-track { display: flex; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
+    .carousel-slide { min-width: 100%; }
+    .carousel-slide img { width: 100%; height: auto; display: block; }
+    .carousel-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid var(--border); background: white; color: var(--rose);
+      font-size: 18px; cursor: pointer; z-index: 3;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: all 0.2s;
+    }
+    .carousel-btn:hover { background: var(--blush); color: white; }
+    .carousel-btn.prev { left: -14px; }
+    .carousel-btn.next { right: -14px; }
+    .carousel-dots { display: flex; justify-content: center; gap: 6px; margin-top: 14px; }
+    .carousel-dots button {
+      width: 8px; height: 8px; border-radius: 50%; border: none;
+      background: var(--blush); cursor: pointer; transition: all 0.3s; padding: 0;
+    }
+    .carousel-dots button[aria-selected="true"] { background: var(--rose); transform: scale(1.3); }
+
+    /* CASE BODY */
+    .case-body { max-width: 780px; margin: 0 auto; padding: 0 24px 80px; }
+    .case-section { margin-bottom: 72px; }
+
+    .section-header {
+      display: flex; align-items: baseline; gap: 16px;
+      margin-bottom: 28px; padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
+      color: var(--blush); font-weight: 300; min-width: 28px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem; font-weight: 400; color: var(--rose);
+    }
+
+    .case-section h3 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;
+      font-weight: 600; color: var(--deep); margin: 32px 0 12px;
+    }
+    .case-section p {
+      font-size: 0.97rem; line-height: 1.85;
+      color: var(--text); margin-bottom: 16px;
+    }
+    .case-section ul { padding-left: 1.4rem; margin-bottom: 16px; }
+    .case-section li { font-size: 0.97rem; line-height: 1.85; margin-bottom: 6px; }
+
+    /* IMPLICATION */
+    .implication {
+      background: linear-gradient(135deg, #fff0f0 0%, #fffafa 100%);
+      border-left: 3px solid var(--blush);
+      border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 20px 0;
+    }
+    .implication strong {
+      font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--rose); display: block; margin-bottom: 6px;
+    }
+    .implication p { font-size: 0.93rem !important; margin: 0 !important; color: var(--text) !important; }
+
+    /* QUOTE */
+    .pull-quote {
+      border-left: 3px solid var(--blush); padding: 12px 20px;
+      margin: 24px 0; font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-style: italic; color: var(--deep); line-height: 1.7;
+    }
+    .pull-quote cite {
+      display: block; font-size: 0.8rem; font-style: normal;
+      color: var(--muted); margin-top: 6px; letter-spacing: 0.05em;
+    }
+
+    /* PERSONA CARD */
+    .persona-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px; margin: 20px 0;
+    }
+    .persona-card .p-name {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+      color: var(--rose); display: block; margin-bottom: 4px;
+    }
+    .persona-card .p-role {
+      font-size: 0.8rem; color: var(--muted); letter-spacing: 0.06em;
+      text-transform: uppercase; display: block; margin-bottom: 16px;
+    }
+    .persona-meta {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;
+    }
+    .persona-meta-item span:first-child {
+      font-size: 0.75rem; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--muted); display: block; margin-bottom: 2px;
+    }
+    .persona-meta-item span:last-child { font-size: 0.9rem; color: var(--text); }
+    .persona-card .implication-tag { font-size: 0.82rem; color: var(--muted); font-style: italic; }
+
+    /* TWO COL */
+    .two-col-lists { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+    @media (max-width: 580px) { .two-col-lists { grid-template-columns: 1fr; } }
+
+    .list-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px;
+    }
+    .list-card strong {
+      display: block; font-size: 0.85rem; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--rose); margin-bottom: 12px;
+    }
+    .list-card ul { padding-left: 1.2rem; margin: 0; }
+    .list-card li {
+      font-size: 0.88rem !important; color: var(--muted) !important;
+      margin-bottom: 6px !important; line-height: 1.6 !important;
+    }
+
+    /* STAT CARDS */
+    .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 24px 0; }
+    @media (max-width: 640px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
+
+    .stat-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 18px; text-align: center;
+    }
+    .stat-card .stat {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.9rem;
+      font-weight: 600; color: var(--rose); display: block; line-height: 1; margin-bottom: 6px;
+    }
+    .stat-card p {
+      font-size: 0.82rem !important; color: var(--muted) !important;
+      margin: 0 !important; line-height: 1.5 !important;
+    }
+
+    /* IMAGE GRID */
+    .img-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+    @media (max-width: 580px) { .img-grid-2 { grid-template-columns: 1fr; } }
+
+    .img-figure {
+      border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--border); background: var(--card);
+    }
+    .img-figure img { width: 100%; height: auto; display: block; }
+    .img-figure figcaption {
+      padding: 12px 14px; font-size: 0.82rem;
+      color: var(--muted); line-height: 1.6; border-top: 1px solid var(--border);
+    }
+
+    .img-single {
+      margin: 24px 0; border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--border); background: var(--card); max-width: 420px;
+    }
+    .img-single img { width: 100%; height: auto; display: block; }
+    .img-single figcaption {
+      padding: 12px 14px; font-size: 0.82rem;
+      color: var(--muted); border-top: 1px solid var(--border);
+    }
+
+    /* RESULT ROWS */
+    .result-row {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 18px 0; border-bottom: 1px solid var(--border);
+    }
+    .result-row:last-child { border-bottom: none; }
+    .result-icon {
+      width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; flex-shrink: 0; margin-top: 2px;
+    }
+    .result-icon.pass { background: #e8f5e9; }
+    .result-icon.fix { background: #fff3e0; }
+    .result-content strong { display: block; font-size: 0.95rem; color: var(--deep); margin-bottom: 4px; }
+    .result-content p { font-size: 0.9rem !important; color: var(--muted) !important; margin: 0 !important; }
+
+    /* DECISION LIST */
+    .decision-list { list-style: none; padding: 0; margin: 20px 0; }
+    .decision-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid var(--border); margin: 0;
+    }
+    .decision-list li:last-child { border-bottom: none; }
+    .decision-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--blush); flex-shrink: 0; margin-top: 8px;
+    }
+    .decision-list strong { display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 3px; }
+    .decision-list span { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+    /* REFLECTION */
+    .reflection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+    @media (max-width: 580px) { .reflection-grid { grid-template-columns: 1fr; } }
+
+    .reflection-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px;
+    }
+    .reflection-card .r-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 2rem;
+      color: var(--blush); font-weight: 300; display: block; margin-bottom: 8px; line-height: 1;
+    }
+    .reflection-card strong { display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 6px; }
+    .reflection-card p {
+      font-size: 0.86rem !important; color: var(--muted) !important;
+      margin: 0 !important; line-height: 1.6 !important;
+    }
+
+    /* CONCLUSION */
+    .conclusion-box {
+      background: linear-gradient(135deg, var(--soft) 0%, #fff8f5 100%);
+      border: 1px solid var(--border); border-radius: 16px;
+      padding: 36px 40px; text-align: center;
+    }
+    .conclusion-box p {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem !important;
+      font-weight: 400; font-style: italic; color: var(--deep) !important;
+      max-width: 560px; margin: 0 auto !important; line-height: 1.8 !important;
+    }
+
+    /* FADE */
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="images/home_bow.png" alt="Bow graphic" class="bow-top" />
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://drive.google.com/file/d/13WfRjrqAuKIV-VkosvGOBs4YMxhe4Phs/view?usp=sharing" target="_blank">Resume</a></li>
+    </ul>
+  </nav>
+</header>
+
+<a href="work.html" class="back-link">← Back to work</a>
+
+<!-- HERO -->
+<section class="hero fade-up">
+  <span class="hero-label">End-to-End UX &nbsp;·&nbsp; Solo Designer</span>
+  <h1>Grow Up Green:<br><em>Secondhand Kids' Marketplace</em></h1>
+  <p class="hero-tagline">A sustainability-driven resale platform that makes secondhand kids' shopping fast, trustworthy, and emotionally rewarding for families.</p>
+</section>
+
+<!-- META STRIP -->
+<div class="meta-strip fade-up">
+  <div class="meta-item">
+    <span class="meta-label">Role</span>
+    <span class="meta-value">End-to-end UX</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Research</span>
+    <span class="meta-value">5 interviews</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Testing</span>
+    <span class="meta-value">5 participants</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Tools</span>
+    <span class="meta-value">Figma</span>
+  </div>
+</div>
+
+<!-- QUICK ACCESS -->
+<div class="quick-access fade-up">
+  <p>Explore the prototypes and design files</p>
+  <div class="btn-row">
+    <a href="https://www.figma.com/proto/NRosRp7HFCadrlN4chK0dd/GrowUpGreen?node-id=1%3A16&show-proto-sidebar=1" target="_blank" class="btn primary">Hi-Fi Prototype</a>
+    <a href="https://www.figma.com/proto/NRosRp7HFCadrlN4chK0dd/GrowUpGreen?node-id=2%3A41&show-proto-sidebar=1" target="_blank" class="btn">Lo-Fi Prototype</a>
+    <a href="https://www.figma.com/design/BowpLwKh25uMn3oOM2R68I/Projects-File?t=4ZGyyhEVN9WXHdgx-1" target="_blank" class="btn">Figma File</a>
+    <a href="https://docs.google.com/presentation/d/1Cg_IAzZ_wD5EtHZTy_gc5Z0CjMG3mXJH1s-KoZlpE_Y/edit?usp=sharing" target="_blank" class="btn">Slide Deck</a>
+  </div>
+</div>
+
+<!-- CAROUSEL -->
+<div class="carousel-wrap fade-up">
+  <div class="carousel-viewport">
+    <div class="carousel-track" id="track">
+      <div class="carousel-slide"><img src="images/gug-1.png" alt="Grow Up Green screen 1" /></div>
+      <div class="carousel-slide"><img src="images/gug-2.png" alt="Grow Up Green screen 2" /></div>
+      <div class="carousel-slide"><img src="images/gug-3.png" alt="Grow Up Green screen 3" /></div>
+      <div class="carousel-slide"><img src="images/gug-4.png" alt="Grow Up Green screen 4" /></div>
+    </div>
+  </div>
+  <button class="carousel-btn prev" id="prev">‹</button>
+  <button class="carousel-btn next" id="next">›</button>
+  <div class="carousel-dots" id="dots"></div>
+</div>
+
+<!-- CASE BODY -->
+<div class="case-body">
+
+  <!-- 01 PROBLEM -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">The Problem</h2>
+    </div>
+    <p>As a first-time aunt watching my sisters navigate constant growth spurts and tight budgets, I saw the real financial pressure of buying new children's clothing. My own experience reselling on Depop revealed a gap: no platform truly supports the needs of parents.</p>
+
+    <div class="two-col-lists">
+      <div class="list-card">
+        <strong>What parents deal with</strong>
+        <ul>
+          <li>Time-consuming browsing</li>
+          <li>Unclear clothing conditions</li>
+          <li>Low trust in sellers</li>
+          <li>Overwhelming layouts</li>
+          <li>No emotional incentive to buy used</li>
+        </ul>
+      </div>
+      <div class="list-card">
+        <strong>What the market is missing</strong>
+        <ul>
+          <li>A platform built specifically for kids' resale</li>
+          <li>Eco-impact tracking and rewards</li>
+          <li>Swipe-based discovery</li>
+          <li>Verified seller trust signals</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="implication">
+      <strong>Design question</strong>
+      <p>How might we create a secondhand shopping experience for kids that feels fast, trustworthy, and emotionally rewarding?</p>
+    </div>
+  </section>
+
+  <!-- 02 RESEARCH -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Research</h2>
+    </div>
+    <p>I evaluated ThredUp, Mercari, Poshmark, and Facebook Marketplace and conducted five in-person interviews with parents, caregivers, and grandparents. Participants completed real shopping tasks — filtering, evaluating product details, checking out — while I observed and noted friction points.</p>
+
+    <h3>What the interviews surfaced</h3>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <span class="stat">5/5</span>
+        <p>would leave if they couldn't find items quickly</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat">5/5</span>
+        <p>wanted clearer seller trust signals</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat">0/4</span>
+        <p>competitors built specifically for kids' resale</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat">0/4</span>
+        <p>competitors had eco-impact or reward systems</p>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      "If it's not fast, I'm not using it."
+      <cite>— Cari, parent of two toddlers</cite>
+    </div>
+  </section>
+
+  <!-- 03 PERSONA -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Persona</h2>
+    </div>
+    <div class="persona-card">
+      <span class="p-name">Cari</span>
+      <span class="p-role">31 · Busy working mom of two toddlers</span>
+      <div class="persona-meta">
+        <div class="persona-meta-item">
+          <span>Goals</span>
+          <span>Save money, shop fast, reduce environmental impact</span>
+        </div>
+        <div class="persona-meta-item">
+          <span>Frustrations</span>
+          <span>Overwhelming interfaces, vague descriptions, unverified sellers</span>
+        </div>
+      </div>
+      <p class="implication-tag">→ Design must prioritize speed, trust signals, and clear item condition labels</p>
+    </div>
+    <figure class="img-single">
+      <img src="images/gug-persona-cari.png" alt="Persona illustration for Cari" />
+      <figcaption>Persona illustration for Cari</figcaption>
+    </figure>
+  </section>
+
+  <!-- 04 LO-FI -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Low-Fidelity Design</h2>
+    </div>
+    <p>I began with rough composition sketches to establish layout logic and flows, then moved into low-fidelity wireframes exploring homepage hierarchy, product card structure, browsing flows, and listing flows.</p>
+    <div class="img-grid-2">
+      <figure class="img-figure">
+        <img src="images/gug-lowfi-1.png" alt="Low-fi wireframe 1" />
+        <figcaption>Homepage hierarchy and browse flow wireframe.</figcaption>
+      </figure>
+      <figure class="img-figure">
+        <img src="images/gug-lowfi-2.png" alt="Low-fi wireframe 2" />
+        <figcaption>Product card structure and listing flow wireframe.</figcaption>
+      </figure>
+    </div>
+    <p>I also created frustration and delight storyboards centered around Clarke, a secondary caregiver persona — mapping the gap between current resale pain points and the streamlined experience Grow Up Green could deliver.</p>
+  </section>
+
+  <!-- 05 USABILITY TESTING -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Usability Testing</h2>
+    </div>
+    <p>I ran a moderated study with five participants testing four flows: browsing, filtering, product detail clarity, and checkout.</p>
+
+    <div style="margin: 24px 0;">
+      <div class="result-row">
+        <div class="result-icon pass">✓</div>
+        <div class="result-content">
+          <strong>Checkout was strong</strong>
+          <p>5/5 completed checkout easily. Only minor polish needed — the core flow held up without redesign.</p>
+        </div>
+      </div>
+      <div class="result-row">
+        <div class="result-icon pass">✓</div>
+        <div class="result-content">
+          <strong>App felt intuitive overall</strong>
+          <p>4/5 said the experience felt intuitive. The visual hierarchy and card-based layout worked.</p>
+        </div>
+      </div>
+      <div class="result-row">
+        <div class="result-icon fix">→</div>
+        <div class="result-content">
+          <strong>Navigation labels were unclear</strong>
+          <p>2/5 struggled with navigation clarity. Fixed by replacing vague icons with labeled ones and repositioning the search bar.</p>
+        </div>
+      </div>
+      <div class="result-row">
+        <div class="result-icon fix">→</div>
+        <div class="result-content">
+          <strong>Layout needed more structure</strong>
+          <p>1/5 wanted better grouping. Fixed by reorganizing filters and adding more spacing between content blocks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 HI-FI -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Final Design</h2>
+    </div>
+    <p>High-fidelity designs used a forest-green and spring-green palette to reinforce sustainability. Mobile emphasized bold, swipe-driven interactions. Desktop used a calm grid-based layout for focused browsing.</p>
+
+    <ul class="decision-list">
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>Eco-impact profile</strong>
+          <span>Tracks CO₂ savings per purchase to make the environmental benefit of buying used tangible and rewarding.</span>
+        </div>
+      </li>
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>Swipe-style recommendations</strong>
+          <span>Borrowed from familiar dating-app interactions to make browsing feel fast and low-effort.</span>
+        </div>
+      </li>
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>One-minute listing flow</strong>
+          <span>Guided steps with smart defaults make it easy for parents to list items quickly between pickups and bedtimes.</span>
+        </div>
+      </li>
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>Accessibility first</strong>
+          <span>Labeled icons, verified contrast ratios, and simplified filters throughout. No feature locked behind visual-only cues.</span>
+        </div>
+      </li>
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>Trusted seller signals</strong>
+          <span>Verified badges, condition ratings, and seller history visible on every product card — no clicking through to find out.</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 07 REFLECTION -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">What I Learned</h2>
+    </div>
+    <div class="reflection-grid">
+      <div class="reflection-card">
+        <span class="r-num">01</span>
+        <strong>Design from lived experience</strong>
+        <p>Watching my sisters shop gave me insight no survey could. The best research starts before you open a spreadsheet.</p>
+      </div>
+      <div class="reflection-card">
+        <span class="r-num">02</span>
+        <strong>Trust is a design feature</strong>
+        <p>Every participant cited trust as a barrier. Building it in — not bolting it on — changed the whole information architecture.</p>
+      </div>
+      <div class="reflection-card">
+        <span class="r-num">03</span>
+        <strong>Speed is accessibility</strong>
+        <p>For busy parents, a slow or cluttered interface isn't just annoying — it's a dealbreaker. Efficiency is a form of respect.</p>
+      </div>
+      <div class="reflection-card">
+        <span class="r-num">04</span>
+        <strong>Emotional motivation matters</strong>
+        <p>The eco-impact feature wasn't just a feature — it reframed buying used as something to feel good about, not settle for.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section class="case-section fade-up">
+    <div class="conclusion-box">
+      <p>Participants kept asking when it would launch. That's the kind of validation no rubric can give you.</p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function() {
+  const track = document.getElementById('track');
+  const slides = track.children;
+  const dotsWrap = document.getElementById('dots');
+  let idx = 0;
+
+  Array.from(slides).forEach((_, i) => {
+    const d = document.createElement('button');
+    d.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+    d.onclick = () => go(i);
+    dotsWrap.appendChild(d);
+  });
+
+  function go(i) {
+    idx = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(${idx * -100}%)`;
+    Array.from(dotsWrap.children).forEach((d, j) =>
+      d.setAttribute('aria-selected', j === idx ? 'true' : 'false'));
+  }
+
+  document.getElementById('prev').onclick = () => go(idx - 1);
+  document.getElementById('next').onclick = () => go(idx + 1);
+
+  let startX = null;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchmove', e => {
+    if (!startX) return;
+    const dx = e.touches[0].clientX - startX;
+    if (Math.abs(dx) > 50) { go(idx + (dx < 0 ? 1 : -1)); startX = null; }
+  }, { passive: true });
+  track.addEventListener('touchend', () => { startX = null; });
+
+  setInterval(() => go(idx + 1), 4500);
+})();
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

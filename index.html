@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Breanna | UX Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fff8f5;
+      --blush: #f3c6c6;
+      --rose: #a35757;
+      --deep: #6e3c3c;
+      --soft: #fff0f0;
+      --border: #f0d5d5;
+      --text: #5a3030;
+      --muted: #9e6b6b;
+      --card: #fffafa;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    header { text-align: center; padding: 24px 20px 0; }
+    .bow-top { width: 80px; display: block; margin: 0 auto 16px; }
+    nav ul { display: flex; justify-content: center; gap: 36px; list-style: none; }
+    nav a {
+      text-decoration: none; color: var(--rose); font-weight: 500;
+      font-size: 15px; letter-spacing: 0.03em; transition: opacity 0.2s;
+    }
+    nav a:hover { opacity: 0.6; }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 80px 32px 0;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 56px;
+      align-items: center;
+      min-height: 78vh;
+    }
+
+    @media (max-width: 720px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; padding: 56px 24px 0; gap: 40px; }
+      .hero-img { max-width: 240px; margin: 0 auto; }
+    }
+
+    .hero-status {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 8px 16px;
+      font-size: 0.82rem; color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .status-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #7dba7d; flex-shrink: 0;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 4.8rem);
+      font-weight: 300;
+      color: var(--rose);
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+    .hero h1 em { font-style: italic; }
+    .hero h1 .name { display: block; }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 440px;
+      margin-bottom: 36px;
+    }
+    .hero-sub strong { color: var(--text); font-weight: 500; }
+
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-block; padding: 12px 24px; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 500; text-decoration: none;
+      transition: all 0.2s ease; border: 1px solid var(--blush);
+      background: var(--soft); color: var(--rose);
+    }
+    .btn:hover { background: var(--blush); color: white; transform: translateY(-1px); }
+    .btn.primary { background: var(--rose); color: white; border-color: var(--rose); }
+    .btn.primary:hover { background: var(--deep); border-color: var(--deep); }
+
+    /* HERO IMAGE */
+    .hero-img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ── MARQUEE STRIP ── */
+    .marquee-wrap {
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+      margin: 72px 0 0;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 48px;
+      animation: marquee 22s linear infinite;
+      white-space: nowrap;
+      width: max-content;
+    }
+
+    .marquee-track:hover { animation-play-state: paused; }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .marquee-item {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-style: italic;
+      color: var(--muted); letter-spacing: 0.04em;
+      flex-shrink: 0;
+    }
+
+    .marquee-dot {
+      color: var(--blush); font-style: normal; margin-right: 48px;
+    }
+
+    /* ── WORK PREVIEW ── */
+    .work-preview {
+      max-width: 960px;
+      margin: 80px auto 0;
+      padding: 0 32px;
+    }
+
+    @media (max-width: 720px) { .work-preview { padding: 0 24px; } }
+
+    .section-row {
+      display: flex; align-items: baseline;
+      justify-content: space-between; margin-bottom: 36px;
+    }
+
+    .section-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 400; color: var(--rose);
+    }
+
+    .see-all {
+      font-size: 0.84rem; color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .see-all:hover { color: var(--rose); }
+    .see-all::after { content: ' →'; }
+
+    /* PREVIEW GRID */
+    .preview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 720px) { .preview-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .preview-grid { grid-template-columns: 1fr; } }
+
+    .preview-card {
+      text-decoration: none;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+    .preview-card:hover { transform: translateY(-4px); }
+
+    .preview-img {
+      width: 100%; height: 200px;
+      object-fit: contain;
+      background: var(--soft);
+      border-radius: 12px;
+      display: block;
+      margin-bottom: 14px;
+      transition: transform 0.5s ease;
+    }
+    .preview-card:hover .preview-img { transform: scale(1.02); }
+
+    .preview-tag {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--rose);
+      display: block; margin-bottom: 5px;
+    }
+
+    .preview-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-weight: 400; color: var(--deep);
+      line-height: 1.3;
+    }
+
+    /* ── PHILOSOPHY ── */
+    .philosophy {
+      max-width: 960px;
+      margin: 88px auto 0;
+      padding: 0 32px;
+    }
+
+    @media (max-width: 720px) { .philosophy { padding: 0 24px; } }
+
+    .philosophy-inner {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px 52px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 36px;
+    }
+
+    @media (max-width: 680px) {
+      .philosophy-inner { grid-template-columns: 1fr; padding: 32px 28px; gap: 28px; }
+    }
+
+    .phil-icon { font-size: 1.6rem; display: block; margin-bottom: 12px; }
+    .phil-item strong {
+      display: block; font-size: 0.93rem;
+      color: var(--deep); margin-bottom: 6px;
+    }
+    .phil-item p { font-size: 0.87rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── FOOTER CTA ── */
+    .footer-cta {
+      max-width: 960px;
+      margin: 80px auto 0;
+      padding: 0 32px 80px;
+      text-align: center;
+    }
+
+    .footer-cta h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 300; color: var(--rose);
+      margin-bottom: 12px; line-height: 1.2;
+    }
+    .footer-cta h2 em { font-style: italic; }
+    .footer-cta p { font-size: 0.95rem; color: var(--muted); margin-bottom: 28px; }
+
+    /* FADE */
+    .fade-up { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .fade-up:nth-child(3) { transition-delay: 0.2s; }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="images/home_bow.png" alt="Bow graphic" class="bow-top" />
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://drive.google.com/file/d/13WfRjrqAuKIV-VkosvGOBs4YMxhe4Phs/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-left fade-up">
+      <div class="hero-status">
+        <span class="status-dot"></span>
+        Open to entry-level UX roles
+      </div>
+      <h1>
+        <span class="name">Hi, I'm <em>Breanna.</em></span>
+        I design things<br>people actually use.
+      </h1>
+      <p class="hero-sub">UX designer + computer engineer. I combine <strong>research, design, and real code</strong> to build products that feel effortless to use.</p>
+      <div class="hero-btns">
+        <a href="work.html" class="btn primary">View my work</a>
+        <a href="about.html" class="btn">About me</a>
+        <a href="contact.html" class="btn">Get in touch</a>
+      </div>
+    </div>
+    <img src="images/home_woman.png" alt="Breanna" class="hero-img fade-up" />
+  </section>
+
+  <!-- ── MARQUEE ── -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item">UX Research</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Figma Prototyping</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Usability Testing</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">React Native</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Accessibility Design</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Consumer Products</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Heuristic Evaluation</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Human-Centered Design</span><span class="marquee-dot">✦</span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee-item">UX Research</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Figma Prototyping</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Usability Testing</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">React Native</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Accessibility Design</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Consumer Products</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Heuristic Evaluation</span><span class="marquee-dot">✦</span>
+      <span class="marquee-item">Human-Centered Design</span><span class="marquee-dot">✦</span>
+    </div>
+  </div>
+
+  <!-- ── FEATURED WORK ── -->
+  <section class="work-preview">
+    <div class="section-row fade-up">
+      <span class="section-label">Featured work</span>
+      <a class="see-all" href="work.html">See all projects</a>
+    </div>
+    <div class="preview-grid">
+      <a class="preview-card fade-up" href="project7.html">
+        <img class="preview-img" src="images/Untitled design (40).png" alt="SnoozeControl" />
+        <span class="preview-tag">Capstone · React Native</span>
+        <span class="preview-title">SnoozeControl — Drowsy Driver Detection</span>
+      </a>
+      <a class="preview-card fade-up" href="project6.html">
+        <img class="preview-img" src="images/Untitled design (45).png" alt="Infinite Coloring Book" />
+        <span class="preview-tag">Research · Mobile</span>
+        <span class="preview-title">Infinite Coloring Book</span>
+      </a>
+      <a class="preview-card fade-up" href="project4.html">
+        <img class="preview-img" src="images/Untitled design (39).png" alt="Grow Up Green" />
+        <span class="preview-tag">End-to-end · Research</span>
+        <span class="preview-title">Grow Up Green</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── PHILOSOPHY ── -->
+  <section class="philosophy fade-up">
+    <div class="philosophy-inner">
+      <div class="phil-item">
+        <span class="phil-icon">🔬</span>
+        <strong>Research before assumptions</strong>
+        <p>Every decision I make is grounded in what real users actually do — not what I think they'll do.</p>
+      </div>
+      <div class="phil-item">
+        <span class="phil-icon">⚙️</span>
+        <strong>Design with engineers in mind</strong>
+        <p>I've built what I design. That engineering background means my work is practical from day one.</p>
+      </div>
+      <div class="phil-item">
+        <span class="phil-icon">🎀</span>
+        <strong>Details are the whole point</strong>
+        <p>The little things — copy, spacing, error states — are what make a product feel cared for.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER CTA ── -->
+  <section class="footer-cta fade-up">
+    <h2>Let's build something<br><em>worth using.</em></h2>
+    <p>I'm looking for entry-level UX roles where design and engineering actually talk to each other.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn primary">Get in touch</a>
+      <a href="https://drive.google.com/file/d/13WfRjrqAuKIV-VkosvGOBs4YMxhe4Phs/view?usp=sharing" target="_blank" class="btn">View resume</a>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

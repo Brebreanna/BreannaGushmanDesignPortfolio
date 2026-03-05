@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cookr Case Study | Breanna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fff8f5;
+      --blush: #f3c6c6;
+      --rose: #a35757;
+      --deep: #6e3c3c;
+      --soft: #fff0f0;
+      --border: #f0d5d5;
+      --text: #5a3030;
+      --muted: #9e6b6b;
+      --card: #fffafa;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header { text-align: center; padding: 24px 20px 0; }
+
+    .bow-top { width: 80px; display: block; margin: 0 auto 16px; }
+
+    nav ul { display: flex; justify-content: center; gap: 36px; list-style: none; }
+
+    nav a {
+      text-decoration: none;
+      color: var(--rose);
+      font-weight: 500;
+      font-size: 15px;
+      letter-spacing: 0.03em;
+      transition: opacity 0.2s;
+    }
+
+    nav a:hover { opacity: 0.6; }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      margin: 32px 0 0 24px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--rose); }
+
+    /* HERO */
+    .hero {
+      max-width: 780px;
+      margin: 64px auto 0;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: var(--soft);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 14px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 300;
+      color: var(--rose);
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 em { font-style: italic; font-weight: 300; }
+
+    .hero-tagline {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 36px;
+      line-height: 1.8;
+    }
+
+    /* META STRIP */
+    .meta-strip {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 700px;
+      margin: 0 auto 56px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--card);
+    }
+
+    .meta-item {
+      flex: 1;
+      min-width: 140px;
+      padding: 18px 20px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .meta-item:last-child { border-right: none; }
+
+    .meta-label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .meta-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--deep);
+    }
+
+    /* QUICK ACCESS */
+    .quick-access {
+      max-width: 700px;
+      margin: 0 auto 64px;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .quick-access p { font-size: 0.9rem; color: var(--muted); margin-bottom: 16px; }
+
+    .btn-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid var(--blush);
+      background: var(--soft);
+      color: var(--rose);
+    }
+
+    .btn:hover { background: var(--blush); color: white; transform: translateY(-1px); }
+
+    .btn.primary { background: var(--rose); color: white; border-color: var(--rose); }
+    .btn.primary:hover { background: var(--deep); border-color: var(--deep); }
+
+    /* CASE BODY */
+    .case-body {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .case-section { margin-bottom: 72px; }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--blush);
+      font-weight: 300;
+      min-width: 28px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--rose);
+    }
+
+    .case-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--deep);
+      margin: 32px 0 12px;
+    }
+
+    .case-section p {
+      font-size: 0.97rem;
+      line-height: 1.85;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .case-section ul, .case-section ol {
+      padding-left: 1.4rem;
+      margin-bottom: 16px;
+    }
+
+    .case-section li {
+      font-size: 0.97rem;
+      line-height: 1.85;
+      margin-bottom: 6px;
+    }
+
+    /* IMPLICATION */
+    .implication {
+      background: linear-gradient(135deg, #fff0f0 0%, #fffafa 100%);
+      border-left: 3px solid var(--blush);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+
+    .implication strong {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rose);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .implication p { font-size: 0.93rem !important; margin: 0 !important; color: var(--text) !important; }
+
+    /* CONSTRAINT BADGE */
+    .constraint-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--soft);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 16px;
+      margin-bottom: 20px;
+      font-size: 0.88rem;
+      color: var(--rose);
+      font-weight: 500;
+    }
+
+    /* TWO COL */
+    .two-col-lists {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 580px) { .two-col-lists { grid-template-columns: 1fr; } }
+
+    .list-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .list-card strong {
+      display: block;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 12px;
+    }
+
+    .list-card ul { padding-left: 1.2rem; margin: 0; }
+
+    .list-card li {
+      font-size: 0.88rem !important;
+      color: var(--muted) !important;
+      margin-bottom: 6px !important;
+      line-height: 1.6 !important;
+    }
+
+    /* SCREEN GRID */
+    .screen-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    @media (max-width: 600px) { .screen-grid { grid-template-columns: 1fr 1fr; } }
+
+    .screen-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .screen-card .screen-icon {
+      font-size: 1.6rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .screen-card strong {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--deep);
+      margin-bottom: 4px;
+    }
+
+    .screen-card p {
+      font-size: 0.8rem !important;
+      color: var(--muted) !important;
+      margin: 0 !important;
+      line-height: 1.5 !important;
+    }
+
+    /* DECISION LIST */
+    .decision-list { list-style: none; padding: 0; margin: 20px 0; }
+
+    .decision-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      margin: 0;
+    }
+
+    .decision-list li:last-child { border-bottom: none; }
+
+    .decision-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--blush);
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    .decision-list strong {
+      display: block;
+      font-size: 0.93rem;
+      color: var(--deep);
+      margin-bottom: 3px;
+    }
+
+    .decision-list span {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* PERSONA CARD */
+    .persona-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 20px 0;
+      max-width: 420px;
+    }
+
+    .persona-card .p-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--rose);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .persona-card .p-role {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .persona-card ul { padding-left: 1.2rem; margin: 0; }
+
+    .persona-card li {
+      font-size: 0.88rem !important;
+      color: var(--text) !important;
+      margin-bottom: 5px !important;
+      line-height: 1.6 !important;
+    }
+
+    /* REFLECTION */
+    .reflection-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 580px) { .reflection-grid { grid-template-columns: 1fr; } }
+
+    .reflection-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .reflection-card .r-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: var(--blush);
+      font-weight: 300;
+      display: block;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .reflection-card strong {
+      display: block;
+      font-size: 0.93rem;
+      color: var(--deep);
+      margin-bottom: 6px;
+    }
+
+    .reflection-card p {
+      font-size: 0.86rem !important;
+      color: var(--muted) !important;
+      margin: 0 !important;
+      line-height: 1.6 !important;
+    }
+
+    /* CONCLUSION */
+    .conclusion-box {
+      background: linear-gradient(135deg, var(--soft) 0%, #fff8f5 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 40px;
+      text-align: center;
+    }
+
+    .conclusion-box p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem !important;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--deep) !important;
+      max-width: 560px;
+      margin: 0 auto !important;
+      line-height: 1.8 !important;
+    }
+
+    /* FADE IN */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="images/home_bow.png" alt="Bow graphic" class="bow-top" />
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://drive.google.com/file/d/13WfRjrqAuKIV-VkosvGOBs4YMxhe4Phs/view?usp=sharing" target="_blank">Resume</a></li>
+    </ul>
+  </nav>
+</header>
+
+<a href="work.html" class="back-link">← Back to work</a>
+
+<!-- HERO -->
+<section class="hero fade-up">
+  <span class="hero-label">Hackathon &nbsp;·&nbsp; 24 hours &nbsp;·&nbsp; Solo UX</span>
+  <h1>Cookr:<br><em>Meal Planning for Students</em></h1>
+  <p class="hero-tagline">A swipe-based recipe app designed to turn "what's in my fridge?" into a meal — fast, fun, and built for tight budgets.</p>
+</section>
+
+<!-- META STRIP -->
+<div class="meta-strip fade-up">
+  <div class="meta-item">
+    <span class="meta-label">Role</span>
+    <span class="meta-value">Solo UX Designer</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Timeline</span>
+    <span class="meta-value">24 hours</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Team</span>
+    <span class="meta-value">4 members</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Tools</span>
+    <span class="meta-value">Figma</span>
+  </div>
+</div>
+
+<!-- QUICK ACCESS -->
+<div class="quick-access fade-up">
+  <p>Explore the prototype and slide deck</p>
+  <div class="btn-row">
+    <a href="https://www.figma.com/design/BowpLwKh25uMn3oOM2R68I/Projects-File?t=4ZGyyhEVN9WXHdgx-1" target="_blank" class="btn primary">Open Figma Design</a>
+    <a href="https://docs.google.com/presentation/d/1fNzRUyCZstSvNdbpoQohfvnViN2mBAzMsocoBYOlhZw/edit?usp=sharing" target="_blank" class="btn">View Slide Deck</a>
+  </div>
+</div>
+
+<!-- CASE BODY -->
+<div class="case-body">
+
+  <!-- 01 PROBLEM -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">The Problem</h2>
+    </div>
+    <div class="constraint-badge">⏱ 24-hour hackathon constraint</div>
+    <p>College students stare at a half-stocked fridge with no idea what to make. Between classes, work, and tight budgets, meal planning becomes one more stressor rather than something enjoyable.</p>
+    <div class="implication">
+      <strong>Design goal</strong>
+      <p>Make deciding what to cook fast, fun, and affordable — with a swipe-based interaction borrowed from dating apps to reduce decision fatigue and make browsing feel effortless.</p>
+    </div>
+
+    <h3>Primary Persona</h3>
+    <div class="persona-card">
+      <span class="p-name">Dove</span>
+      <span class="p-role">Busy student · Works part-time</span>
+      <ul>
+        <li>Needs a low-friction path from "what's in my fridge?" to "I'm cooking this"</li>
+        <li>Limited budget — wants affordable, realistic recipes</li>
+        <li>Gets discouraged by apps that assume cooking expertise</li>
+        <li>Wants something encouraging, not overwhelming</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 02 APPROACH -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Approach</h2>
+    </div>
+    <p>I led design from ideation to high-fidelity mockups, collaborating with engineers in Figma and tracking tasks in Notion. With only 24 hours, I skipped wireframes entirely and moved straight to hi-fi — prioritizing fast, high-confidence decisions over process.</p>
+    <p>I evaluated Tasty, Mealime, and HelloFresh to identify what worked and where the gaps were.</p>
+
+    <div class="two-col-lists">
+      <div class="list-card">
+        <strong>What worked in competitors</strong>
+        <ul>
+          <li>Strong visual recipe cards</li>
+          <li>Inclusive dietary filtering</li>
+          <li>Clear step-by-step instructions</li>
+        </ul>
+      </div>
+      <div class="list-card">
+        <strong>Where the gaps were</strong>
+        <ul>
+          <li>Assume prior cooking knowledge</li>
+          <li>No swipe-based discovery</li>
+          <li>Decision fatigue from large catalogs</li>
+          <li>Not designed for budget constraints</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 DESIGN DECISIONS -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Design Decisions</h2>
+    </div>
+    <p>Six screens, each solving a specific friction point in the student cooking journey.</p>
+
+    <div class="screen-grid">
+      <div class="screen-card">
+        <span class="screen-icon">👋</span>
+        <strong>Onboarding</strong>
+        <p>Lightweight flow with large rounded controls to collect dietary goals without friction.</p>
+      </div>
+      <div class="screen-card">
+        <span class="screen-icon">🃏</span>
+        <strong>Recipe Cards</strong>
+        <p>Cook time, calories, and dietary icons visible at a glance for fast scanning.</p>
+      </div>
+      <div class="screen-card">
+        <span class="screen-icon">👆</span>
+        <strong>Swipe Feed</strong>
+        <p>Vertical, minimalist browsing modeled after dating apps to minimize choice overload.</p>
+      </div>
+      <div class="screen-card">
+        <span class="screen-icon">📋</span>
+        <strong>Recipe Detail</strong>
+        <p>Step-by-step instructions with clear hierarchy designed for in-kitchen use.</p>
+      </div>
+      <div class="screen-card">
+        <span class="screen-icon">✅</span>
+        <strong>Cooking Mode</strong>
+        <p>Action-based checklist with high contrast and generous spacing for hands-free use.</p>
+      </div>
+      <div class="screen-card">
+        <span class="screen-icon">🛒</span>
+        <strong>Grocery List</strong>
+        <p>Saved recipes automatically generate a shopping list to close the planning loop.</p>
+      </div>
+    </div>
+
+    <h3>Core Design Principles</h3>
+    <ul class="decision-list">
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>Personalization from the start</strong>
+          <span>Onboarding collects dietary goals and preferences so the feed feels relevant immediately.</span>
+        </div>
+      </li>
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>Cultural inclusivity</strong>
+          <span>Diverse cuisines and dietary needs represented throughout to avoid the "default American" recipe trap.</span>
+        </div>
+      </li>
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>Clarity and warmth</strong>
+          <span>Soft palette, playful icons, and large tap targets make the app feel inviting rather than clinical.</span>
+        </div>
+      </li>
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>Accessibility baked in</strong>
+          <span>High contrast throughout, generous spacing, and large touch targets for one-handed use on smaller phones.</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 04 OUTCOME -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Outcome</h2>
+    </div>
+    <p>In 24 hours I delivered a complete high-fidelity mobile prototype covering six polished screens. Cookr was praised for its clean UI, playful visuals, and focused scope. I owned all UX and UI decisions and delivered prototypes early to keep the engineering team unblocked throughout the hackathon.</p>
+    <div class="implication">
+      <strong>What landed well</strong>
+      <p>The swipe interaction felt intuitive and supported both casual browsing and focused in-kitchen cooking flows without switching modes.</p>
+    </div>
+  </section>
+
+  <!-- 05 REFLECTION -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">What I Learned</h2>
+    </div>
+    <div class="reflection-grid">
+      <div class="reflection-card">
+        <span class="r-num">01</span>
+        <strong>Clarity over complexity</strong>
+        <p>Under time pressure, cutting scope early freed me to execute the essentials really well instead of doing everything poorly.</p>
+      </div>
+      <div class="reflection-card">
+        <span class="r-num">02</span>
+        <strong>Touch targets matter</strong>
+        <p>Even small icon sizing decisions have real accessibility implications — larger buttons would improve one-handed use on smaller phones.</p>
+      </div>
+      <div class="reflection-card">
+        <span class="r-num">03</span>
+        <strong>Design for the engineers</strong>
+        <p>Delivering prototypes early kept development moving. Design decisions that ignore feasibility slow the whole team down.</p>
+      </div>
+      <div class="reflection-card">
+        <span class="r-num">04</span>
+        <strong>What comes next</strong>
+        <p>An image-recognition feature — snap your ingredients, get recipe suggestions — would expand utility while keeping the playful tone intact.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section class="case-section fade-up">
+    <div class="conclusion-box">
+      <p>Cookr proved that strong UX decisions made fast still hold up — clarity of focus beats breadth of features, especially when the clock is running.</p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quizzlr Case Study | Breanna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fff8f5;
+      --blush: #f3c6c6;
+      --rose: #a35757;
+      --deep: #6e3c3c;
+      --soft: #fff0f0;
+      --border: #f0d5d5;
+      --text: #5a3030;
+      --muted: #9e6b6b;
+      --card: #fffafa;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header { text-align: center; padding: 24px 20px 0; }
+    .bow-top { width: 80px; display: block; margin: 0 auto 16px; }
+    nav ul { display: flex; justify-content: center; gap: 36px; list-style: none; }
+    nav a {
+      text-decoration: none; color: var(--rose); font-weight: 500;
+      font-size: 15px; letter-spacing: 0.03em; transition: opacity 0.2s;
+    }
+    nav a:hover { opacity: 0.6; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--muted); text-decoration: none; font-size: 0.88rem;
+      margin: 32px 0 0 24px; transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--rose); }
+
+    /* HERO */
+    .hero { max-width: 780px; margin: 64px auto 0; padding: 0 24px; text-align: center; }
+    .hero-label {
+      display: inline-block; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
+      background: var(--soft); border: 1px solid var(--border);
+      border-radius: 20px; padding: 5px 14px; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 300; color: var(--rose); line-height: 1.15; margin-bottom: 18px;
+    }
+    .hero h1 em { font-style: italic; font-weight: 300; }
+    .hero-tagline {
+      font-size: 1.05rem; color: var(--muted);
+      max-width: 560px; margin: 0 auto 36px; line-height: 1.8;
+    }
+
+    /* META STRIP */
+    .meta-strip {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      max-width: 700px; margin: 0 auto 56px;
+      border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; background: var(--card);
+    }
+    .meta-item {
+      flex: 1; min-width: 140px; padding: 18px 20px;
+      text-align: center; border-right: 1px solid var(--border);
+    }
+    .meta-item:last-child { border-right: none; }
+    .meta-label {
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted); display: block; margin-bottom: 4px;
+    }
+    .meta-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-weight: 600; color: var(--deep);
+    }
+
+    /* QUICK ACCESS */
+    .quick-access { max-width: 700px; margin: 0 auto 64px; padding: 0 24px; text-align: center; }
+    .quick-access p { font-size: 0.9rem; color: var(--muted); margin-bottom: 16px; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .btn {
+      display: inline-block; padding: 10px 20px; border-radius: 8px;
+      font-size: 0.88rem; font-weight: 500; text-decoration: none;
+      transition: all 0.2s ease; border: 1px solid var(--blush);
+      background: var(--soft); color: var(--rose);
+    }
+    .btn:hover { background: var(--blush); color: white; transform: translateY(-1px); }
+    .btn.primary { background: var(--rose); color: white; border-color: var(--rose); }
+    .btn.primary:hover { background: var(--deep); border-color: var(--deep); }
+
+    /* CAROUSEL */
+    .carousel-wrap { max-width: 600px; margin: 0 auto 72px; padding: 0 24px; position: relative; }
+    .carousel-viewport {
+      overflow: hidden; border-radius: 20px;
+      border: 1px solid var(--border); box-shadow: 0 8px 40px rgba(163,87,87,0.08);
+    }
+    .carousel-track { display: flex; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
+    .carousel-slide { min-width: 100%; }
+    .carousel-slide img { width: 100%; height: auto; display: block; }
+    .carousel-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid var(--border); background: white; color: var(--rose);
+      font-size: 18px; cursor: pointer; z-index: 3;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: all 0.2s;
+    }
+    .carousel-btn:hover { background: var(--blush); color: white; }
+    .carousel-btn.prev { left: -14px; }
+    .carousel-btn.next { right: -14px; }
+    .carousel-dots { display: flex; justify-content: center; gap: 6px; margin-top: 14px; }
+    .carousel-dots button {
+      width: 8px; height: 8px; border-radius: 50%; border: none;
+      background: var(--blush); cursor: pointer; transition: all 0.3s; padding: 0;
+    }
+    .carousel-dots button[aria-selected="true"] { background: var(--rose); transform: scale(1.3); }
+
+    /* CASE BODY */
+    .case-body { max-width: 780px; margin: 0 auto; padding: 0 24px 80px; }
+    .case-section { margin-bottom: 72px; }
+
+    .section-header {
+      display: flex; align-items: baseline; gap: 16px;
+      margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border);
+    }
+    .section-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
+      color: var(--blush); font-weight: 300; min-width: 28px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem; font-weight: 400; color: var(--rose);
+    }
+    .case-section h3 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;
+      font-weight: 600; color: var(--deep); margin: 32px 0 12px;
+    }
+    .case-section p {
+      font-size: 0.97rem; line-height: 1.85; color: var(--text); margin-bottom: 16px;
+    }
+    .case-section ul { padding-left: 1.4rem; margin-bottom: 16px; }
+    .case-section li { font-size: 0.97rem; line-height: 1.85; margin-bottom: 6px; }
+
+    /* IMPLICATION */
+    .implication {
+      background: linear-gradient(135deg, #fff0f0 0%, #fffafa 100%);
+      border-left: 3px solid var(--blush); border-radius: 0 10px 10px 0;
+      padding: 16px 20px; margin: 20px 0;
+    }
+    .implication strong {
+      font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--rose); display: block; margin-bottom: 6px;
+    }
+    .implication p { font-size: 0.93rem !important; margin: 0 !important; color: var(--text) !important; }
+
+    /* CONSTRAINT BADGE */
+    .constraint-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--soft); border: 1px solid var(--border);
+      border-radius: 8px; padding: 10px 16px; margin-bottom: 20px;
+      font-size: 0.88rem; color: var(--rose); font-weight: 500;
+    }
+
+    /* TWO COL */
+    .two-col-lists { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+    @media (max-width: 580px) { .two-col-lists { grid-template-columns: 1fr; } }
+
+    .list-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px;
+    }
+    .list-card strong {
+      display: block; font-size: 0.85rem; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--rose); margin-bottom: 12px;
+    }
+    .list-card ul { padding-left: 1.2rem; margin: 0; }
+    .list-card li {
+      font-size: 0.88rem !important; color: var(--muted) !important;
+      margin-bottom: 6px !important; line-height: 1.6 !important;
+    }
+
+    /* SCREEN GRID */
+    .screen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 24px 0; }
+    @media (max-width: 600px) { .screen-grid { grid-template-columns: 1fr 1fr; } }
+
+    .screen-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 16px; text-align: center;
+    }
+    .screen-card .screen-icon { font-size: 1.5rem; display: block; margin-bottom: 10px; }
+    .screen-card strong { display: block; font-size: 0.88rem; color: var(--deep); margin-bottom: 4px; }
+    .screen-card p {
+      font-size: 0.8rem !important; color: var(--muted) !important;
+      margin: 0 !important; line-height: 1.5 !important;
+    }
+
+    /* DECISION LIST */
+    .decision-list { list-style: none; padding: 0; margin: 20px 0; }
+    .decision-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid var(--border); margin: 0;
+    }
+    .decision-list li:last-child { border-bottom: none; }
+    .decision-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--blush); flex-shrink: 0; margin-top: 8px;
+    }
+    .decision-list strong { display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 3px; }
+    .decision-list span { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+    /* REFLECTION */
+    .reflection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+    @media (max-width: 580px) { .reflection-grid { grid-template-columns: 1fr; } }
+
+    .reflection-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px;
+    }
+    .reflection-card .r-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 2rem;
+      color: var(--blush); font-weight: 300; display: block; margin-bottom: 8px; line-height: 1;
+    }
+    .reflection-card strong { display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 6px; }
+    .reflection-card p {
+      font-size: 0.86rem !important; color: var(--muted) !important;
+      margin: 0 !important; line-height: 1.6 !important;
+    }
+
+    /* CONCLUSION */
+    .conclusion-box {
+      background: linear-gradient(135deg, var(--soft) 0%, #fff8f5 100%);
+      border: 1px solid var(--border); border-radius: 16px; padding: 36px 40px; text-align: center;
+    }
+    .conclusion-box p {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem !important;
+      font-weight: 400; font-style: italic; color: var(--deep) !important;
+      max-width: 560px; margin: 0 auto !important; line-height: 1.8 !important;
+    }
+
+    /* FADE */
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="images/home_bow.png" alt="Bow graphic" class="bow-top" />
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://drive.google.com/file/d/13WfRjrqAuKIV-VkosvGOBs4YMxhe4Phs/view?usp=sharing" target="_blank">Resume</a></li>
+    </ul>
+  </nav>
+</header>
+
+<a href="work.html" class="back-link">← Back to work</a>
+
+<!-- HERO -->
+<section class="hero fade-up">
+  <span class="hero-label">Hackathon &nbsp;·&nbsp; 24 hours &nbsp;·&nbsp; Solo UX</span>
+  <h1>Quizzlr:<br><em>Multiplayer Study App</em></h1>
+  <p class="hero-tagline">A gamified flashcard platform that turns studying into real-time quiz battles — designed to make learning collaborative, competitive, and worth coming back to.</p>
+</section>
+
+<!-- META STRIP -->
+<div class="meta-strip fade-up">
+  <div class="meta-item">
+    <span class="meta-label">Role</span>
+    <span class="meta-value">Solo UX/UI Designer</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Timeline</span>
+    <span class="meta-value">24 hours</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Team</span>
+    <span class="meta-value">3 members</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Tools</span>
+    <span class="meta-value">Figma, Notion</span>
+  </div>
+</div>
+
+<!-- QUICK ACCESS -->
+<div class="quick-access fade-up">
+  <p>Explore the prototype, design file, and demo</p>
+  <div class="btn-row">
+    <a href="https://www.figma.com/design/BowpLwKh25uMn3oOM2R68I/Projects-File?t=4ZGyyhEVN9WXHdgx-1" target="_blank" class="btn primary">Open Figma Design</a>
+    <a href="https://www.youtube.com/watch?v=cYTervTtIUM" target="_blank" class="btn">View Demo</a>
+    <a href="https://docs.google.com/presentation/d/1DrtjIxXCWjhju5lCReKAr9M6vXbTXDbPpqnuGWJpoMk/edit?usp=sharing" target="_blank" class="btn">Slide Deck</a>
+  </div>
+</div>
+
+<!-- CAROUSEL -->
+<div class="carousel-wrap fade-up">
+  <div class="carousel-viewport">
+    <div class="carousel-track" id="track">
+      <div class="carousel-slide"><img src="images/q-1.png" alt="Quizzlr screen 1" /></div>
+      <div class="carousel-slide"><img src="images/q-2.png" alt="Quizzlr screen 2" /></div>
+      <div class="carousel-slide"><img src="images/q-3.png" alt="Quizzlr screen 3" /></div>
+      <div class="carousel-slide"><img src="images/q-4.png" alt="Quizzlr screen 4" /></div>
+    </div>
+  </div>
+  <button class="carousel-btn prev" id="prev">‹</button>
+  <button class="carousel-btn next" id="next">›</button>
+  <div class="carousel-dots" id="dots"></div>
+</div>
+
+<!-- CASE BODY -->
+<div class="case-body">
+
+  <!-- 01 PROBLEM -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">The Problem</h2>
+    </div>
+    <div class="constraint-badge">⏱ 24-hour hackathon constraint</div>
+    <p>Students are expected to master large volumes of content in short periods. Traditional study tools feel repetitive and isolating — making it harder to stay engaged or actually retain information.</p>
+    <div class="implication">
+      <strong>Design goal</strong>
+      <p>Redesign studying as something collaborative, motivating, and fun — a multiplayer experience where students challenge friends, track growth, and enjoy learning together rather than grinding alone.</p>
+    </div>
+  </section>
+
+  <!-- 02 RESEARCH -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Research</h2>
+    </div>
+    <p>With 24 hours on the clock, I ran a fast competitive audit of Quizlet, Kahoot, Chegg, and IXL — reviewing features, interfaces, and interaction patterns to identify gaps and opportunities.</p>
+
+    <div class="two-col-lists">
+      <div class="list-card">
+        <strong>What competitors do well</strong>
+        <ul>
+          <li>Clean flashcard creation flows</li>
+          <li>Progress tracking and streaks</li>
+          <li>Multiple question formats</li>
+        </ul>
+      </div>
+      <div class="list-card">
+        <strong>What the market is missing</strong>
+        <ul>
+          <li>Real-time multiplayer study modes</li>
+          <li>Social features beyond leaderboards</li>
+          <li>Interfaces that don't overwhelm</li>
+          <li>Personalized deck customization</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>I supplemented the audit with insights from my software engineering professor and live feedback from my two teammates throughout the build — validating design decisions in real time rather than in isolation.</p>
+  </section>
+
+  <!-- 03 DESIGN PROCESS -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Design Process</h2>
+    </div>
+    <p>I started with quick notebook sketches then jumped straight to high-fidelity Figma designs — skipping lo-fi entirely to maximize time. Every screen was built, reviewed, and iterated on during the hackathon.</p>
+
+    <h3>Key screens built</h3>
+    <div class="screen-grid">
+      <div class="screen-card">
+        <span class="screen-icon">🏠</span>
+        <strong>Home Dashboard</strong>
+        <p>Quick access to decks, quiz modes, and leaderboard in one glance.</p>
+      </div>
+      <div class="screen-card">
+        <span class="screen-icon">✏️</span>
+        <strong>Flashcard Creator</strong>
+        <p>Multiple choice and diagram modes for visual learners.</p>
+      </div>
+      <div class="screen-card">
+        <span class="screen-icon">📚</span>
+        <strong>My Decks</strong>
+        <p>Organized access to study sets with simple preview and edit workflow.</p>
+      </div>
+      <div class="screen-card">
+        <span class="screen-icon">⚔️</span>
+        <strong>Quiz Battle</strong>
+        <p>Real-time multiplayer mode with live scoring and opponent progress.</p>
+      </div>
+      <div class="screen-card">
+        <span class="screen-icon">🏆</span>
+        <strong>Leaderboard</strong>
+        <p>XP, ranks, and avatars to gamify engagement and reward consistency.</p>
+      </div>
+      <div class="screen-card">
+        <span class="screen-icon">🖱️</span>
+        <strong>Drag & Drop Builder</strong>
+        <p>Interactive study set customization that feels tactile and intuitive.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 DESIGN DECISIONS -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Design Decisions</h2>
+    </div>
+    <ul class="decision-list">
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>Clarity over features</strong>
+          <span>Every screen had one primary action. Under 24-hour pressure, I cut anything that didn't directly improve the core study or battle experience.</span>
+        </div>
+      </li>
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>Gamification that's actually usable</strong>
+          <span>XP, leaderboards, and battle mode only work if they're immediately understandable. Every mechanic was kept simple enough to grasp without onboarding.</span>
+        </div>
+      </li>
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>Two complete user flows</strong>
+          <span>Solo flashcard study and multiplayer quiz — both fully clickable by demo time. Scope discipline meant neither flow felt unfinished.</span>
+        </div>
+      </li>
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>Real-time engineer collaboration</strong>
+          <span>I shared screens continuously and adjusted spacing, labels, and interactions on the fly based on what was feasible to build in the time remaining.</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 05 OUTCOME -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Outcome</h2>
+    </div>
+    <p>We delivered a high-fidelity, clickable prototype with two complete user flows in 24 hours. The app ran smoothly during demo presentation and judges praised both the UI clarity and the core concept.</p>
+    <div class="implication">
+      <strong>Judge feedback</strong>
+      <p>Judges confirmed that Quizzlr is more than a hackathon concept — it's something worth building further. That validation made every crunch-time decision feel worth it.</p>
+    </div>
+  </section>
+
+  <!-- 06 REFLECTION -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">What I Learned</h2>
+    </div>
+    <div class="reflection-grid">
+      <div class="reflection-card">
+        <span class="r-num">01</span>
+        <strong>Pressure builds clarity</strong>
+        <p>When you can't do everything, you quickly learn what actually matters. The essentials became obvious fast.</p>
+      </div>
+      <div class="reflection-card">
+        <span class="r-num">02</span>
+        <strong>Gamification requires simplicity</strong>
+        <p>Every mechanic — XP, battles, leaderboards — worked because it was easy to understand on first contact, not because it was elaborate.</p>
+      </div>
+      <div class="reflection-card">
+        <span class="r-num">03</span>
+        <strong>Design for the engineers</strong>
+        <p>Shipping live with teammates means your design decisions directly affect what's buildable. Real-time collaboration changed how I think about handoff.</p>
+      </div>
+      <div class="reflection-card">
+        <span class="r-num">04</span>
+        <strong>Small interactions shape feel</strong>
+        <p>Leaderboard animations and drag-and-drop weren't extras — they were what made Quizzlr feel like a product, not a prototype.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section class="case-section fade-up">
+    <div class="conclusion-box">
+      <p>Quizzlr proved that focused collaboration and intentional UX can deliver something genuinely compelling — even when the clock is running and the scope keeps shrinking.</p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function() {
+  const track = document.getElementById('track');
+  const slides = track.children;
+  const dotsWrap = document.getElementById('dots');
+  let idx = 0;
+
+  Array.from(slides).forEach((_, i) => {
+    const d = document.createElement('button');
+    d.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+    d.onclick = () => go(i);
+    dotsWrap.appendChild(d);
+  });
+
+  function go(i) {
+    idx = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(${idx * -100}%)`;
+    Array.from(dotsWrap.children).forEach((d, j) =>
+      d.setAttribute('aria-selected', j === idx ? 'true' : 'false'));
+  }
+
+  document.getElementById('prev').onclick = () => go(idx - 1);
+  document.getElementById('next').onclick = () => go(idx + 1);
+
+  let startX = null;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchmove', e => {
+    if (!startX) return;
+    const dx = e.touches[0].clientX - startX;
+    if (Math.abs(dx) > 50) { go(idx + (dx < 0 ? 1 : -1)); startX = null; }
+  }, { passive: true });
+  track.addEventListener('touchend', () => { startX = null; });
+
+  setInterval(() => go(idx + 1), 4500);
+})();
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

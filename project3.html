@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Home UX for Elderly Users | Breanna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fff8f5;
+      --blush: #f3c6c6;
+      --rose: #a35757;
+      --deep: #6e3c3c;
+      --soft: #fff0f0;
+      --border: #f0d5d5;
+      --text: #5a3030;
+      --muted: #9e6b6b;
+      --card: #fffafa;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header { text-align: center; padding: 24px 20px 0; }
+    .bow-top { width: 80px; display: block; margin: 0 auto 16px; }
+    nav ul { display: flex; justify-content: center; gap: 36px; list-style: none; }
+    nav a {
+      text-decoration: none; color: var(--rose); font-weight: 500;
+      font-size: 15px; letter-spacing: 0.03em; transition: opacity 0.2s;
+    }
+    nav a:hover { opacity: 0.6; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--muted); text-decoration: none; font-size: 0.88rem;
+      margin: 32px 0 0 24px; transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--rose); }
+
+    /* HERO */
+    .hero { max-width: 780px; margin: 64px auto 0; padding: 0 24px; text-align: center; }
+    .hero-label {
+      display: inline-block; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
+      background: var(--soft); border: 1px solid var(--border);
+      border-radius: 20px; padding: 5px 14px; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 300; color: var(--rose); line-height: 1.15; margin-bottom: 18px;
+    }
+    .hero h1 em { font-style: italic; font-weight: 300; }
+    .hero-tagline {
+      font-size: 1.05rem; color: var(--muted);
+      max-width: 560px; margin: 0 auto 36px; line-height: 1.8;
+    }
+
+    /* META STRIP */
+    .meta-strip {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      max-width: 700px; margin: 0 auto 56px;
+      border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; background: var(--card);
+    }
+    .meta-item {
+      flex: 1; min-width: 140px; padding: 18px 20px;
+      text-align: center; border-right: 1px solid var(--border);
+    }
+    .meta-item:last-child { border-right: none; }
+    .meta-label {
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted); display: block; margin-bottom: 4px;
+    }
+    .meta-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-weight: 600; color: var(--deep);
+    }
+
+    /* QUICK ACCESS */
+    .quick-access { max-width: 700px; margin: 0 auto 64px; padding: 0 24px; text-align: center; }
+    .quick-access p { font-size: 0.9rem; color: var(--muted); margin-bottom: 16px; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .btn {
+      display: inline-block; padding: 10px 20px; border-radius: 8px;
+      font-size: 0.88rem; font-weight: 500; text-decoration: none;
+      transition: all 0.2s ease; border: 1px solid var(--blush);
+      background: var(--soft); color: var(--rose);
+    }
+    .btn:hover { background: var(--blush); color: white; transform: translateY(-1px); }
+    .btn.primary { background: var(--rose); color: white; border-color: var(--rose); }
+    .btn.primary:hover { background: var(--deep); border-color: var(--deep); }
+
+    /* CAROUSEL */
+    .carousel-wrap { max-width: 600px; margin: 0 auto 72px; padding: 0 24px; position: relative; }
+    .carousel-viewport {
+      overflow: hidden; border-radius: 20px;
+      border: 1px solid var(--border); box-shadow: 0 8px 40px rgba(163,87,87,0.08);
+    }
+    .carousel-track { display: flex; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
+    .carousel-slide { min-width: 100%; }
+    .carousel-slide img { width: 100%; height: auto; display: block; }
+    .carousel-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid var(--border); background: white; color: var(--rose);
+      font-size: 18px; cursor: pointer; z-index: 3;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: all 0.2s;
+    }
+    .carousel-btn:hover { background: var(--blush); color: white; }
+    .carousel-btn.prev { left: -14px; }
+    .carousel-btn.next { right: -14px; }
+    .carousel-dots { display: flex; justify-content: center; gap: 6px; margin-top: 14px; }
+    .carousel-dots button {
+      width: 8px; height: 8px; border-radius: 50%; border: none;
+      background: var(--blush); cursor: pointer; transition: all 0.3s; padding: 0;
+    }
+    .carousel-dots button[aria-selected="true"] { background: var(--rose); transform: scale(1.3); }
+
+    /* CASE BODY */
+    .case-body { max-width: 780px; margin: 0 auto; padding: 0 24px 80px; }
+    .case-section { margin-bottom: 72px; }
+
+    .section-header {
+      display: flex; align-items: baseline; gap: 16px;
+      margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border);
+    }
+    .section-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
+      color: var(--blush); font-weight: 300; min-width: 28px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem; font-weight: 400; color: var(--rose);
+    }
+    .case-section h3 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;
+      font-weight: 600; color: var(--deep); margin: 32px 0 12px;
+    }
+    .case-section p {
+      font-size: 0.97rem; line-height: 1.85; color: var(--text); margin-bottom: 16px;
+    }
+    .case-section ul, .case-section ol { padding-left: 1.4rem; margin-bottom: 16px; }
+    .case-section li { font-size: 0.97rem; line-height: 1.85; margin-bottom: 6px; }
+
+    /* IMPLICATION */
+    .implication {
+      background: linear-gradient(135deg, #fff0f0 0%, #fffafa 100%);
+      border-left: 3px solid var(--blush); border-radius: 0 10px 10px 0;
+      padding: 16px 20px; margin: 20px 0;
+    }
+    .implication strong {
+      font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--rose); display: block; margin-bottom: 6px;
+    }
+    .implication p { font-size: 0.93rem !important; margin: 0 !important; color: var(--text) !important; }
+
+    /* BARRIER CARDS */
+    .barrier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0; }
+    @media (max-width: 580px) { .barrier-grid { grid-template-columns: 1fr; } }
+
+    .barrier-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px;
+    }
+    .barrier-card .b-icon { font-size: 1.4rem; display: block; margin-bottom: 10px; }
+    .barrier-card strong {
+      display: block; font-size: 0.9rem; color: var(--deep); margin-bottom: 6px;
+    }
+    .barrier-card p {
+      font-size: 0.85rem !important; color: var(--muted) !important;
+      margin: 0 !important; line-height: 1.6 !important;
+    }
+
+    /* PRINCIPLE LIST */
+    .principle-list { list-style: none; padding: 0; margin: 20px 0; counter-reset: principles; }
+    .principle-list li {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 16px 0; border-bottom: 1px solid var(--border);
+      margin: 0; counter-increment: principles;
+    }
+    .principle-list li:last-child { border-bottom: none; }
+    .principle-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+      color: var(--blush); font-weight: 300; min-width: 28px; line-height: 1.2;
+    }
+    .principle-list strong { display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 4px; }
+    .principle-list span { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+    /* CONCEPT CARDS */
+    .concept-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+    @media (max-width: 580px) { .concept-grid { grid-template-columns: 1fr; } }
+
+    .concept-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 22px;
+    }
+    .concept-card .c-icon { font-size: 1.5rem; display: block; margin-bottom: 10px; }
+    .concept-card strong {
+      display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 8px;
+    }
+    .concept-card p {
+      font-size: 0.87rem !important; color: var(--muted) !important;
+      margin: 0 !important; line-height: 1.65 !important;
+    }
+
+    /* TWO COL */
+    .two-col-lists { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+    @media (max-width: 580px) { .two-col-lists { grid-template-columns: 1fr; } }
+
+    .list-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px;
+    }
+    .list-card strong {
+      display: block; font-size: 0.85rem; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--rose); margin-bottom: 12px;
+    }
+    .list-card ul { padding-left: 1.2rem; margin: 0; }
+    .list-card li {
+      font-size: 0.88rem !important; color: var(--muted) !important;
+      margin-bottom: 6px !important; line-height: 1.6 !important;
+    }
+
+    /* REFLECTION */
+    .reflection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+    @media (max-width: 580px) { .reflection-grid { grid-template-columns: 1fr; } }
+
+    .reflection-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px;
+    }
+    .reflection-card .r-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 2rem;
+      color: var(--blush); font-weight: 300; display: block; margin-bottom: 8px; line-height: 1;
+    }
+    .reflection-card strong { display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 6px; }
+    .reflection-card p {
+      font-size: 0.86rem !important; color: var(--muted) !important;
+      margin: 0 !important; line-height: 1.6 !important;
+    }
+
+    /* CONCLUSION */
+    .conclusion-box {
+      background: linear-gradient(135deg, var(--soft) 0%, #fff8f5 100%);
+      border: 1px solid var(--border); border-radius: 16px; padding: 36px 40px; text-align: center;
+    }
+    .conclusion-box p {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem !important;
+      font-weight: 400; font-style: italic; color: var(--deep) !important;
+      max-width: 560px; margin: 0 auto !important; line-height: 1.8 !important;
+    }
+
+    /* FADE */
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="images/home_bow.png" alt="Bow graphic" class="bow-top" />
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://drive.google.com/file/d/13WfRjrqAuKIV-VkosvGOBs4YMxhe4Phs/view?usp=sharing" target="_blank">Resume</a></li>
+    </ul>
+  </nav>
+</header>
+
+<a href="work.html" class="back-link">← Back to work</a>
+
+<!-- HERO -->
+<section class="hero fade-up">
+  <span class="hero-label">Research-Driven UX &nbsp;·&nbsp; Conceptual Design &nbsp;·&nbsp; May 2025</span>
+  <h1>Smart Home UX<br><em>for Elderly Users</em></h1>
+  <p class="hero-tagline">A research synthesis and conceptual interface exploring how aging, emotion, culture, and trust intersect in smart home design.</p>
+</section>
+
+<!-- META STRIP -->
+<div class="meta-strip fade-up">
+  <div class="meta-item">
+    <span class="meta-label">Role</span>
+    <span class="meta-value">Solo Researcher + Designer</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Type</span>
+    <span class="meta-value">Research + Concept</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Timeline</span>
+    <span class="meta-value">May 2025</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Tools</span>
+    <span class="meta-value">Figma + Academic Research</span>
+  </div>
+</div>
+
+<!-- QUICK ACCESS -->
+<div class="quick-access fade-up">
+  <p>Explore the design and full case study</p>
+  <div class="btn-row">
+    <a href="https://www.figma.com/design/BowpLwKh25uMn3oOM2R68I/Projects-File?t=4ZGyyhEVN9WXHdgx-1" target="_blank" class="btn primary">Open Figma Design</a>
+    <a href="https://docs.google.com/presentation/d/1xJ1vs9c1-2tPOmZageXLLtv5NZwXqT1ARiAza7dJGTs/edit?usp=sharing" target="_blank" class="btn">View Slide Deck</a>
+  </div>
+</div>
+
+<!-- CAROUSEL -->
+<div class="carousel-wrap fade-up">
+  <div class="carousel-viewport">
+    <div class="carousel-track" id="track">
+      <div class="carousel-slide"><img src="images/shh.png" alt="Smart home tablet: temperature slider and breathing orb" /></div>
+      <div class="carousel-slide"><img src="images/shh2.png" alt="Smart home concept: large text and high-contrast controls" /></div>
+    </div>
+  </div>
+  <button class="carousel-btn prev" id="prev">‹</button>
+  <button class="carousel-btn next" id="next">›</button>
+  <div class="carousel-dots" id="dots"></div>
+</div>
+
+<!-- CASE BODY -->
+<div class="case-body">
+
+  <!-- 01 OVERVIEW -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Overview</h2>
+    </div>
+    <p>By 2050, one in six adults worldwide will be over 65. Smart homes promise comfort, safety, and independence — but for many older adults, current systems feel confusing, intimidating, or unsafe. Small touch targets, opaque automation, and cold interactions can turn a "smart" home into an environment that increases anxiety instead of confidence.</p>
+    <p>This project began as a 10-page research paper and evolved into a UX case study examining how aging, emotion, culture, and trust intersect in smart home environments.</p>
+    <div class="implication">
+      <strong>Guiding design question</strong>
+      <p>How might we create smart home interfaces that are not only accessible and usable for elderly users, but also emotionally supportive, culturally sensitive, and trustworthy?</p>
+    </div>
+  </section>
+
+  <!-- 02 PROBLEM SPACE -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Problem Space</h2>
+    </div>
+    <p>The UX of most smart home systems assumes younger, tech-comfortable users. For older adults, this mismatch creates compounding barriers that often lead to full disengagement.</p>
+
+    <div class="barrier-grid">
+      <div class="barrier-card">
+        <span class="b-icon">👁️</span>
+        <strong>Physical barriers</strong>
+        <p>Small touch targets, low contrast, cluttered screens, and interactions that require precise motor control.</p>
+      </div>
+      <div class="barrier-card">
+        <span class="b-icon">🧠</span>
+        <strong>Cognitive barriers</strong>
+        <p>Complex multi-step flows, hidden states, and interfaces that depend heavily on memory and prior tech familiarity.</p>
+      </div>
+      <div class="barrier-card">
+        <span class="b-icon">💭</span>
+        <strong>Emotional barriers</strong>
+        <p>Technophobia, fear of "breaking" something, and anxiety about being watched or monitored.</p>
+      </div>
+      <div class="barrier-card">
+        <span class="b-icon">🔒</span>
+        <strong>Trust barriers</strong>
+        <p>Unclear data practices, "always listening" devices, and automation that feels opaque or out of the user's control.</p>
+      </div>
+    </div>
+
+    <div class="barrier-card" style="margin-top: 14px;">
+      <span class="b-icon">🌍</span>
+      <strong>Cultural barriers</strong>
+      <p>Language, tone, and interaction patterns that reflect Western norms and ignore local expectations, dialects, and social values.</p>
+    </div>
+  </section>
+
+  <!-- 03 RESEARCH FINDINGS -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Research Findings</h2>
+    </div>
+    <p>Through a synthesis of peer-reviewed literature on aging UX, VUI adoption, and cross-cultural design, three themes emerged consistently.</p>
+
+    <h3>Aging is multi-dimensional</h3>
+    <p>It's not only about eyesight or mobility — it also involves cognitive changes, emotional context, and lived experience with technology. Vision, motor control, and memory all shift with age in ways mainstream systems treat as edge cases, even though they represent a rapidly growing share of the global population.</p>
+
+    <h3>Technophobia is a trust problem, not a skills problem</h3>
+    <p>Older adults weren't just afraid of pressing the wrong button — they were worried about losing control, being monitored, or being locked out of their own environment. When systems explain what they're doing, offer visible privacy controls, and respond consistently, older users engage more willingly. When those qualities are missing, even small failures reinforce the belief that "this isn't for me."</p>
+
+    <h3>Cultural localization is a UX decision</h3>
+    <p>Studies on elderly Chinese users showed that VUIs tailored to local norms — honorific language, regional dialects, family-oriented reminders — were perceived as significantly more trustworthy. What works in a Western English-speaking interface doesn't translate. Cultural context shapes what feels comforting versus alienating.</p>
+
+    <div class="two-col-lists">
+      <div class="list-card">
+        <strong>VUI opportunities</strong>
+        <ul>
+          <li>Removes need for precise touch</li>
+          <li>Natural mode for many older adults</li>
+          <li>Hands-free for mobility limitations</li>
+        </ul>
+      </div>
+      <div class="list-card">
+        <strong>VUI barriers in practice</strong>
+        <ul>
+          <li>Fails on accents and slower speech</li>
+          <li>Rigid command structures confuse users</li>
+          <li>"Always listening" creates privacy fear</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 DESIGN FRAMEWORK -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Design Framework</h2>
+    </div>
+    <p>I synthesized the literature into six core principles that organize smart home UX needs for elderly users into a hierarchy — from baseline accessibility to emotional engagement.</p>
+
+    <ul class="principle-list">
+      <li>
+        <span class="principle-num">01</span>
+        <div>
+          <strong>Simplicity & Clarity</strong>
+          <span>Clean layouts, fewer steps per task, clear visual hierarchy. Big high-contrast text and obvious actions are baseline — not "accessibility extras."</span>
+        </div>
+      </li>
+      <li>
+        <span class="principle-num">02</span>
+        <div>
+          <strong>Natural Language Support</strong>
+          <span>Systems should understand natural speech, regional accents, and flexible phrasing rather than expecting memorized command syntax.</span>
+        </div>
+      </li>
+      <li>
+        <span class="principle-num">03</span>
+        <div>
+          <strong>Trust & Transparency</strong>
+          <span>Make data practices visible and controllable. Avoid "black box" automation that changes the home environment without clear feedback.</span>
+        </div>
+      </li>
+      <li>
+        <span class="principle-num">04</span>
+        <div>
+          <strong>Cultural Sensitivity</strong>
+          <span>Localize language, tone, interaction patterns, and content. What works in Western, English-speaking interfaces may not translate to other cultures or age groups.</span>
+        </div>
+      </li>
+      <li>
+        <span class="principle-num">05</span>
+        <div>
+          <strong>User Inclusion & Co-Design</strong>
+          <span>Include older adults from the beginning. Their lived experiences reveal barriers that younger designers and engineers may never notice.</span>
+        </div>
+      </li>
+      <li>
+        <span class="principle-num">06</span>
+        <div>
+          <strong>Emotional Engagement</strong>
+          <span>Design for comfort, reassurance, and joy. Emotional well-being is a first-class outcome, not an afterthought.</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 05 CONCEPT SCREENS -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Concept Screens</h2>
+    </div>
+    <p>I designed tablet-based smart home concepts translating the research into tangible interaction patterns. Every design decision maps to a specific finding.</p>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <span class="c-icon">🌡️</span>
+        <strong>Temperature Control</strong>
+        <p>Large thumb-friendly sliders with clear color scales and confirmation states ("Living room set to 72°F"). Adjustments feel predictable and low-risk — reducing anxiety that a small mistake will dramatically change the environment.</p>
+      </div>
+      <div class="concept-card">
+        <span class="c-icon">🌀</span>
+        <strong>Breathing Orb</strong>
+        <p>A glowing orb that expands and contracts slowly, responding to voice commands in a warm tone. Anchors the home screen alongside time and weather — turning the interface into a calming presence, not just a control panel.</p>
+      </div>
+      <div class="concept-card">
+        <span class="c-icon">💊</span>
+        <strong>Smart Fridge & Medication</strong>
+        <p>Large-text medication reminders with suggested recipes based on available food. Simple icons and limited choices per screen reduce decision fatigue while providing gentle functional support.</p>
+      </div>
+      <div class="concept-card">
+        <span class="c-icon">🔔</span>
+        <strong>Reminders & Check-Ins</strong>
+        <p>"Would you like to take a quick stretch?" instead of rigid alerts. Clear Later / Done options with generous tap targets. Autonomy-respecting but still structured — supportive without nagging.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 LIMITATIONS -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Limitations & Future Directions</h2>
+    </div>
+    <p>This project is intentionally research-driven and conceptual rather than a shipped product. Being honest about its limits is part of the work.</p>
+
+    <div class="two-col-lists">
+      <div class="list-card">
+        <strong>Current limitations</strong>
+        <ul>
+          <li>Based on localized academic samples — generalizability is limited</li>
+          <li>Studies captured one-time interactions, not long-term adoption</li>
+          <li>Much data is self-reported</li>
+          <li>Concept focuses on tablet + voice, not wearables or multimodal rooms</li>
+        </ul>
+      </div>
+      <div class="list-card">
+        <strong>What comes next</strong>
+        <ul>
+          <li>Longitudinal studies on real smart home use over time</li>
+          <li>Co-designed prototypes built with older adults directly</li>
+          <li>Adaptive personalization that adjusts as users age</li>
+          <li>Collaboration with gerontologists and clinicians</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 REFLECTION -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">What I Learned</h2>
+    </div>
+    <div class="reflection-grid">
+      <div class="reflection-card">
+        <span class="r-num">01</span>
+        <strong>Accessibility is emotional</strong>
+        <p>Making something usable isn't enough. If it feels cold, robotic, or judgmental, older adults disengage regardless of how functional it is.</p>
+      </div>
+      <div class="reflection-card">
+        <span class="r-num">02</span>
+        <strong>Trust is designed in, not assumed</strong>
+        <p>Privacy and transparency aren't legal checkboxes. They're interaction design decisions that determine whether someone will turn the device on at all.</p>
+      </div>
+      <div class="reflection-card">
+        <span class="r-num">03</span>
+        <strong>Culture shapes comfort</strong>
+        <p>The same interface can feel warm to one user and alienating to another based entirely on tone, language, and social context. Localization is UX work.</p>
+      </div>
+      <div class="reflection-card">
+        <span class="r-num">04</span>
+        <strong>Research is design</strong>
+        <p>Synthesizing literature isn't separate from design thinking — it's where the real design decisions happen. The framework I built shaped every screen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section class="case-section fade-up">
+    <div class="conclusion-box">
+      <p>Designing for older adults isn't about reducing ambition. It's about raising the bar for empathy, clarity, and long-term care in the products we build.</p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function() {
+  const track = document.getElementById('track');
+  const slides = track.children;
+  const dotsWrap = document.getElementById('dots');
+  let idx = 0;
+
+  Array.from(slides).forEach((_, i) => {
+    const d = document.createElement('button');
+    d.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+    d.onclick = () => go(i);
+    dotsWrap.appendChild(d);
+  });
+
+  function go(i) {
+    idx = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(${idx * -100}%)`;
+    Array.from(dotsWrap.children).forEach((d, j) =>
+      d.setAttribute('aria-selected', j === idx ? 'true' : 'false'));
+  }
+
+  document.getElementById('prev').onclick = () => go(idx - 1);
+  document.getElementById('next').onclick = () => go(idx + 1);
+
+  let startX = null;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchmove', e => {
+    if (!startX) return;
+    const dx = e.touches[0].clientX - startX;
+    if (Math.abs(dx) > 50) { go(idx + (dx < 0 ? 1 : -1)); startX = null; }
+  }, { passive: true });
+  track.addEventListener('touchend', () => { startX = null; });
+
+  setInterval(() => go(idx + 1), 4500);
+})();
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
+
+
+
+
+

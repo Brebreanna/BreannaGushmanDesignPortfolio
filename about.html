@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | Breanna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fff8f5;
+      --blush: #f3c6c6;
+      --rose: #a35757;
+      --deep: #6e3c3c;
+      --soft: #fff0f0;
+      --border: #f0d5d5;
+      --text: #5a3030;
+      --muted: #9e6b6b;
+      --card: #fffafa;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    header { text-align: center; padding: 24px 20px 0; }
+    .bow-top { width: 80px; display: block; margin: 0 auto 16px; }
+    nav ul { display: flex; justify-content: center; gap: 36px; list-style: none; }
+    nav a {
+      text-decoration: none; color: var(--rose); font-weight: 500;
+      font-size: 15px; letter-spacing: 0.03em; transition: opacity 0.2s;
+    }
+    nav a:hover { opacity: 0.6; }
+
+    /* PAGE */
+    .about-page { max-width: 960px; margin: 0 auto; padding: 72px 24px 80px; }
+
+    /* ── HERO ── */
+    .about-hero {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 64px;
+      align-items: center;
+      margin-bottom: 88px;
+    }
+
+    @media (max-width: 780px) {
+      .about-hero { grid-template-columns: 1fr; gap: 40px; }
+      .about-photo { max-width: 280px; margin: 0 auto; }
+    }
+
+    .about-label {
+      display: inline-block; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
+      background: var(--soft); border: 1px solid var(--border);
+      border-radius: 20px; padding: 5px 14px; margin-bottom: 20px;
+    }
+
+    .about-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 5vw, 3.8rem);
+      font-weight: 300; color: var(--rose); line-height: 1.1; margin-bottom: 24px;
+    }
+
+    .about-hero h1 em { font-style: italic; }
+
+    .about-hero p {
+      font-size: 1rem; color: var(--text); line-height: 1.9; margin-bottom: 18px;
+    }
+
+    .about-hero p strong { color: var(--deep); font-weight: 500; }
+
+    .about-photo {
+      width: 100%;
+      display: block;
+    }
+
+    /* QUICK FACTS */
+    .quick-facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+
+    .fact-pill {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 8px 14px;
+      font-size: 0.84rem; color: var(--muted);
+    }
+
+    /* ── SECTION STRUCTURE ── */
+    .about-section { margin-bottom: 72px; }
+
+    .section-header {
+      display: flex; align-items: baseline; gap: 16px;
+      margin-bottom: 28px; padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
+      color: var(--blush); font-weight: 300; min-width: 28px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem; font-weight: 400; color: var(--rose);
+    }
+
+    .about-section p {
+      font-size: 0.97rem; line-height: 1.85; color: var(--text); margin-bottom: 16px;
+    }
+
+    .about-section p strong { color: var(--deep); font-weight: 500; }
+
+    /* ── DIFFERENTIATOR CARDS ── */
+    .diff-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin: 24px 0; }
+    @media (max-width: 680px) { .diff-grid { grid-template-columns: 1fr; } }
+
+    .diff-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 22px;
+    }
+    .diff-card .d-icon { font-size: 1.5rem; display: block; margin-bottom: 12px; }
+    .diff-card strong { display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 6px; }
+    .diff-card p {
+      font-size: 0.86rem !important; color: var(--muted) !important;
+      margin: 0 !important; line-height: 1.65 !important;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+    @media (max-width: 580px) { .skills-grid { grid-template-columns: 1fr; } }
+
+    .skill-group {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px;
+    }
+    .skill-group strong {
+      display: block; font-size: 0.82rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--rose); margin-bottom: 14px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tag {
+      background: var(--soft); border: 1px solid var(--border);
+      border-radius: 6px; padding: 5px 10px;
+      font-size: 0.82rem; color: var(--muted);
+    }
+
+
+
+    /* ── OUTSIDE WORK ── */
+    .outside-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0; }
+    @media (max-width: 580px) { .outside-grid { grid-template-columns: 1fr 1fr; } }
+
+    .outside-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px; text-align: center;
+    }
+    .outside-card .o-icon { font-size: 1.6rem; display: block; margin-bottom: 8px; }
+    .outside-card span { font-size: 0.85rem; color: var(--muted); }
+
+    /* ── CTA ── */
+    .about-cta {
+      background: linear-gradient(135deg, var(--soft) 0%, #fff8f5 100%);
+      border: 1px solid var(--border); border-radius: 16px;
+      padding: 40px; text-align: center; margin-top: 20px;
+    }
+    .about-cta p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem !important; font-style: italic;
+      color: var(--deep) !important; margin-bottom: 24px !important;
+      line-height: 1.7 !important;
+    }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 11px 22px; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 500; text-decoration: none;
+      transition: all 0.2s ease; border: 1px solid var(--blush);
+      background: var(--soft); color: var(--rose);
+    }
+    .btn:hover { background: var(--blush); color: white; transform: translateY(-1px); }
+    .btn.primary { background: var(--rose); color: white; border-color: var(--rose); }
+    .btn.primary:hover { background: var(--deep); border-color: var(--deep); }
+
+    /* FADE */
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="images/home_bow.png" alt="Bow graphic" class="bow-top" />
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://drive.google.com/file/d/13WfRjrqAuKIV-VkosvGOBs4YMxhe4Phs/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="about-page">
+
+  <!-- HERO -->
+  <div class="about-hero fade-up">
+    <div>
+      <span class="about-label">UX Designer · Computer Engineer</span>
+      <h1>I design things<br><em>people actually use.</em></h1>
+
+      <p>I'm Breanna — a UX designer and Computer Engineering senior at UMass Amherst. I got into this field because I kept watching people get frustrated by technology that should have been helping them. Bad onboarding, confusing navigation, interfaces that clearly weren't designed with real people in mind. I wanted to fix that.</p>
+
+      <p>What makes me a little different: <strong>I can build what I design.</strong> I've implemented full React Native apps, worked with ML model integrations, and shipped real prototypes — not just Figma files. That engineering background means I think about feasibility and edge cases from the start, not as an afterthought.</p>
+
+      <p>I want to work on <strong>consumer products</strong> — the kind that millions of people use every day, where a single design decision can affect how someone's morning goes.</p>
+
+      <div class="quick-facts">
+        <span class="fact-pill">🎓 UMass Amherst, CE + UX</span>
+        <span class="fact-pill">📍 Massachusetts</span>
+        <span class="fact-pill">⚡ Design + code</span>
+        <span class="fact-pill">🟢 Open to roles</span>
+      </div>
+    </div>
+
+    <img src="images/aboutme_woman.png" alt="Breanna" class="about-photo" />
+  </div>
+
+  <!-- 01 WHAT I BRING -->
+  <section class="about-section fade-up">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">What I bring</h2>
+    </div>
+    <p>Most UX designers hand off a Figma file and hope engineers interpret it correctly. I've been on both sides of that handoff — and it's changed how I design.</p>
+
+    <div class="diff-grid">
+      <div class="diff-card">
+        <span class="d-icon">🔬</span>
+        <strong>Research first, always</strong>
+        <p>I run real interviews, usability tests, and surveys — not just assumption-based personas. Every design decision I make has a citation.</p>
+      </div>
+      <div class="diff-card">
+        <span class="d-icon">⚙️</span>
+        <strong>I can actually build it</strong>
+        <p>React Native, TypeScript, Python — I've shipped working apps, not just prototypes. I design with implementation in mind from day one.</p>
+      </div>
+      <div class="diff-card">
+        <span class="d-icon">♿</span>
+        <strong>Accessibility isn't an afterthought</strong>
+        <p>Contrast ratios, touch targets, cognitive load — these are part of my process from the first wireframe, not a checklist at the end.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 SKILLS & TOOLS -->
+  <section class="about-section fade-up">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Skills & tools</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-group">
+        <strong>Design</strong>
+        <div class="skill-tags">
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">Prototyping</span>
+          <span class="skill-tag">Usability Testing</span>
+          <span class="skill-tag">User Research</span>
+          <span class="skill-tag">Wireframing</span>
+          <span class="skill-tag">Heuristic Evaluation</span>
+          <span class="skill-tag">Accessibility</span>
+          <span class="skill-tag">A/B Testing</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <strong>Engineering</strong>
+        <div class="skill-tags">
+          <span class="skill-tag">React Native</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">HTML/CSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Expo</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <strong>Research Methods</strong>
+        <div class="skill-tags">
+          <span class="skill-tag">Think-aloud Testing</span>
+          <span class="skill-tag">Survey Design</span>
+          <span class="skill-tag">Affinity Mapping</span>
+          <span class="skill-tag">Persona Development</span>
+          <span class="skill-tag">Competitive Audit</span>
+          <span class="skill-tag">Storyboarding</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <strong>Other tools</strong>
+        <div class="skill-tags">
+          <span class="skill-tag">Balsamiq</span>
+          <span class="skill-tag">Canva</span>
+          <span class="skill-tag">Notion</span>
+          <span class="skill-tag">Google Workspace</span>
+          <span class="skill-tag">VS Code</span>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+
+  <!-- 03 OUTSIDE WORK -->
+  <section class="about-section fade-up">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Outside of work</h2>
+    </div>
+    <p>I'm a new aunt, which has already changed how I think about designing for people who aren't me. I hike when I can, pick up creative hobbies constantly, and genuinely love talking to people with completely different experiences and perspectives. It makes me a better researcher and, honestly, just a more curious person.</p>
+
+    <div class="outside-grid">
+      <div class="outside-card">
+        <span class="o-icon">🥾</span>
+        <span>Hiking</span>
+      </div>
+      <div class="outside-card">
+        <span class="o-icon">🎨</span>
+        <span>Creative hobbies</span>
+      </div>
+      <div class="outside-card">
+        <span class="o-icon">👶</span>
+        <span>New aunt life</span>
+      </div>
+      <div class="outside-card">
+        <span class="o-icon">💬</span>
+        <span>Meeting people</span>
+      </div>
+      <div class="outside-card">
+        <span class="o-icon">📚</span>
+        <span>Always learning</span>
+      </div>
+      <div class="outside-card">
+        <span class="o-icon">🔧</span>
+        <span>Building things</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="about-cta fade-up">
+    <p>"I'm looking for a team where design and engineering actually talk to each other — and where the work ends up in front of real people."</p>
+    <div class="cta-btns">
+      <a href="work.html" class="btn primary">See my work</a>
+      <a href="contact.html" class="btn">Get in touch</a>
+      <a href="https://drive.google.com/file/d/13WfRjrqAuKIV-VkosvGOBs4YMxhe4Phs/view?usp=sharing" target="_blank" class="btn">View resume</a>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

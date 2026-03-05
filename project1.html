@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Global Conservatory Case Study | Breanna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fff8f5;
+      --blush: #f3c6c6;
+      --rose: #a35757;
+      --deep: #6e3c3c;
+      --soft: #fff0f0;
+      --border: #f0d5d5;
+      --text: #5a3030;
+      --muted: #9e6b6b;
+      --card: #fffafa;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header { text-align: center; padding: 24px 20px 0; }
+    .bow-top { width: 80px; display: block; margin: 0 auto 16px; }
+    nav ul { display: flex; justify-content: center; gap: 36px; list-style: none; }
+    nav a {
+      text-decoration: none; color: var(--rose); font-weight: 500;
+      font-size: 15px; letter-spacing: 0.03em; transition: opacity 0.2s;
+    }
+    nav a:hover { opacity: 0.6; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--muted); text-decoration: none; font-size: 0.88rem;
+      margin: 32px 0 0 24px; transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--rose); }
+
+    /* HERO */
+    .hero { max-width: 780px; margin: 64px auto 0; padding: 0 24px; text-align: center; }
+    .hero-label {
+      display: inline-block; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
+      background: var(--soft); border: 1px solid var(--border);
+      border-radius: 20px; padding: 5px 14px; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 300; color: var(--rose); line-height: 1.15; margin-bottom: 18px;
+    }
+    .hero h1 em { font-style: italic; font-weight: 300; }
+    .hero-tagline {
+      font-size: 1.05rem; color: var(--muted);
+      max-width: 560px; margin: 0 auto 36px; line-height: 1.8;
+    }
+
+    /* META STRIP */
+    .meta-strip {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      max-width: 700px; margin: 0 auto 56px;
+      border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; background: var(--card);
+    }
+    .meta-item {
+      flex: 1; min-width: 140px; padding: 18px 20px;
+      text-align: center; border-right: 1px solid var(--border);
+    }
+    .meta-item:last-child { border-right: none; }
+    .meta-label {
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted); display: block; margin-bottom: 4px;
+    }
+    .meta-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-weight: 600; color: var(--deep);
+    }
+
+    /* QUICK ACCESS */
+    .quick-access { max-width: 700px; margin: 0 auto 64px; padding: 0 24px; text-align: center; }
+    .quick-access p { font-size: 0.9rem; color: var(--muted); margin-bottom: 16px; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .btn {
+      display: inline-block; padding: 10px 20px; border-radius: 8px;
+      font-size: 0.88rem; font-weight: 500; text-decoration: none;
+      transition: all 0.2s ease; border: 1px solid var(--blush);
+      background: var(--soft); color: var(--rose);
+    }
+    .btn:hover { background: var(--blush); color: white; transform: translateY(-1px); }
+    .btn.primary { background: var(--rose); color: white; border-color: var(--rose); }
+    .btn.primary:hover { background: var(--deep); border-color: var(--deep); }
+
+    .disclaimer-note {
+      margin-top: 14px; font-size: 0.82rem; color: var(--muted); font-style: italic;
+    }
+
+    /* CAROUSEL */
+    .carousel-wrap { max-width: 600px; margin: 0 auto 72px; padding: 0 24px; position: relative; }
+    .carousel-viewport {
+      overflow: hidden; border-radius: 20px;
+      border: 1px solid var(--border); box-shadow: 0 8px 40px rgba(163,87,87,0.08);
+    }
+    .carousel-track { display: flex; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
+    .carousel-slide { min-width: 100%; }
+    .carousel-slide img { width: 100%; height: auto; display: block; }
+    .carousel-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid var(--border); background: white; color: var(--rose);
+      font-size: 18px; cursor: pointer; z-index: 3;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: all 0.2s;
+    }
+    .carousel-btn:hover { background: var(--blush); color: white; }
+    .carousel-btn.prev { left: -14px; }
+    .carousel-btn.next { right: -14px; }
+    .carousel-dots { display: flex; justify-content: center; gap: 6px; margin-top: 14px; }
+    .carousel-dots button {
+      width: 8px; height: 8px; border-radius: 50%; border: none;
+      background: var(--blush); cursor: pointer; transition: all 0.3s; padding: 0;
+    }
+    .carousel-dots button[aria-selected="true"] { background: var(--rose); transform: scale(1.3); }
+
+    /* CASE BODY */
+    .case-body { max-width: 780px; margin: 0 auto; padding: 0 24px 80px; }
+    .case-section { margin-bottom: 72px; }
+
+    .section-header {
+      display: flex; align-items: baseline; gap: 16px;
+      margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border);
+    }
+    .section-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
+      color: var(--blush); font-weight: 300; min-width: 28px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem; font-weight: 400; color: var(--rose);
+    }
+    .case-section h3 {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;
+      font-weight: 600; color: var(--deep); margin: 32px 0 12px;
+    }
+    .case-section p {
+      font-size: 0.97rem; line-height: 1.85; color: var(--text); margin-bottom: 16px;
+    }
+    .case-section ul { padding-left: 1.4rem; margin-bottom: 16px; }
+    .case-section li { font-size: 0.97rem; line-height: 1.85; margin-bottom: 6px; }
+
+    /* IMPLICATION */
+    .implication {
+      background: linear-gradient(135deg, #fff0f0 0%, #fffafa 100%);
+      border-left: 3px solid var(--blush); border-radius: 0 10px 10px 0;
+      padding: 16px 20px; margin: 20px 0;
+    }
+    .implication strong {
+      font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--rose); display: block; margin-bottom: 6px;
+    }
+    .implication p { font-size: 0.93rem !important; margin: 0 !important; color: var(--text) !important; }
+
+    /* TWO COL */
+    .two-col-lists { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+    @media (max-width: 580px) { .two-col-lists { grid-template-columns: 1fr; } }
+
+    .list-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px;
+    }
+    .list-card strong {
+      display: block; font-size: 0.85rem; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--rose); margin-bottom: 12px;
+    }
+    .list-card ul { padding-left: 1.2rem; margin: 0; }
+    .list-card li {
+      font-size: 0.88rem !important; color: var(--muted) !important;
+      margin-bottom: 6px !important; line-height: 1.6 !important;
+    }
+
+    /* PROJECT SCOPE CARDS */
+    .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0; }
+    @media (max-width: 580px) { .scope-grid { grid-template-columns: 1fr; } }
+
+    .scope-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 22px;
+    }
+    .scope-card .s-icon { font-size: 1.4rem; display: block; margin-bottom: 10px; }
+    .scope-card strong { display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 6px; }
+    .scope-card p {
+      font-size: 0.87rem !important; color: var(--muted) !important;
+      margin: 0 !important; line-height: 1.65 !important;
+    }
+
+    /* OUTCOME ROWS */
+    .result-row {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 18px 0; border-bottom: 1px solid var(--border);
+    }
+    .result-row:last-child { border-bottom: none; }
+    .result-icon {
+      width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; flex-shrink: 0; margin-top: 2px;
+    }
+    .result-icon.pass { background: #e8f5e9; }
+    .result-icon.note { background: #e8f0fe; }
+    .result-content strong { display: block; font-size: 0.95rem; color: var(--deep); margin-bottom: 4px; }
+    .result-content p { font-size: 0.9rem !important; color: var(--muted) !important; margin: 0 !important; }
+
+    /* DECISION LIST */
+    .decision-list { list-style: none; padding: 0; margin: 20px 0; }
+    .decision-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid var(--border); margin: 0;
+    }
+    .decision-list li:last-child { border-bottom: none; }
+    .decision-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--blush); flex-shrink: 0; margin-top: 8px;
+    }
+    .decision-list strong { display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 3px; }
+    .decision-list span { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+    /* REFLECTION */
+    .reflection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+    @media (max-width: 580px) { .reflection-grid { grid-template-columns: 1fr; } }
+
+    .reflection-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px;
+    }
+    .reflection-card .r-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 2rem;
+      color: var(--blush); font-weight: 300; display: block; margin-bottom: 8px; line-height: 1;
+    }
+    .reflection-card strong { display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 6px; }
+    .reflection-card p {
+      font-size: 0.86rem !important; color: var(--muted) !important;
+      margin: 0 !important; line-height: 1.6 !important;
+    }
+
+    /* CONCLUSION */
+    .conclusion-box {
+      background: linear-gradient(135deg, var(--soft) 0%, #fff8f5 100%);
+      border: 1px solid var(--border); border-radius: 16px; padding: 36px 40px; text-align: center;
+    }
+    .conclusion-box p {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem !important;
+      font-weight: 400; font-style: italic; color: var(--deep) !important;
+      max-width: 560px; margin: 0 auto !important; line-height: 1.8 !important;
+    }
+
+    /* FADE */
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="images/home_bow.png" alt="Bow graphic" class="bow-top" />
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://drive.google.com/file/d/13WfRjrqAuKIV-VkosvGOBs4YMxhe4Phs/view?usp=sharing" target="_blank">Resume</a></li>
+    </ul>
+  </nav>
+</header>
+
+<a href="work.html" class="back-link">← Back to work</a>
+
+<!-- HERO -->
+<section class="hero fade-up">
+  <span class="hero-label">Internship &nbsp;·&nbsp; Web Redesign + Social Media</span>
+  <h1>The Global Conservatory:<br><em>Website Redesign</em></h1>
+  <p class="hero-tagline">Redesigning the digital presence of an international music education organization — from outdated and hard to navigate, to modern, unified, and audience-first.</p>
+</section>
+
+<!-- META STRIP -->
+<div class="meta-strip fade-up">
+  <div class="meta-item">
+    <span class="meta-label">Role</span>
+    <span class="meta-value">UX Designer</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Scope</span>
+    <span class="meta-value">Web + Social</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Deliverables</span>
+    <span class="meta-value">3 page redesigns</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Tools</span>
+    <span class="meta-value">Figma, Canva</span>
+  </div>
+</div>
+
+<!-- QUICK ACCESS -->
+<div class="quick-access fade-up">
+  <p>Explore the design files and live site</p>
+  <div class="btn-row">
+    <a href="https://www.figma.com/design/BowpLwKh25uMn3oOM2R68I/Projects-File?t=4ZGyyhEVN9WXHdgx-1" target="_blank" class="btn primary">Open Figma Design</a>
+    <a href="https://theglobalconservatory.com/password" target="_blank" class="btn">View Live Site</a>
+    <a href="https://docs.google.com/presentation/d/1kSWRLZUjOCD5xY8EJUF76gFOPlDkjCMTjEDlApdYPOM/edit?usp=sharing" target="_blank" class="btn">Slide Deck</a>
+  </div>
+  <p class="disclaimer-note">The live site follows the page architecture I designed, but some visual elements — including the color scheme — differ from my original work.</p>
+</div>
+
+<!-- CAROUSEL -->
+<div class="carousel-wrap fade-up">
+  <div class="carousel-viewport">
+    <div class="carousel-track" id="track">
+      <div class="carousel-slide"><img src="images/gc-1.png" alt="Global Conservatory landing screen" /></div>
+      <div class="carousel-slide"><img src="images/gc-2.png" alt="Programs overview screen" /></div>
+      <div class="carousel-slide"><img src="images/gc-3.png" alt="Iceland program detail screen" /></div>
+      <div class="carousel-slide"><img src="images/gc-4.png" alt="Application or contact screen" /></div>
+    </div>
+  </div>
+  <button class="carousel-btn prev" id="prev">‹</button>
+  <button class="carousel-btn next" id="next">›</button>
+  <div class="carousel-dots" id="dots"></div>
+</div>
+
+<!-- CASE BODY -->
+<div class="case-body">
+
+  <!-- 01 CONTEXT -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Context</h2>
+    </div>
+    <p>When I joined the team, the organization was in the middle of a major digital transformation — redesigning key public-facing pages and building new ones from scratch. The existing Global Conservatory materials were outdated, hard to navigate, and underperforming in engagement. The Iceland program had no digital presence at all.</p>
+    <div class="implication">
+      <strong>My focus</strong>
+      <p>Create a unified online presence that reflected the organization's mission, improved navigation for a diverse international audience, and clearly communicated each program's unique offerings to students, collaborators, and donors.</p>
+    </div>
+  </section>
+
+  <!-- 02 SCOPE -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Scope of Work</h2>
+    </div>
+    <p>I fully owned the creative direction, design, and execution across three distinct projects simultaneously.</p>
+    <div class="scope-grid">
+      <div class="scope-card">
+        <span class="s-icon">🌍</span>
+        <strong>Global Conservatory — Redesign</strong>
+        <p>Audited existing pages for navigation issues, visual inconsistencies, and content gaps. Rebuilt layouts with updated typography, colors, and imagery.</p>
+      </div>
+      <div class="scope-card">
+        <span class="s-icon">🏔️</span>
+        <strong>Iceland Program — New Build</strong>
+        <p>Created the full design from scratch with no existing materials — only project goals and provided information to work from.</p>
+      </div>
+      <div class="scope-card">
+        <span class="s-icon">🎵</span>
+        <strong>Music Club — Visual Refresh</strong>
+        <p>Contributed to improving the main site's visual presentation and strengthening the overall brand consistency.</p>
+      </div>
+      <div class="scope-card">
+        <span class="s-icon">📱</span>
+        <strong>Social Media Content</strong>
+        <p>Designed promotional content to increase reach and engagement, aligned with the refreshed brand style across platforms.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 CHALLENGES -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Challenges</h2>
+    </div>
+    <p>Each project had its own personality — academic, travel-focused, and community-based — and I needed to unify the branding without flattening what made each one distinct.</p>
+
+    <div class="two-col-lists">
+      <div class="list-card">
+        <strong>Complexity</strong>
+        <ul>
+          <li>Three different audiences: faculty, students, international visitors</li>
+          <li>Design, content, and development phases overlapping</li>
+          <li>Building one project from zero while redesigning others</li>
+        </ul>
+      </div>
+      <div class="list-card">
+        <strong>How I handled it</strong>
+        <ul>
+          <li>Shared wireframes early to catch misalignment before full execution</li>
+          <li>Kept communication open across teams as timelines shifted</li>
+          <li>Worked iteratively to keep visual and functional goals aligned</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 PROCESS -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Process</h2>
+    </div>
+    <ul class="decision-list">
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>Discovery and audit</strong>
+          <span>Reviewed existing pages to identify navigation issues, visual inconsistencies, and content gaps. Met with team members to understand priorities and how each project needed to differ in tone.</span>
+        </div>
+      </li>
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>Early wireframes shared for feedback</strong>
+          <span>Built initial directions in Figma and shared them before moving into full execution — making adjustments early rather than late.</span>
+        </div>
+      </li>
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>Full design execution</strong>
+          <span>Created complete layouts with updated typography, colors, and imagery tailored to each project's personality. Designed social content in parallel.</span>
+        </div>
+      </li>
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>Handoff and live review</strong>
+          <span>Organized files for the technical team and reviewed live builds against the design vision before launch.</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 05 OUTCOMES -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Outcomes</h2>
+    </div>
+    <div style="margin: 20px 0;">
+      <div class="result-row">
+        <div class="result-icon pass">✓</div>
+        <div class="result-content">
+          <strong>Navigation improvements</strong>
+          <p>Users could reach key details faster across all redesigned pages.</p>
+        </div>
+      </div>
+      <div class="result-row">
+        <div class="result-icon pass">✓</div>
+        <div class="result-content">
+          <strong>Unified brand across three distinct projects</strong>
+          <p>Academic, travel-focused, and community-based pages felt cohesive without losing their individual character.</p>
+        </div>
+      </div>
+      <div class="result-row">
+        <div class="result-icon pass">✓</div>
+        <div class="result-content">
+          <strong>Leadership praised the clarity and modern look</strong>
+          <p>Feedback highlighted the visual upgrade and improved content organization as clear wins.</p>
+        </div>
+      </div>
+      <div class="result-row">
+        <div class="result-icon pass">✓</div>
+        <div class="result-content">
+          <strong>Social media reach increased</strong>
+          <p>Content designed for the campaign reached a broader audience and improved engagement metrics.</p>
+        </div>
+      </div>
+      <div class="result-row">
+        <div class="result-icon note">→</div>
+        <div class="result-content">
+          <strong>Architecture adopted, visual direction adapted</strong>
+          <p>The live site follows the page structure and UX system I designed. The team later switched from my original dark theme to a white background — reinforcing that strong UX foundations outlast any single visual direction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 REFLECTION -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">What I Learned</h2>
+    </div>
+    <div class="reflection-grid">
+      <div class="reflection-card">
+        <span class="r-num">01</span>
+        <strong>One brand, multiple personalities</strong>
+        <p>Designing across academic, travel, and community contexts in parallel sharpened my ability to adjust tone and visual language without losing coherence.</p>
+      </div>
+      <div class="reflection-card">
+        <span class="r-num">02</span>
+        <strong>UX foundations outlast visual decisions</strong>
+        <p>The team changed the color scheme after launch — but the page architecture held. Good structure survives style changes.</p>
+      </div>
+      <div class="reflection-card">
+        <span class="r-num">03</span>
+        <strong>Early sharing prevents late rework</strong>
+        <p>Sharing wireframes before full execution meant feedback arrived when changes were cheap, not after hours of polished work.</p>
+      </div>
+      <div class="reflection-card">
+        <span class="r-num">04</span>
+        <strong>Web and social are one system</strong>
+        <p>Designing both in parallel forced a level of visual consistency I wouldn't have achieved treating them as separate deliverables.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section class="case-section fade-up">
+    <div class="conclusion-box">
+      <p>This internship taught me that design at an organization isn't just about screens — it's about building a system that holds up long after you've moved on.</p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function() {
+  const track = document.getElementById('track');
+  const slides = track.children;
+  const dotsWrap = document.getElementById('dots');
+  let idx = 0;
+
+  Array.from(slides).forEach((_, i) => {
+    const d = document.createElement('button');
+    d.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+    d.onclick = () => go(i);
+    dotsWrap.appendChild(d);
+  });
+
+  function go(i) {
+    idx = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(${idx * -100}%)`;
+    Array.from(dotsWrap.children).forEach((d, j) =>
+      d.setAttribute('aria-selected', j === idx ? 'true' : 'false'));
+  }
+
+  document.getElementById('prev').onclick = () => go(idx - 1);
+  document.getElementById('next').onclick = () => go(idx + 1);
+
+  let startX = null;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchmove', e => {
+    if (!startX) return;
+    const dx = e.touches[0].clientX - startX;
+    if (Math.abs(dx) > 50) { go(idx + (dx < 0 ? 1 : -1)); startX = null; }
+  }, { passive: true });
+  track.addEventListener('touchend', () => { startX = null; });
+
+  setInterval(() => go(idx + 1), 4500);
+})();
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

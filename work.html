@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Work | Breanna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fff8f5;
+      --blush: #f3c6c6;
+      --rose: #a35757;
+      --deep: #6e3c3c;
+      --soft: #fff0f0;
+      --border: #f0d5d5;
+      --text: #5a3030;
+      --muted: #9e6b6b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    header { text-align: center; padding: 24px 20px 0; }
+    .bow-top { width: 80px; display: block; margin: 0 auto 16px; }
+    nav ul { display: flex; justify-content: center; gap: 36px; list-style: none; }
+    nav a {
+      text-decoration: none; color: var(--rose); font-weight: 500;
+      font-size: 15px; letter-spacing: 0.03em; transition: opacity 0.2s;
+    }
+    nav a:hover { opacity: 0.6; }
+
+    /* PAGE */
+    .work-page { max-width: 1040px; margin: 0 auto; padding: 72px 32px 100px; }
+
+    /* HEADER */
+    .work-header { text-align: center; margin-bottom: 52px; }
+    .work-label {
+      display: inline-block; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
+      background: var(--soft); border: 1px solid var(--border);
+      border-radius: 20px; padding: 5px 14px; margin-bottom: 20px;
+    }
+    .work-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 5vw, 3.8rem);
+      font-weight: 300; color: var(--rose); line-height: 1.1; margin-bottom: 16px;
+    }
+    .work-header h1 em { font-style: italic; }
+    .work-header p { font-size: 1rem; color: var(--muted); max-width: 480px; margin: 0 auto; line-height: 1.8; }
+
+    /* FILTER */
+    .filter-row {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: 8px; margin-bottom: 56px;
+    }
+    .filter-btn {
+      padding: 8px 20px; border-radius: 20px; border: 1px solid var(--border);
+      background: transparent; color: var(--muted);
+      font-family: 'DM Sans', sans-serif; font-size: 0.84rem;
+      cursor: pointer; transition: all 0.2s ease;
+    }
+    .filter-btn:hover { border-color: var(--blush); color: var(--rose); }
+    .filter-btn.active { background: var(--rose); color: white; border-color: var(--rose); }
+
+    /* ── FEATURED ROW ── */
+    .featured-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+    @media (max-width: 680px) { .featured-row { grid-template-columns: 1fr; } }
+
+    .featured-img-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--soft);
+      height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .featured-img-wrap img {
+      max-width: 100%; max-height: 100%;
+      width: auto; height: auto;
+      object-fit: contain; display: block;
+      transition: transform 0.55s ease;
+    }
+    .featured-row:hover .featured-img-wrap img { transform: scale(1.03); }
+
+    .featured-text { padding: 8px 8px 8px 16px; }
+
+    .featured-text .card-tags { margin-bottom: 14px; }
+
+    .featured-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 400;
+      color: var(--deep); line-height: 1.2; margin-bottom: 14px;
+    }
+    .featured-text p {
+      font-size: 0.93rem; color: var(--muted);
+      line-height: 1.8; margin-bottom: 22px; max-width: 400px;
+    }
+
+    /* ── STANDARD GRID ── */
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 640px) { .project-grid { grid-template-columns: 1fr; } }
+
+    /* BASE CARD */
+    .project-card {
+      border-radius: 16px;
+      overflow: hidden;
+      background: transparent;
+      transition: transform 0.25s ease;
+      cursor: pointer;
+    }
+    .project-card:hover { transform: translateY(-4px); }
+
+    .card-img-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--soft);
+      height: 260px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-img {
+      max-width: 100%; max-height: 100%;
+      width: auto; height: auto;
+      object-fit: contain; display: block;
+      transition: transform 0.55s ease;
+    }
+    .project-card:hover .card-img { transform: scale(1.04); }
+
+    /* CARD TEXT — sits below image, no background */
+    .card-body { padding: 0 4px; }
+
+    /* TAGS */
+    .card-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
+    .card-tag {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .card-tag.hi { color: var(--rose); }
+
+    /* TITLE */
+    .card-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem; font-weight: 400;
+      color: var(--deep); line-height: 1.25; margin-bottom: 8px;
+    }
+
+    /* DESC */
+    .card-body p {
+      font-size: 0.87rem; color: var(--muted);
+      line-height: 1.7; margin-bottom: 14px;
+    }
+
+    /* LINK */
+    .card-link {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.84rem; font-weight: 500; color: var(--rose);
+      text-decoration: none; transition: gap 0.2s ease;
+    }
+    .card-link:hover { gap: 9px; }
+    .card-link::after { content: '→'; }
+
+    /* FADE */
+    .fade-up { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="images/home_bow.png" alt="Bow graphic" class="bow-top" />
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://drive.google.com/file/d/13WfRjrqAuKIV-VkosvGOBs4YMxhe4Phs/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="work-page">
+
+  <div class="work-header fade-up">
+    <span class="work-label">Portfolio</span>
+    <h1>Selected<br><em>work.</em></h1>
+    <p>UX research, product design, and built prototypes — from solo hackathons to shipped real-world sites.</p>
+  </div>
+
+  <div class="filter-row fade-up">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="research">Research</button>
+    <button class="filter-btn" data-filter="mobile">Mobile</button>
+    <button class="filter-btn" data-filter="web">Web</button>
+    <button class="filter-btn" data-filter="hackathon">Hackathon</button>
+  </div>
+
+  <!-- FEATURED: SnoozeControl -->
+  <div class="featured-row fade-up" data-tags="research mobile" id="featured">
+    <div class="featured-img-wrap">
+      <img src="images/Untitled design (40).png" alt="SnoozeControl" />
+    </div>
+    <div class="featured-text">
+      <div class="card-tags">
+        <span class="card-tag hi">Capstone</span>
+        <span class="card-tag">Research</span>
+        <span class="card-tag">Mobile</span>
+        <span class="card-tag">React Native</span>
+      </div>
+      <h2>SnoozeControl — Drowsy Driver Detection</h2>
+      <p>Safety-critical mobile app with real-time drowsiness detection, multi-modal alerts, and fatigue pattern insights. Built end-to-end with React Native + TypeScript.</p>
+      <a class="card-link" href="project7.html">View case study</a>
+    </div>
+  </div>
+
+  <!-- GRID -->
+  <div class="project-grid" id="grid">
+
+    <div class="project-card fade-up" data-tags="research mobile">
+      <div class="card-img-wrap">
+        <img class="card-img" src="images/Untitled design (45).png" alt="Infinite Coloring Book" />
+      </div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="card-tag hi">Research</span>
+          <span class="card-tag">Mobile</span>
+          <span class="card-tag">Usability Testing</span>
+        </div>
+        <h3>Infinite Coloring Book</h3>
+        <p>Photo-to-template coloring app for adults. A/B testing, heuristic evaluation, and full lo-fi to hi-fi iteration.</p>
+        <a class="card-link" href="project6.html">View case study</a>
+      </div>
+    </div>
+
+    <div class="project-card fade-up" data-tags="web">
+      <div class="card-img-wrap">
+        <img class="card-img" src="images/project1 (1).png" alt="The Global Conservatory" />
+      </div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="card-tag hi">Web</span>
+          <span class="card-tag">Real-world client</span>
+        </div>
+        <h3>The Global Conservatory</h3>
+        <p>Live website redesign for an international music education org. My page architecture made it to production.</p>
+        <a class="card-link" href="project1.html">View case study</a>
+      </div>
+    </div>
+
+    <div class="project-card fade-up" data-tags="research">
+      <div class="card-img-wrap">
+        <img class="card-img" src="images/Untitled design (47).png" alt="Smart Home UX" />
+      </div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="card-tag hi">Research</span>
+          <span class="card-tag">Accessibility</span>
+        </div>
+        <h3>Smart Home UX for Older Adults</h3>
+        <p>Research synthesis and concept design on how aging, emotion, culture, and trust intersect in smart home UX.</p>
+        <a class="card-link" href="project3.html">View case study</a>
+      </div>
+    </div>
+
+    <div class="project-card fade-up" data-tags="research mobile">
+      <div class="card-img-wrap">
+        <img class="card-img" src="images/Untitled design (39).png" alt="Grow Up Green" />
+      </div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="card-tag hi">Research</span>
+          <span class="card-tag">Mobile</span>
+          <span class="card-tag">End-to-end</span>
+        </div>
+        <h3>Grow Up Green</h3>
+        <p>End-to-end UX for a kids' secondhand marketplace — 5 user interviews, persona development, lo-fi to hi-fi.</p>
+        <a class="card-link" href="project4.html">View case study</a>
+      </div>
+    </div>
+
+    <div class="project-card fade-up" data-tags="hackathon web">
+      <div class="card-img-wrap">
+        <img class="card-img" src="images/project2 (1).png" alt="Quizzlr" />
+      </div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="card-tag hi">Hackathon</span>
+          <span class="card-tag">Web</span>
+          <span class="card-tag">Gamification</span>
+        </div>
+        <h3>Quizzlr — Multiplayer Study App</h3>
+        <p>Complete hi-fi prototype with two user flows built solo in 24 hours. Judges called it worth building further.</p>
+        <a class="card-link" href="project2.html">View case study</a>
+      </div>
+    </div>
+
+    <div class="project-card fade-up" data-tags="hackathon mobile">
+      <div class="card-img-wrap">
+        <img class="card-img" src="images/Untitled design (41).png" alt="Cookr" />
+      </div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="card-tag hi">Hackathon</span>
+          <span class="card-tag">Mobile</span>
+          <span class="card-tag">Solo</span>
+        </div>
+        <h3>Cookr — Recipe App</h3>
+        <p>Swipe-based recipe discovery for college students. Solo UX from competitive audit to hi-fi in one sprint.</p>
+        <a class="card-link" href="project5.html">View case study</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script>
+  const btns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.project-card');
+  const featured = document.getElementById('featured');
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+
+      // Handle featured row
+      const featuredMatch = filter === 'all' || (featured.dataset.tags || '').includes(filter);
+      featured.style.display = featuredMatch ? '' : 'none';
+
+      // Handle grid cards
+      cards.forEach(card => {
+        const show = filter === 'all' || (card.dataset.tags || '').includes(filter);
+        card.style.display = show ? '' : 'none';
+      });
+    });
+  });
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
