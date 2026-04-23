@@ -28,7 +28,6 @@
       line-height: 1.7;
     }
 
-    /* NAV */
     header { text-align: center; padding: 24px 20px 0; }
     .bow-top { width: 80px; display: block; margin: 0 auto 16px; }
     nav ul { display: flex; justify-content: center; gap: 36px; list-style: none; }
@@ -38,10 +37,8 @@
     }
     nav a:hover { opacity: 0.6; }
 
-    /* PAGE */
     .work-page { max-width: 1040px; margin: 0 auto; padding: 72px 32px 100px; }
 
-    /* HEADER */
     .work-header { text-align: center; margin-bottom: 52px; }
     .work-label {
       display: inline-block; font-size: 11px; font-weight: 500;
@@ -57,7 +54,6 @@
     .work-header h1 em { font-style: italic; }
     .work-header p { font-size: 1rem; color: var(--muted); max-width: 480px; margin: 0 auto; line-height: 1.8; }
 
-    /* FILTER */
     .filter-row {
       display: flex; justify-content: center; flex-wrap: wrap;
       gap: 8px; margin-bottom: 56px;
@@ -71,7 +67,6 @@
     .filter-btn:hover { border-color: var(--blush); color: var(--rose); }
     .filter-btn.active { background: var(--rose); color: white; border-color: var(--rose); }
 
-    /* ── FEATURED ROW ── */
     .featured-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -82,26 +77,16 @@
     @media (max-width: 680px) { .featured-row { grid-template-columns: 1fr; } }
 
     .featured-img-wrap {
-      border-radius: 16px;
-      overflow: hidden;
-      background: var(--soft);
-      height: 360px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border-radius: 16px; overflow: hidden; background: var(--soft);
+      height: 360px; display: flex; align-items: center; justify-content: center;
     }
     .featured-img-wrap img {
-      max-width: 100%; max-height: 100%;
-      width: auto; height: auto;
-      object-fit: contain; display: block;
-      transition: transform 0.55s ease;
+      max-width: 100%; max-height: 100%; width: auto; height: auto;
+      object-fit: contain; display: block; transition: transform 0.55s ease;
     }
     .featured-row:hover .featured-img-wrap img { transform: scale(1.03); }
-
     .featured-text { padding: 8px 8px 8px 16px; }
-
     .featured-text .card-tags { margin-bottom: 14px; }
-
     .featured-text h2 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 2rem; font-weight: 400;
@@ -112,46 +97,27 @@
       line-height: 1.8; margin-bottom: 22px; max-width: 400px;
     }
 
-    /* ── STANDARD GRID ── */
-    .project-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
+    .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     @media (max-width: 640px) { .project-grid { grid-template-columns: 1fr; } }
 
-    /* BASE CARD */
     .project-card {
-      border-radius: 16px;
-      overflow: hidden;
-      background: transparent;
-      transition: transform 0.25s ease;
-      cursor: pointer;
+      border-radius: 16px; overflow: hidden; background: transparent;
+      transition: transform 0.25s ease; cursor: pointer;
     }
     .project-card:hover { transform: translateY(-4px); }
 
     .card-img-wrap {
-      border-radius: 16px;
-      overflow: hidden;
-      background: var(--soft);
-      height: 260px;
-      margin-bottom: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border-radius: 16px; overflow: hidden; background: var(--soft);
+      height: 260px; margin-bottom: 18px;
+      display: flex; align-items: center; justify-content: center;
     }
     .card-img {
-      max-width: 100%; max-height: 100%;
-      width: auto; height: auto;
-      object-fit: contain; display: block;
-      transition: transform 0.55s ease;
+      max-width: 100%; max-height: 100%; width: auto; height: auto;
+      object-fit: contain; display: block; transition: transform 0.55s ease;
     }
     .project-card:hover .card-img { transform: scale(1.04); }
 
-    /* CARD TEXT — sits below image, no background */
     .card-body { padding: 0 4px; }
-
-    /* TAGS */
     .card-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
     .card-tag {
       font-size: 10px; font-weight: 500; letter-spacing: 0.12em;
@@ -159,20 +125,16 @@
     }
     .card-tag.hi { color: var(--rose); }
 
-    /* TITLE */
     .card-body h3 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.35rem; font-weight: 400;
       color: var(--deep); line-height: 1.25; margin-bottom: 8px;
     }
-
-    /* DESC */
     .card-body p {
       font-size: 0.87rem; color: var(--muted);
       line-height: 1.7; margin-bottom: 14px;
     }
 
-    /* LINK */
     .card-link {
       display: inline-flex; align-items: center; gap: 5px;
       font-size: 0.84rem; font-weight: 500; color: var(--rose);
@@ -181,7 +143,6 @@
     .card-link:hover { gap: 9px; }
     .card-link::after { content: '→'; }
 
-    /* FADE */
     .fade-up { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
     .fade-up.visible { opacity: 1; transform: none; }
   </style>
@@ -215,9 +176,10 @@
     <button class="filter-btn" data-filter="mobile">Mobile</button>
     <button class="filter-btn" data-filter="web">Web</button>
     <button class="filter-btn" data-filter="hackathon">Hackathon</button>
+    <button class="filter-btn" data-filter="real-world">Real-World Work</button>
   </div>
 
-  <!-- FEATURED: SnoozeControl -->
+  <!-- FEATURED: SnoozeControl — capstone, not a client project, so not tagged real-world -->
   <div class="featured-row fade-up" data-tags="research mobile" id="featured">
     <div class="featured-img-wrap">
       <img src="images/Untitled design (40).png" alt="SnoozeControl" />
@@ -254,7 +216,8 @@
       </div>
     </div>
 
-    <div class="project-card fade-up" data-tags="web">
+    <!-- Global Conservatory — real-world internship client -->
+    <div class="project-card fade-up" data-tags="web real-world">
       <div class="card-img-wrap">
         <img class="card-img" src="images/project1 (1).png" alt="The Global Conservatory" />
       </div>
@@ -346,11 +309,9 @@
       btn.classList.add('active');
       const filter = btn.dataset.filter;
 
-      // Handle featured row
       const featuredMatch = filter === 'all' || (featured.dataset.tags || '').includes(filter);
       featured.style.display = featuredMatch ? '' : 'none';
 
-      // Handle grid cards
       cards.forEach(card => {
         const show = filter === 'all' || (card.dataset.tags || '').includes(filter);
         card.style.display = show ? '' : 'none';
