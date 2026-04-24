@@ -325,13 +325,27 @@
       <div class="carousel-slide"><img src="images/gc-2.png" alt="Programs overview screen" /></div>
       <div class="carousel-slide"><img src="images/gc-3.png" alt="Iceland program detail screen" /></div>
       <div class="carousel-slide"><img src="images/gc-4.png" alt="Application or contact screen" /></div>
-      <div class="carousel-slide"><img src="images/iceland-1.png" alt="Iceland program — expedition listings hi-fi" /></div>
-      <div class="carousel-slide"><img src="images/iceland-2.png" alt="Iceland program — concierge services hi-fi" /></div>
     </div>
   </div>
   <button class="carousel-btn prev" id="prev">‹</button>
   <button class="carousel-btn next" id="next">›</button>
   <div class="carousel-dots" id="dots"></div>
+</div>
+
+<!-- ICELAND CAROUSEL -->
+<div style="max-width: 600px; margin: 0 auto 24px; padding: 0 24px;">
+  <p style="font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-align: center; margin-bottom: 14px;">Iceland Program — Hi-Fi Designs</p>
+</div>
+<div class="carousel-wrap fade-up" style="margin-bottom: 72px;">
+  <div class="carousel-viewport">
+    <div class="carousel-track" id="track2">
+      <div class="carousel-slide"><img src="images/iceland-1.png" alt="Iceland program — expedition listings hi-fi" /></div>
+      <div class="carousel-slide"><img src="images/iceland-2.png" alt="Iceland program — concierge services hi-fi" /></div>
+    </div>
+  </div>
+  <button class="carousel-btn prev" id="prev2">‹</button>
+  <button class="carousel-btn next" id="next2">›</button>
+  <div class="carousel-dots" id="dots2"></div>
 </div>
 
 <!-- CASE BODY -->
@@ -557,10 +571,10 @@
 </div>
 
 <script>
-(function() {
-  const track = document.getElementById('track');
+function makeCarousel(trackId, prevId, nextId, dotsId, autoplay) {
+  const track = document.getElementById(trackId);
   const slides = track.children;
-  const dotsWrap = document.getElementById('dots');
+  const dotsWrap = document.getElementById(dotsId);
   let idx = 0;
 
   Array.from(slides).forEach((_, i) => {
@@ -577,8 +591,8 @@
       d.setAttribute('aria-selected', j === idx ? 'true' : 'false'));
   }
 
-  document.getElementById('prev').onclick = () => go(idx - 1);
-  document.getElementById('next').onclick = () => go(idx + 1);
+  document.getElementById(prevId).onclick = () => go(idx - 1);
+  document.getElementById(nextId).onclick = () => go(idx + 1);
 
   let startX = null;
   track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
@@ -589,8 +603,11 @@
   }, { passive: true });
   track.addEventListener('touchend', () => { startX = null; });
 
-  setInterval(() => go(idx + 1), 4500);
-})();
+  if (autoplay) setInterval(() => go(idx + 1), 4500);
+}
+
+makeCarousel('track', 'prev', 'next', 'dots', true);
+makeCarousel('track2', 'prev2', 'next2', 'dots2', false);
 
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
