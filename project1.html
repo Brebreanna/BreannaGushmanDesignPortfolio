@@ -283,7 +283,7 @@
 <section class="hero fade-up">
   <span class="hero-label">Internship &nbsp;·&nbsp; Web Redesign + Social Media</span>
   <h1>The Global Conservatory:<br><em>Website Redesign</em></h1>
-  <p class="hero-tagline">Redesigning the digital presence of an international music education organization — from outdated and hard to navigate, to modern, unified, and audience-first.</p>
+  <p class="hero-tagline">Redesigning the digital presence of an international music education organization — and designing the ecosystem strategy that connected it to a sister business already live in production.</p>
 </section>
 
 <!-- META STRIP -->
@@ -293,12 +293,12 @@
     <span class="meta-value">UX Designer</span>
   </div>
   <div class="meta-item">
-    <span class="meta-label">Scope</span>
-    <span class="meta-value">Web + Social</span>
+    <span class="meta-label">Duration</span>
+    <span class="meta-value">3 Months</span>
   </div>
   <div class="meta-item">
-    <span class="meta-label">Deliverables</span>
-    <span class="meta-value">3 page redesigns</span>
+    <span class="meta-label">Scope</span>
+    <span class="meta-value">Web + Social</span>
   </div>
   <div class="meta-item">
     <span class="meta-label">Tools</span>
@@ -311,10 +311,10 @@
   <p>Explore the design files and live site</p>
   <div class="btn-row">
     <a href="https://www.figma.com/design/BowpLwKh25uMn3oOM2R68I/Projects-File?t=4ZGyyhEVN9WXHdgx-1" target="_blank" class="btn primary">Open Figma Design</a>
-    <a href="https://theglobalconservatory.com/password" target="_blank" class="btn">View Live Site</a>
+    <a href="https://theglobalconservatory.com" target="_blank" class="btn">View Live Site</a>
     <a href="https://docs.google.com/presentation/d/1kSWRLZUjOCD5xY8EJUF76gFOPlDkjCMTjEDlApdYPOM/edit?usp=sharing" target="_blank" class="btn">Slide Deck</a>
   </div>
-  <p class="disclaimer-note">The live site follows the page architecture I designed, but some visual elements — including the color scheme — differ from my original work.</p>
+  <p class="disclaimer-note">The live site follows the page architecture I designed. Some visual elements — including the color scheme — were updated by the team after I left.</p>
 </div>
 
 <!-- CAROUSEL -->
@@ -325,6 +325,8 @@
       <div class="carousel-slide"><img src="images/gc-2.png" alt="Programs overview screen" /></div>
       <div class="carousel-slide"><img src="images/gc-3.png" alt="Iceland program detail screen" /></div>
       <div class="carousel-slide"><img src="images/gc-4.png" alt="Application or contact screen" /></div>
+      <div class="carousel-slide"><img src="images/iceland-1.png" alt="Iceland program — expedition listings hi-fi" /></div>
+      <div class="carousel-slide"><img src="images/iceland-2.png" alt="Iceland program — concierge services hi-fi" /></div>
     </div>
   </div>
   <button class="carousel-btn prev" id="prev">‹</button>
@@ -341,68 +343,78 @@
       <span class="section-num">01</span>
       <h2 class="section-title">Context</h2>
     </div>
-    <p>When I joined the team, the organization was in the middle of a major digital transformation — redesigning key public-facing pages and building new ones from scratch. The existing Global Conservatory materials were outdated, hard to navigate, and underperforming in engagement. The Iceland program had no digital presence at all.</p>
+    <p>The Global Conservatory is an international online music education organization — think Juilliard-level instruction, fully remote. When I joined as the sole UX Designer, the organization was mid-transformation: rebuilding its public-facing digital presence while simultaneously launching a brand new program and managing a relationship with a sister business, The Musician's Club.</p>
+    <p>I came in with no background in music. My first job was to learn enough to design for people who had spent their lives in it — students, faculty, international visitors, donors. I went straight to the founder, a Juilliard alumnus, and used his domain knowledge as my primary research input alongside competitive analysis of other music education platforms he admired.</p>
     <div class="implication">
-      <strong>My focus</strong>
-      <p>Create a unified online presence that reflected the organization's mission, improved navigation for a diverse international audience, and clearly communicated each program's unique offerings to students, collaborators, and donors.</p>
+      <strong>The brief</strong>
+      <p>Create a unified, modern digital presence across three simultaneous projects — with full creative ownership, Apple-inspired clarity as the design north star, and a mandate to connect two separate businesses without confusing users about which one they were on.</p>
     </div>
   </section>
 
-  <!-- 02 SCOPE -->
+  <!-- 02 THE PROBLEM -->
   <section class="case-section fade-up">
     <div class="section-header">
       <span class="section-num">02</span>
+      <h2 class="section-title">The Problem</h2>
+    </div>
+    <p>The existing site had a fundamental information architecture problem: everything was on the surface, all at once. Dense blocks of text with no visual hierarchy, no imagery, no "read more" progressive disclosure — just walls of content with nowhere to breathe. Users had no way to scan, orient, or decide what to do next.</p>
+    <p>The navigation compounded the issue. Too many top-level tabs with no clear structure forced users to read everything just to find anything. The home page — the first impression for students, faculty, and international visitors arriving from completely different contexts — was the worst offender. When the home page fails, every page behind it fails too.</p>
+
+    <div class="two-col-lists">
+      <div class="list-card">
+        <strong>Audit findings</strong>
+        <ul>
+          <li>No information hierarchy — equal visual weight on everything</li>
+          <li>No imagery to break up content or establish tone</li>
+          <li>No progressive disclosure — no "read more," no expandable sections</li>
+          <li>Navigation overwhelmed users before they even reached content</li>
+          <li>No clear user paths for three distinct audiences</li>
+          <li>UI felt dated for an organization positioning as modern and global</li>
+        </ul>
+      </div>
+      <div class="list-card">
+        <strong>Three audiences, one site</strong>
+        <ul>
+          <li><strong style="color:var(--deep)">Students</strong> — needed to find programs and apply quickly</li>
+          <li><strong style="color:var(--deep)">Faculty</strong> — needed to understand the teaching opportunity</li>
+          <li><strong style="color:var(--deep)">International visitors</strong> — needed to understand the organization's credibility at a glance</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="implication">
+      <strong>The ecosystem challenge</strong>
+      <p>The Musician's Club — a separate instrument retail business — shared stakeholder interest with Global Conservatory. The two weren't formally one brand, but students who studied at GC needed instruments, and TMC sold them. My job was to surface that connection in a way that felt natural, not forced — without making users feel like they'd accidentally landed somewhere else.</p>
+    </div>
+  </section>
+
+  <!-- 03 SCOPE -->
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">03</span>
       <h2 class="section-title">Scope of Work</h2>
     </div>
-    <p>I fully owned the creative direction, design, and execution across three distinct projects simultaneously.</p>
+    <p>Over three months, I owned creative direction and design execution across three simultaneous projects — plus social media content — with no other designer on the team. Each project had its own brief, its own personality, and its own stakeholder feedback loop.</p>
     <div class="scope-grid">
       <div class="scope-card">
         <span class="s-icon">🌍</span>
-        <strong>Global Conservatory — Redesign</strong>
-        <p>Audited existing pages for navigation issues, visual inconsistencies, and content gaps. Rebuilt layouts with updated typography, colors, and imagery.</p>
+        <strong>Global Conservatory — Full Redesign</strong>
+        <p>Complete audit and redesign of existing pages. Rebuilt information architecture, introduced visual hierarchy, added imagery and progressive disclosure throughout. The home page was the anchor — fix that first, and everything follows.</p>
       </div>
       <div class="scope-card">
         <span class="s-icon">🏔️</span>
-        <strong>Iceland Program — New Build</strong>
-        <p>Created the full design from scratch with no existing materials — only project goals and provided information to work from.</p>
+        <strong>Iceland Program — Built from Zero</strong>
+        <p>No existing design, no visual precedent. I was handed a 30-page specification document of business goals and program details, and worked backwards from that to create a full experience — inspired by Airbnb's approach to immersive travel-focused design.</p>
       </div>
       <div class="scope-card">
         <span class="s-icon">🎵</span>
-        <strong>Music Club — Visual Refresh</strong>
-        <p>Contributed to improving the main site's visual presentation and strengthening the overall brand consistency.</p>
+        <strong>Musician's Club — Design Consultation</strong>
+        <p>Provided design feedback and contributed a page redesign. Also designed the cross-promotional strategy that connected GC and TMC — now live as a site-wide banner on the Global Conservatory homepage directing students to shop at The Musician's Club.</p>
       </div>
       <div class="scope-card">
         <span class="s-icon">📱</span>
         <strong>Social Media Content</strong>
-        <p>Designed promotional content to increase reach and engagement, aligned with the refreshed brand style across platforms.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 03 CHALLENGES -->
-  <section class="case-section fade-up">
-    <div class="section-header">
-      <span class="section-num">03</span>
-      <h2 class="section-title">Challenges</h2>
-    </div>
-    <p>Each project had its own personality — academic, travel-focused, and community-based — and I needed to unify the branding without flattening what made each one distinct.</p>
-
-    <div class="two-col-lists">
-      <div class="list-card">
-        <strong>Complexity</strong>
-        <ul>
-          <li>Three different audiences: faculty, students, international visitors</li>
-          <li>Design, content, and development phases overlapping</li>
-          <li>Building one project from zero while redesigning others</li>
-        </ul>
-      </div>
-      <div class="list-card">
-        <strong>How I handled it</strong>
-        <ul>
-          <li>Shared wireframes early to catch misalignment before full execution</li>
-          <li>Kept communication open across teams as timelines shifted</li>
-          <li>Worked iteratively to keep visual and functional goals aligned</li>
-        </ul>
+        <p>Designed promotional content across platforms in parallel with the web work — maintaining brand consistency between the refreshed site and the social presence as they evolved together.</p>
       </div>
     </div>
   </section>
@@ -413,33 +425,48 @@
       <span class="section-num">04</span>
       <h2 class="section-title">Process</h2>
     </div>
+    <p>This was a startup environment — timelines shifted, new stakeholders appeared mid-project with new opinions, and scope expanded as leadership got excited about what was being built. My process had to flex with that reality while keeping the design work grounded.</p>
     <ul class="decision-list">
       <li>
         <span class="decision-dot"></span>
         <div>
-          <strong>Discovery and audit</strong>
-          <span>Reviewed existing pages to identify navigation issues, visual inconsistencies, and content gaps. Met with team members to understand priorities and how each project needed to differ in tone.</span>
+          <strong>Domain research first</strong>
+          <span>I knew nothing about music when I started. Before touching Figma, I spent time learning the basics — what programs existed, how conservatory education worked, what distinguished faculty from students from donors. I used the founder's Juilliard experience as a direct research source, and analyzed the competitor sites he admired to understand the design language of the space.</span>
         </div>
       </li>
       <li>
         <span class="decision-dot"></span>
         <div>
-          <strong>Early wireframes shared for feedback</strong>
-          <span>Built initial directions in Figma and shared them before moving into full execution — making adjustments early rather than late.</span>
+          <strong>Content audit and IA mapping</strong>
+          <span>I catalogued what existed and what was missing. The navigation had too many top-level items with no logical grouping. I didn't eliminate them — the content was genuinely there and needed to be findable — but I restructured the architecture so users could orient quickly without reading everything. The goal was to make the nav feel inevitable, not exhausting.</span>
         </div>
       </li>
       <li>
         <span class="decision-dot"></span>
         <div>
-          <strong>Full design execution</strong>
-          <span>Created complete layouts with updated typography, colors, and imagery tailored to each project's personality. Designed social content in parallel.</span>
+          <strong>Home page as the design foundation</strong>
+          <span>I treated the home page as the design system anchor. The founder's brief was clear: Apple-inspired — sleek, modern, you know what to find and how to find it. I introduced visual hierarchy through typography scale, brought in imagery to establish tone, and used progressive disclosure so users could choose how deep to go rather than being hit with everything at once.</span>
         </div>
       </li>
       <li>
         <span class="decision-dot"></span>
         <div>
-          <strong>Handoff and live review</strong>
-          <span>Organized files for the technical team and reviewed live builds against the design vision before launch.</span>
+          <strong>Multiple feedback rounds across an evolving stakeholder group</strong>
+          <span>Early feedback came from the internal team. Then the founder reviewed. Then — as often happens at startups — more people heard about the project, got interested, and new opinions entered the loop. I shared wireframes early specifically to catch misalignment before it became expensive, and kept communication open as requirements shifted.</span>
+        </div>
+      </li>
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>Iceland: working backwards from a 30-page spec</strong>
+          <span>No mood board, no existing brand materials, no comparable pages on the site. I had a business document and a blank canvas. I went through lo-fi and mid-fi stages first to lock down structure and layout — then used Stitch, an AI design tool, to generate a high-fidelity starting point quickly given the compressed timeline. The hi-fi gave stakeholders something concrete to react to fast, while the earlier lo-fi and mid-fi work ensured the structure was already solid before any visual polish was applied. I was the founding designer for this project; the documentation and design direction I established is what subsequent work was built on.</span>
+        </div>
+      </li>
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>Web and social designed in parallel</strong>
+          <span>Handling both simultaneously meant visual consistency wasn't a final-step checklist — it was built into the process. The social content and the site evolved together, which is harder but produces a more coherent result.</span>
         </div>
       </li>
     </ul>
@@ -455,36 +482,36 @@
       <div class="result-row">
         <div class="result-icon pass">✓</div>
         <div class="result-content">
-          <strong>Navigation improvements</strong>
-          <p>Users could reach key details faster across all redesigned pages.</p>
+          <strong>Page architecture shipped to production</strong>
+          <p>The information architecture and navigation structure I designed is live on theglobalconservatory.com. The team later updated the color scheme — but the underlying structure held. Good IA outlasts visual decisions.</p>
+        </div>
+      </div>
+      <div class="result-row">
+        <div class="result-icon pass">✓</div>
+        <div class="result-content">
+          <strong>Ecosystem connection live in production</strong>
+          <p>The cross-promotional strategy I designed — connecting Global Conservatory to The Musician's Club — is visible as a site-wide banner on the GC homepage today. Two separate businesses, one cohesive user journey.</p>
         </div>
       </div>
       <div class="result-row">
         <div class="result-icon pass">✓</div>
         <div class="result-content">
           <strong>Unified brand across three distinct projects</strong>
-          <p>Academic, travel-focused, and community-based pages felt cohesive without losing their individual character.</p>
+          <p>Academic, travel-focused, and community-based pages felt cohesive without losing their individual character — each had its own tone while belonging to the same visual system.</p>
         </div>
       </div>
       <div class="result-row">
         <div class="result-icon pass">✓</div>
         <div class="result-content">
-          <strong>Leadership praised the clarity and modern look</strong>
-          <p>Feedback highlighted the visual upgrade and improved content organization as clear wins.</p>
-        </div>
-      </div>
-      <div class="result-row">
-        <div class="result-icon pass">✓</div>
-        <div class="result-content">
-          <strong>Social media reach increased</strong>
-          <p>Content designed for the campaign reached a broader audience and improved engagement metrics.</p>
+          <strong>Leadership responded positively to clarity and modern direction</strong>
+          <p>The visual upgrade and improved content organization were consistently highlighted in feedback. The founder's Apple-inspired brief was met.</p>
         </div>
       </div>
       <div class="result-row">
         <div class="result-icon note">→</div>
         <div class="result-content">
-          <strong>Architecture adopted, visual direction adapted</strong>
-          <p>The live site follows the page structure and UX system I designed. The team later switched from my original dark theme to a white background — reinforcing that strong UX foundations outlast any single visual direction.</p>
+          <strong>Iceland program: founding design delivered</strong>
+          <p>The Iceland program was still in development when I left — but the design foundation, documentation, and creative direction I established became the basis for continued work. Being the founding designer on a project that outlasts your time there is its own kind of outcome.</p>
         </div>
       </div>
     </div>
@@ -499,23 +526,23 @@
     <div class="reflection-grid">
       <div class="reflection-card">
         <span class="r-num">01</span>
-        <strong>One brand, multiple personalities</strong>
-        <p>Designing across academic, travel, and community contexts in parallel sharpened my ability to adjust tone and visual language without losing coherence.</p>
+        <strong>Information hierarchy is a user right</strong>
+        <p>Users don't read — they scan. Giving them density without hierarchy isn't informative, it's a wall. Progressive disclosure isn't a nice-to-have; it's the difference between a site people use and one they leave.</p>
       </div>
       <div class="reflection-card">
         <span class="r-num">02</span>
-        <strong>UX foundations outlast visual decisions</strong>
-        <p>The team changed the color scheme after launch — but the page architecture held. Good structure survives style changes.</p>
+        <strong>Domain knowledge is a design tool</strong>
+        <p>Coming in with zero music background forced me to research before I designed. That constraint made the work more honest — every decision was grounded in what I actually learned, not what I assumed.</p>
       </div>
       <div class="reflection-card">
         <span class="r-num">03</span>
-        <strong>Early sharing prevents late rework</strong>
-        <p>Sharing wireframes before full execution meant feedback arrived when changes were cheap, not after hours of polished work.</p>
+        <strong>Good structure outlasts visual decisions</strong>
+        <p>The team changed the color scheme after I left. The architecture stayed. That's not a consolation — it's proof that IA work is the work that actually ships.</p>
       </div>
       <div class="reflection-card">
         <span class="r-num">04</span>
-        <strong>Web and social are one system</strong>
-        <p>Designing both in parallel forced a level of visual consistency I wouldn't have achieved treating them as separate deliverables.</p>
+        <strong>Startup feedback loops require early sharing</strong>
+        <p>New stakeholders appeared mid-project with new opinions. Sharing wireframes before full execution meant feedback came when changes were cheap — not after hours of polished work that had to be redone.</p>
       </div>
     </div>
   </section>
@@ -523,7 +550,7 @@
   <!-- CONCLUSION -->
   <section class="case-section fade-up">
     <div class="conclusion-box">
-      <p>This internship taught me that design at an organization isn't just about screens — it's about building a system that holds up long after you've moved on.</p>
+      <p>This wasn't just a visual refresh — it was a systems problem. Three projects, two businesses, one designer, three months. The work that shipped is still live. That's the measure that matters.</p>
     </div>
   </section>
 
