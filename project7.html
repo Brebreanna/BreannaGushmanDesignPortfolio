@@ -29,28 +29,24 @@
       line-height: 1.7;
     }
 
-    /* ── NAV ── */
     header { text-align: center; padding: 24px 20px 0; }
     .bow-top { width: 80px; display: block; margin: 0 auto 16px; }
     nav ul { display: flex; justify-content: center; gap: 36px; list-style: none; }
     nav a { text-decoration: none; color: var(--rose); font-weight: 500; font-size: 15px; letter-spacing: 0.03em; transition: opacity 0.2s; }
     nav a:hover { opacity: 0.6; }
 
-    /* ── HERO ── */
     .hero { max-width: 780px; margin: 64px auto 0; padding: 0 24px; text-align: center; }
     .hero-label { display: inline-block; font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); background: var(--soft); border: 1px solid var(--border); border-radius: 20px; padding: 5px 14px; margin-bottom: 20px; }
     .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 300; color: var(--rose); line-height: 1.15; margin-bottom: 18px; }
     .hero h1 em { font-style: italic; font-weight: 300; }
     .hero-tagline { font-size: 1.05rem; color: var(--muted); max-width: 560px; margin: 0 auto 36px; line-height: 1.8; }
 
-    /* ── META STRIP ── */
     .meta-strip { display: flex; justify-content: center; gap: 0; flex-wrap: wrap; max-width: 780px; margin: 0 auto 56px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--card); }
     .meta-item { flex: 1; min-width: 120px; padding: 18px 20px; text-align: center; border-right: 1px solid var(--border); }
     .meta-item:last-child { border-right: none; }
     .meta-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 4px; }
     .meta-value { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--deep); }
 
-    /* ── QUICK ACCESS ── */
     .quick-access { max-width: 700px; margin: 0 auto 64px; padding: 0 24px; text-align: center; }
     .quick-access p { font-size: 0.9rem; color: var(--muted); margin-bottom: 16px; }
     .btn-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
@@ -60,7 +56,6 @@
     .btn.primary:hover { background: var(--deep); border-color: var(--deep); }
     .disclaimer { margin-top: 14px; font-size: 0.82rem; color: var(--muted); font-style: italic; }
 
-    /* ── CAROUSEL ── */
     .carousel-wrap { max-width: 600px; margin: 0 auto 72px; padding: 0 24px; position: relative; }
     .carousel-viewport { overflow: hidden; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 8px 40px rgba(163,87,87,0.08); }
     .carousel-track { display: flex; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
@@ -74,7 +69,6 @@
     .carousel-dots button { width: 8px; height: 8px; border-radius: 50%; border: none; background: var(--blush); cursor: pointer; transition: all 0.3s; padding: 0; }
     .carousel-dots button[aria-selected="true"] { background: var(--rose); transform: scale(1.3); }
 
-    /* ── SECTION LAYOUT ── */
     .case-body { max-width: 780px; margin: 0 auto; padding: 0 24px 80px; }
     .case-section { margin-bottom: 72px; }
     .section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
@@ -85,7 +79,6 @@
     .case-section ul, .case-section ol { padding-left: 1.4rem; margin-bottom: 16px; }
     .case-section li { font-size: 0.97rem; line-height: 1.85; margin-bottom: 6px; }
 
-    /* ── FINDING CARDS ── */
     .finding-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
     @media (max-width: 640px) { .finding-grid { grid-template-columns: 1fr; } }
     .finding-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; }
@@ -93,19 +86,16 @@
     .finding-card .stat { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: var(--rose); line-height: 1; display: block; margin-bottom: 6px; }
     .finding-card p { font-size: 0.88rem !important; color: var(--muted) !important; margin: 0 !important; line-height: 1.6 !important; }
 
-    /* ── PERFORMANCE METRICS ── */
     .perf-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 24px 0; }
     @media (max-width: 640px) { .perf-grid { grid-template-columns: 1fr 1fr; } }
     .perf-card { background: linear-gradient(135deg, var(--soft) 0%, var(--card) 100%); border: 1px solid var(--border); border-radius: 12px; padding: 18px 16px; text-align: center; }
     .perf-card .p-stat { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; color: var(--rose); display: block; line-height: 1; margin-bottom: 6px; }
     .perf-card .p-label { font-size: 0.78rem; color: var(--muted); line-height: 1.4; }
 
-    /* ── IMPLICATION CALLOUT ── */
     .implication { background: linear-gradient(135deg, #fff0f0 0%, #fffafa 100%); border-left: 3px solid var(--blush); border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 20px 0; }
     .implication strong { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); display: block; margin-bottom: 6px; }
     .implication p { font-size: 0.93rem !important; margin: 0 !important; color: var(--text) !important; }
 
-    /* ── PIVOT CALLOUT ── */
     .pivot-box { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px 28px; margin: 24px 0; }
     .pivot-box .pivot-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; display: block; }
     .pivot-box .pivot-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--deep); margin-bottom: 10px; }
@@ -116,7 +106,6 @@
     .pivot-col-label.now { color: var(--rose); }
     .pivot-col p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
 
-    /* ── DETECTION ALGO CARDS ── */
     .algo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0; }
     @media (max-width: 600px) { .algo-grid { grid-template-columns: 1fr; } }
     .algo-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; text-align: center; }
@@ -124,23 +113,19 @@
     .algo-card strong { display: block; font-size: 0.88rem; color: var(--deep); margin-bottom: 4px; }
     .algo-card span { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
 
-    /* ── RESEARCH TABLE ── */
     .research-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.9rem; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
     .research-table th { background: var(--soft); color: var(--rose); font-weight: 500; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--border); }
     .research-table td { padding: 14px 18px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; color: var(--text); }
     .research-table tr:last-child td { border-bottom: none; }
     .research-table tr:nth-child(even) td { background: #fffcfc; }
 
-    /* ── COMPETITIVE AUDIT ── */
     .audit-img-wrap { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 8px 32px rgba(163,87,87,0.07); margin: 24px 0; }
     .audit-img-wrap img { width: 100%; height: auto; display: block; }
     .audit-caption { padding: 14px 18px; background: var(--card); border-top: 1px solid var(--border); font-size: 0.84rem; color: var(--muted); }
 
-    /* ── SYSTEM POSTER ── */
     .poster-wrap { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 8px 32px rgba(163,87,87,0.07); margin: 24px 0; }
     .poster-wrap img { width: 100%; height: auto; display: block; }
 
-    /* ── IMAGE GRIDS ── */
     .img-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
     .img-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
     @media (max-width: 640px) { .img-grid-2, .img-grid-3 { grid-template-columns: 1fr; } }
@@ -148,18 +133,15 @@
     .img-figure img { width: 100%; height: auto; display: block; }
     .img-figure figcaption { padding: 12px 14px; font-size: 0.82rem; color: var(--muted); line-height: 1.6; border-top: 1px solid var(--border); }
 
-    /* ── FINAL APP SCREENSHOTS ── */
     .screens-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin: 24px 0; }
     @media (max-width: 700px) { .screens-grid { grid-template-columns: repeat(2, 1fr); } }
     .screen-card { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: var(--card); }
     .screen-card img { width: 100%; height: auto; display: block; }
     .screen-card .screen-label { padding: 8px 10px; font-size: 0.75rem; color: var(--muted); text-align: center; border-top: 1px solid var(--border); }
 
-    /* ── FULL APP IMAGE ── */
     .app-full-wrap { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 8px 32px rgba(163,87,87,0.07); margin: 24px 0; }
     .app-full-wrap img { width: 100%; height: auto; display: block; }
 
-    /* ── TESTING RESULTS ── */
     .result-row { display: flex; align-items: flex-start; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--border); }
     .result-row:last-child { border-bottom: none; }
     .result-icon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
@@ -168,7 +150,6 @@
     .result-content strong { display: block; font-size: 0.95rem; color: var(--deep); margin-bottom: 4px; }
     .result-content p { font-size: 0.9rem !important; color: var(--muted) !important; margin: 0 !important; }
 
-    /* ── DESIGN DECISIONS ── */
     .decision-list { list-style: none; padding: 0; margin: 20px 0; }
     .decision-list li { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border); margin: 0; }
     .decision-list li:last-child { border-bottom: none; }
@@ -176,7 +157,6 @@
     .decision-list strong { display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 3px; }
     .decision-list span { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
 
-    /* ── REFLECTION CARDS ── */
     .reflection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
     @media (max-width: 580px) { .reflection-grid { grid-template-columns: 1fr; } }
     .reflection-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
@@ -184,7 +164,6 @@
     .reflection-card strong { display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 6px; }
     .reflection-card p { font-size: 0.86rem !important; color: var(--muted) !important; margin: 0 !important; line-height: 1.6 !important; }
 
-    /* ── TEAM CREDITS ── */
     .team-section { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin: 24px 0; }
     .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px; }
     @media (max-width: 560px) { .team-grid { grid-template-columns: 1fr; } }
@@ -193,15 +172,24 @@
     .team-member:last-child { border-bottom: none; }
     .team-member.me { font-weight: 500; color: var(--rose); }
 
-    /* ── CONCLUSION ── */
     .conclusion-box { background: linear-gradient(135deg, var(--soft) 0%, #fff8f5 100%); border: 1px solid var(--border); border-radius: 16px; padding: 36px 40px; text-align: center; }
     .conclusion-box p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem !important; font-weight: 400; font-style: italic; color: var(--deep) !important; max-width: 560px; margin: 0 auto !important; line-height: 1.8 !important; }
 
-    /* ── BACK LINK ── */
+    /* ── CITATION CARDS ── */
+    .citation-intro { font-size: 0.95rem; color: var(--muted); margin-bottom: 24px; line-height: 1.8; }
+    .citation-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px 26px; margin-bottom: 16px; }
+    .citation-card:last-of-type { margin-bottom: 0; }
+    .citation-num { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; color: var(--blush); font-weight: 300; display: block; margin-bottom: 8px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .citation-ref { font-size: 0.9rem; color: var(--deep); line-height: 1.7; margin-bottom: 10px; font-style: italic; }
+    .citation-ref a { color: var(--rose); text-decoration: none; }
+    .citation-ref a:hover { text-decoration: underline; }
+    .citation-connection { font-size: 0.88rem; color: var(--muted); line-height: 1.7; border-top: 1px solid var(--border); padding-top: 10px; margin-top: 4px; }
+    .citation-connection strong { color: var(--rose); font-weight: 500; }
+    .drive-btn-wrap { text-align: center; margin-top: 28px; }
+
     .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; font-size: 0.88rem; margin: 32px 0 0 24px; transition: color 0.2s; }
     .back-link:hover { color: var(--rose); }
 
-    /* ── SCROLL FADE IN ── */
     .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-up.visible { opacity: 1; transform: none; }
   </style>
@@ -223,14 +211,12 @@
 
 <a href="work.html" class="back-link">← Back to work</a>
 
-<!-- HERO -->
 <section class="hero fade-up">
   <span class="hero-label">Senior Design Capstone &nbsp;·&nbsp; 2025–2026</span>
   <h1>SnoozeControl:<br><em>Drowsy Driver Detection</em></h1>
   <p class="hero-tagline">A safety-critical mobile interface for real-time drowsiness detection, multi-modal alerting, and fatigue pattern insights — built end-to-end from research through shipped product.</p>
 </section>
 
-<!-- META STRIP -->
 <div class="meta-strip fade-up">
   <div class="meta-item">
     <span class="meta-label">Role</span>
@@ -258,7 +244,6 @@
   </div>
 </div>
 
-<!-- QUICK ACCESS -->
 <div class="quick-access fade-up">
   <p>Explore the prototypes and project files</p>
   <div class="btn-row">
@@ -266,11 +251,11 @@
     <a href="https://www.figma.com/proto/XRb9akZ71RnevAoK3iNFek/Driver_Drowsiness_Detection?node-id=7%3A127&show-proto-sidebar=1" target="_blank" class="btn">Lo-Fi Prototype</a>
     <a href="https://github.com/Bgushman/SnoozeControl" target="_blank" class="btn">GitHub</a>
     <a href="https://drive.google.com/file/d/1Zut2evokQrQYQxm2FsGSSuG9uvIGocbM/view?usp=sharing" target="_blank" class="btn">Slide Deck</a>
+    <a href="https://drive.google.com/drive/folders/16ViEhMybKk-62QZShRvFTNkiLL9s-88G?usp=sharing" target="_blank" class="btn">Research Sources</a>
   </div>
   <p class="disclaimer">SnoozeControl is my Senior Design Project — I joined as an engineer and took on the UX/UI work independently, then built and shipped the full-stack implementation of my own designs. Teammates handled hardware integration and the detection algorithm pipeline.</p>
 </div>
 
-<!-- CAROUSEL -->
 <div class="carousel-wrap fade-up">
   <div class="carousel-viewport">
     <div class="carousel-track" id="track">
@@ -285,10 +270,8 @@
   <div class="carousel-dots" id="dots"></div>
 </div>
 
-<!-- CASE BODY -->
 <div class="case-body">
 
-  <!-- 01 PROBLEM -->
   <section class="case-section fade-up">
     <div class="section-header">
       <span class="section-num">01</span>
@@ -300,7 +283,6 @@
       <p>Drivers need real-time intervention during drowsiness episodes, but existing solutions either don't detect drowsiness accurately, require too much user interaction, or fail to deliver alerts that actually wake severely tired drivers.</p>
     </div>
 
-    <!-- PERFORMANCE METRICS -->
     <h3>What We Shipped</h3>
     <div class="perf-grid">
       <div class="perf-card">
@@ -322,7 +304,6 @@
     </div>
   </section>
 
-  <!-- 02 COMPETITIVE AUDIT -->
   <section class="case-section fade-up">
     <div class="section-header">
       <span class="section-num">02</span>
@@ -339,7 +320,6 @@
     </div>
   </section>
 
-  <!-- 03 RESEARCH -->
   <section class="case-section fade-up">
     <div class="section-header">
       <span class="section-num">03</span>
@@ -404,7 +384,6 @@
     </table>
   </section>
 
-  <!-- 04 DETECTION ALGORITHM -->
   <section class="case-section fade-up">
     <div class="section-header">
       <span class="section-num">04</span>
@@ -475,7 +454,6 @@
     </table>
   </section>
 
-  <!-- 05 WIREFRAMES -->
   <section class="case-section fade-up">
     <div class="section-header">
       <span class="section-num">05</span>
@@ -498,7 +476,6 @@
     </div>
   </section>
 
-  <!-- 06 DATA VISUALS -->
   <section class="case-section fade-up">
     <div class="section-header">
       <span class="section-num">06</span>
@@ -517,7 +494,6 @@
     </div>
   </section>
 
-  <!-- 07 USABILITY TESTING -->
   <section class="case-section fade-up">
     <div class="section-header">
       <span class="section-num">07</span>
@@ -549,7 +525,6 @@
     </div>
   </section>
 
-  <!-- 08 FINAL PRODUCT -->
   <section class="case-section fade-up">
     <div class="section-header">
       <span class="section-num">08</span>
@@ -600,7 +575,6 @@
     </ul>
   </section>
 
-  <!-- 09 SYSTEM ARCHITECTURE -->
   <section class="case-section fade-up">
     <div class="section-header">
       <span class="section-num">09</span>
@@ -639,10 +613,46 @@
     </table>
   </section>
 
-  <!-- 10 REFLECTION -->
+  <!-- 10 RESEARCH CITATIONS -->
   <section class="case-section fade-up">
     <div class="section-header">
       <span class="section-num">10</span>
+      <h2 class="section-title">Research Foundation</h2>
+    </div>
+    <p class="citation-intro">SnoozeControl's design decisions are grounded in peer-reviewed research and institutional safety data. Each source directly informed a specific feature, UX decision, or problem framing. Full PDFs are available in the linked Google Drive folder.</p>
+
+    <div class="citation-card">
+      <span class="citation-num">Source 01</span>
+      <p class="citation-ref">Tefft, B. (2024). <em>Drowsy Driving in Fatal Crashes, United States, 2017–2021.</em> AAA Foundation for Traffic Safety.</p>
+      <p class="citation-connection"><strong>Finding:</strong> Estimated that 17.6% of fatal crashes from 2017–2021 involved a drowsy driver, highlighting how significantly drowsy driving is underreported in police crash data. <strong>Design connection:</strong> Supports SnoozeControl's goal of providing proactive, real-time fatigue detection before drowsiness results in a crash.</p>
+    </div>
+
+    <div class="citation-card">
+      <span class="citation-num">Source 02</span>
+      <p class="citation-ref">Danisman, T., Bilasco, I. M., Djeraba, C., & Ihaddadene, N. (2010). <em>Drowsy Driver Detection System Using Eye Blink Patterns.</em> IEEE.</p>
+      <p class="citation-connection"><strong>Finding:</strong> Demonstrated that webcam-based eye blink monitoring can detect drowsiness in real time with high accuracy using eyelid closure duration patterns. <strong>Design connection:</strong> Supports SnoozeControl's use of camera-based EAR monitoring and multi-state fatigue alerts as a low-cost, accessible detection system.</p>
+    </div>
+
+    <div class="citation-card">
+      <span class="citation-num">Source 03</span>
+      <p class="citation-ref">Rahman, M. A., Das, S., & Sun, X. (2023). <em>Understanding the Drowsy Driving Crash Patterns from Correspondence Regression Analysis.</em> Journal of Safety Research, 84, 167–181.</p>
+      <p class="citation-connection"><strong>Finding:</strong> Identified patterns in drowsy driving crashes across environmental conditions, roadway types, and driver demographics, showing that fatigue-related crashes occur in a wide range of driving contexts. <strong>Design connection:</strong> Supports SnoozeControl's design as a flexible mobile safety tool intended for everyday driving situations rather than only extreme cases.</p>
+    </div>
+
+    <div class="citation-card">
+      <span class="citation-num">Source 04</span>
+      <p class="citation-ref">Higgins, J. S., et al. (2017). <em>Asleep at the Wheel — The Road to Addressing Drowsy Driving.</em> SLEEP, 40(2). <a href="https://doi.org/10.1093/sleep/zsx001" target="_blank">https://doi.org/10.1093/sleep/zsx001</a></p>
+      <p class="citation-connection"><strong>Finding:</strong> Frames drowsy driving as a preventable public health crisis where impaired cognition and attention begin before a driver fully falls asleep. <strong>Design connection:</strong> Supports SnoozeControl's design as a behavior-change interface that detects early fatigue cues and delivers actionable alerts before dangerous driving impairment occurs.</p>
+    </div>
+
+    <div class="drive-btn-wrap">
+      <a href="https://drive.google.com/drive/folders/16ViEhMybKk-62QZShRvFTNkiLL9s-88G?usp=sharing" target="_blank" class="btn primary">View All Source PDFs →</a>
+    </div>
+  </section>
+
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">11</span>
       <h2 class="section-title">What I Learned</h2>
     </div>
     <div class="reflection-grid">
@@ -668,7 +678,6 @@
       </div>
     </div>
 
-    <!-- TEAM CREDITS -->
     <div class="team-section">
       <div class="team-col-title">Team — SDP26</div>
       <div class="team-grid">
@@ -691,14 +700,13 @@
     </div>
   </section>
 
-  <!-- CONCLUSION -->
   <section class="case-section fade-up">
     <div class="conclusion-box">
       <p>SnoozeControl shows that effective UX isn't just about what users say they want — it's about understanding what research shows actually works, then making it simple enough to use at 70 mph. When the algorithm changed, the design had to earn that change. It did.</p>
     </div>
   </section>
 
-</div><!-- end case-body -->
+</div>
 
 <script>
 (function() {
