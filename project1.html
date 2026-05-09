@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Global Conservatory Case Study | Breanna</title>
+  <title>SnoozeControl Case Study | Breanna</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -35,17 +35,14 @@
     nav a { text-decoration: none; color: var(--rose); font-weight: 500; font-size: 15px; letter-spacing: 0.03em; transition: opacity 0.2s; }
     nav a:hover { opacity: 0.6; }
 
-    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; font-size: 0.88rem; margin: 32px 0 0 24px; transition: color 0.2s; }
-    .back-link:hover { color: var(--rose); }
-
     .hero { max-width: 780px; margin: 64px auto 0; padding: 0 24px; text-align: center; }
-    .hero-label { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); background: var(--soft); border: 1px solid var(--border); border-radius: 20px; padding: 5px 14px; margin-bottom: 20px; }
+    .hero-label { display: inline-block; font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); background: var(--soft); border: 1px solid var(--border); border-radius: 20px; padding: 5px 14px; margin-bottom: 20px; }
     .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 300; color: var(--rose); line-height: 1.15; margin-bottom: 18px; }
     .hero h1 em { font-style: italic; font-weight: 300; }
     .hero-tagline { font-size: 1.05rem; color: var(--muted); max-width: 560px; margin: 0 auto 36px; line-height: 1.8; }
 
-    .meta-strip { display: flex; justify-content: center; flex-wrap: wrap; max-width: 700px; margin: 0 auto 56px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--card); }
-    .meta-item { flex: 1; min-width: 140px; padding: 18px 20px; text-align: center; border-right: 1px solid var(--border); }
+    .meta-strip { display: flex; justify-content: center; gap: 0; flex-wrap: wrap; max-width: 780px; margin: 0 auto 56px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--card); }
+    .meta-item { flex: 1; min-width: 120px; padding: 18px 20px; text-align: center; border-right: 1px solid var(--border); }
     .meta-item:last-child { border-right: none; }
     .meta-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 4px; }
     .meta-value { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--deep); }
@@ -57,7 +54,7 @@
     .btn:hover { background: var(--blush); color: white; transform: translateY(-1px); }
     .btn.primary { background: var(--rose); color: white; border-color: var(--rose); }
     .btn.primary:hover { background: var(--deep); border-color: var(--deep); }
-    .disclaimer-note { margin-top: 14px; font-size: 0.82rem; color: var(--muted); font-style: italic; }
+    .disclaimer { margin-top: 14px; font-size: 0.82rem; color: var(--muted); font-style: italic; }
 
     .carousel-wrap { max-width: 600px; margin: 0 auto 72px; padding: 0 24px; position: relative; }
     .carousel-viewport { overflow: hidden; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 8px 40px rgba(163,87,87,0.08); }
@@ -79,32 +76,77 @@
     .section-title { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 400; color: var(--rose); }
     .case-section h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--deep); margin: 32px 0 12px; }
     .case-section p { font-size: 0.97rem; line-height: 1.85; color: var(--text); margin-bottom: 16px; }
-    .case-section ul { padding-left: 1.4rem; margin-bottom: 16px; }
+    .case-section ul, .case-section ol { padding-left: 1.4rem; margin-bottom: 16px; }
     .case-section li { font-size: 0.97rem; line-height: 1.85; margin-bottom: 6px; }
+
+    .finding-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+    @media (max-width: 640px) { .finding-grid { grid-template-columns: 1fr; } }
+    .finding-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; }
+    .finding-card .tag { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 8px; }
+    .finding-card .stat { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: var(--rose); line-height: 1; display: block; margin-bottom: 6px; }
+    .finding-card p { font-size: 0.88rem !important; color: var(--muted) !important; margin: 0 !important; line-height: 1.6 !important; }
+
+    .perf-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 24px 0; }
+    @media (max-width: 640px) { .perf-grid { grid-template-columns: 1fr 1fr; } }
+    .perf-card { background: linear-gradient(135deg, var(--soft) 0%, var(--card) 100%); border: 1px solid var(--border); border-radius: 12px; padding: 18px 16px; text-align: center; }
+    .perf-card .p-stat { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; color: var(--rose); display: block; line-height: 1; margin-bottom: 6px; }
+    .perf-card .p-label { font-size: 0.78rem; color: var(--muted); line-height: 1.4; }
 
     .implication { background: linear-gradient(135deg, #fff0f0 0%, #fffafa 100%); border-left: 3px solid var(--blush); border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 20px 0; }
     .implication strong { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); display: block; margin-bottom: 6px; }
     .implication p { font-size: 0.93rem !important; margin: 0 !important; color: var(--text) !important; }
 
-    .two-col-lists { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
-    @media (max-width: 580px) { .two-col-lists { grid-template-columns: 1fr; } }
-    .list-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
-    .list-card strong { display: block; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--rose); margin-bottom: 12px; }
-    .list-card ul { padding-left: 1.2rem; margin: 0; }
-    .list-card li { font-size: 0.88rem !important; color: var(--muted) !important; margin-bottom: 6px !important; line-height: 1.6 !important; }
+    .pivot-box { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px 28px; margin: 24px 0; }
+    .pivot-box .pivot-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; display: block; }
+    .pivot-box .pivot-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--deep); margin-bottom: 10px; }
+    .pivot-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px; }
+    @media (max-width: 600px) { .pivot-two-col { grid-template-columns: 1fr; } }
+    .pivot-col-label { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+    .pivot-col-label.was { color: #b0a0a0; }
+    .pivot-col-label.now { color: var(--rose); }
+    .pivot-col p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
 
-    .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0; }
-    @media (max-width: 580px) { .scope-grid { grid-template-columns: 1fr; } }
-    .scope-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 22px; }
-    .scope-card .s-icon { font-size: 1.4rem; display: block; margin-bottom: 10px; }
-    .scope-card strong { display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 6px; }
-    .scope-card p { font-size: 0.87rem !important; color: var(--muted) !important; margin: 0 !important; line-height: 1.65 !important; }
+    .algo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 20px 0; }
+    @media (max-width: 600px) { .algo-grid { grid-template-columns: 1fr; } }
+    .algo-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; text-align: center; }
+    .algo-icon { font-size: 1.6rem; display: block; margin-bottom: 8px; }
+    .algo-card strong { display: block; font-size: 0.88rem; color: var(--deep); margin-bottom: 4px; }
+    .algo-card span { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+    .research-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.9rem; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+    .research-table th { background: var(--soft); color: var(--rose); font-weight: 500; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--border); }
+    .research-table td { padding: 14px 18px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; color: var(--text); }
+    .research-table tr:last-child td { border-bottom: none; }
+    .research-table tr:nth-child(even) td { background: #fffcfc; }
+
+    .audit-img-wrap { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 8px 32px rgba(163,87,87,0.07); margin: 24px 0; }
+    .audit-img-wrap img { width: 100%; height: auto; display: block; }
+    .audit-caption { padding: 14px 18px; background: var(--card); border-top: 1px solid var(--border); font-size: 0.84rem; color: var(--muted); }
+
+    .poster-wrap { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 8px 32px rgba(163,87,87,0.07); margin: 24px 0; }
+    .poster-wrap img { width: 100%; height: auto; display: block; }
+
+    .img-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+    .img-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+    @media (max-width: 640px) { .img-grid-2, .img-grid-3 { grid-template-columns: 1fr; } }
+    .img-figure { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: var(--card); }
+    .img-figure img { width: 100%; height: auto; display: block; }
+    .img-figure figcaption { padding: 12px 14px; font-size: 0.82rem; color: var(--muted); line-height: 1.6; border-top: 1px solid var(--border); }
+
+    .screens-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin: 24px 0; }
+    @media (max-width: 700px) { .screens-grid { grid-template-columns: repeat(2, 1fr); } }
+    .screen-card { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: var(--card); }
+    .screen-card img { width: 100%; height: auto; display: block; }
+    .screen-card .screen-label { padding: 8px 10px; font-size: 0.75rem; color: var(--muted); text-align: center; border-top: 1px solid var(--border); }
+
+    .app-full-wrap { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 8px 32px rgba(163,87,87,0.07); margin: 24px 0; }
+    .app-full-wrap img { width: 100%; height: auto; display: block; }
 
     .result-row { display: flex; align-items: flex-start; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--border); }
     .result-row:last-child { border-bottom: none; }
     .result-icon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
     .result-icon.pass { background: #e8f5e9; }
-    .result-icon.note { background: #e8f0fe; }
+    .result-icon.fix { background: #fff3e0; }
     .result-content strong { display: block; font-size: 0.95rem; color: var(--deep); margin-bottom: 4px; }
     .result-content p { font-size: 0.9rem !important; color: var(--muted) !important; margin: 0 !important; }
 
@@ -122,17 +164,31 @@
     .reflection-card strong { display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 6px; }
     .reflection-card p { font-size: 0.86rem !important; color: var(--muted) !important; margin: 0 !important; line-height: 1.6 !important; }
 
+    .team-section { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin: 24px 0; }
+    .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px; }
+    @media (max-width: 560px) { .team-grid { grid-template-columns: 1fr; } }
+    .team-col-title { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .team-member { font-size: 0.9rem; color: var(--text); padding: 4px 0; border-bottom: 1px solid var(--border); }
+    .team-member:last-child { border-bottom: none; }
+    .team-member.me { font-weight: 500; color: var(--rose); }
+
     .conclusion-box { background: linear-gradient(135deg, var(--soft) 0%, #fff8f5 100%); border: 1px solid var(--border); border-radius: 16px; padding: 36px 40px; text-align: center; }
     .conclusion-box p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem !important; font-weight: 400; font-style: italic; color: var(--deep) !important; max-width: 560px; margin: 0 auto !important; line-height: 1.8 !important; }
 
+    /* ── CITATION CARDS ── */
     .citation-intro { font-size: 0.95rem; color: var(--muted); margin-bottom: 24px; line-height: 1.8; }
     .citation-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px 26px; margin-bottom: 16px; }
     .citation-card:last-of-type { margin-bottom: 0; }
     .citation-num { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; color: var(--blush); font-weight: 300; display: block; margin-bottom: 8px; letter-spacing: 0.08em; text-transform: uppercase; }
     .citation-ref { font-size: 0.9rem; color: var(--deep); line-height: 1.7; margin-bottom: 10px; font-style: italic; }
+    .citation-ref a { color: var(--rose); text-decoration: none; }
+    .citation-ref a:hover { text-decoration: underline; }
     .citation-connection { font-size: 0.88rem; color: var(--muted); line-height: 1.7; border-top: 1px solid var(--border); padding-top: 10px; margin-top: 4px; }
     .citation-connection strong { color: var(--rose); font-weight: 500; }
     .drive-btn-wrap { text-align: center; margin-top: 28px; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; font-size: 0.88rem; margin: 32px 0 0 24px; transition: color 0.2s; }
+    .back-link:hover { color: var(--rose); }
 
     .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-up.visible { opacity: 1; transform: none; }
@@ -156,48 +212,57 @@
 <a href="work.html" class="back-link">← Back to work</a>
 
 <section class="hero fade-up">
-  <span class="hero-label">Internship &nbsp;·&nbsp; Web Redesign + Social Media</span>
-  <h1>The Global Conservatory:<br><em>Website Redesign</em></h1>
-  <p class="hero-tagline">Redesigning the digital presence of an international music education organization — and designing the ecosystem strategy that connected it to a sister business already live in production.</p>
+  <span class="hero-label">Senior Design Capstone &nbsp;·&nbsp; 2025–2026</span>
+  <h1>SnoozeControl:<br><em>Drowsy Driver Detection</em></h1>
+  <p class="hero-tagline">A safety-critical mobile interface for real-time drowsiness detection, multi-modal alerting, and fatigue pattern insights — built end-to-end from research through shipped product.</p>
 </section>
 
 <div class="meta-strip fade-up">
   <div class="meta-item">
     <span class="meta-label">Role</span>
-    <span class="meta-value">UX Designer</span>
+    <span class="meta-value">UX/UI + Dev</span>
   </div>
   <div class="meta-item">
-    <span class="meta-label">Duration</span>
-    <span class="meta-value">3 Months</span>
+    <span class="meta-label">Timeline</span>
+    <span class="meta-value">9 months</span>
   </div>
   <div class="meta-item">
-    <span class="meta-label">Scope</span>
-    <span class="meta-value">Web + Social</span>
+    <span class="meta-label">Team</span>
+    <span class="meta-value">5 engineers</span>
   </div>
   <div class="meta-item">
     <span class="meta-label">Tools</span>
-    <span class="meta-value">Figma, Canva</span>
+    <span class="meta-value">Figma, RN, TS</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Stack</span>
+    <span class="meta-value">React Native + Flask</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Detection Accuracy</span>
+    <span class="meta-value">≥ 85% drowsy events</span>
   </div>
 </div>
 
 <div class="quick-access fade-up">
-  <p>Explore the design files and live site</p>
+  <p>Explore the prototypes and project files</p>
   <div class="btn-row">
-    <a href="https://www.figma.com/design/BowpLwKh25uMn3oOM2R68I/Projects-File?t=4ZGyyhEVN9WXHdgx-1" target="_blank" class="btn primary">Open Figma Design</a>
-    <a href="https://theglobalconservatory.com" target="_blank" class="btn">View Live Site</a>
-    <a href="https://drive.google.com/file/d/1Ob5VxSixRmfHkIdID-QKY0OStl9SLD3C/view?usp=sharing" target="_blank" class="btn">Slide Deck</a>
-    <a href="https://drive.google.com/drive/folders/1aOrT-hWPhdqvW6QGp4n4bMwKDxdqqcyk?usp=sharing" target="_blank" class="btn">Research Sources</a>
+    <a href="https://www.figma.com/proto/XRb9akZ71RnevAoK3iNFek/Driver_Drowsiness_Detection?node-id=86%3A113&show-proto-sidebar=1" target="_blank" class="btn primary">Hi-Fi Prototype</a>
+    <a href="https://www.figma.com/proto/XRb9akZ71RnevAoK3iNFek/Driver_Drowsiness_Detection?node-id=7%3A127&show-proto-sidebar=1" target="_blank" class="btn">Lo-Fi Prototype</a>
+    <a href="https://github.com/Bgushman/SnoozeControl" target="_blank" class="btn">GitHub</a>
+    <a href="https://drive.google.com/file/d/1Zut2evokQrQYQxm2FsGSSuG9uvIGocbM/view?usp=sharing" target="_blank" class="btn">Slide Deck</a>
+    <a href="https://drive.google.com/drive/folders/16ViEhMybKk-62QZShRvFTNkiLL9s-88G?usp=sharing" target="_blank" class="btn">Research Sources</a>
   </div>
-  <p class="disclaimer-note">The live site follows the page architecture I designed. Some visual elements — including the color scheme — were updated by the team after I left.</p>
+  <p class="disclaimer">SnoozeControl is my Senior Design Project — I joined as an engineer and took on the UX/UI work independently, then built and shipped the full-stack implementation of my own designs. Teammates handled hardware integration and the detection algorithm pipeline.</p>
 </div>
 
 <div class="carousel-wrap fade-up">
   <div class="carousel-viewport">
     <div class="carousel-track" id="track">
-      <div class="carousel-slide"><img src="images/gc-1.png" alt="Global Conservatory landing screen" /></div>
-      <div class="carousel-slide"><img src="images/gc-2.png" alt="Programs overview screen" /></div>
-      <div class="carousel-slide"><img src="images/gc-3.png" alt="Iceland program detail screen" /></div>
-      <div class="carousel-slide"><img src="images/gc-4.png" alt="Application or contact screen" /></div>
+      <div class="carousel-slide"><img src="images/intro-1.png" alt="SnoozeControl monitoring session screen" /></div>
+      <div class="carousel-slide"><img src="images/intro-2.png" alt="Alert state UI with multi-modal warning" /></div>
+      <div class="carousel-slide"><img src="images/intro-3.png" alt="Fatigue insights dashboard" /></div>
+      <div class="carousel-slide"><img src="images/intro-4.png" alt="Onboarding and privacy screen" /></div>
     </div>
   </div>
   <button class="carousel-btn prev" id="prev">‹</button>
@@ -205,149 +270,306 @@
   <div class="carousel-dots" id="dots"></div>
 </div>
 
-<div style="max-width: 600px; margin: 0 auto 24px; padding: 0 24px;">
-  <p style="font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-align: center; margin-bottom: 14px;">Iceland Program — Hi-Fi Designs</p>
-</div>
-<div class="carousel-wrap fade-up" style="margin-bottom: 72px;">
-  <div class="carousel-viewport">
-    <div class="carousel-track" id="track2">
-      <div class="carousel-slide"><img src="images/iceland-1.png" alt="Iceland program — expedition listings hi-fi" /></div>
-      <div class="carousel-slide"><img src="images/iceland-2.png" alt="Iceland program — concierge services hi-fi" /></div>
-    </div>
-  </div>
-  <button class="carousel-btn prev" id="prev2">‹</button>
-  <button class="carousel-btn next" id="next2">›</button>
-  <div class="carousel-dots" id="dots2"></div>
-</div>
-
 <div class="case-body">
 
   <section class="case-section fade-up">
     <div class="section-header">
       <span class="section-num">01</span>
-      <h2 class="section-title">Context</h2>
+      <h2 class="section-title">The Problem</h2>
     </div>
-    <p>The Global Conservatory is an international online music education organization — think Juilliard-level instruction, fully remote. When I joined as the sole UX Designer, the organization was mid-transformation: rebuilding its public-facing digital presence while simultaneously launching a brand new program and managing a relationship with a sister business, The Musician's Club.</p>
-    <p>I came in with no background in music. My first job was to learn enough to design for people who had spent their lives in it — students, faculty, international visitors, donors. I went straight to the founder, a Juilliard alumnus, and used his domain knowledge as my primary research input alongside competitive analysis of other music education platforms he admired.</p>
+    <p>Drowsy driving contributes to an estimated 91,000 crashes annually in the United States. Yet consumer-facing solutions are limited to expensive aftermarket hardware or generic wellness apps that rely on self-reporting rather than objective detection.</p>
     <div class="implication">
-      <strong>The brief</strong>
-      <p>Create a unified, modern digital presence across three simultaneous projects — with full creative ownership, Apple-inspired clarity as the design north star, and a mandate to connect two separate businesses without confusing users about which one they were on.</p>
+      <strong>Core challenge</strong>
+      <p>Drivers need real-time intervention during drowsiness episodes, but existing solutions either don't detect drowsiness accurately, require too much user interaction, or fail to deliver alerts that actually wake severely tired drivers.</p>
+    </div>
+
+    <h3>What We Shipped</h3>
+    <div class="perf-grid">
+      <div class="perf-card">
+        <span class="p-stat">≥ 85%</span>
+        <span class="p-label">Drowsiness detection accuracy (correctly identified drowsy events)</span>
+      </div>
+      <div class="perf-card">
+        <span class="p-stat">&lt; 1s</span>
+        <span class="p-label">End-to-end response time</span>
+      </div>
+      <div class="perf-card">
+        <span class="p-stat">&lt; 10%</span>
+        <span class="p-label">False positive rate</span>
+      </div>
+      <div class="perf-card">
+        <span class="p-stat">≥ 4 hr</span>
+        <span class="p-label">Continuous operation runtime</span>
+      </div>
     </div>
   </section>
 
   <section class="case-section fade-up">
     <div class="section-header">
       <span class="section-num">02</span>
-      <h2 class="section-title">The Problem</h2>
+      <h2 class="section-title">Competitive Audit</h2>
     </div>
-    <p>The existing site had a fundamental information architecture problem: everything was on the surface, all at once. Dense blocks of text with no visual hierarchy, no imagery, no "read more" progressive disclosure — just walls of content with nowhere to breathe. Users had no way to scan, orient, or decide what to do next.</p>
-    <p>The navigation compounded the issue. Too many top-level tabs with no clear structure forced users to read everything just to find anything. The home page — the first impression for students, faculty, and international visitors arriving from completely different contexts — was the worst offender. When the home page fails, every page behind it fails too.</p>
-
-    <div class="two-col-lists">
-      <div class="list-card">
-        <strong>Audit findings</strong>
-        <ul>
-          <li>No information hierarchy — equal visual weight on everything</li>
-          <li>No imagery to break up content or establish tone</li>
-          <li>No progressive disclosure — no "read more," no expandable sections</li>
-          <li>Navigation overwhelmed users before they even reached content</li>
-          <li>No clear user paths for three distinct audiences</li>
-          <li>UI felt dated for an organization positioning as modern and global</li>
-        </ul>
-      </div>
-      <div class="list-card">
-        <strong>Three audiences, one site</strong>
-        <ul>
-          <li><strong style="color:var(--deep)">Students</strong> — needed to find programs and apply quickly</li>
-          <li><strong style="color:var(--deep)">Faculty</strong> — needed to understand the teaching opportunity</li>
-          <li><strong style="color:var(--deep)">International visitors</strong> — needed to understand the organization's credibility at a glance</li>
-        </ul>
-      </div>
+    <p>Before designing, I analyzed four existing drowsy driving detection products — Smart Eye, DriveGuard, NightWatch, and Anti Sleep Pilot — to identify gaps in the market and validate our design direction.</p>
+    <div class="audit-img-wrap">
+      <img src="images/competitive-audit.png" alt="Competitive audit comparing SnoozeControl against Smart Eye, DriveGuard, NightWatch, and Anti Sleep Pilot" />
+      <div class="audit-caption">SnoozeControl outperforms competitors by combining real-time on-device processing, wearable alerts, mobile app with history insights, and low intrusiveness in a single integrated system.</div>
     </div>
-
     <div class="implication">
-      <strong>The ecosystem challenge</strong>
-      <p>The Musician's Club — a separate instrument retail business — shared stakeholder interest with Global Conservatory. The two weren't formally one brand, but students who studied at GC needed instruments, and TMC sold them. My job was to surface that connection in a way that felt natural, not forced — without making users feel like they'd accidentally landed somewhere else.</p>
+      <strong>Key takeaway</strong>
+      <p>Most solutions lack real-time accuracy, rely on intrusive hardware, or don't provide immediate multi-stage alerts. None combine a mobile app with wearable alerts and fully local processing. That gap became SnoozeControl's design mandate.</p>
     </div>
   </section>
 
   <section class="case-section fade-up">
     <div class="section-header">
       <span class="section-num">03</span>
-      <h2 class="section-title">Scope of Work</h2>
+      <h2 class="section-title">User Research</h2>
     </div>
-    <p>Over three months, I owned creative direction and design execution across three simultaneous projects — plus social media content — with no other designer on the team. Each project had its own brief, its own personality, and its own stakeholder feedback loop.</p>
-    <div class="scope-grid">
-      <div class="scope-card">
-        <span class="s-icon">🌍</span>
-        <strong>Global Conservatory — Full Redesign</strong>
-        <p>Complete audit and redesign of existing pages. Rebuilt information architecture, introduced visual hierarchy, added imagery and progressive disclosure throughout. The home page was the anchor — fix that first, and everything follows.</p>
+    <p>I conducted a mixed-methods pilot study with 12 licensed drivers, supplemented by academic literature review and an expert consultation with Dr. Shannon Roberts, a transportation safety researcher at UMass Amherst.</p>
+
+    <h3>Key Findings</h3>
+    <div class="finding-grid">
+      <div class="finding-card">
+        <span class="tag">Finding 01</span>
+        <span class="stat">83.3%</span>
+        <p>of participants have driven while drowsy, yet only 8.3% regularly pull over to rest.</p>
       </div>
-      <div class="scope-card">
-        <span class="s-icon">🏔️</span>
-        <strong>Iceland Program — Built from Zero</strong>
-        <p>No existing design, no visual precedent. I was handed a 30-page specification document of business goals and program details, and worked backwards from that to create a full experience — inspired by Airbnb's approach to immersive travel-focused design.</p>
+      <div class="finding-card">
+        <span class="tag">Finding 02</span>
+        <span class="stat">75%</span>
+        <p>prioritized loud audible alerts, but wanted them sustained — not just brief beeps.</p>
       </div>
-      <div class="scope-card">
-        <span class="s-icon">🎵</span>
-        <strong>Musician's Club — Design Consultation</strong>
-        <p>Provided design feedback and contributed a page redesign. Also designed the cross-promotional strategy that connected GC and TMC — now live as a site-wide banner on the Global Conservatory homepage directing students to shop at The Musician's Club.</p>
+      <div class="finding-card">
+        <span class="tag">Finding 03</span>
+        <span class="stat">83.3%</span>
+        <p>rated common coping strategies (caffeine, windows, music) as only "somewhat effective" or worse.</p>
       </div>
-      <div class="scope-card">
-        <span class="s-icon">📱</span>
-        <strong>Social Media Content</strong>
-        <p>Designed promotional content across platforms in parallel with the web work — maintaining brand consistency between the refreshed site and the social presence as they evolved together.</p>
+      <div class="finding-card">
+        <span class="tag">Finding 04</span>
+        <span class="stat">33.3%</span>
+        <p>expressed skepticism about camera monitoring due to privacy and liability concerns.</p>
+      </div>
+    </div>
+
+    <h3>How Research Shaped Design</h3>
+    <table class="research-table">
+      <thead>
+        <tr>
+          <th>Research Finding</th>
+          <th>Design Decision</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Audio should "play for extended period vs. just beeps"</td>
+          <td>Sustained 10–15 second alarm loops with escalating volume, requiring deliberate dismissal</td>
+        </tr>
+        <tr>
+          <td>Multi-modal alerts proven most effective (Dr. Roberts + academic research)</td>
+          <td>2-stage wearable alert: Stage 1 vibration → Stage 2 vibration + sound + LED</td>
+        </tr>
+        <tr>
+          <td>83.3% feel drowsy late at night; 58.3% on long highway drives</td>
+          <td>Adjustable sensitivity settings (Conservative / Balanced / Aggressive) for different contexts</td>
+        </tr>
+        <tr>
+          <td>Only 8.3% pull over; coping strategies fail</td>
+          <td>Session history surfaces fatigue patterns so drivers can recognize personal risk windows</td>
+        </tr>
+        <tr>
+          <td>Privacy concern for 33%; fear of unreliability</td>
+          <td>Zero cloud dependency — all processing happens locally on the Raspberry Pi</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Detection Algorithm</h2>
+    </div>
+
+    <div class="pivot-box">
+      <span class="pivot-label">Design pivot</span>
+      <div class="pivot-title">From ML model to rule-based algorithm</div>
+      <p style="font-size:0.93rem; color:var(--muted); margin-bottom:0;">The original plan was a trained ML classifier for drowsiness detection. During development, we pivoted to a threshold-based rule algorithm — which proved faster, more transparent, and easier to calibrate per user without needing a labeled training dataset.</p>
+      <div class="pivot-two-col">
+        <div class="pivot-col">
+          <div class="pivot-col-label was">Original plan</div>
+          <p>Trained ML model classifying facial video into alert/drowsy states. Required labeled data, training pipeline, and a model that couldn't adapt to individual faces without retraining.</p>
+        </div>
+        <div class="pivot-col">
+          <div class="pivot-col-label now">Final implementation</div>
+          <p>Rule-based algorithm using EAR, MAR, and Head Pose thresholds. Users calibrate their own baseline before each session, making detection personalized and explainable.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Three Detection Metrics</h3>
+    <div class="algo-grid">
+      <div class="algo-card">
+        <span class="algo-icon">👁️</span>
+        <strong>Eye Aspect Ratio (EAR)</strong>
+        <span>Detects eye closure. EAR below threshold for ≥ 2 seconds triggers alert.</span>
+      </div>
+      <div class="algo-card">
+        <span class="algo-icon">🫦</span>
+        <strong>Mouth Aspect Ratio (MAR)</strong>
+        <span>Detects yawning. MAR above threshold for ≥ 2 seconds triggers alert.</span>
+      </div>
+      <div class="algo-card">
+        <span class="algo-icon">🧭</span>
+        <strong>Head Pose (HP)</strong>
+        <span>Detects head nodding. Sustained head movement for ≥ 3 seconds triggers alert.</span>
+      </div>
+    </div>
+
+    <div class="implication">
+      <strong>UX implication of the pivot</strong>
+      <p>Switching from a black-box ML model to a transparent algorithm created a UX opportunity: the calibration flow became genuinely meaningful. Users now set their own baseline EAR and MAR values, which made the "personalized detection" value prop concrete and trustworthy — not just marketing language.</p>
+    </div>
+
+    <h3>2-Stage Alert System</h3>
+    <table class="research-table">
+      <thead>
+        <tr>
+          <th>Stage</th>
+          <th>Alert Type</th>
+          <th>Trigger</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Stage 1</strong></td>
+          <td>Wristband vibration only</td>
+          <td>First drowsiness signal detected</td>
+        </tr>
+        <tr>
+          <td><strong>Stage 2</strong></td>
+          <td>Vibration + Sound + LED</td>
+          <td>Continued drowsiness after Stage 1</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Low-Fidelity Wireframes</h2>
+    </div>
+    <p>All usability testing was conducted on low-fidelity prototypes to validate flow clarity and minimize cognitive load before investing in visual polish.</p>
+    <div class="img-grid-3">
+      <figure class="img-figure">
+        <img src="images/lowfi-1.png" alt="Main session screen wireframe" />
+        <figcaption>Main entry — one-tap session start with access to calibration, history, and settings.</figcaption>
+      </figure>
+      <figure class="img-figure">
+        <img src="images/lowfi-2.png" alt="Calibration flow wireframe" />
+        <figcaption>Calibration step 2 — eyes closed for 3 seconds to capture baseline EAR threshold.</figcaption>
+      </figure>
+      <figure class="img-figure">
+        <img src="images/lowfi-3.png" alt="History screen wireframe" />
+        <figcaption>Session log showing duration and alert count to surface fatigue patterns.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Key Data Visuals</h2>
+    </div>
+    <p>To communicate research insights clearly, I visualized the most important patterns from the pilot survey.</p>
+    <div class="img-grid-2">
+      <figure class="img-figure">
+        <img src="images/chart-survey.png" alt="Feature preference survey results" />
+        <figcaption>75% prioritized loud audible alerts. Driving-hour tracking (50%) and phone vibration (33.3%) followed.</figcaption>
+      </figure>
+      <figure class="img-figure">
+        <img src="images/chart-history-insights.png" alt="Drowsy driving frequency chart" />
+        <figcaption>33.3% drive drowsy multiple times per month — validating the need for real-time intervention.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Usability Testing</h2>
+    </div>
+    <p>I tested three core flows with senior engineering faculty — all licensed drivers — using low-fidelity prototypes with zero instruction or guidance.</p>
+    <div style="margin: 24px 0;">
+      <div class="result-row">
+        <div class="result-icon pass">✓</div>
+        <div class="result-content">
+          <strong>Core flows: fast and error-free</strong>
+          <p>All three participants completed each task in 3–5 seconds with zero mistakes. One evaluator noted: "The UI is very simple and feels feasible for a real application."</p>
+        </div>
+      </div>
+      <div class="result-row">
+        <div class="result-icon fix">→</div>
+        <div class="result-content">
+          <strong>History screen lacked depth</strong>
+          <p>All evaluators expected trend data, not just a session log. Response: added interactive bar charts, total alert counts, and tap-to-expand session breakdowns showing duration and sensitivity setting.</p>
+        </div>
+      </div>
+      <div class="result-row">
+        <div class="result-icon fix">→</div>
+        <div class="result-content">
+          <strong>EAR/MAR terminology was confusing</strong>
+          <p>Technical metric labels were meaningless to non-engineers. Response: added a "Hide metrics" toggle so advanced data is opt-in, not forced on every driver.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="case-section fade-up">
     <div class="section-header">
-      <span class="section-num">04</span>
-      <h2 class="section-title">Process</h2>
+      <span class="section-num">08</span>
+      <h2 class="section-title">Final Product</h2>
     </div>
-    <p>This was a startup environment — timelines shifted, new stakeholders appeared mid-project with new opinions, and scope expanded as leadership got excited about what was being built. My process had to flex with that reality while keeping the design work grounded.</p>
+    <p>After validating flows in lo-fi, I designed the high-fidelity interface in Figma and implemented the complete React Native frontend — wired to a Flask API running on the Raspberry Pi for real-time EAR/MAR data and session storage.</p>
+
+    <div class="app-full-wrap">
+      <img src="images/app-final-preview.png" alt="SnoozeControl full stack app final preview showing all five screens" />
+    </div>
+
     <ul class="decision-list">
       <li>
         <span class="decision-dot"></span>
         <div>
-          <strong>Domain research first</strong>
-          <span>I knew nothing about music when I started. Before touching Figma, I spent time learning the basics — what programs existed, how conservatory education worked, what distinguished faculty from students from donors. I used the founder's Juilliard experience as a direct research source, and analyzed the competitor sites he admired to understand the design language of the space.</span>
+          <strong>Home — one-tap session start</strong>
+          <span>Personalized greeting with direct access to all four core flows. No buried menus, no required pre-flight steps.</span>
         </div>
       </li>
       <li>
         <span class="decision-dot"></span>
         <div>
-          <strong>Content audit and IA mapping</strong>
-          <span>I catalogued what existed and what was missing. The navigation had too many top-level items with no logical grouping. I restructured the architecture so users could orient quickly without reading everything. The goal was to make the nav feel inevitable, not exhausting.</span>
+          <strong>Calibration — 2-step baseline capture</strong>
+          <span>Open eyes → closed eyes records personal EAR open/closed values. Threshold calculated automatically and saved to the session.</span>
         </div>
       </li>
       <li>
         <span class="decision-dot"></span>
         <div>
-          <strong>Home page as the design foundation</strong>
-          <span>I treated the home page as the design system anchor. The founder's brief was clear: Apple-inspired — sleek, modern, you know what to find and how to find it. I introduced visual hierarchy through typography scale, brought in imagery to establish tone, and used progressive disclosure so users could choose how deep to go rather than being hit with everything at once.</span>
+          <strong>Monitor — live detection with hidden complexity</strong>
+          <span>Live EAR value shown prominently. Technical metrics (MAR, alerts, last update) collapsed by default with a "Hide metrics" toggle — visible for curious users, out of the way for everyone else.</span>
         </div>
       </li>
       <li>
         <span class="decision-dot"></span>
         <div>
-          <strong>Multiple feedback rounds across an evolving stakeholder group</strong>
-          <span>Early feedback came from the internal team. Then the founder reviewed. Then new people heard about the project and new opinions entered the loop. I shared wireframes early specifically to catch misalignment before it became expensive, and kept communication open as requirements shifted.</span>
+          <strong>Settings — sensitivity without technical jargon</strong>
+          <span>Conservative / Balanced / Aggressive labels replace raw threshold values. Wristband test vibration confirms hardware connection before driving.</span>
         </div>
       </li>
       <li>
         <span class="decision-dot"></span>
         <div>
-          <strong>Iceland: working backwards from a 30-page spec</strong>
-          <span>No mood board, no existing brand materials, no comparable pages on the site. I had a business document and a blank canvas. I went through lo-fi and mid-fi stages first to lock down structure and layout — then used Stitch, an AI design tool, to generate a high-fidelity starting point quickly given the compressed timeline.</span>
-        </div>
-      </li>
-      <li>
-        <span class="decision-dot"></span>
-        <div>
-          <strong>Web and social designed in parallel</strong>
-          <span>Handling both simultaneously meant visual consistency wasn't a final-step checklist — it was built into the process. The social content and the site evolved together, which is harder but produces a more coherent result.</span>
+          <strong>History — behavioral pattern insights</strong>
+          <span>Bar chart of alerts per day over the last 7 days, with per-session cards showing timestamp, duration, sensitivity setting, and alert count.</span>
         </div>
       </li>
     </ul>
@@ -355,126 +577,142 @@
 
   <section class="case-section fade-up">
     <div class="section-header">
-      <span class="section-num">05</span>
-      <h2 class="section-title">Outcomes</h2>
+      <span class="section-num">09</span>
+      <h2 class="section-title">System Architecture</h2>
     </div>
-    <div style="margin: 20px 0;">
-      <div class="result-row">
-        <div class="result-icon pass">✓</div>
-        <div class="result-content">
-          <strong>Page architecture shipped to production</strong>
-          <p>The information architecture and navigation structure I designed is live on theglobalconservatory.com. The team later updated the color scheme — but the underlying structure held. Good IA outlasts visual decisions.</p>
-        </div>
-      </div>
-      <div class="result-row">
-        <div class="result-icon pass">✓</div>
-        <div class="result-content">
-          <strong>Ecosystem connection live in production</strong>
-          <p>The cross-promotional strategy I designed — connecting Global Conservatory to The Musician's Club — is visible as a site-wide banner on the GC homepage today. Two separate businesses, one cohesive user journey.</p>
-        </div>
-      </div>
-      <div class="result-row">
-        <div class="result-icon pass">✓</div>
-        <div class="result-content">
-          <strong>Unified brand across three distinct projects</strong>
-          <p>Academic, travel-focused, and community-based pages felt cohesive without losing their individual character — each had its own tone while belonging to the same visual system.</p>
-        </div>
-      </div>
-      <div class="result-row">
-        <div class="result-icon pass">✓</div>
-        <div class="result-content">
-          <strong>Leadership responded positively to clarity and modern direction</strong>
-          <p>The visual upgrade and improved content organization were consistently highlighted in feedback. The founder's Apple-inspired brief was met.</p>
-        </div>
-      </div>
-      <div class="result-row">
-        <div class="result-icon note">→</div>
-        <div class="result-content">
-          <strong>Iceland program: founding design delivered</strong>
-          <p>The Iceland program was still in development when I left — but the design foundation, documentation, and creative direction I established became the basis for continued work. Being the founding designer on a project that outlasts your time there is its own kind of outcome.</p>
-        </div>
-      </div>
+    <p>The full system runs end-to-end without cloud dependency. The Raspberry Pi serves as the central processing unit — running the computer vision pipeline, Flask API, and BLE communication with the wristband simultaneously.</p>
+    <div class="poster-wrap">
+      <img src="images/system-poster.png" alt="SnoozeControl full system architecture poster" />
     </div>
+    <h3>How It Works</h3>
+    <table class="research-table">
+      <thead>
+        <tr>
+          <th>Step</th>
+          <th>What Happens</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Capture</strong></td>
+          <td>Camera captures driver's face at the start of each monitoring session</td>
+        </tr>
+        <tr>
+          <td><strong>2. Process</strong></td>
+          <td>Raspberry Pi runs EAR/MAR/Head Pose algorithm locally — no cloud required</td>
+        </tr>
+        <tr>
+          <td><strong>3. Alert</strong></td>
+          <td>Drowsiness detected → wristband triggered via BLE (Stage 1: vibration; Stage 2: vibration + sound + LED)</td>
+        </tr>
+        <tr>
+          <td><strong>4. Sync</strong></td>
+          <td>Real-time metrics and session data sent to mobile app via Flask API over local network</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 
+  <!-- 10 RESEARCH CITATIONS -->
   <section class="case-section fade-up">
     <div class="section-header">
-      <span class="section-num">06</span>
+      <span class="section-num">10</span>
       <h2 class="section-title">Research Foundation</h2>
     </div>
-    <p class="citation-intro">The design decisions made throughout the Global Conservatory redesign were informed by established UX research. Each source directly supported a specific problem — from rebuilding credibility through visual design, to reducing cognitive load through progressive disclosure, to organizing content for diverse audiences. Full PDFs are available in the linked Google Drive folder.</p>
+    <p class="citation-intro">SnoozeControl's design decisions are grounded in peer-reviewed research and institutional safety data. Each source directly informed a specific feature, UX decision, or problem framing. Full PDFs are available in the linked Google Drive folder.</p>
 
     <div class="citation-card">
       <span class="citation-num">Source 01</span>
-      <p class="citation-ref">Choi, W., & Stvilia, B. (2015). <em>A New Framework for Web Credibility Assessment.</em> iConference Proceedings.</p>
-      <p class="citation-connection"><strong>Finding:</strong> Introduces a framework explaining how trustworthiness, expertise, content quality, and interface design influence users' perceptions of web credibility. <strong>Design connection:</strong> Supports the Global Conservatory redesign by reinforcing the importance of navigation clarity, visual consistency, usability, and professional interface design in building trust with prospective students, faculty, and donors.</p>
+      <p class="citation-ref">Tefft, B. (2024). <em>Drowsy Driving in Fatal Crashes, United States, 2017–2021.</em> AAA Foundation for Traffic Safety.</p>
+      <p class="citation-connection"><strong>Finding:</strong> Estimated that 17.6% of fatal crashes from 2017–2021 involved a drowsy driver, highlighting how significantly drowsy driving is underreported in police crash data. <strong>Design connection:</strong> Supports SnoozeControl's goal of providing proactive, real-time fatigue detection before drowsiness results in a crash.</p>
     </div>
 
     <div class="citation-card">
       <span class="citation-num">Source 02</span>
-      <p class="citation-ref">Grant, W. (2022). <em>101 UX Principles: Actionable Solutions for Product Design Success</em> (2nd ed.). Packt Publishing.</p>
-      <p class="citation-connection"><strong>Finding:</strong> Provides practical UX principles focused on usability, hierarchy, navigation, accessibility, and interaction design for creating intuitive digital experiences. <strong>Design connection:</strong> Informed design decisions throughout the Global Conservatory redesign, including improving layout clarity, responsive structure, and overall user experience consistency.</p>
+      <p class="citation-ref">Danisman, T., Bilasco, I. M., Djeraba, C., & Ihaddadene, N. (2010). <em>Drowsy Driver Detection System Using Eye Blink Patterns.</em> IEEE.</p>
+      <p class="citation-connection"><strong>Finding:</strong> Demonstrated that webcam-based eye blink monitoring can detect drowsiness in real time with high accuracy using eyelid closure duration patterns. <strong>Design connection:</strong> Supports SnoozeControl's use of camera-based EAR monitoring and multi-state fatigue alerts as a low-cost, accessible detection system.</p>
     </div>
 
     <div class="citation-card">
       <span class="citation-num">Source 03</span>
-      <p class="citation-ref">Springer, A., & Whittaker, S. (2019). <em>Progressive Disclosure: Empirically Motivated Approaches to Designing Effective Transparency.</em> Proceedings of the 24th International Conference on Intelligent User Interfaces.</p>
-      <p class="citation-connection"><strong>Finding:</strong> Explores how transparency, cognitive load, and progressive disclosure affect user understanding and interaction with digital systems. <strong>Design connection:</strong> Supports the Global Conservatory redesign by reinforcing the importance of reducing interface complexity and presenting information in a clear, digestible way for users.</p>
+      <p class="citation-ref">Rahman, M. A., Das, S., & Sun, X. (2023). <em>Understanding the Drowsy Driving Crash Patterns from Correspondence Regression Analysis.</em> Journal of Safety Research, 84, 167–181.</p>
+      <p class="citation-connection"><strong>Finding:</strong> Identified patterns in drowsy driving crashes across environmental conditions, roadway types, and driver demographics, showing that fatigue-related crashes occur in a wide range of driving contexts. <strong>Design connection:</strong> Supports SnoozeControl's design as a flexible mobile safety tool intended for everyday driving situations rather than only extreme cases.</p>
     </div>
 
     <div class="citation-card">
       <span class="citation-num">Source 04</span>
-      <p class="citation-ref">Addina, F. R. (2023). <em>Register in User Experience Articles from Nielsen Norman Group (NNGroup.com).</em> Deiksis, 15(2), 159–165.</p>
-      <p class="citation-connection"><strong>Finding:</strong> Examines how UX professionals use specialized terminology and communication patterns within user experience practice. <strong>Design connection:</strong> Supports the Global Conservatory redesign by emphasizing the importance of clear UX communication, intuitive labeling, and user-centered content organization for diverse audiences.</p>
+      <p class="citation-ref">Higgins, J. S., et al. (2017). <em>Asleep at the Wheel — The Road to Addressing Drowsy Driving.</em> SLEEP, 40(2). <a href="https://doi.org/10.1093/sleep/zsx001" target="_blank">https://doi.org/10.1093/sleep/zsx001</a></p>
+      <p class="citation-connection"><strong>Finding:</strong> Frames drowsy driving as a preventable public health crisis where impaired cognition and attention begin before a driver fully falls asleep. <strong>Design connection:</strong> Supports SnoozeControl's design as a behavior-change interface that detects early fatigue cues and delivers actionable alerts before dangerous driving impairment occurs.</p>
     </div>
 
     <div class="drive-btn-wrap">
-      <a href="https://drive.google.com/drive/folders/1aOrT-hWPhdqvW6QGp4n4bMwKDxdqqcyk?usp=sharing" target="_blank" class="btn primary">View All Source PDFs →</a>
+      <a href="https://drive.google.com/drive/folders/16ViEhMybKk-62QZShRvFTNkiLL9s-88G?usp=sharing" target="_blank" class="btn primary">View All Source PDFs →</a>
     </div>
   </section>
 
   <section class="case-section fade-up">
     <div class="section-header">
-      <span class="section-num">07</span>
+      <span class="section-num">11</span>
       <h2 class="section-title">What I Learned</h2>
     </div>
     <div class="reflection-grid">
       <div class="reflection-card">
         <span class="r-num">01</span>
-        <strong>Information hierarchy is a user right</strong>
-        <p>Users don't read — they scan. Giving them density without hierarchy isn't informative, it's a wall. Progressive disclosure isn't a nice-to-have; it's the difference between a site people use and one they leave.</p>
+        <strong>Pivots are design opportunities</strong>
+        <p>Switching from ML to a threshold algorithm wasn't a setback — it made calibration more meaningful and gave users genuine ownership of their detection settings.</p>
       </div>
       <div class="reflection-card">
         <span class="r-num">02</span>
-        <strong>Domain knowledge is a design tool</strong>
-        <p>Coming in with zero music background forced me to research before I designed. That constraint made the work more honest — every decision was grounded in what I actually learned, not what I assumed.</p>
+        <strong>Test early with lo-fi</strong>
+        <p>Faculty testing caught structural issues before I invested in visual polish, saving significant time and redirecting effort toward the history screen redesign.</p>
       </div>
       <div class="reflection-card">
         <span class="r-num">03</span>
-        <strong>Good structure outlasts visual decisions</strong>
-        <p>The team changed the color scheme after I left. The architecture stayed. That's not a consolation — it's proof that IA work is the work that actually ships.</p>
+        <strong>Context shapes every decision</strong>
+        <p>Designing for drivers means every extra tap or confusing label carries real safety consequences. Cognitive load is a safety concern, not just a UX preference.</p>
       </div>
       <div class="reflection-card">
         <span class="r-num">04</span>
-        <strong>Startup feedback loops require early sharing</strong>
-        <p>New stakeholders appeared mid-project with new opinions. Sharing wireframes before full execution meant feedback came when changes were cheap — not after hours of polished work that had to be redone.</p>
+        <strong>Privacy requires proactive design</strong>
+        <p>Building a secure, local-only system isn't enough — users need transparency built into the interface itself through onboarding and clear labeling.</p>
+      </div>
+    </div>
+
+    <div class="team-section">
+      <div class="team-col-title">Team — SDP26</div>
+      <div class="team-grid">
+        <div>
+          <div class="team-col-title">Engineers</div>
+          <div class="team-member me">Breanna Gushman — UX/UI Design + Frontend Dev</div>
+          <div class="team-member">Alden Carlstein — Hardware</div>
+          <div class="team-member">Lissa Souza — Hardware</div>
+          <div class="team-member">Camille Paul — System Integration</div>
+          <div class="team-member">Neha Janardhan — Detection Model</div>
+        </div>
+        <div>
+          <div class="team-col-title">Advisors & Evaluators</div>
+          <div class="team-member">Prof. Guangyu Xu — Faculty Advisor</div>
+          <div class="team-member">Brenda Philips — Evaluator</div>
+          <div class="team-member">Michael Zink — Evaluator</div>
+          <div class="team-member">Wouter Schievink — Lab Support</div>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="case-section fade-up">
     <div class="conclusion-box">
-      <p>This wasn't just a visual refresh — it was a systems problem. Three projects, two businesses, one designer, three months. The work that shipped is still live. That's the measure that matters.</p>
+      <p>SnoozeControl shows that effective UX isn't just about what users say they want — it's about understanding what research shows actually works, then making it simple enough to use at 70 mph. When the algorithm changed, the design had to earn that change. It did.</p>
     </div>
   </section>
 
 </div>
 
 <script>
-function makeCarousel(trackId, prevId, nextId, dotsId, autoplay) {
-  const track = document.getElementById(trackId);
+(function() {
+  const track = document.getElementById('track');
   const slides = track.children;
-  const dotsWrap = document.getElementById(dotsId);
+  const dotsWrap = document.getElementById('dots');
   let idx = 0;
 
   Array.from(slides).forEach((_, i) => {
@@ -491,23 +729,10 @@ function makeCarousel(trackId, prevId, nextId, dotsId, autoplay) {
       d.setAttribute('aria-selected', j === idx ? 'true' : 'false'));
   }
 
-  document.getElementById(prevId).onclick = () => go(idx - 1);
-  document.getElementById(nextId).onclick = () => go(idx + 1);
-
-  let startX = null;
-  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchmove', e => {
-    if (!startX) return;
-    const dx = e.touches[0].clientX - startX;
-    if (Math.abs(dx) > 50) { go(idx + (dx < 0 ? 1 : -1)); startX = null; }
-  }, { passive: true });
-  track.addEventListener('touchend', () => { startX = null; });
-
-  if (autoplay) setInterval(() => go(idx + 1), 4500);
-}
-
-makeCarousel('track', 'prev', 'next', 'dots', true);
-makeCarousel('track2', 'prev2', 'next2', 'dots2', false);
+  document.getElementById('prev').onclick = () => go(idx - 1);
+  document.getElementById('next').onclick = () => go(idx + 1);
+  setInterval(() => go(idx + 1), 4500);
+})();
 
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
