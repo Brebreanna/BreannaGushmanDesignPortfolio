@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apple.com Design Evolution — Competitive Audit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fff8f5;
+      --blush: #f3c6c6;
+      --rose: #a35757;
+      --deep: #6e3c3c;
+      --soft: #fff0f0;
+      --border: #f0d5d5;
+      --text: #5a3030;
+      --muted: #9e6b6b;
+      --card: #fffafa;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 48px 24px 80px;
+    }
+
+    .audit-wrap { max-width: 860px; margin: 0 auto; }
+
+    .audit-header { text-align: center; margin-bottom: 56px; }
+    .audit-label { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); background: var(--soft); border: 1px solid var(--border); border-radius: 20px; padding: 5px 14px; margin-bottom: 16px; }
+    .audit-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--rose); line-height: 1.2; margin-bottom: 12px; }
+    .audit-header h1 em { font-style: italic; }
+    .audit-header p { font-size: 0.97rem; color: var(--muted); max-width: 560px; margin: 0 auto 8px; line-height: 1.8; }
+    .audit-header .source-note { font-size: 0.82rem; color: var(--muted); font-style: italic; }
+    .audit-header .source-note a { color: var(--rose); text-decoration: none; }
+    .audit-header .source-note a:hover { text-decoration: underline; }
+
+    .theme-intro { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px 32px; margin-bottom: 48px; }
+    .theme-intro h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--deep); margin-bottom: 16px; }
+    .theme-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    @media (max-width: 640px) { .theme-grid { grid-template-columns: 1fr 1fr; } }
+    .theme-pill { background: var(--soft); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; text-align: center; }
+    .theme-pill .t-year { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--rose); display: block; margin-bottom: 4px; }
+    .theme-pill .t-label { font-size: 0.78rem; color: var(--muted); line-height: 1.4; }
+
+    .era { margin-bottom: 64px; }
+    .era-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .era-year { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--blush); font-weight: 300; min-width: 48px; }
+    .era-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--rose); }
+
+    .era-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+    @media (max-width: 600px) { .era-grid { grid-template-columns: 1fr; } }
+    .era-grid.single { grid-template-columns: 1fr; max-width: 520px; }
+
+    .screenshot-card { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: var(--card); }
+    .screenshot-card img { width: 100%; height: auto; display: block; }
+    .screenshot-card .sc-caption { padding: 10px 14px; font-size: 0.8rem; color: var(--muted); border-top: 1px solid var(--border); }
+
+    .observation { background: linear-gradient(135deg, #fff0f0 0%, #fffafa 100%); border-left: 3px solid var(--blush); border-radius: 0 10px 10px 0; padding: 16px 20px; margin-top: 4px; }
+    .observation strong { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); display: block; margin-bottom: 6px; }
+    .observation p { font-size: 0.9rem; color: var(--text); line-height: 1.75; margin: 0; }
+
+    .takeaway-box { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px 32px; margin-top: 48px; }
+    .takeaway-box h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--rose); margin-bottom: 16px; }
+    .takeaway-list { list-style: none; padding: 0; }
+    .takeaway-list li { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 0.92rem; color: var(--text); line-height: 1.7; }
+    .takeaway-list li:last-child { border-bottom: none; }
+    .takeaway-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blush); flex-shrink: 0; margin-top: 8px; }
+
+    .gc-connection { background: linear-gradient(135deg, var(--soft) 0%, #fff8f5 100%); border: 1px solid var(--border); border-radius: 16px; padding: 32px 36px; margin-top: 32px; text-align: center; }
+    .gc-connection p { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--deep); max-width: 580px; margin: 0 auto; line-height: 1.8; }
+
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<div class="audit-wrap">
+
+  <div class="audit-header fade-up">
+    <span class="audit-label">Competitive Audit &nbsp;·&nbsp; Design Evolution</span>
+    <h1>Apple.com Design History<br><em>2016 to Present</em></h1>
+    <p>A competitive audit of Apple's web design language over 8 years — analyzing how their visual hierarchy, typography, whitespace, and product storytelling evolved into the benchmark for modern digital design.</p>
+    <p class="source-note">Screenshots sourced from <a href="https://www.versionmuseum.com/history-of/apple-website" target="_blank">Version Museum — History of Apple.com</a></p>
+  </div>
+
+  <div class="theme-intro fade-up">
+    <h2>Design Themes by Era</h2>
+    <div class="theme-grid">
+      <div class="theme-pill">
+        <span class="t-year">2016</span>
+        <span class="t-label">Full-bleed hero photography</span>
+      </div>
+      <div class="theme-pill">
+        <span class="t-year">2017</span>
+        <span class="t-label">Editorial minimal — iPhone X era</span>
+      </div>
+      <div class="theme-pill">
+        <span class="t-year">2018–19</span>
+        <span class="t-label">Product as protagonist</span>
+      </div>
+      <div class="theme-pill">
+        <span class="t-year">2020+</span>
+        <span class="t-label">Purpose-driven, human-centered</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2016 -->
+  <div class="era fade-up">
+    <div class="era-header">
+      <span class="era-year">2016</span>
+      <h2 class="era-title">Full-Bleed Photography & Product Drama</h2>
+    </div>
+    <div class="era-grid single">
+      <div class="screenshot-card">
+        <img src="https://www.versionmuseum.com/images/websites/apple-website/apple-website^2016^homepage.png" alt="Apple.com 2016 homepage showing iPhone 7" />
+        <div class="sc-caption">Apple.com homepage featuring iPhone 7 (2016)</div>
+      </div>
+    </div>
+    <div class="observation">
+      <strong>Design observation</strong>
+      <p>Full-bleed hero images with single focused product. Minimal navigation — logo, product categories, search. No visual clutter. The product is the entire message. Typography is large, confident, and secondary to the image. This established Apple's web language: trust the product to do the talking, keep everything else out of the way.</p>
+    </div>
+  </div>
+
+  <!-- 2017 -->
+  <div class="era fade-up">
+    <div class="era-header">
+      <span class="era-year">2017</span>
+      <h2 class="era-title">Editorial Minimalism — iPhone X Era</h2>
+    </div>
+    <div class="era-grid single">
+      <div class="screenshot-card">
+        <img src="https://www.versionmuseum.com/images/websites/apple-website/apple-website^2017^homepage.png" alt="Apple.com 2017 homepage showing iPhone X" />
+        <div class="sc-caption">Apple.com homepage featuring iPhone X launch (2017)</div>
+      </div>
+    </div>
+    <div class="observation">
+      <strong>Design observation</strong>
+      <p>The iPhone X launch brought a shift toward editorial-style layouts — large type as a design element in itself, dramatic negative space, and the product floated against dark backgrounds. This was Apple signaling a new era of premium design. The homepage became less of a navigation hub and more of a brand statement. Every pixel had a reason to exist.</p>
+    </div>
+  </div>
+
+  <!-- 2018 -->
+  <div class="era fade-up">
+    <div class="era-header">
+      <span class="era-year">2018</span>
+      <h2 class="era-title">Product as Protagonist</h2>
+    </div>
+    <div class="era-grid single">
+      <div class="screenshot-card">
+        <img src="https://www.versionmuseum.com/images/websites/apple-website/apple-website^2018^homepage.jpg" alt="Apple.com 2018 homepage showing iPhone Xs" />
+        <div class="sc-caption">Apple.com homepage featuring iPhone Xs (2018)</div>
+      </div>
+    </div>
+    <div class="observation">
+      <strong>Design observation</strong>
+      <p>By 2018 Apple had fully committed to letting product photography carry the entire page. Typography became a supporting element rather than a headline. The color palette followed the product — warm gold tones for gold devices, cool for silver. This level of brand cohesion across photography, typography, and layout set the standard I studied for the Global Conservatory redesign.</p>
+    </div>
+  </div>
+
+  <!-- 2019 -->
+  <div class="era fade-up">
+    <div class="era-header">
+      <span class="era-year">2019</span>
+      <h2 class="era-title">Refined Grid & Consistent Visual System</h2>
+    </div>
+    <div class="era-grid single">
+      <div class="screenshot-card">
+        <img src="https://www.versionmuseum.com/images/websites/apple-website/apple-website^2019^homepage.png" alt="Apple.com 2019 homepage showing iPhone Xr" />
+        <div class="sc-caption">Apple.com homepage featuring iPhone Xr promotion (2019)</div>
+      </div>
+    </div>
+    <div class="observation">
+      <strong>Design observation</strong>
+      <p>The 2019 era showed Apple's design system maturing — consistent grid, predictable card layouts below the hero, and a visual language that extended uniformly across product pages. Interior pages finally matched the quality of the homepage. Every section used the same whitespace ratios, typography scale, and component library. This consistency was the key lesson I applied to Global Conservatory: polish can't just live on the home page.</p>
+    </div>
+  </div>
+
+  <!-- 2020 -->
+  <div class="era fade-up">
+    <div class="era-header">
+      <span class="era-year">2020</span>
+      <h2 class="era-title">Purpose-Driven Design</h2>
+    </div>
+    <div class="era-grid single">
+      <div class="screenshot-card">
+        <img src="https://www.versionmuseum.com/images/websites/apple-website/apple-website^2020^homepage-john-lewis-death.jpg" alt="Apple.com 2020 paying tribute to John Lewis" />
+        <div class="sc-caption">Apple.com paying tribute to civil rights leader John Lewis (2020)</div>
+      </div>
+    </div>
+    <div class="observation">
+      <strong>Design observation</strong>
+      <p>By 2020 Apple demonstrated that their design system was flexible enough to serve human moments — not just product launches. The John Lewis tribute page used the same minimal design language to communicate something deeply personal. This showed that great design isn't just about looking polished — it's about creating a system that can hold any message with equal care and dignity.</p>
+    </div>
+  </div>
+
+  <!-- Key Takeaways -->
+  <div class="takeaway-box fade-up">
+    <h2>Key Design Principles — Apple.com 2016 to Present</h2>
+    <ul class="takeaway-list">
+      <li>
+        <span class="takeaway-dot"></span>
+        <span><strong style="color:var(--deep)">Whitespace is not empty space.</strong> Apple uses negative space deliberately to direct attention and signal premium quality. Density is the enemy of clarity.</span>
+      </li>
+      <li>
+        <span class="takeaway-dot"></span>
+        <span><strong style="color:var(--deep)">Every interior page must match the homepage.</strong> Apple's design system ensures the same visual quality exists whether you're on the homepage or a deep product spec page. Inconsistency breaks trust.</span>
+      </li>
+      <li>
+        <span class="takeaway-dot"></span>
+        <span><strong style="color:var(--deep)">Typography does the navigation work.</strong> Clear hierarchy through type size, weight, and spacing eliminates the need for excessive UI chrome. Users know where to look without being told.</span>
+      </li>
+      <li>
+        <span class="takeaway-dot"></span>
+        <span><strong style="color:var(--deep)">Progressive disclosure at scale.</strong> Apple surfaces the most important information first — product name, key benefit, call to action — and reveals detail only when the user chooses to go deeper.</span>
+      </li>
+      <li>
+        <span class="takeaway-dot"></span>
+        <span><strong style="color:var(--deep)">Visual system over one-off design.</strong> The consistency across 8 years of Apple.com isn't accidental — it's a design system applied rigorously. Colors, spacing, type scales, and component patterns are all standardized.</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="gc-connection fade-up">
+    <p>This audit directly informed the Global Conservatory redesign — particularly the decision to establish the home page as the design system anchor, extend consistent visual standards across all interior pages, and use progressive disclosure to reduce cognitive load for three distinct audience types.</p>
+  </div>
+
+</div>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
