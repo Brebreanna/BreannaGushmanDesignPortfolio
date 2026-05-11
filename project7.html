@@ -430,6 +430,23 @@
       <p>Switching from a black-box ML model to a transparent algorithm created a UX opportunity: the calibration flow became genuinely meaningful. Users now set their own baseline EAR and MAR values, which made the "personalized detection" value prop concrete and trustworthy — not just marketing language.</p>
     </div>
 
+    <h3>Detection in Action</h3>
+    <div class="img-grid-2">
+      <figure class="img-figure">
+        <img src="images/detection-normal.png" alt="Live face overlay showing EAR, MAR, Head Pose metrics in normal alert state" />
+        <figcaption>Normal state — EAR 0.35, MAR 0.00, Head Pitch 177.8. No alert triggered. All three metrics tracked in real time via MediaPipe face mesh overlay.</figcaption>
+      </figure>
+      <figure class="img-figure">
+        <img src="images/detection-alert.png" alt="Drowsiness Alert triggered — eyes closed 7.64s, head nodding 4.54s" />
+        <figcaption>Alert state — EAR drops to 0.10, eyes closed 7.64s, head down 4.54s. Stage 2 alert fires: vibration + sound + LED simultaneously.</figcaption>
+      </figure>
+    </div>
+
+    <div class="audit-img-wrap">
+      <img src="images/metrics-realtime.png" alt="Real-time EAR, MAR, and Head Tilt charts over a 4-second window showing a blink event and yawn spike" />
+      <div class="audit-caption">Real-time metrics dashboard — EAR (blue) dips sharply during a blink event, MAR (red) spikes during a partial yawn, Head Tilt (green) tracks sustained nodding. The drowsiness alert fires in the bottom-left camera feed.</div>
+    </div>
+
     <h3>2-Stage Alert System</h3>
     <table class="research-table">
       <thead>
@@ -581,9 +598,13 @@
       <h2 class="section-title">System Architecture</h2>
     </div>
     <p>The full system runs end-to-end without cloud dependency. The Raspberry Pi serves as the central processing unit — running the computer vision pipeline, Flask API, and BLE communication with the wristband simultaneously.</p>
-    <div class="poster-wrap">
-      <img src="images/system-poster.png" alt="SnoozeControl full system architecture poster" />
+
+    <!-- FULL SYSTEM ARCHITECTURE DIAGRAM -->
+    <div class="audit-img-wrap">
+      <img src="images/system-diagram.png" alt="Full SnoozeControl system architecture showing Hardware, Model, and Mobile App layers with data flow" />
+      <div class="audit-caption">Three-layer architecture: Hardware (Raspberry Pi, camera, LED strip, wristband PCB) → Model (MediaPipe face mesh, EAR/MAR/Head Pose, Flask API) → Mobile App (React Native, session logger, backend API client). All processing happens locally over Wi-Fi — zero cloud dependency.</div>
     </div>
+
     <h3>How It Works</h3>
     <table class="research-table">
       <thead>
@@ -611,6 +632,19 @@
         </tr>
       </tbody>
     </table>
+
+    <!-- PHYSICAL HARDWARE PHOTOS -->
+    <h3>The Physical Build</h3>
+    <div class="img-grid-2">
+      <figure class="img-figure">
+        <img src="images/hardware-wristband.png" alt="Nike wristband with embedded vibration and alert hardware worn on wrist" />
+        <figcaption>The wristband alert unit — a repurposed Nike sweatband housing the vibration motor, speaker, and LED components. Designed to be worn comfortably during a drive without restricting movement.</figcaption>
+      </figure>
+      <figure class="img-figure">
+        <img src="images/hardware-circuit.png" alt="Seeed Studio board with PAM8302A amp, vibration motors, and speaker wired up on workbench" />
+        <figcaption>PCB assembly — Seeed Studio microcontroller with PAM8302A 2.5W Class D amplifier, dual vibration motors, and a small speaker. Receives BLE trigger from the Raspberry Pi to fire the 2-stage alert sequence.</figcaption>
+      </figure>
+    </div>
   </section>
 
   <!-- 10 RESEARCH CITATIONS -->
