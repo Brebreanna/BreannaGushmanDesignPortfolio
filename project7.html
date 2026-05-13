@@ -190,6 +190,12 @@
     .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; font-size: 0.88rem; margin: 32px 0 0 24px; transition: color 0.2s; }
     .back-link:hover { color: var(--rose); }
 
+    /* ── DEMO DAY BANNER ── */
+    .demo-day-wrap { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 8px 32px rgba(163,87,87,0.07); margin: 24px 0; position: relative; }
+    .demo-day-wrap img { width: 100%; height: auto; display: block; }
+    .demo-day-badge { position: absolute; top: 16px; left: 16px; background: var(--rose); color: white; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; padding: 6px 14px; border-radius: 20px; display: flex; align-items: center; gap: 6px; }
+    .demo-day-caption { padding: 14px 18px; background: var(--card); border-top: 1px solid var(--border); font-size: 0.84rem; color: var(--muted); }
+
     .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-up.visible { opacity: 1; transform: none; }
   </style>
@@ -599,7 +605,6 @@
     </div>
     <p>The full system runs end-to-end without cloud dependency. The Raspberry Pi serves as the central processing unit — running the computer vision pipeline, Flask API, and BLE communication with the wristband simultaneously.</p>
 
-    <!-- FULL SYSTEM ARCHITECTURE DIAGRAM -->
     <div class="audit-img-wrap">
       <img src="images/system-diagram.png" alt="Full SnoozeControl system architecture showing Hardware, Model, and Mobile App layers with data flow" />
       <div class="audit-caption">Three-layer architecture: Hardware (Raspberry Pi, camera, LED strip, wristband PCB) → Model (MediaPipe face mesh, EAR/MAR/Head Pose, Flask API) → Mobile App (React Native, session logger, backend API client). All processing happens locally over Wi-Fi — zero cloud dependency.</div>
@@ -633,7 +638,6 @@
       </tbody>
     </table>
 
-    <!-- PHYSICAL HARDWARE PHOTOS -->
     <h3>The Physical Build</h3>
     <div class="img-grid-2">
       <figure class="img-figure">
@@ -647,7 +651,6 @@
     </div>
   </section>
 
-  <!-- 10 RESEARCH CITATIONS -->
   <section class="case-section fade-up">
     <div class="section-header">
       <span class="section-num">10</span>
@@ -712,12 +715,18 @@
       </div>
     </div>
 
+    <!-- DEMO DAY PHOTO + AWARD -->
+    <div class="demo-day-wrap">
+      <img src="images/demo-day.png" alt="SnoozeControl full system setup at Demo Day 2026 — racing game simulation, laptop running detection pipeline, phone app, wristband, and camera rig on tripod" />
+      <div class="demo-day-caption">SnoozeControl at Demo Day 2026 — the full system in action. The setup includes the Raspberry Pi detection pipeline, live app monitoring, wristband alert unit, and camera rig. Our team earned 3rd Place for People's Choice, voted on by attendees across all senior design projects.</div>
+    </div>
+
     <div class="team-section">
       <div class="team-col-title">Team — SDP26</div>
       <div class="team-grid">
         <div>
           <div class="team-col-title">Engineers</div>
-          <div class="team-member me">Breanna Gushman — UX/UI Design + Frontend Dev</div>
+          <div class="team-member me">Breanna Gushman — UX/UI Design + Full-Stack Dev</div>
           <div class="team-member">Alden Carlstein — Hardware</div>
           <div class="team-member">Lissa Souza — Hardware</div>
           <div class="team-member">Camille Paul — System Integration</div>
