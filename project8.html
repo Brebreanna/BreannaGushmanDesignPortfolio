@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CURATE Case Study | Breanna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fff8f5;
+      --blush: #f3c6c6;
+      --rose: #a35757;
+      --deep: #6e3c3c;
+      --soft: #fff0f0;
+      --border: #f0d5d5;
+      --text: #5a3030;
+      --muted: #9e6b6b;
+      --card: #fffafa;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header { text-align: center; padding: 24px 20px 0; }
+    .bow-top { width: 80px; display: block; margin: 0 auto 16px; }
+    nav ul { display: flex; justify-content: center; gap: 36px; list-style: none; }
+    nav a { text-decoration: none; color: var(--rose); font-weight: 500; font-size: 15px; letter-spacing: 0.03em; transition: opacity 0.2s; }
+    nav a:hover { opacity: 0.6; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; font-size: 0.88rem; margin: 32px 0 0 24px; transition: color 0.2s; }
+    .back-link:hover { color: var(--rose); }
+
+    .hero { max-width: 780px; margin: 64px auto 0; padding: 0 24px; text-align: center; }
+    .hero-label { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); background: var(--soft); border: 1px solid var(--border); border-radius: 20px; padding: 5px 14px; margin-bottom: 20px; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 300; color: var(--rose); line-height: 1.15; margin-bottom: 18px; }
+    .hero h1 em { font-style: italic; font-weight: 300; }
+    .hero-tagline { font-size: 1.05rem; color: var(--muted); max-width: 560px; margin: 0 auto 36px; line-height: 1.8; }
+
+    .meta-strip { display: flex; justify-content: center; flex-wrap: wrap; max-width: 700px; margin: 0 auto 56px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--card); }
+    .meta-item { flex: 1; min-width: 140px; padding: 18px 20px; text-align: center; border-right: 1px solid var(--border); }
+    .meta-item:last-child { border-right: none; }
+    .meta-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 4px; }
+    .meta-value { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--deep); }
+
+    .quick-access { max-width: 700px; margin: 0 auto 64px; padding: 0 24px; text-align: center; }
+    .quick-access p { font-size: 0.9rem; color: var(--muted); margin-bottom: 16px; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .btn { display: inline-block; padding: 10px 20px; border-radius: 8px; font-size: 0.88rem; font-weight: 500; text-decoration: none; transition: all 0.2s ease; border: 1px solid var(--blush); background: var(--soft); color: var(--rose); }
+    .btn:hover { background: var(--blush); color: white; transform: translateY(-1px); }
+    .btn.primary { background: var(--rose); color: white; border-color: var(--rose); }
+    .btn.primary:hover { background: var(--deep); border-color: var(--deep); }
+    .disclaimer-note { margin-top: 14px; font-size: 0.82rem; color: var(--muted); font-style: italic; }
+
+    .carousel-wrap { max-width: 600px; margin: 0 auto 72px; padding: 0 24px; position: relative; }
+    .carousel-viewport { overflow: hidden; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 8px 40px rgba(163,87,87,0.08); }
+    .carousel-track { display: flex; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
+    .carousel-slide { min-width: 100%; }
+    .carousel-slide img { width: 100%; height: auto; display: block; }
+    .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border); background: white; color: var(--rose); font-size: 18px; cursor: pointer; z-index: 3; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: all 0.2s; }
+    .carousel-btn:hover { background: var(--blush); color: white; }
+    .carousel-btn.prev { left: -14px; }
+    .carousel-btn.next { right: -14px; }
+    .carousel-dots { display: flex; justify-content: center; gap: 6px; margin-top: 14px; }
+    .carousel-dots button { width: 8px; height: 8px; border-radius: 50%; border: none; background: var(--blush); cursor: pointer; transition: all 0.3s; padding: 0; }
+    .carousel-dots button[aria-selected="true"] { background: var(--rose); transform: scale(1.3); }
+
+    .case-body { max-width: 780px; margin: 0 auto; padding: 0 24px 80px; }
+    .case-section { margin-bottom: 72px; }
+    .section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+    .section-num { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--blush); font-weight: 300; min-width: 28px; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 400; color: var(--rose); }
+    .case-section h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--deep); margin: 32px 0 12px; }
+    .case-section p { font-size: 0.97rem; line-height: 1.85; color: var(--text); margin-bottom: 16px; }
+    .case-section ul { padding-left: 1.4rem; margin-bottom: 16px; }
+    .case-section li { font-size: 0.97rem; line-height: 1.85; margin-bottom: 6px; }
+
+    .implication { background: linear-gradient(135deg, #fff0f0 0%, #fffafa 100%); border-left: 3px solid var(--blush); border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 20px 0; }
+    .implication strong { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); display: block; margin-bottom: 6px; }
+    .implication p { font-size: 0.93rem !important; margin: 0 !important; color: var(--text) !important; }
+
+    .two-col-lists { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+    @media (max-width: 580px) { .two-col-lists { grid-template-columns: 1fr; } }
+    .list-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .list-card strong { display: block; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--rose); margin-bottom: 12px; }
+    .list-card ul { padding-left: 1.2rem; margin: 0; }
+    .list-card li { font-size: 0.88rem !important; color: var(--muted) !important; margin-bottom: 6px !important; line-height: 1.6 !important; }
+
+    .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0; }
+    @media (max-width: 580px) { .scope-grid { grid-template-columns: 1fr; } }
+    .scope-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 22px; }
+    .scope-card .s-icon { font-size: 1.4rem; display: block; margin-bottom: 10px; }
+    .scope-card strong { display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 6px; }
+    .scope-card p { font-size: 0.87rem !important; color: var(--muted) !important; margin: 0 !important; line-height: 1.65 !important; }
+
+    .stat-row { display: flex; flex-wrap: wrap; gap: 14px; margin: 20px 0 28px; }
+    .stat-card { flex: 1; min-width: 130px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 16px; text-align: center; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; color: var(--rose); font-weight: 600; display: block; line-height: 1; margin-bottom: 6px; }
+    .stat-card span.stat-label { font-size: 0.78rem; color: var(--muted); line-height: 1.4; display: block; }
+
+    .result-row { display: flex; align-items: flex-start; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--border); }
+    .result-row:last-child { border-bottom: none; }
+    .result-icon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+    .result-icon.pass { background: #e8f5e9; }
+    .result-icon.note { background: #e8f0fe; }
+    .result-content strong { display: block; font-size: 0.95rem; color: var(--deep); margin-bottom: 4px; }
+    .result-content p { font-size: 0.9rem !important; color: var(--muted) !important; margin: 0 !important; }
+
+    .decision-list { list-style: none; padding: 0; margin: 20px 0; }
+    .decision-list li { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border); margin: 0; }
+    .decision-list li:last-child { border-bottom: none; }
+    .decision-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blush); flex-shrink: 0; margin-top: 8px; }
+    .decision-list strong { display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 3px; }
+    .decision-list span { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+    .reflection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+    @media (max-width: 580px) { .reflection-grid { grid-template-columns: 1fr; } }
+    .reflection-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .reflection-card .r-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--blush); font-weight: 300; display: block; margin-bottom: 8px; line-height: 1; }
+    .reflection-card strong { display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 6px; }
+    .reflection-card p { font-size: 0.86rem !important; color: var(--muted) !important; margin: 0 !important; line-height: 1.6 !important; }
+
+    .conclusion-box { background: linear-gradient(135deg, var(--soft) 0%, #fff8f5 100%); border: 1px solid var(--border); border-radius: 16px; padding: 36px 40px; text-align: center; }
+    .conclusion-box p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem !important; font-weight: 400; font-style: italic; color: var(--deep) !important; max-width: 560px; margin: 0 auto !important; line-height: 1.8 !important; }
+
+    .citation-intro { font-size: 0.95rem; color: var(--muted); margin-bottom: 24px; line-height: 1.8; }
+    .citation-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px 26px; margin-bottom: 16px; }
+    .citation-card:last-of-type { margin-bottom: 0; }
+    .citation-num { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; color: var(--blush); font-weight: 300; display: block; margin-bottom: 8px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .citation-ref { font-size: 0.9rem; color: var(--deep); line-height: 1.7; margin-bottom: 10px; font-style: italic; }
+    .citation-connection { font-size: 0.88rem; color: var(--muted); line-height: 1.7; border-top: 1px solid var(--border); padding-top: 10px; margin-top: 4px; }
+    .citation-connection strong { color: var(--rose); font-weight: 500; }
+    .drive-btn-wrap { text-align: center; margin-top: 28px; }
+
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="images/home_bow.png" alt="Bow graphic" class="bow-top" />
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://drive.google.com/file/d/13WfRjrqAuKIV-VkosvGOBs4YMxhe4Phs/view?usp=sharing" target="_blank">Resume</a></li>
+    </ul>
+  </nav>
+</header>
+
+<a href="work.html" class="back-link">← Back to work</a>
+
+<section class="hero fade-up">
+  <span class="hero-label">Freelance &nbsp;·&nbsp; UX Research + Product Design</span>
+  <h1>CURATE:<br><em>Fashion Trend Discovery</em></h1>
+  <p class="hero-tagline">Designing a fashion discovery platform grounded in primary research — from a 21-person survey through affinity mapping, JTBD synthesis, and a full-fidelity design system. Project name changed for confidentiality.</p>
+</section>
+
+<div class="meta-strip fade-up">
+  <div class="meta-item">
+    <span class="meta-label">Role</span>
+    <span class="meta-value">UX Researcher + Designer</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Duration</span>
+    <span class="meta-value">~2 Months</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Scope</span>
+    <span class="meta-value">Research + UX + UI</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Tools</span>
+    <span class="meta-value">Figma, Stitch, Google Sheets</span>
+  </div>
+</div>
+
+<div class="quick-access fade-up" style="margin-bottom: 40px;">
+  <div class="two-col-lists" style="text-align: left; margin-bottom: 0;">
+    <div class="list-card">
+      <strong>At a glance</strong>
+      <ul>
+        <li>Ran a 21-person primary research survey before any screen was designed</li>
+        <li>Synthesized findings through affinity mapping into 6 evidence-backed JTBD statements</li>
+        <li>Designed 4 core flows low-fi → high-fi, desktop + mobile</li>
+        <li>Used Stitch to accelerate high-fidelity prototyping once structure was validated</li>
+      </ul>
+    </div>
+    <div class="list-card">
+      <strong>Why it's different</strong>
+      <ul>
+        <li>Treated an existing high-fidelity design as an unvalidated concept, not a requirement</li>
+        <li>Kept "do not assume yet" boundaries on every finding instead of overclaiming</li>
+        <li>Handed off open UX questions explicitly rather than quietly resolving them by default</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="quick-access fade-up">
+  <p>Explore the research and design files</p>
+  <div class="btn-row">
+    <a href="#" target="_blank" class="btn primary">Open Figma Design</a>
+    <a href="#" target="_blank" class="btn">Research Deck</a>
+    <a href="#" target="_blank" class="btn">Affinity Map + JTBD</a>
+  </div>
+  <p class="disclaimer-note">Project and product name changed to CURATE for confidentiality. Screens and research shown reflect my own work product.</p>
+</div>
+
+<div class="carousel-wrap fade-up">
+  <div class="carousel-viewport">
+    <div class="carousel-track" id="track">
+      <div class="carousel-slide"><img src="images/curate-discover.png" alt="CURATE discover feed screen" /></div>
+      <div class="carousel-slide"><img src="images/curate-preferences.png" alt="CURATE style preferences screen" /></div>
+      <div class="carousel-slide"><img src="images/curate-trend-detail.png" alt="CURATE trend detail screen" /></div>
+      <div class="carousel-slide"><img src="images/curate-search.png" alt="CURATE search and explore screen" /></div>
+    </div>
+  </div>
+  <button class="carousel-btn prev" id="prev">‹</button>
+  <button class="carousel-btn next" id="next">›</button>
+  <div class="carousel-dots" id="dots"></div>
+</div>
+
+<div style="max-width: 600px; margin: 0 auto 24px; padding: 0 24px;">
+  <p style="font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-align: center; margin-bottom: 14px;">Research Artifacts</p>
+</div>
+<div class="carousel-wrap fade-up" style="margin-bottom: 72px;">
+  <div class="carousel-viewport">
+    <div class="carousel-track" id="track2">
+      <div class="carousel-slide"><img src="images/curate-persona.png" alt="Proto-persona built from survey findings" /></div>
+      <div class="carousel-slide"><img src="images/curate-system-diagram.png" alt="Conceptual system diagram and core user flow" /></div>
+      <div class="carousel-slide"><img src="images/curate-affinity.png" alt="Affinity diagram from 21-person survey" /></div>
+    </div>
+  </div>
+  <button class="carousel-btn prev" id="prev2">‹</button>
+  <button class="carousel-btn next" id="next2">›</button>
+  <div class="carousel-dots" id="dots2"></div>
+</div>
+
+<div class="case-body">
+
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Context</h2>
+    </div>
+    <p>CURATE started as a founder's concept for a fashion discovery platform — a place for people to find current and emerging trends. A high-fidelity design already existed by the time I joined, built around an ambitious nav: Fashion, Beauty, Culture, Lifestyle, Music, News, Shopping, Curated. It looked polished. It also hadn't been tested against a single real user.</p>
+    <p>Rather than treat the existing design as a finished product, I proposed we treat it as a concept to evaluate — not evidence of user need, and not a locked information architecture. That distinction shaped every decision that followed.</p>
+    <div class="implication">
+      <strong>The starting stance</strong>
+      <p>An interface can look confident and still be standing on an untested assumption. My job was to find out whether the breadth of that nav reflected real user need or just early scope creep, before designing another pixel around it.</p>
+    </div>
+  </section>
+
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">The Pre-Research Brief</h2>
+    </div>
+    <p>Before any research began, I wrote a discovery brief that named what was actually known versus assumed — and it wasn't much. The founder had described the product in a sentence. Everything else — audience, how a "trend" gets defined, where content comes from, whether shopping was core to the business model — was open.</p>
+    <p>I framed six questions as blocking, meaning I didn't think further design work should proceed confidently until they had answers:</p>
+    <div class="two-col-lists">
+      <div class="list-card">
+        <strong>Scope &amp; audience</strong>
+        <ul>
+          <li>Is this a fashion trend-discovery product, or a broader fashion/culture/lifestyle destination — as the existing nav implied?</li>
+          <li>Who does the company actually envision as the primary user?</li>
+        </ul>
+      </div>
+      <div class="list-card">
+        <strong>Definition &amp; content</strong>
+        <ul>
+          <li>How does the company define a "trend," and how would the platform determine what's currently trending?</li>
+          <li>Where does content come from — company, users, creators, brands, or a mix?</li>
+        </ul>
+      </div>
+      <div class="list-card">
+        <strong>Design flexibility</strong>
+        <ul>
+          <li>Is the existing high-fidelity design a fixed requirement, or is the UX team free to reconsider it based on research?</li>
+        </ul>
+      </div>
+      <div class="list-card">
+        <strong>Business model</strong>
+        <ul>
+          <li>Is there an intended revenue model, and is shopping meant to be core to the experience or a supporting action?</li>
+        </ul>
+      </div>
+    </div>
+    <p>I also mapped a longer list of open questions across product purpose, content sourcing, IA scope, the role of creators and brands, and business goals — and laid out a research plan in five phases: stakeholder clarification, secondary research on fashion discovery behavior, competitive and analogous research, primary user research, and synthesis that would classify every early assumption as Supported, Partially Supported, Not Supported, or Still Unknown.</p>
+  </section>
+
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Primary Research</h2>
+    </div>
+    <p>I ran a 21-person exploratory survey on how people discover, evaluate, and keep fashion inspiration — structured and short-answer questions, no follow-up interviews. I was explicit about that boundary throughout: with n = 21 and no interview layer, every finding is directional, not a validated conclusion, and I said so on every synthesis document rather than only once at the start.</p>
+
+    <div class="stat-row">
+      <div class="stat-card"><span class="stat-num">71%</span><span class="stat-label">discover trends via TikTok — the top channel by far</span></div>
+      <div class="stat-card"><span class="stat-num">15/21</span><span class="stat-label">save or bookmark a style before doing anything else</span></div>
+      <div class="stat-card"><span class="stat-num">71%</span><span class="stat-label">say friends they know are their most trusted source</span></div>
+      <div class="stat-card"><span class="stat-num">8/21</span><span class="stat-label">rate their fashion interest a 5 out of 5 — a mixed-involvement sample</span></div>
+    </div>
+
+    <p>The open-ended answers carried as much signal as the multiple-choice ones. On why generic recommendations lose people: <em>"It can be hard to discover your own personal style and taste when you're being forced to fit into a specific one."</em> On price and fit: <em>"A lot of fashion inspiration on social media tends to be out of my price range or made of poor material."</em> On the traceability problem: <em>"When a person is showing their outfit and they do not put links or they don't say where they bought it."</em></p>
+
+    <p>I sorted the full set of responses — structured patterns and open-ended wording alike — into seven affinity themes: discovery is social and often passive, personal relevance matters, price/fit/representation shape relevance, saving is a recurring part of the journey, discovery often leads to more research, trust and trend recognition are socially reinforced, and repetition/ads/poor item traceability create friction. Each theme card kept participant wording visually distinct from my own synthesis, specifically so a theme summary never got mistaken for a direct quote or a product requirement.</p>
+
+    <div class="implication">
+      <strong>The friction and trust themes</strong>
+      <p>Two themes didn't make it into most of my early screens but shaped them anyway. On friction: 11 respondents cited a personal-style mismatch as the top reason content felt irrelevant, ahead of price (7) and repetitive content (7). On trust: 15/21 pointed to repeated social-media exposure and 15/21 to friends/people they know as their most trusted signal — one institutional "trending" badge was consistently less persuasive than seeing something repeat across people.</p>
+    </div>
+  </section>
+
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Synthesis: From Evidence to Needs</h2>
+    </div>
+    <p>To avoid turning survey patterns directly into features, I ran every theme through the same four-part structure: what the evidence showed, what it might mean, the user need it implied, and the design question it left open. That discipline is what kept "people save things a lot" from silently becoming "build Pinterest-style boards" without ever being tested.</p>
+    <ul>
+      <li><strong>Discovery</strong> — Evidence: 15/21 discover via TikTok, 9/21 mostly while scrolling. Need: people need to encounter relevant inspiration even without a specific search term. JTBD: <em>"When I want fashion inspiration but don't know exactly what I'm looking for, I want to browse relevant looks so I can discover ideas that interest me."</em></li>
+      <li><strong>Relevance</strong> — Evidence: 14/21 stop for visual appeal, 12/21 for personal-style fit, 10/21 for body/size fit, 10/21 for affordability. Need: people need to quickly judge whether inspiration fits their style, body, and budget. JTBD: <em>"When I see a look that interests me, I want to understand whether it fits my style, body, and budget so I can decide whether it's useful to me."</em></li>
+      <li><strong>Saving</strong> — Evidence: 15/21 save/bookmark after finding something they like; Pinterest boards (12) and TikTok favorites (9) are the common tools. Need: people need to preserve inspiration and return to it later. JTBD: <em>"When I find a look I may want later, I want to save it in a way I can find again so I can return when I'm ready to style, research, or shop."</em></li>
+      <li><strong>Next step</strong> — Evidence: 12/21 want styling guidance, 11/21 want more photos/examples. Need: people need practical context to understand and apply what they find. JTBD: <em>"When I discover a trend or look I like, I want to see clear examples and styling context so I can understand how I might wear it myself."</em></li>
+      <li><strong>Item traceability</strong> — Evidence: 7/21 search for the actual clothing after finding a style; 5 respondents reported difficulty finding it. Need: people need a clear path from inspiration to item information when they choose to investigate further. JTBD: <em>"When I want to act on a look I found, I want to identify the item or find similar options so I don't have to restart the search elsewhere."</em></li>
+      <li><strong>Trend credibility</strong> — Evidence: 15/21 read repeated exposure as a trend signal, 15/21 trust friends over institutions. Need: people need enough context to judge whether a "trend" label is credible. JTBD: <em>"When something is labeled as a trend, I want enough context to judge whether that label feels credible before I pay attention to it."</em></li>
+    </ul>
+    <p>I explicitly flagged what the data did <em>not</em> prove: that the product needs a TikTok-style algorithm, Pinterest-style boards specifically, on-platform checkout, or that any of it generalizes past a young, comfort-first sample (20 of 21 respondents were 18–34; 12 of 21 described themselves as comfort/function-first over trend-chasing).</p>
+  </section>
+
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Persona</h2>
+    </div>
+    <p>From the synthesis I built a single directional proto-persona — Maya Thompson, 23, Boston, a recent grad who's interested in fashion without being a hardcore trend-chaser. I labeled her explicitly as a starting point for MVP prioritization, to be refined with future research, not a finished user model.</p>
+    <div class="implication">
+      <strong>"I want outfit inspiration that actually feels like me — and that I can afford, wear, and find again later."</strong>
+      <p>Her key behaviors, goals, and pain points map directly back to the survey: discovers mostly by scrolling TikTok and Pinterest, saves through bookmarks and screenshots, researches styling and similar items after finding a look, and gets frustrated by content that's repetitive, unaffordable, or doesn't reflect her body or fit needs.</p>
+    </div>
+  </section>
+
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">From Insight to System</h2>
+    </div>
+    <p>Before designing a single screen, I mapped a conceptual system diagram: five core product principles — passive + active discovery, personal relevance, save + revisit, styling context, and shopping as a supporting action rather than the point — set against inputs (user behavior signals, trend content, product information, optional creator input), the platform core (discover feed, search + filters, trend detail, save/collections, a relevance layer, content taxonomy, trend credibility signals), and the resulting user value (relevant inspiration, better trend understanding, saved looks, an easier path to similar items, repeat engagement).</p>
+    <p>That diagram also carried the open questions I still didn't have enough evidence to close: how broad the IA should be beyond fashion, how to split navigation versus filters, how trends should be labeled and explained, and how much personalization an MVP should actually attempt. I mapped the core MVP user flow as eight steps — open Discover, browse or search, see a look, evaluate relevance against style/body/budget, open trend detail, view styling examples and item info, save or keep exploring, optionally visit similar items or retailer links — directly reflecting the discovery loop the survey data traced: scroll, notice, save, look up, return.</p>
+  </section>
+
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Design Execution</h2>
+    </div>
+    <p>Only after the system diagram and open questions were documented did I move into screens — low-fidelity desktop wireframes first, across Discover, Search & Explore, Trend Detail, and Saved, to pressure-test structure and information hierarchy before any visual design decisions. Once the structure held up, I used Stitch, an AI-assisted design tool, to move quickly from validated wireframes into high-fidelity starting points, then refined those into the final UI and extended the same flows to mobile.</p>
+    <div class="scope-grid">
+      <div class="scope-card">
+        <span class="s-icon">🧭</span>
+        <strong>Discover feed</strong>
+        <p>A personalized stream of trends and looks built for passive browsing, for the majority who discover while scrolling rather than searching.</p>
+      </div>
+      <div class="scope-card">
+        <span class="s-icon">🎯</span>
+        <strong>Preference onboarding</strong>
+        <p>Style, aesthetic, and budget inputs collected upfront — directly addressing personal-style mismatch, the single most-cited relevance problem in the survey.</p>
+      </div>
+      <div class="scope-card">
+        <span class="s-icon">📄</span>
+        <strong>Trend detail pages</strong>
+        <p>"Why it's trending" and "how people are styling it" sections, plus similar-item and related-inspiration modules, answering both the styling-context need and the social-trust finding.</p>
+      </div>
+      <div class="scope-card">
+        <span class="s-icon">🔖</span>
+        <strong>Search &amp; saved</strong>
+        <p>Faceted search by style, category, occasion, price, source, and fit, plus a dedicated saved/collections space for the single most common behavior in the entire survey.</p>
+      </div>
+    </div>
+
+    <h3>Iteration rounds</h3>
+    <p>The screens went through three distinct rounds rather than one pass:</p>
+    <ul class="decision-list">
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>Low-fi — information architecture</strong>
+          <span>Desktop wireframes across Discover, Search & Explore, Trend Detail, and Saved, focused entirely on structure and hierarchy before any visual identity was applied.</span>
+        </div>
+      </li>
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>A/B — high-fidelity screens against business goals</strong>
+          <span>Two high-fidelity directions built to satisfy the founder's stated product goals — personalization-forward discovery, clear preference capture, and a straightforward path from inspiration to similar items — and evaluated against each other before moving forward.</span>
+        </div>
+      </li>
+      <li>
+        <span class="decision-dot"></span>
+        <div>
+          <strong>C/D — revision screens toward an editorial direction</strong>
+          <span>A further revision pass once the future direction shifted toward a more editorial, Vogue-style UI — cleaner typographic hierarchy, more whitespace, imagery treated as content rather than decoration — so the design system could grow into that direction rather than needing a rebuild.</span>
+        </div>
+      </li>
+    </ul>
+
+    <p>I tracked design decisions and open style questions in a running Google Sheets tracker alongside the Figma file, and separately explored a wordmark direction for the CURATE brand — testing several serif treatments before settling on a direction that felt editorial rather than app-generic.</p>
+  </section>
+
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2 class="section-title">Outcomes</h2>
+    </div>
+    <div style="margin: 20px 0;">
+      <div class="result-row">
+        <div class="result-icon pass">✓</div>
+        <div class="result-content">
+          <strong>A design direction traceable to specific evidence</strong>
+          <p>Every core screen — discover feed, preference onboarding, trend detail, search, saved collections — maps back to a cited survey finding rather than a guess about what a fashion app "should" have.</p>
+        </div>
+      </div>
+      <div class="result-row">
+        <div class="result-icon pass">✓</div>
+        <div class="result-content">
+          <strong>A synthesis process that resisted jumping to solutions</strong>
+          <p>Keeping "do not assume yet" notes on every finding kept the design conversation honest about what a 21-person exploratory survey could and couldn't prove.</p>
+        </div>
+      </div>
+      <div class="result-row">
+        <div class="result-icon pass">✓</div>
+        <div class="result-content">
+          <strong>Full design system across low-fi and high-fi, desktop and mobile</strong>
+          <p>Wireframes and high-fidelity comps for Discover, Search &amp; Explore, Trend Detail, and Saved, plus a mobile-adapted flow and an explored brand wordmark.</p>
+        </div>
+      </div>
+      <div class="result-row">
+        <div class="result-icon note">→</div>
+        <div class="result-content">
+          <strong>Open questions handed off, not buried</strong>
+          <p>Scope, trend definition, content sourcing, and personalization depth remained explicitly open at the point I left the project — documented rather than quietly resolved by default.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2 class="section-title">What I Learned</h2>
+    </div>
+    <div class="reflection-grid">
+      <div class="reflection-card">
+        <span class="r-num">01</span>
+        <strong>An existing design isn't evidence</strong>
+        <p>Walking in with a high-fidelity design already built made it tempting to skip straight to polish. Treating it as an unvalidated concept instead — not a requirement — was the decision that shaped everything after it.</p>
+      </div>
+      <div class="reflection-card">
+        <span class="r-num">02</span>
+        <strong>Directional research still earns its keep</strong>
+        <p>A 21-person survey without interviews can't carry a product roadmap alone. It can still expose real tension points — passive discovery, relevance over popularity, saving as a first-class behavior — worth designing around, as long as I stayed honest about the boundary.</p>
+      </div>
+      <div class="reflection-card">
+        <span class="r-num">03</span>
+        <strong>Separating evidence from interpretation is a discipline, not a formality</strong>
+        <p>It's easy to let "people save things" become "build Pinterest boards." Holding those apart, on paper, produced better open questions than jumping straight to a feature.</p>
+      </div>
+      <div class="reflection-card">
+        <span class="r-num">04</span>
+        <strong>Naming what you don't know is part of the deliverable</strong>
+        <p>The open UX questions I couldn't yet answer were as useful to hand off as the screens I could ship — they told whoever picked this up next exactly where the real risk still lived.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section fade-up">
+    <div class="conclusion-box">
+      <p>Good screens are easy to admire and easy to build on a bad foundation. The work that mattered here happened before any screen existed — asking what people actually needed, and being disciplined enough not to answer that question with a guess.</p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+function makeCarousel(trackId, prevId, nextId, dotsId, autoplay) {
+  const track = document.getElementById(trackId);
+  const slides = track.children;
+  const dotsWrap = document.getElementById(dotsId);
+  let idx = 0;
+
+  Array.from(slides).forEach((_, i) => {
+    const d = document.createElement('button');
+    d.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+    d.onclick = () => go(i);
+    dotsWrap.appendChild(d);
+  });
+
+  function go(i) {
+    idx = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(${idx * -100}%)`;
+    Array.from(dotsWrap.children).forEach((d, j) =>
+      d.setAttribute('aria-selected', j === idx ? 'true' : 'false'));
+  }
+
+  document.getElementById(prevId).onclick = () => go(idx - 1);
+  document.getElementById(nextId).onclick = () => go(idx + 1);
+
+  let startX = null;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchmove', e => {
+    if (!startX) return;
+    const dx = e.touches[0].clientX - startX;
+    if (Math.abs(dx) > 50) { go(idx + (dx < 0 ? 1 : -1)); startX = null; }
+  }, { passive: true });
+  track.addEventListener('touchend', () => { startX = null; });
+
+  if (autoplay) setInterval(() => go(idx + 1), 4500);
+}
+
+makeCarousel('track', 'prev', 'next', 'dots', true);
+makeCarousel('track2', 'prev2', 'next2', 'dots2', false);
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
