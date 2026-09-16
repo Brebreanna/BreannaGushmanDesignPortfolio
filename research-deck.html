@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Research Deck | CURATE Case Study | Breanna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fff8f5;
+      --blush: #f3c6c6;
+      --rose: #a35757;
+      --deep: #6e3c3c;
+      --soft: #fff0f0;
+      --border: #f0d5d5;
+      --text: #5a3030;
+      --muted: #9e6b6b;
+      --card: #fffafa;
+      --gold: #c99a3f;
+      --violet: #5f5482;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header { text-align: center; padding: 24px 20px 0; }
+    .bow-top { width: 80px; display: block; margin: 0 auto 16px; }
+    nav ul { display: flex; justify-content: center; gap: 36px; list-style: none; }
+    nav a { text-decoration: none; color: var(--rose); font-weight: 500; font-size: 15px; letter-spacing: 0.03em; transition: opacity 0.2s; }
+    nav a:hover { opacity: 0.6; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; font-size: 0.88rem; margin: 32px 0 0 24px; transition: color 0.2s; }
+    .back-link:hover { color: var(--rose); }
+
+    .hero { max-width: 720px; margin: 56px auto 0; padding: 0 24px; text-align: center; }
+    .hero-label { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); background: var(--soft); border: 1px solid var(--border); border-radius: 20px; padding: 5px 14px; margin-bottom: 20px; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.1rem, 4.5vw, 3rem); font-weight: 300; color: var(--rose); line-height: 1.15; margin-bottom: 16px; }
+    .hero p.hero-sub { font-size: 1rem; color: var(--muted); max-width: 540px; margin: 0 auto 12px; line-height: 1.8; }
+    .hero .n-tag { font-size: 0.85rem; color: var(--gold); font-weight: 500; letter-spacing: 0.02em; }
+
+    .deck-body { max-width: 780px; margin: 56px auto 0; padding: 0 24px 100px; }
+    .deck-section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 0.8rem; color: var(--gold); font-weight: 500; margin-bottom: 8px; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 400; color: var(--rose); margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .deck-section p.section-note { font-size: 0.92rem; color: var(--muted); margin-bottom: 24px; }
+
+    .stat-row { display: flex; flex-wrap: wrap; gap: 14px; margin: 0 0 8px; }
+    .stat-card { flex: 1; min-width: 150px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 16px; text-align: center; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--rose); font-weight: 600; display: block; line-height: 1; margin-bottom: 8px; }
+    .stat-card span.stat-label { font-size: 0.8rem; color: var(--muted); line-height: 1.4; display: block; }
+
+    .bar-panel { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px 26px; margin: 20px 0; }
+    .bar-panel-title { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 18px; }
+    .bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .bar-row:last-child { margin-bottom: 0; }
+    .bar-label { flex: 0 0 190px; font-size: 0.85rem; color: var(--text); }
+    .bar-track { flex: 1; height: 14px; background: var(--soft); border-radius: 7px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 7px; }
+    .bar-fill.rose { background: var(--rose); }
+    .bar-fill.gold { background: var(--gold); }
+    .bar-fill.violet { background: var(--violet); }
+    .bar-value { flex: 0 0 34px; font-size: 0.82rem; color: var(--muted); text-align: right; }
+
+    .two-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+    @media (max-width: 620px) { .two-panel { grid-template-columns: 1fr; } }
+
+    .loop-list { list-style: none; margin: 20px 0; padding: 0; }
+    .loop-list li { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+    .loop-list li:last-child { border-bottom: none; }
+    .loop-num { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--blush); font-weight: 300; min-width: 22px; }
+    .loop-list strong { display: block; color: var(--deep); font-size: 0.95rem; margin-bottom: 2px; }
+    .loop-list span { font-size: 0.86rem; color: var(--muted); }
+    .loop-highlight { background: var(--soft); border-radius: 8px; padding: 2px 4px; }
+
+    .quote-block { border-left: 3px solid var(--blush); background: var(--card); border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 16px 0; }
+    .quote-block p { font-style: italic; font-size: 0.92rem; color: var(--deep); margin: 0; }
+    .quote-block span { font-size: 0.76rem; color: var(--muted); display: block; margin-top: 8px; font-style: normal; }
+
+    .friction-list { list-style: none; margin: 20px 0; padding: 0; }
+    .friction-list li { padding: 16px 0; border-bottom: 1px solid var(--border); }
+    .friction-list li:last-child { border-bottom: none; }
+    .friction-count { font-family: 'Cormorant Garamond', serif; color: var(--rose); font-weight: 600; font-size: 1rem; margin-right: 8px; }
+    .friction-list p { font-size: 0.9rem; color: var(--text); display: inline; }
+
+    .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+    @media (max-width: 620px) { .demo-grid { grid-template-columns: 1fr; } }
+    .demo-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .demo-card strong { display: block; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--rose); margin-bottom: 14px; }
+
+    .boundary-box { background: linear-gradient(135deg, var(--soft) 0%, #fff8f5 100%); border: 1px solid var(--border); border-radius: 16px; padding: 30px 34px; text-align: center; margin-top: 8px; }
+    .boundary-box p { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; font-style: italic; color: var(--deep); max-width: 540px; margin: 0 auto; line-height: 1.8; }
+
+    .fade-up { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="images/home_bow.png" alt="Bow graphic" class="bow-top" />
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://drive.google.com/file/d/13WfRjrqAuKIV-VkosvGOBs4YMxhe4Phs/view?usp=sharing" target="_blank">Resume</a></li>
+    </ul>
+  </nav>
+</header>
+
+<a href="curate.html" class="back-link">← Back to CURATE case study</a>
+
+<section class="hero fade-up">
+  <span class="hero-label">Research Deck &nbsp;·&nbsp; CURATE</span>
+  <h1>How people actually find fashion</h1>
+  <p class="hero-sub">A synthesis of 21 survey responses on where fashion trends are discovered, what makes someone stop scrolling, and why they come back.</p>
+  <span class="n-tag">Survey findings · August 2026 · n = 21 respondents</span>
+</section>
+
+<div class="deck-body">
+
+  <section class="deck-section fade-up">
+    <div class="section-eyebrow">Headline numbers</div>
+    <h2 class="section-title">Four things worth knowing first</h2>
+    <div class="stat-row">
+      <div class="stat-card"><span class="stat-num">71%</span><span class="stat-label">discover trends via TikTok — the top channel by far</span></div>
+      <div class="stat-card"><span class="stat-num">15/21</span><span class="stat-label">save or bookmark a style before doing anything else</span></div>
+      <div class="stat-card"><span class="stat-num">71%</span><span class="stat-label">say friends they know are their most trusted source</span></div>
+      <div class="stat-card"><span class="stat-num">8/21</span><span class="stat-label">rate their fashion interest a 5 out of 5</span></div>
+    </div>
+  </section>
+
+  <section class="deck-section fade-up">
+    <div class="section-eyebrow">Where trends are found</div>
+    <h2 class="section-title">Discovery channels</h2>
+    <p class="section-note">Respondents could select every channel that applies (n = 21).</p>
+    <div class="bar-panel">
+      <div class="bar-panel-title">CHANNELS SELECTED, MOST TO LEAST</div>
+      <div class="bar-row"><span class="bar-label">TikTok</span><div class="bar-track"><div class="bar-fill rose" style="width:100%"></div></div><span class="bar-value">15</span></div>
+      <div class="bar-row"><span class="bar-label">Instagram</span><div class="bar-track"><div class="bar-fill rose" style="width:93%"></div></div><span class="bar-value">14</span></div>
+      <div class="bar-row"><span class="bar-label">Pinterest</span><div class="bar-track"><div class="bar-fill rose" style="width:67%"></div></div><span class="bar-value">10</span></div>
+      <div class="bar-row"><span class="bar-label">Friends / word of mouth</span><div class="bar-track"><div class="bar-fill rose" style="width:67%"></div></div><span class="bar-value">10</span></div>
+      <div class="bar-row"><span class="bar-label">In-person / around town</span><div class="bar-track"><div class="bar-fill rose" style="width:67%"></div></div><span class="bar-value">10</span></div>
+      <div class="bar-row"><span class="bar-label">YouTube</span><div class="bar-track"><div class="bar-fill rose" style="width:60%"></div></div><span class="bar-value">9</span></div>
+      <div class="bar-row"><span class="bar-label">Fashion blogs / editorial</span><div class="bar-track"><div class="bar-fill rose" style="width:47%"></div></div><span class="bar-value">7</span></div>
+      <div class="bar-row"><span class="bar-label">Retail sites / apps</span><div class="bar-track"><div class="bar-fill rose" style="width:40%"></div></div><span class="bar-value">6</span></div>
+      <div class="bar-row"><span class="bar-label">Other</span><div class="bar-track"><div class="bar-fill rose" style="width:33%"></div></div><span class="bar-value">5</span></div>
+    </div>
+    <div class="two-panel">
+      <div class="demo-card"><strong>10 / 21</strong>name TikTok their single main source</div>
+      <div class="demo-card"><strong>5 / 21</strong>name Pinterest as their main source</div>
+    </div>
+    <div class="demo-card" style="margin-top: 20px;"><strong>9 / 21</strong>discover mostly while scrolling, with no active search</div>
+  </section>
+
+  <section class="deck-section fade-up">
+    <div class="section-eyebrow">The behavior pattern</div>
+    <h2 class="section-title">The discovery loop</h2>
+    <p class="section-note">Individual answers about "what happens next" chain into one repeating cycle.</p>
+    <ol class="loop-list">
+      <li><span class="loop-num">1</span><div><strong>Scroll &amp; browse</strong><span>9 of 21 · a daily habit</span></div></li>
+      <li><span class="loop-num">2</span><div><strong>Stops &amp; notices</strong><span>style fit, then price</span></div></li>
+      <li><span class="loop-num">3</span><div><strong>Screenshots it</strong><span>8 of 21</span></div></li>
+      <li><span class="loop-num">4</span><div><strong class="loop-highlight">Saves or bookmarks it</strong><span>the pivot · 15 of 21 — the single most common action in the survey</span></div></li>
+      <li><span class="loop-num">5</span><div><strong>Sees it everywhere</strong><span>confirms it's a trend</span></div></li>
+      <li><span class="loop-num">6</span><div><strong>Looks it up</strong><span>how to style it, where to buy it</span></div></li>
+      <li><span class="loop-num">7</span><div><strong>Returns for more</strong><span>pulled back by new recommendations</span></div></li>
+    </ol>
+    <p class="section-note" style="margin-top: 4px;">Bookmarking sits at the crossing point: where discovery ends and trust-and-return begins.</p>
+  </section>
+
+  <section class="deck-section fade-up">
+    <div class="section-eyebrow">Attention &amp; trust</div>
+    <h2 class="section-title">What makes them look — and who they believe</h2>
+    <div class="two-panel">
+      <div class="bar-panel">
+        <div class="bar-panel-title">WHAT MAKES THEM STOP</div>
+        <div class="bar-row"><span class="bar-label" style="flex-basis:140px;">Visual appeal</span><div class="bar-track"><div class="bar-fill gold" style="width:100%"></div></div><span class="bar-value">14</span></div>
+        <div class="bar-row"><span class="bar-label" style="flex-basis:140px;">Fits my style</span><div class="bar-track"><div class="bar-fill gold" style="width:86%"></div></div><span class="bar-value">12</span></div>
+        <div class="bar-row"><span class="bar-label" style="flex-basis:140px;">Body / size fit</span><div class="bar-track"><div class="bar-fill gold" style="width:71%"></div></div><span class="bar-value">10</span></div>
+        <div class="bar-row"><span class="bar-label" style="flex-basis:140px;">Affordability</span><div class="bar-track"><div class="bar-fill gold" style="width:71%"></div></div><span class="bar-value">10</span></div>
+      </div>
+      <div class="bar-panel">
+        <div class="bar-panel-title">MOST TRUSTED SOURCES</div>
+        <div class="bar-row"><span class="bar-label" style="flex-basis:140px;">Friends / people I know</span><div class="bar-track"><div class="bar-fill violet" style="width:100%"></div></div><span class="bar-value">15</span></div>
+        <div class="bar-row"><span class="bar-label" style="flex-basis:140px;">Repeated exposure</span><div class="bar-track"><div class="bar-fill violet" style="width:60%"></div></div><span class="bar-value">9</span></div>
+        <div class="bar-row"><span class="bar-label" style="flex-basis:140px;">Seeing it around town</span><div class="bar-track"><div class="bar-fill violet" style="width:47%"></div></div><span class="bar-value">7</span></div>
+        <div class="bar-row"><span class="bar-label" style="flex-basis:140px;">Institutional "trending" tags</span><div class="bar-track"><div class="bar-fill violet" style="width:40%"></div></div><span class="bar-value">6</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="deck-section fade-up">
+    <div class="section-eyebrow">The friction</div>
+    <h2 class="section-title">What gets in the way</h2>
+    <p class="section-note">11 of 21 say they've sometimes struggled to find content that felt relevant. Open-ended answers cluster into four recurring complaints.</p>
+    <ul class="friction-list">
+      <li><span class="friction-count">11</span><p>Content doesn't match personal style — the algorithm pushes one homogenous look on everyone.</p></li>
+      <li><span class="friction-count">7</span><p>Price and fit — items are too expensive, or don't represent real body types and sizes.</p></li>
+      <li><span class="friction-count">7</span><p>Repetitive content and too many ads or sponsored posts crowding the feed.</p></li>
+      <li><span class="friction-count">5</span><p>Can't find the actual item — no purchase link, or reverse image search fails.</p></li>
+    </ul>
+    <div class="quote-block">
+      <p>"It can be hard to discover your own personal style and taste when you're being forced to fit into a specific one."</p>
+      <span>Survey respondent, on generic recommendations</span>
+    </div>
+    <div class="quote-block">
+      <p>"A lot of fashion inspiration on social media tends to be out of my price range or made of poor material."</p>
+      <span>Survey respondent, on price and fit</span>
+    </div>
+    <div class="quote-block">
+      <p>"When a person is showing their outfit and they do not put links or they don't say where they bought it."</p>
+      <span>Survey respondent, on item traceability</span>
+    </div>
+  </section>
+
+  <section class="deck-section fade-up">
+    <div class="section-eyebrow">After the find</div>
+    <h2 class="section-title">Where it's kept, and what brings them back</h2>
+    <div class="two-panel">
+      <div class="bar-panel">
+        <div class="bar-panel-title">SAVING BEHAVIOR — 14/21 SAVE REGULARLY OR SOMETIMES</div>
+        <div class="bar-row"><span class="bar-label" style="flex-basis:140px;">Pinterest boards</span><div class="bar-track"><div class="bar-fill rose" style="width:100%"></div></div><span class="bar-value">12</span></div>
+        <div class="bar-row"><span class="bar-label" style="flex-basis:140px;">TikTok favorites</span><div class="bar-track"><div class="bar-fill rose" style="width:75%"></div></div><span class="bar-value">9</span></div>
+        <div class="bar-row"><span class="bar-label" style="flex-basis:140px;">Screenshots</span><div class="bar-track"><div class="bar-fill rose" style="width:67%"></div></div><span class="bar-value">8</span></div>
+        <div class="bar-row"><span class="bar-label" style="flex-basis:140px;">Instagram saves</span><div class="bar-track"><div class="bar-fill rose" style="width:42%"></div></div><span class="bar-value">5</span></div>
+        <div class="bar-row"><span class="bar-label" style="flex-basis:140px;">Shopping wishlists</span><div class="bar-track"><div class="bar-fill rose" style="width:33%"></div></div><span class="bar-value">4</span></div>
+      </div>
+      <div class="bar-panel">
+        <div class="bar-panel-title">RETURN TRIGGERS — NO SINGLE ONE DOMINATES</div>
+        <div class="bar-row"><span class="bar-label" style="flex-basis:140px;">Personalized recs</span><div class="bar-track"><div class="bar-fill violet" style="width:100%"></div></div><span class="bar-value">5</span></div>
+        <div class="bar-row"><span class="bar-label" style="flex-basis:140px;">Outfit inspiration</span><div class="bar-track"><div class="bar-fill violet" style="width:100%"></div></div><span class="bar-value">5</span></div>
+        <div class="bar-row"><span class="bar-label" style="flex-basis:140px;">Saved content</span><div class="bar-track"><div class="bar-fill violet" style="width:80%"></div></div><span class="bar-value">4</span></div>
+        <div class="bar-row"><span class="bar-label" style="flex-basis:140px;">New trends</span><div class="bar-track"><div class="bar-fill violet" style="width:80%"></div></div><span class="bar-value">4</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="deck-section fade-up">
+    <div class="section-eyebrow">Baseline engagement &amp; who answered</div>
+    <h2 class="section-title">How interested, how often, and who they are</h2>
+    <div class="demo-grid">
+      <div class="demo-card">
+        <strong>Interest level (1–5)</strong>
+        <p style="font-size:0.87rem; color:var(--muted); margin:0;">8/21 rated a 3, 8/21 rated a 1 — a genuinely mixed-involvement sample, not fashion superfans.</p>
+      </div>
+      <div class="demo-card">
+        <strong>Search frequency (1–5)</strong>
+        <p style="font-size:0.87rem; color:var(--muted); margin:0;">9/21 sit at the lowest frequency — most discovery is passive, not actively searched for.</p>
+      </div>
+      <div class="demo-card">
+        <strong>Age range</strong>
+        <p style="font-size:0.87rem; color:var(--muted); margin:0;">21–24: 11 · 25–34: 5 · 18–20: 4 · 45+: 1 — 20 of 21 respondents fall between 18–34.</p>
+      </div>
+      <div class="demo-card">
+        <strong>Relationship with fashion</strong>
+        <p style="font-size:0.87rem; color:var(--muted); margin:0;">Comfort/function first: 12 · Enjoys outfits: 7 · Own style over trends: 2.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="deck-section fade-up" style="margin-bottom: 0;">
+    <div class="boundary-box">
+      <p>Research boundary: exploratory survey only, n = 21, no follow-up interviews. Short answers are directional signal — not equivalent to validated interview findings.</p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
