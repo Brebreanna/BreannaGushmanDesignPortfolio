@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Affinity Map + JTBD | CURATE Case Study | Breanna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fff8f5;
+      --blush: #f3c6c6;
+      --rose: #a35757;
+      --deep: #6e3c3c;
+      --soft: #fff0f0;
+      --border: #f0d5d5;
+      --text: #5a3030;
+      --muted: #9e6b6b;
+      --card: #fffafa;
+      --gold: #c99a3f;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header { text-align: center; padding: 24px 20px 0; }
+    .bow-top { width: 80px; display: block; margin: 0 auto 16px; }
+    nav ul { display: flex; justify-content: center; gap: 36px; list-style: none; }
+    nav a { text-decoration: none; color: var(--rose); font-weight: 500; font-size: 15px; letter-spacing: 0.03em; transition: opacity 0.2s; }
+    nav a:hover { opacity: 0.6; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; font-size: 0.88rem; margin: 32px 0 0 24px; transition: color 0.2s; }
+    .back-link:hover { color: var(--rose); }
+
+    .hero { max-width: 720px; margin: 56px auto 0; padding: 0 24px; text-align: center; }
+    .hero-label { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); background: var(--soft); border: 1px solid var(--border); border-radius: 20px; padding: 5px 14px; margin-bottom: 20px; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.1rem, 4.5vw, 3rem); font-weight: 300; color: var(--rose); line-height: 1.15; margin-bottom: 16px; }
+    .hero p.hero-sub { font-size: 1rem; color: var(--muted); max-width: 560px; margin: 0 auto 12px; line-height: 1.8; }
+    .hero .n-tag { font-size: 0.85rem; color: var(--gold); font-weight: 500; letter-spacing: 0.02em; }
+
+    .body-wrap { max-width: 820px; margin: 56px auto 0; padding: 0 24px 100px; }
+
+    /* ==== Affinity map ==== */
+    .affinity-intro { margin-bottom: 40px; }
+    .affinity-intro h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 400; color: var(--rose); margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .affinity-intro p { font-size: 0.94rem; color: var(--text); max-width: 680px; }
+
+    .affinity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 64px; }
+    .affinity-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+    .affinity-card .a-num { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; color: var(--blush); letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 8px; }
+    .affinity-card strong { display: block; font-size: 1rem; color: var(--deep); margin-bottom: 8px; font-family: 'Cormorant Garamond', serif; font-weight: 600; }
+    .affinity-card p { font-size: 0.86rem; color: var(--muted); margin: 0; }
+
+    /* ==== JTBD cards ==== */
+    .jtbd-section-title { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 400; color: var(--rose); margin-bottom: 8px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .jtbd-note { font-size: 0.9rem; color: var(--muted); margin-bottom: 32px; font-style: italic; }
+
+    .jtbd-card { border: 1px solid var(--border); border-radius: 16px; padding: 28px 30px; margin-bottom: 24px; background: var(--card); }
+    .jtbd-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px; }
+    .jtbd-num { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--blush); font-weight: 300; }
+    .jtbd-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: var(--deep); font-weight: 600; }
+
+    .jtbd-row { margin-bottom: 16px; }
+    .jtbd-row:last-child { margin-bottom: 0; }
+    .jtbd-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--rose); margin-bottom: 6px; }
+    .jtbd-row ul { padding-left: 1.2rem; margin: 0; }
+    .jtbd-row li { font-size: 0.88rem; color: var(--text); margin-bottom: 4px; }
+    .jtbd-row p { font-size: 0.9rem; color: var(--text); margin: 0; }
+
+    .jtbd-statement { background: var(--soft); border-left: 3px solid var(--rose); border-radius: 0 10px 10px 0; padding: 14px 18px; }
+    .jtbd-statement p { font-style: italic; color: var(--deep); font-size: 0.92rem !important; }
+
+    .jtbd-boundary { border-left: 3px solid var(--gold); background: #fdf9ee; border-radius: 0 10px 10px 0; padding: 12px 18px; }
+    .jtbd-boundary p { font-size: 0.85rem !important; color: var(--muted) !important; }
+
+    .boundary-box { background: linear-gradient(135deg, var(--soft) 0%, #fff8f5 100%); border: 1px solid var(--border); border-radius: 16px; padding: 30px 34px; text-align: center; margin-top: 24px; }
+    .boundary-box p { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 400; font-style: italic; color: var(--deep); max-width: 560px; margin: 0 auto; line-height: 1.8; }
+
+    .fade-up { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="images/home_bow.png" alt="Bow graphic" class="bow-top" />
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://drive.google.com/file/d/13WfRjrqAuKIV-VkosvGOBs4YMxhe4Phs/view?usp=sharing" target="_blank">Resume</a></li>
+    </ul>
+  </nav>
+</header>
+
+<a href="curate.html" class="back-link">← Back to CURATE case study</a>
+
+<section class="hero fade-up">
+  <span class="hero-label">Affinity Map + JTBD &nbsp;·&nbsp; CURATE</span>
+  <h1>From evidence to needs</h1>
+  <p class="hero-sub">How 21 survey responses were sorted into recurring themes, then translated into evidence-backed needs — without skipping straight to a feature.</p>
+  <span class="n-tag">User needs synthesis · August 2026 · n = 21</span>
+</section>
+
+<div class="body-wrap">
+
+  <section class="affinity-intro fade-up">
+    <h2>The affinity map</h2>
+    <p>Every structured and open-ended response was sorted into seven recurring themes. Each theme card kept participant wording visually distinct from my own synthesis, so a theme summary never got mistaken for a direct quote or a product requirement.</p>
+  </section>
+
+  <div class="affinity-grid fade-up">
+    <div class="affinity-card">
+      <span class="a-num">Theme 01</span>
+      <strong>Discovery is social and often passive</strong>
+      <p>Most people encounter fashion inspiration while scrolling, not while actively searching — and social platforms, especially TikTok, dominate.</p>
+    </div>
+    <div class="affinity-card">
+      <span class="a-num">Theme 02</span>
+      <strong>Personal relevance matters</strong>
+      <p>Visual appeal gets first attention, but whether something fits their actual style is a close second reason to stop.</p>
+    </div>
+    <div class="affinity-card">
+      <span class="a-num">Theme 03</span>
+      <strong>Price, fit &amp; representation shape relevance</strong>
+      <p>Affordability and body/size representation come up as often as style fit when people judge whether inspiration is "for them."</p>
+    </div>
+    <div class="affinity-card">
+      <span class="a-num">Theme 04</span>
+      <strong>Saving is a recurring part of the journey</strong>
+      <p>Bookmarking is the single most common action in the entire survey — the pivot between discovery and later intent.</p>
+    </div>
+    <div class="affinity-card">
+      <span class="a-num">Theme 05</span>
+      <strong>Discovery often leads to more research</strong>
+      <p>People want styling context and examples after finding a look, before they're ready to act on it.</p>
+    </div>
+    <div class="affinity-card">
+      <span class="a-num">Theme 06</span>
+      <strong>Trust &amp; trend recognition are socially reinforced</strong>
+      <p>Repeated exposure and friends outweigh institutional "trending" labels as credibility signals.</p>
+    </div>
+    <div class="affinity-card">
+      <span class="a-num">Theme 07</span>
+      <strong>Repetition, ads &amp; traceability create friction</strong>
+      <p>Homogenous algorithmic content, ad clutter, and untraceable items are the top complaints, in that order.</p>
+    </div>
+  </div>
+
+  <section class="fade-up">
+    <h2 class="jtbd-section-title">Evidence-backed user needs</h2>
+    <p class="jtbd-note">Directional needs derived from survey evidence. Needs are problem-level — proposed features remain open. Use these to guide MVP prioritization and information architecture, not as proof of a specific UI solution.</p>
+
+    <div class="jtbd-card">
+      <div class="jtbd-head"><span class="jtbd-num">01</span><span class="jtbd-title">Discover relevant inspiration without knowing exactly what to search for</span></div>
+      <div class="jtbd-row">
+        <div class="jtbd-label">Evidence from n = 21</div>
+        <ul>
+          <li>10/21 named TikTok as their single main discovery source</li>
+          <li>9/21 said trends are usually discovered while scrolling or browsing</li>
+          <li>7/21 reported a mix of passive discovery and active searching</li>
+        </ul>
+      </div>
+      <div class="jtbd-row">
+        <div class="jtbd-label">User need</div>
+        <p>People need to encounter useful fashion inspiration even when they do not begin with a specific trend name or search query.</p>
+      </div>
+      <div class="jtbd-row jtbd-statement">
+        <div class="jtbd-label">JTBD statement</div>
+        <p>When I want fashion inspiration but do not know exactly what I am looking for, I want to browse relevant looks so I can discover ideas that interest me.</p>
+      </div>
+      <div class="jtbd-row jtbd-boundary">
+        <div class="jtbd-label">Do not assume yet</div>
+        <p>This does not yet prove the product needs a TikTok-style feed or recommendation algorithm.</p>
+      </div>
+    </div>
+
+    <div class="jtbd-card">
+      <div class="jtbd-head"><span class="jtbd-num">02</span><span class="jtbd-title">Judge whether inspiration is personally relevant</span></div>
+      <div class="jtbd-row">
+        <div class="jtbd-label">Evidence from n = 21</div>
+        <ul>
+          <li>14/21 stop because the outfit or style catches their attention</li>
+          <li>12/21 stop when it fits their personal style</li>
+          <li>10/21 consider body type/size; 10/21 consider affordability</li>
+        </ul>
+      </div>
+      <div class="jtbd-row">
+        <div class="jtbd-label">User need</div>
+        <p>People need to quickly assess whether fashion inspiration is relevant to their style, body, and budget.</p>
+      </div>
+      <div class="jtbd-row jtbd-statement">
+        <div class="jtbd-label">JTBD statement</div>
+        <p>When I see a look that interests me, I want to understand whether it fits my style, body, and budget so I can decide whether it is useful to me.</p>
+      </div>
+      <div class="jtbd-row jtbd-boundary">
+        <div class="jtbd-label">Do not assume yet</div>
+        <p>This does not yet prove which filters, profile fields, or personalization controls should exist.</p>
+      </div>
+    </div>
+
+    <div class="jtbd-card">
+      <div class="jtbd-head"><span class="jtbd-num">03</span><span class="jtbd-title">Save inspiration and return to it later</span></div>
+      <div class="jtbd-row">
+        <div class="jtbd-label">Evidence from n = 21</div>
+        <ul>
+          <li>15/21 selected save/bookmark after finding a style they like</li>
+          <li>14/21 save inspiration regularly or sometimes</li>
+          <li>Pinterest boards (12) and TikTok favorites (9) are common saving locations</li>
+        </ul>
+      </div>
+      <div class="jtbd-row">
+        <div class="jtbd-label">User need</div>
+        <p>People need a way to preserve useful fashion inspiration so they can revisit it later.</p>
+      </div>
+      <div class="jtbd-row jtbd-statement">
+        <div class="jtbd-label">JTBD statement</div>
+        <p>When I find a look I may want later, I want to save it in a way I can find again so I can return when I am ready to style, research, or shop.</p>
+      </div>
+      <div class="jtbd-row jtbd-boundary">
+        <div class="jtbd-label">Do not assume yet</div>
+        <p>This does not yet prove the product needs Pinterest-style boards or a specific collection system.</p>
+      </div>
+    </div>
+
+    <div class="jtbd-card">
+      <div class="jtbd-head"><span class="jtbd-num">04</span><span class="jtbd-title">Understand how a trend or look can actually be worn</span></div>
+      <div class="jtbd-row">
+        <div class="jtbd-label">Evidence from n = 21</div>
+        <ul>
+          <li>12/21 want information on how to style a trend</li>
+          <li>11/21 want photos or examples of the trend</li>
+          <li>7/21 want to know what the trend is called</li>
+        </ul>
+      </div>
+      <div class="jtbd-row">
+        <div class="jtbd-label">User need</div>
+        <p>People need practical context that helps them understand and apply fashion inspiration.</p>
+      </div>
+      <div class="jtbd-row jtbd-statement">
+        <div class="jtbd-label">JTBD statement</div>
+        <p>When I discover a trend or look I like, I want to see clear examples and styling context so I can understand how I might wear it myself.</p>
+      </div>
+      <div class="jtbd-row jtbd-boundary">
+        <div class="jtbd-label">Do not assume yet</div>
+        <p>This does not yet prove how much editorial content a trend page should contain.</p>
+      </div>
+    </div>
+
+    <div class="jtbd-card">
+      <div class="jtbd-head"><span class="jtbd-num">05</span><span class="jtbd-title">Move from inspiration to useful item information</span></div>
+      <div class="jtbd-row">
+        <div class="jtbd-label">Evidence from n = 21</div>
+        <ul>
+          <li>7/21 search for the clothing/items after finding a style they like</li>
+          <li>7/21 want to know where to buy similar items</li>
+          <li>5 respondents reported difficulty finding the actual clothing/items</li>
+        </ul>
+      </div>
+      <div class="jtbd-row">
+        <div class="jtbd-label">User need</div>
+        <p>People need a clear path from inspiration to information about the items or similar options when they choose to investigate further.</p>
+      </div>
+      <div class="jtbd-row jtbd-statement">
+        <div class="jtbd-label">JTBD statement</div>
+        <p>When I want to act on a look I found, I want to identify the item or find similar options so I do not have to restart the search elsewhere.</p>
+      </div>
+      <div class="jtbd-row jtbd-boundary">
+        <div class="jtbd-label">Do not assume yet</div>
+        <p>This does not establish shopping as the product's primary purpose or prove that checkout should happen on-platform.</p>
+      </div>
+    </div>
+
+    <div class="jtbd-card">
+      <div class="jtbd-head"><span class="jtbd-num">06</span><span class="jtbd-title">Understand why something is being presented as a trend</span></div>
+      <div class="jtbd-row">
+        <div class="jtbd-label">Evidence from n = 21</div>
+        <ul>
+          <li>15/21 view repeated social-media exposure as a signal of a trend</li>
+          <li>11/21 use seeing people around them wearing it as a trend signal</li>
+          <li>15/21 selected friends/people they know among trusted style sources</li>
+        </ul>
+      </div>
+      <div class="jtbd-row">
+        <div class="jtbd-label">User need</div>
+        <p>People need enough context to understand why something is being presented as current or trending.</p>
+      </div>
+      <div class="jtbd-row jtbd-statement">
+        <div class="jtbd-label">JTBD statement</div>
+        <p>When something is labeled as a trend, I want enough context to judge whether that label feels credible and relevant before I pay attention to it.</p>
+      </div>
+      <div class="jtbd-row jtbd-boundary">
+        <div class="jtbd-label">Do not assume yet</div>
+        <p>This does not yet prove which trend score, social proof, or source indicators should be shown.</p>
+      </div>
+    </div>
+
+    <div class="boundary-box">
+      <p>Research boundary: exploratory survey only, n = 21. Short answers are not equivalent to interviews — every need above is directional, not validated.</p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
