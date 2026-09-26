@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Work | Breanna</title>
+  <title>Bloom Studio Boston Case Study | Breanna</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -17,6 +17,7 @@
       --border: #f0d5d5;
       --text: #5a3030;
       --muted: #9e6b6b;
+      --card: #fffafa;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,119 +32,97 @@
     header { text-align: center; padding: 24px 20px 0; }
     .bow-top { width: 80px; display: block; margin: 0 auto 16px; }
     nav ul { display: flex; justify-content: center; gap: 36px; list-style: none; }
-    nav a {
-      text-decoration: none; color: var(--rose); font-weight: 500;
-      font-size: 15px; letter-spacing: 0.03em; transition: opacity 0.2s;
-    }
+    nav a { text-decoration: none; color: var(--rose); font-weight: 500; font-size: 15px; letter-spacing: 0.03em; transition: opacity 0.2s; }
     nav a:hover { opacity: 0.6; }
 
-    .work-page { max-width: 1040px; margin: 0 auto; padding: 72px 32px 100px; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; font-size: 0.88rem; margin: 32px 0 0 24px; transition: color 0.2s; }
+    .back-link:hover { color: var(--rose); }
 
-    .work-header { text-align: center; margin-bottom: 52px; }
-    .work-label {
-      display: inline-block; font-size: 11px; font-weight: 500;
-      letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
-      background: var(--soft); border: 1px solid var(--border);
-      border-radius: 20px; padding: 5px 14px; margin-bottom: 20px;
-    }
-    .work-header h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.6rem, 5vw, 3.8rem);
-      font-weight: 300; color: var(--rose); line-height: 1.1; margin-bottom: 16px;
-    }
-    .work-header h1 em { font-style: italic; }
-    .work-header p { font-size: 1rem; color: var(--muted); max-width: 480px; margin: 0 auto; line-height: 1.8; }
+    .hero { max-width: 780px; margin: 64px auto 0; padding: 0 24px; text-align: center; }
+    .hero-label { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); background: var(--soft); border: 1px solid var(--border); border-radius: 20px; padding: 5px 14px; margin-bottom: 20px; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 300; color: var(--rose); line-height: 1.15; margin-bottom: 18px; }
+    .hero h1 em { font-style: italic; font-weight: 300; }
+    .hero-tagline { font-size: 1.05rem; color: var(--muted); max-width: 560px; margin: 0 auto 36px; line-height: 1.8; }
 
-    .filter-row {
-      display: flex; justify-content: center; flex-wrap: wrap;
-      gap: 8px; margin-bottom: 56px;
-    }
-    .filter-btn {
-      padding: 8px 20px; border-radius: 20px; border: 1px solid var(--border);
-      background: transparent; color: var(--muted);
-      font-family: 'DM Sans', sans-serif; font-size: 0.84rem;
-      cursor: pointer; transition: all 0.2s ease;
-    }
-    .filter-btn:hover { border-color: var(--blush); color: var(--rose); }
-    .filter-btn.active { background: var(--rose); color: white; border-color: var(--rose); }
+    .meta-strip { display: flex; justify-content: center; flex-wrap: wrap; max-width: 700px; margin: 0 auto 40px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--card); }
+    .meta-item { flex: 1; min-width: 140px; padding: 18px 20px; text-align: center; border-right: 1px solid var(--border); }
+    .meta-item:last-child { border-right: none; }
+    .meta-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 4px; }
+    .meta-value { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--deep); }
 
-    .featured-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-bottom: 20px;
-      align-items: center;
-    }
-    @media (max-width: 680px) { .featured-row { grid-template-columns: 1fr; } }
+    .quick-access { max-width: 700px; margin: 0 auto 64px; padding: 0 24px; text-align: center; }
+    .quick-access p { font-size: 0.9rem; color: var(--muted); margin-bottom: 16px; }
+    .disclaimer-note { margin-top: 4px; font-size: 0.82rem; color: var(--muted); font-style: italic; }
 
-    .featured-img-wrap {
-      border-radius: 16px; overflow: hidden; background: var(--soft);
-      height: 360px; display: flex; align-items: center; justify-content: center;
-    }
-    .featured-img-wrap img {
-      max-width: 100%; max-height: 100%; width: auto; height: auto;
-      object-fit: contain; display: block; transition: transform 0.55s ease;
-    }
-    .featured-row:hover .featured-img-wrap img { transform: scale(1.03); }
-    .featured-text { padding: 8px 8px 8px 16px; }
-    .featured-text .card-tags { margin-bottom: 14px; }
-    .featured-text h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem; font-weight: 400;
-      color: var(--deep); line-height: 1.2; margin-bottom: 14px;
-    }
-    .featured-text p {
-      font-size: 0.93rem; color: var(--muted);
-      line-height: 1.8; margin-bottom: 22px; max-width: 400px;
-    }
+    .carousel-wrap { max-width: 600px; margin: 0 auto 72px; padding: 0 24px; position: relative; }
+    .carousel-viewport { overflow: hidden; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 8px 40px rgba(163,87,87,0.08); }
+    .carousel-track { display: flex; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
+    .carousel-slide { min-width: 100%; }
+    .carousel-slide img { width: 100%; height: auto; display: block; }
+    .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border); background: white; color: var(--rose); font-size: 18px; cursor: pointer; z-index: 3; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: all 0.2s; }
+    .carousel-btn:hover { background: var(--blush); color: white; }
+    .carousel-btn.prev { left: -14px; }
+    .carousel-btn.next { right: -14px; }
+    .carousel-dots { display: flex; justify-content: center; gap: 6px; margin-top: 14px; }
+    .carousel-dots button { width: 8px; height: 8px; border-radius: 50%; border: none; background: var(--blush); cursor: pointer; transition: all 0.3s; padding: 0; }
+    .carousel-dots button[aria-selected="true"] { background: var(--rose); transform: scale(1.3); }
+    .carousel-caption { text-align: center; font-size: 0.82rem; color: var(--muted); margin-top: 12px; letter-spacing: 0.02em; }
 
-    .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    @media (max-width: 640px) { .project-grid { grid-template-columns: 1fr; } }
+    .case-body { max-width: 780px; margin: 0 auto; padding: 0 24px 80px; }
+    .case-section { margin-bottom: 72px; }
+    .section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+    .section-num { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--blush); font-weight: 300; min-width: 28px; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 400; color: var(--rose); }
+    .case-section h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--deep); margin: 32px 0 12px; }
+    .case-section p { font-size: 0.97rem; line-height: 1.85; color: var(--text); margin-bottom: 16px; }
+    .case-section ul { padding-left: 1.4rem; margin-bottom: 16px; }
+    .case-section li { font-size: 0.97rem; line-height: 1.85; margin-bottom: 6px; }
 
-    .project-card {
-      border-radius: 16px; overflow: hidden; background: transparent;
-      transition: transform 0.25s ease; cursor: pointer;
-    }
-    .project-card:hover { transform: translateY(-4px); }
+    .implication { background: linear-gradient(135deg, #fff0f0 0%, #fffafa 100%); border-left: 3px solid var(--blush); border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 20px 0; }
+    .implication strong { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); display: block; margin-bottom: 6px; }
+    .implication p { font-size: 0.93rem !important; margin: 0 !important; color: var(--text) !important; }
 
-    .card-img-wrap {
-      border-radius: 16px; overflow: hidden; background: var(--soft);
-      height: 260px; margin-bottom: 18px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .card-img {
-      max-width: 100%; max-height: 100%; width: auto; height: auto;
-      object-fit: contain; display: block; transition: transform 0.55s ease;
-    }
-    .project-card:hover .card-img { transform: scale(1.04); }
+    .two-col-lists { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+    @media (max-width: 580px) { .two-col-lists { grid-template-columns: 1fr; } }
+    .list-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .list-card strong { display: block; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--rose); margin-bottom: 12px; }
+    .list-card ul { padding-left: 1.2rem; margin: 0; }
+    .list-card li { font-size: 0.88rem !important; color: var(--muted) !important; margin-bottom: 6px !important; line-height: 1.6 !important; }
+    .list-card p { font-size: 0.88rem !important; color: var(--muted) !important; margin: 0 !important; line-height: 1.7 !important; }
 
-    .card-body { padding: 0 4px; }
-    .card-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
-    .card-tag {
-      font-size: 10px; font-weight: 500; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--muted);
-    }
-    .card-tag.hi { color: var(--rose); }
+    .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0; }
+    @media (max-width: 580px) { .scope-grid { grid-template-columns: 1fr; } }
+    .scope-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 22px; }
+    .scope-card .s-icon { font-size: 1.4rem; display: block; margin-bottom: 10px; }
+    .scope-card strong { display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 6px; }
+    .scope-card p { font-size: 0.87rem !important; color: var(--muted) !important; margin: 0 !important; line-height: 1.65 !important; }
 
-    .card-body h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem; font-weight: 400;
-      color: var(--deep); line-height: 1.25; margin-bottom: 8px;
-    }
-    .card-body p {
-      font-size: 0.87rem; color: var(--muted);
-      line-height: 1.7; margin-bottom: 14px;
-    }
+    .result-row { display: flex; align-items: flex-start; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--border); }
+    .result-row:last-child { border-bottom: none; }
+    .result-icon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+    .result-icon.pass { background: #e8f5e9; }
+    .result-icon.note { background: #e8f0fe; }
+    .result-content strong { display: block; font-size: 0.95rem; color: var(--deep); margin-bottom: 4px; }
+    .result-content p { font-size: 0.9rem !important; color: var(--muted) !important; margin: 0 !important; }
 
-    .card-link {
-      display: inline-flex; align-items: center; gap: 5px;
-      font-size: 0.84rem; font-weight: 500; color: var(--rose);
-      text-decoration: none; transition: gap 0.2s ease;
-    }
-    .card-link:hover { gap: 9px; }
-    .card-link::after { content: '→'; }
+    .decision-list { list-style: none; padding: 0; margin: 20px 0; }
+    .decision-list li { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border); margin: 0; }
+    .decision-list li:last-child { border-bottom: none; }
+    .decision-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blush); flex-shrink: 0; margin-top: 8px; }
+    .decision-list strong { display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 3px; }
+    .decision-list span { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
 
-    .fade-up { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reflection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+    @media (max-width: 580px) { .reflection-grid { grid-template-columns: 1fr; } }
+    .reflection-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .reflection-card .r-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--blush); font-weight: 300; display: block; margin-bottom: 8px; line-height: 1; }
+    .reflection-card strong { display: block; font-size: 0.93rem; color: var(--deep); margin-bottom: 6px; }
+    .reflection-card p { font-size: 0.86rem !important; color: var(--muted) !important; margin: 0 !important; line-height: 1.6 !important; }
+
+    .conclusion-box { background: linear-gradient(135deg, var(--soft) 0%, #fff8f5 100%); border: 1px solid var(--border); border-radius: 16px; padding: 36px 40px; text-align: center; }
+    .conclusion-box p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem !important; font-weight: 400; font-style: italic; color: var(--deep) !important; max-width: 560px; margin: 0 auto !important; line-height: 1.8 !important; }
+
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-up.visible { opacity: 1; transform: none; }
   </style>
 </head>
@@ -157,207 +136,260 @@
       <li><a href="work.html">Work</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="https://drive.google.com/file/d/13WfRjrqAuKIV-VkosvGOBs4YMxhe4Phs/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a></li>
+      <li><a href="https://drive.google.com/file/d/13WfRjrqAuKIV-VkosvGOBs4YMxhe4Phs/view?usp=sharing" target="_blank">Resume</a></li>
     </ul>
   </nav>
 </header>
 
-<main class="work-page">
+<a href="work.html" class="back-link">← Back to work</a>
 
-  <div class="work-header fade-up">
-    <span class="work-label">Portfolio</span>
-    <h1>Selected<br><em>work.</em></h1>
-    <p>UX research, product design, and built prototypes — from solo hackathons to shipped real-world sites.</p>
+<section class="hero fade-up">
+  <span class="hero-label">UX Engineering &nbsp;·&nbsp; Responsive Web Design</span>
+  <h1>Bloom Studio Boston:<br><em>Designing &amp; Building a Digital Home</em></h1>
+  <p class="hero-tagline">A responsive booking website for a real Boston creative workshop business — designed from information architecture through visual system, then built as a working full-stack product.</p>
+</section>
+
+<div class="meta-strip fade-up">
+  <div class="meta-item">
+    <span class="meta-label">Role</span>
+    <span class="meta-value">UX/UI Designer + Engineer</span>
   </div>
-
-  <div class="filter-row fade-up">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="real-world">Real-World Work</button>
-    <button class="filter-btn" data-filter="research">Research</button>
-    <button class="filter-btn" data-filter="mobile">Mobile</button>
-    <button class="filter-btn" data-filter="web">Web</button>
-    <button class="filter-btn" data-filter="hackathon">Hackathon</button>
+  <div class="meta-item">
+    <span class="meta-label">Platform</span>
+    <span class="meta-value">Responsive Web</span>
   </div>
+  <div class="meta-item">
+    <span class="meta-label">Tools</span>
+    <span class="meta-value">Figma, React, Node.js</span>
+  </div>
+  <div class="meta-item">
+    <span class="meta-label">Scope</span>
+    <span class="meta-value">UX + Full-Stack Build</span>
+  </div>
+</div>
 
-  <!-- FEATURED: SnoozeControl — capstone, not a client project, so not tagged real-world -->
-  <div class="featured-row fade-up" data-tags="research mobile" id="featured">
-    <div class="featured-img-wrap">
-      <img src="images/Untitled design (40).png" alt="SnoozeControl" />
-    </div>
-    <div class="featured-text">
-      <div class="card-tags">
-        <span class="card-tag hi">Capstone</span>
-        <span class="card-tag">Research</span>
-        <span class="card-tag">Mobile</span>
-        <span class="card-tag">React Native</span>
-      </div>
-      <h2>SnoozeControl — Drowsy Driver Detection</h2>
-      <p>Safety-critical mobile app with real-time drowsiness detection, multi-modal alerts, and fatigue pattern insights. Built end-to-end with React Native + TypeScript.</p>
-      <a class="card-link" href="project7.html">View case study</a>
+<div class="quick-access fade-up">
+  <p class="disclaimer-note">Bloom Studio is a real Boston workshop business. This site was designed and built as freelance client work, from UX strategy through full-stack implementation.</p>
+</div>
+
+<div class="carousel-wrap fade-up">
+  <div class="carousel-viewport">
+    <div class="carousel-track" id="track">
+      <div class="carousel-slide"><img src="images/bloom-workshops-desktop.png" alt="Bloom Studio workshops and creative sessions page, desktop view" /></div>
+      <div class="carousel-slide"><img src="images/bloom-booking-modal.png" alt="Booking modal for Vintage Charm Clock Decorating workshop, mobile view" /></div>
+      <div class="carousel-slide"><img src="images/bloom-private-events.png" alt="Private events and inquiries page, mobile view" /></div>
+      <div class="carousel-slide"><img src="images/bloom-faq-1.png" alt="Frequently asked questions page, mobile view" /></div>
     </div>
   </div>
+  <button class="carousel-btn prev" id="prev">‹</button>
+  <button class="carousel-btn next" id="next">›</button>
+  <div class="carousel-dots" id="dots"></div>
+  <p class="carousel-caption">Workshop discovery (desktop) · Booking flow · Private events · FAQ (mobile)</p>
+</div>
 
-  <!-- GRID -->
-  <div class="project-grid" id="grid">
+<div class="case-body">
 
-    <!-- Bloom Studio Boston — freelance client, full-stack UX engineering -->
-    <div class="project-card fade-up" data-tags="web real-world">
-      <div class="card-img-wrap">
-        <img class="card-img" src="images/bloom-studio-mockup.png" alt="Bloom Studio Boston booking website on laptop and mobile" />
-      </div>
-      <div class="card-body">
-        <div class="card-tags">
-          <span class="card-tag hi">Web</span>
-          <span class="card-tag">Real-world client</span>
-        </div>
-        <h3>Bloom Studio Boston</h3>
-        <p>Full-stack booking website for a Boston creative workshop studio — designed from IA through visual system, then built as a working React + Node product.</p>
-        <a class="card-link" href="bloom-studio.html">View case study</a>
-      </div>
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Context</h2>
+    </div>
+    <p>Bloom Studio Boston is a creative workshop business offering hands-on experiences like candle making, decorative clock making, mask design, and seasonal crafts. It already had a visual identity, workshop photography, and a social media presence, but no dedicated website that brought the full experience together.</p>
+    <p>Customers could discover Bloom through Instagram or a third-party booking page, but there was no central place to understand the brand, browse workshops, compare upcoming dates, learn about private events, or build a longer-term relationship with the studio. I saw that missing digital home as the project: design it, then build it.</p>
+    <div class="implication">
+      <strong>My role</strong>
+      <p>UX/UI Designer and UX Engineer. I owned information architecture, interaction design, visual design, and responsive design, then implemented the product in React and Node.js/Express rather than stopping at high-fidelity screens.</p>
+    </div>
+  </section>
+
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">The Challenge</h2>
+    </div>
+    <p>Bloom already had the ingredients of a strong local brand — distinctive workshops, inviting imagery, a feminine visual identity, and an experience built around creativity and community. What it lacked was a digital home. The existing journey depended on stitching together separate platforms: discover on Instagram, follow a link to an event, then book somewhere else entirely.</p>
+    <p>That fragmentation left basic questions unanswered — what's available, when, how much, what's included, can I bring a group, can I host a private event, where's the studio, and if I loved it, how do I come back? Rather than designing another event marketplace, I wanted the site to feel like walking into Bloom itself: warm, personal, and approachable.</p>
+    <div class="implication">
+      <strong>The goal</strong>
+      <p>Create a responsive digital home where a customer can discover a workshop, understand the experience, find a date, and start booking — without losing the personality of the physical studio. The core journey: Discover → Explore → Choose a workshop → Select a date → Choose guests → Cart → Checkout.</p>
+    </div>
+  </section>
+
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Key Design Decisions</h2>
     </div>
 
-    <!-- CURATE — real-world freelance client, research-led fashion discovery platform -->
-    <div class="project-card fade-up" data-tags="web real-world research">
-      <div class="card-img-wrap">
-        <img class="card-img" src="images/curate-screen-workpage.png" alt="CURATE fashion discovery platform mobile screen" />
+    <h3>Information architecture, not a marketplace</h3>
+    <p>I organized the site around the business itself rather than isolated ticket listings: Home → Workshops → Workshop Details → Booking → Cart, with About, Private Events, FAQ, Account, and Membership as supporting destinations. Early concepts leaned on marketplace patterns — more filters, more booking controls — but Bloom isn't a marketplace with hundreds of listings, it's a curated local studio. I simplified discovery to a small set of categories and let large photography and clear calls to action carry the page instead.</p>
+
+    <h3>Visual direction</h3>
+    <p>The visual language extends Bloom's existing brand: a warm cream background, muted terracotta accents, soft blush and blue details, editorial photography, rounded cards, and an expressive serif paired with a simple sans-serif interface font. It had to feel feminine and artistic without turning childish, and polished enough to support paid experiences without reading as a generic lifestyle template.</p>
+
+    <h3>Responsive by design, not by shrinking</h3>
+    <p>Discovery mostly happens through links shared on social media, so the interface direction started mobile-first. But I didn't want the finished product to just be a mobile screen stretched into a desktop browser. On mobile, workshop cards stack vertically and booking actions stay within reach. On tablet, cards move into multiple columns. On desktop, the experience becomes a full site — multi-column grids, split layouts, larger photography, side-by-side booking information — all from the same underlying product.</p>
+
+    <h3>A real workshop calendar</h3>
+    <p>Availability doesn't rely on hard-coded strings like "Saturday, November 16." The system stores each workshop's scheduling rules — weekday, start and end time, capacity, booking window, lead time — and the server generates upcoming sessions relative to the actual current date. The Workshops page has a full calendar for date-based browsing, made collapsible so it isn't forced on every visitor, and the booking page shows only the dates relevant to that workshop.</p>
+
+    <h3>Booking and cart</h3>
+    <p>An early version of date selection scrolled horizontally through every available slot — technically functional, but awkward on large screens. I replaced it with a responsive date grid that reduces gracefully on smaller devices. Guest count and total are calculated dynamically: a $68 workshop only becomes $136 once the customer actually selects two guests. The cart itself is functional, not just styled — quantities, removals, and subtotals are calculated on the backend from the current workshop price, so nothing depends on a value trusted from the browser.</p>
+
+    <h3>Private events and studio information</h3>
+    <p>Private events are a primary offering, not a small contact link. Customers select an event type — birthday, bachelorette, corporate, custom celebration — which updates the inquiry form and moves them into a real request flow that posts to a backend endpoint. Studio location and hours are stored centrally so the footer, location section, and directions all pull from one source instead of being repeated by hand.</p>
+  </section>
+
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Expanding the Product Beyond a One-Time Booking</h2>
+    </div>
+    <p>As I worked through the booking experience, I started thinking about what happens after a customer attends their first workshop. Bloom is the kind of business where repeat visits and community matter, so I identified an opportunity to design for returning customers rather than treating every visitor like a first-time guest. These were product opportunities I introduced during the design process, not existing Bloom Studio offerings — concepts for future validation, not a claim that the business should launch them immediately.</p>
+    <div class="two-col-lists">
+      <div class="list-card">
+        <strong>Customer profiles</strong>
+        <p>Accounts so returning guests can eventually access booking history, saved information, membership benefits, and a faster repeat-booking experience. Passwords are hashed for the prototype; a production deployment would move authentication to production-grade infrastructure.</p>
       </div>
-      <div class="card-body">
-        <div class="card-tags">
-          <span class="card-tag hi">Web</span>
-          <span class="card-tag">Real-world client</span>
-          <span class="card-tag">Research</span>
-        </div>
-        <h3>CURATE — Fashion Trend Discovery</h3>
-        <p>21-person survey, affinity mapping, and JTBD synthesis behind a research-led fashion discovery platform, from low-fi IA through revised high-fidelity UI.</p>
-        <a class="card-link" href="project8.html">View case study</a>
+      <div class="list-card">
+        <strong>Bloom Club membership</strong>
+        <p>A proposed monthly membership concept — one workshop credit per month, a discount on additional classes, early access to new dates, and member-only events. Presented as a concept for the business to validate, not something already live.</p>
       </div>
     </div>
+  </section>
 
-    <div class="project-card fade-up" data-tags="research mobile">
-      <div class="card-img-wrap">
-        <img class="card-img" src="images/Untitled design (45).png" alt="Infinite Coloring Book" />
-      </div>
-      <div class="card-body">
-        <div class="card-tags">
-          <span class="card-tag hi">Research</span>
-          <span class="card-tag">Mobile</span>
-          <span class="card-tag">Usability Testing</span>
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Engineering the Experience</h2>
+    </div>
+    <p>Rather than stopping at high-fidelity screens, I translated the design into a functioning full-stack prototype. The front end uses reusable React components for workshop cards, calendars, navigation, forms, and account states, so workshop information isn't duplicated across pages. On the backend, Express manages workshop data, generated sessions, carts, private-event inquiries, newsletter subscriptions, customer accounts, and membership-interest submissions.</p>
+    <p>Building it — not just designing it — surfaced assumptions that stay invisible in static screens: empty carts, descriptions of different lengths, months with different numbers of days, one workshop with eight future dates and another with two, forms that can succeed or fail.</p>
+    <ul class="decision-list">
+      <li><span class="decision-dot"></span><div><strong>Standardized card height</strong><span>So primary actions align consistently even when descriptions run different lengths.</span></div></li>
+      <li><span class="decision-dot"></span><div><strong>Replaced horizontal scroll with a responsive grid</strong><span>The original date-selection row worked technically but forced awkward sideways scanning on large screens.</span></div></li>
+      <li><span class="decision-dot"></span><div><strong>Moved the full calendar off the Home page</strong><span>It demanded too much attention too early in the journey; Home now surfaces a few upcoming sessions instead.</span></div></li>
+      <li><span class="decision-dot"></span><div><strong>Made the Workshops calendar collapsible</strong><span>So date-based browsing is available without being forced on every visitor.</span></div></li>
+      <li><span class="decision-dot"></span><div><strong>Separated membership interest from real billing</strong><span>Recurring billing is a business decision requiring payment infrastructure — collecting interest doesn't presume that decision has been made.</span></div></li>
+    </ul>
+  </section>
+
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Outcome</h2>
+    </div>
+    <div style="margin: 20px 0;">
+      <div class="result-row">
+        <div class="result-icon pass">✓</div>
+        <div class="result-content">
+          <strong>A functional, responsive prototype</strong>
+          <p>Workshop discovery, dynamically generated availability, guest selection, and a server-backed cart all work end to end, not just as static screens.</p>
         </div>
-        <h3>Infinite Coloring Book</h3>
-        <p>Photo-to-template coloring app for adults. A/B testing, heuristic evaluation, and full lo-fi to hi-fi iteration.</p>
-        <a class="card-link" href="project6.html">View case study</a>
+      </div>
+      <div class="result-row">
+        <div class="result-icon pass">✓</div>
+        <div class="result-content">
+          <strong>A digital home that matches the brand</strong>
+          <p>The visual system carries Bloom's warmth and identity across discovery, booking, private events, and studio information rather than defaulting to a generic marketplace feel.</p>
+        </div>
+      </div>
+      <div class="result-row">
+        <div class="result-icon pass">✓</div>
+        <div class="result-content">
+          <strong>Foundations for retention</strong>
+          <p>Customer accounts and a proposed Bloom Club membership concept give the business a path toward repeat visits beyond a single transaction.</p>
+        </div>
+      </div>
+      <div class="result-row">
+        <div class="result-icon note">→</div>
+        <div class="result-content">
+          <strong>Next: validate with real customers</strong>
+          <p>This hasn't been measured through a live launch, so the next step is usability testing the booking flow and measuring workshop-detail-to-booking conversion, calendar engagement, cart completion, and private-event inquiry completion.</p>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- Global Conservatory — real-world internship client -->
-    <div class="project-card fade-up" data-tags="web real-world">
-      <div class="card-img-wrap">
-        <img class="card-img" src="images/project1 (1).png" alt="The Global Conservatory" />
+  <section class="case-section fade-up">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">What I Learned</h2>
+    </div>
+    <div class="reflection-grid">
+      <div class="reflection-card">
+        <span class="r-num">01</span>
+        <strong>Design and engineering are one conversation</strong>
+        <p>Designing answered what the experience should feel like. Building it exposed how that experience needed to actually behave — especially around dates, cart logic, and state.</p>
       </div>
-      <div class="card-body">
-        <div class="card-tags">
-          <span class="card-tag hi">Web</span>
-          <span class="card-tag">Real-world client</span>
-        </div>
-        <h3>The Global Conservatory</h3>
-        <p>Live website redesign for an international music education org. My page architecture made it to production.</p>
-        <a class="card-link" href="project1.html">View case study</a>
+      <div class="reflection-card">
+        <span class="r-num">02</span>
+        <strong>Static screens hide real-world edge cases</strong>
+        <p>Empty carts, uneven description lengths, and months with different day counts only became visible once the prototype had real state to handle.</p>
+      </div>
+      <div class="reflection-card">
+        <span class="r-num">03</span>
+        <strong>Not every feature belongs at the same point in the journey</strong>
+        <p>A full calendar helps during booking but distracts during discovery. An account benefits a repeat customer without needing to interrupt a first-time visitor.</p>
+      </div>
+      <div class="reflection-card">
+        <span class="r-num">04</span>
+        <strong>Restraint is a design skill</strong>
+        <p>Proposing customer profiles and Bloom Club as concepts for validation — rather than presenting them as shipped features — was as much a design decision as any screen.</p>
       </div>
     </div>
+  </section>
 
-    <div class="project-card fade-up" data-tags="research">
-      <div class="card-img-wrap">
-        <img class="card-img" src="images/Untitled design (47).png" alt="Smart Home UX" />
-      </div>
-      <div class="card-body">
-        <div class="card-tags">
-          <span class="card-tag hi">Research</span>
-          <span class="card-tag">Accessibility</span>
-        </div>
-        <h3>Smart Home UX for Older Adults</h3>
-        <p>Research synthesis and concept design on how aging, emotion, culture, and trust intersect in smart home UX.</p>
-        <a class="card-link" href="project3.html">View case study</a>
-      </div>
+  <section class="case-section fade-up">
+    <div class="conclusion-box">
+      <p>The project became less about building "a website" and more about designing a digital service around an existing physical experience — then proving it could actually run.</p>
     </div>
+  </section>
 
-    <div class="project-card fade-up" data-tags="research mobile">
-      <div class="card-img-wrap">
-        <img class="card-img" src="images/Untitled design (39).png" alt="Grow Up Green" />
-      </div>
-      <div class="card-body">
-        <div class="card-tags">
-          <span class="card-tag hi">Research</span>
-          <span class="card-tag">Mobile</span>
-          <span class="card-tag">End-to-end</span>
-        </div>
-        <h3>Grow Up Green</h3>
-        <p>End-to-end UX for a kids' secondhand marketplace — 5 user interviews, persona development, lo-fi to hi-fi.</p>
-        <a class="card-link" href="project4.html">View case study</a>
-      </div>
-    </div>
-
-    <div class="project-card fade-up" data-tags="hackathon web">
-      <div class="card-img-wrap">
-        <img class="card-img" src="images/project2 (1).png" alt="Quizzlr" />
-      </div>
-      <div class="card-body">
-        <div class="card-tags">
-          <span class="card-tag hi">Hackathon</span>
-          <span class="card-tag">Web</span>
-          <span class="card-tag">Gamification</span>
-        </div>
-        <h3>Quizzlr — Multiplayer Study App</h3>
-        <p>Complete hi-fi prototype with two user flows built solo in 24 hours. Judges called it worth building further.</p>
-        <a class="card-link" href="project2.html">View case study</a>
-      </div>
-    </div>
-
-    <div class="project-card fade-up" data-tags="hackathon mobile">
-      <div class="card-img-wrap">
-        <img class="card-img" src="images/Untitled design (41).png" alt="Cookr" />
-      </div>
-      <div class="card-body">
-        <div class="card-tags">
-          <span class="card-tag hi">Hackathon</span>
-          <span class="card-tag">Mobile</span>
-          <span class="card-tag">Solo</span>
-        </div>
-        <h3>Cookr — Recipe App</h3>
-        <p>Swipe-based recipe discovery for college students. Solo UX from competitive audit to hi-fi in one sprint.</p>
-        <a class="card-link" href="project5.html">View case study</a>
-      </div>
-    </div>
-
-  </div>
-</main>
+</div>
 
 <script>
-  const btns = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.project-card');
-  const featured = document.getElementById('featured');
+function makeCarousel(trackId, prevId, nextId, dotsId, autoplay) {
+  const track = document.getElementById(trackId);
+  const slides = track.children;
+  const dotsWrap = document.getElementById(dotsId);
+  let idx = 0;
 
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-
-      const featuredMatch = filter === 'all' || (featured.dataset.tags || '').includes(filter);
-      featured.style.display = featuredMatch ? '' : 'none';
-
-      cards.forEach(card => {
-        const show = filter === 'all' || (card.dataset.tags || '').includes(filter);
-        card.style.display = show ? '' : 'none';
-      });
-    });
+  Array.from(slides).forEach((_, i) => {
+    const d = document.createElement('button');
+    d.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+    d.onclick = () => go(i);
+    dotsWrap.appendChild(d);
   });
 
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-    });
-  }, { threshold: 0.06 });
-  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  function go(i) {
+    idx = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(${idx * -100}%)`;
+    Array.from(dotsWrap.children).forEach((d, j) =>
+      d.setAttribute('aria-selected', j === idx ? 'true' : 'false'));
+  }
+
+  document.getElementById(prevId).onclick = () => go(idx - 1);
+  document.getElementById(nextId).onclick = () => go(idx + 1);
+
+  let startX = null;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchmove', e => {
+    if (!startX) return;
+    const dx = e.touches[0].clientX - startX;
+    if (Math.abs(dx) > 50) { go(idx + (dx < 0 ? 1 : -1)); startX = null; }
+  }, { passive: true });
+  track.addEventListener('touchend', () => { startX = null; });
+
+  if (autoplay) setInterval(() => go(idx + 1), 4500);
+}
+
+makeCarousel('track', 'prev', 'next', 'dots', true);
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 </script>
 
 </body>
